@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Từ vựng — Bài học 03/07 — English Daily</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .lesson-topbar {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+    .lesson-topbar-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lesson-topbar .back-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 0;
+      margin-right: 16px;
+      white-space: nowrap;
+    }
+    .lesson-topbar .back-link:hover { opacity: 0.7; }
+    .sub-nav { display: flex; gap: 4px; overflow-x: auto; }
+    .sub-nav a {
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .sub-nav a:hover { color: var(--text); }
+    .sub-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* Vocab card layout */
+    .vocab-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .vocab-card .play-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      transition: background 0.15s, border-color 0.15s;
+      margin-top: 2px;
+    }
+    .vocab-card .play-btn:hover {
+      background: var(--accent-light);
+      border-color: var(--accent);
+    }
+    .vocab-card .play-btn.playing {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .vocab-info { flex: 1; }
+    .vocab-info .word-line {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+    .vocab-info .word { font-weight: 700; font-size: 1.05rem; }
+    .vocab-info .pos {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--purple);
+      background: var(--purple-light);
+      padding: 1px 7px;
+      border-radius: 4px;
+    }
+    .vocab-info .ipa {
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    .vocab-info .meaning {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Exercise with input */
+    .exercise-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .exercise-block .q-num {
+      font-weight: 700;
+      color: var(--accent);
+      margin-right: 4px;
+    }
+    .fill-input {
+      border: none;
+      border-bottom: 2px dashed var(--border);
+      background: transparent;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      padding: 2px 6px;
+      min-width: 130px;
+      color: var(--accent);
+      font-weight: 600;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .fill-input:focus { border-color: var(--accent); }
+    .fill-input::placeholder { color: var(--text-light); font-weight: 400; font-style: italic; }
+    .note-print {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      margin-top: 16px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sub-nav -->
+  <div class="lesson-topbar">
+    <div class="lesson-topbar-inner">
+      <a href="../../index.html" class="back-link">📘 ← Trang chủ</a>
+      <nav class="sub-nav">
+        <a href="index.html">🔊 Ngữ Âm</a>
+        <a href="vocab.html" class="active">📗 Từ vựng</a>
+        <a href="writing.html">📐 Writing</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="container" style="padding-top: 24px; padding-bottom: 40px;">
+
+    <h1 class="page-title">Vocabulary — 12 từ vựng trọng tâm</h1>
+    <p class="page-subtitle">Bấm 🔊 để nghe phát âm. Học thuộc rồi làm bài tập bên dưới.</p>
+
+    <!-- ===== VOCAB CARDS ===== -->
+    <section class="section">
+      <div id="vocab-list">
+
+        <div class="vocab-card">
+          <button class="play-btn" onclick="speak('function')">🔊</button>
+          <div class="vocab-info">
+            <div class="word-line">
+              <span class="word">function</span>
+              <span class="pos">v</span>
+              <span class="ipa">/ˈfʌŋkʃn/</span>
+            </div>
+            <div class="meaning">hoạt động, thực hiện chức năng</div>
+          </div>
+        </div>
+
+        <div class="vocab-card">
+          <button class="play-btn" onclick="speak('well off')">🔊</button>
+          <div class="vocab-info">
+            <div class="word-line">
+              <span class="word">well-off</span>
+              <span class="pos">adj</span>
+              <span class="ipa">/ˌwel ˈɒf/</span>
+            </div>
+            <div class="meaning">giàu có, khá giả</div>
+          </div>
+        </div>
+
+        <div class="vocab-card">
+          <button class="play-btn" onclick="speak('ridiculous')">🔊</button>
+          <div class="vocab-info">
+            <div class="word-line">
+              <span class="word">ridiculous</span>
+              <span class="pos">adj</span>
+              <span class="ipa">/rɪˈdɪkjələs/</span>
+            </div>
+            <div class="meaning">nực cười, vô lý</div>
+          </div>
+        </div>
+
+        <div class="vocab-card">
+          <button class="play-btn" onclick="speak('cat on hot bricks')">🔊</button>
+          <div class="vocab-info">
+            <div class="word-line">
+              <span class="word">cat on hot bricks</span>
+              <span class="pos">idiom</span>
+              <span class="ipa">/kæt ɒn hɒt brɪks/</span>
+            </div>
+            <div class="meaning">bồn chồn, lo lắng vô cùng</div>
+          </div>
+        </div>
+
+        <div class="vocab-card">
+          <button class="play-btn" onclick="speak('empathy')">🔊</button>
+          <div class="vocab-info">
+            <div class="word-line">
+              <span class="word">empathy</span>
+              <span class="pos">n</span>
+              <span class="ipa">/ˈempəθi/</span>
+            </div>
+            <div class="meaning">sự đồng cảm</div>
+          </div>
+        </div>
+
+        <div class="vocab-card">
+          <button class="play-btn" onclick="speak('compassion')">🔊</button>
+          <div class="vocab-info">
+            <div class="word-line">
+              <span class="word">compassion</span>
+              <span class="pos">n</span>
+              <span class="ipa">/kəmˈpæʃn/</span>
+            </div>
+            <div class="meaning">lòng thương xót, trắc ẩn</div>
+          </div>
+        </div>
+
+        <div class="vocab-card">
+          <button class="play-btn" onclick="speak('beneficial')">🔊</button>
+          <div class="vocab-info">
+            <div class="word-line">
+              <span class="word">beneficial</span>
+              <span class="pos">adj</span>
+              <span class="ipa">/ˌbenɪˈfɪʃl/</span>
+            </div>
+            <div class="meaning">có ích, có lợi</div>
+          </div>
+        </div>
+
+        <div class="vocab-card">
+          <button class="play-btn" onclick="speak('extinct')">🔊</button>
+          <div class="vocab-info">
+            <div class="word-line">
+              <span class="word">extinct</span>
+              <span class="pos">adj</span>
+              <span class="ipa">/ɪkˈstɪŋkt/</span>
+            </div>
+            <div class="meaning">tuyệt chủng</div>
+          </div>
+        </div>
+
+        <div class="vocab-card">
+          <button class="play-btn" onclick="speak('habitat')">🔊</button>
+          <div class="vocab-info">
+            <div class="word-line">
+              <span class="word">habitat</span>
+              <span class="pos">n</span>
+              <span class="ipa">/ˈhæbɪtæt/</span>
+            </div>
+            <div class="meaning">môi trường sống</div>
+          </div>
+        </div>
+
+        <div class="vocab-card">
+          <button class="play-btn" onclick="speak('hearty')">🔊</button>
+          <div class="vocab-info">
+            <div class="word-line">
+              <span class="word">hearty</span>
+              <span class="pos">adj</span>
+              <span class="ipa">/ˈhɑːti/</span>
+            </div>
+            <div class="meaning">thịnh soạn, nồng nhiệt</div>
+          </div>
+        </div>
+
+        <div class="vocab-card">
+          <button class="play-btn" onclick="speak('equivalent')">🔊</button>
+          <div class="vocab-info">
+            <div class="word-line">
+              <span class="word">equivalent</span>
+              <span class="pos">adj</span>
+              <span class="ipa">/ɪˈkwɪvələnt/</span>
+            </div>
+            <div class="meaning">tương đương</div>
+          </div>
+        </div>
+
+        <div class="vocab-card">
+          <button class="play-btn" onclick="speak('epidemic')">🔊</button>
+          <div class="vocab-info">
+            <div class="word-line">
+              <span class="word">epidemic</span>
+              <span class="pos">n</span>
+              <span class="ipa">/ˌepɪˈdemɪk/</span>
+            </div>
+            <div class="meaning">dịch bệnh</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== BÀI TẬP ĐIỀN TỪ ===== -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon homework">📝</span>
+        Bài tập — Điền từ vựng vào chỗ trống (20 câu)
+      </h2>
+
+      <div class="exercise-block"><span class="q-num">1.</span> The new hospital will <input type="text" class="fill-input" placeholder="..."> as a center for emergency care.</div>
+      <div class="exercise-block"><span class="q-num">2.</span> Having a healthy breakfast every morning is highly <input type="text" class="fill-input" placeholder="..."> to your health.</div>
+      <div class="exercise-block"><span class="q-num">3.</span> She was like a <input type="text" class="fill-input" placeholder="..."> before the results of the final exam were announced.</div>
+      <div class="exercise-block"><span class="q-num">4.</span> Dinosaurs became <input type="text" class="fill-input" placeholder="..."> millions of years ago.</div>
+      <div class="exercise-block"><span class="q-num">5.</span> Growing up in a <input type="text" class="fill-input" placeholder="..."> family, he never had to worry about money.</div>
+      <div class="exercise-block"><span class="q-num">6.</span> It is absolutely <input type="text" class="fill-input" placeholder="..."> to think pigs can fly.</div>
+      <div class="exercise-block"><span class="q-num">7.</span> The destruction of their natural <input type="text" class="fill-input" placeholder="..."> has led to a decline in tiger populations.</div>
+      <div class="exercise-block"><span class="q-num">8.</span> After a long hike, we sat down to a <input type="text" class="fill-input" placeholder="..."> meal of steak and potatoes.</div>
+      <div class="exercise-block"><span class="q-num">9.</span> He showed great <input type="text" class="fill-input" placeholder="..."> for the victims of the earthquake.</div>
+      <div class="exercise-block"><span class="q-num">10.</span> Reading books helps children develop <input type="text" class="fill-input" placeholder="..."> towards others.</div>
+      <div class="exercise-block"><span class="q-num">11.</span> One hour of running is roughly <input type="text" class="fill-input" placeholder="..."> to burning 500 calories.</div>
+      <div class="exercise-block"><span class="q-num">12.</span> The government is trying to prevent a new flu <input type="text" class="fill-input" placeholder="..."> from spreading.</div>
+      <div class="exercise-block"><span class="q-num">13.</span> Even though the power went out, the generator allowed the machinery to <input type="text" class="fill-input" placeholder="...">.</div>
+      <div class="exercise-block"><span class="q-num">14.</span> Despite being <input type="text" class="fill-input" placeholder="...">, they live a very simple and humble life.</div>
+      <div class="exercise-block"><span class="q-num">15.</span> My brother looked completely <input type="text" class="fill-input" placeholder="..."> wearing a winter coat in the middle of summer.</div>
+      <div class="exercise-block"><span class="q-num">16.</span> The interviewee was nervous, acting like a <input type="text" class="fill-input" placeholder="..."> waiting for the manager.</div>
+      <div class="exercise-block"><span class="q-num">17.</span> Protecting the coral reef is essential to preserve the ocean's <input type="text" class="fill-input" placeholder="...">.</div>
+      <div class="exercise-block"><span class="q-num">18.</span> The chef prepared a <input type="text" class="fill-input" placeholder="..."> breakfast for the guests at the hotel.</div>
+      <div class="exercise-block"><span class="q-num">19.</span> We must take action before more animals become <input type="text" class="fill-input" placeholder="...">.</div>
+      <div class="exercise-block"><span class="q-num">20.</span> Volunteer work brings <input type="text" class="fill-input" placeholder="..."> effects not only to the community but also to the volunteers themselves.</div>
+
+      <div class="note-print">📄 Làm bài trên giấy — trang này chỉ để xem đề và luyện gõ thử.</div>
+    </section>
+
+  </main>
+
+  <script>
+    function speak(word) {
+      if (!window.speechSynthesis) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(word);
+      u.lang = 'en-US';
+      u.rate = 0.85;
+      window.speechSynthesis.speak(u);
+    }
+    // Pre-load voices
+    if (window.speechSynthesis) {
+      speechSynthesis.getVoices();
+      speechSynthesis.onvoiceschanged = function() { speechSynthesis.getVoices(); };
+    }
+  </script>
+
+</body>
+</html>

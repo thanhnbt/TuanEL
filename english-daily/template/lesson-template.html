@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- TODO: Đổi title -->
+  <title>__TITLE__ — English Daily</title>
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-logo">📘 English Daily</a>
+      <nav class="site-nav">
+        <a href="../../index.html">← Trang chủ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero -->
+    <div class="lesson-hero">
+      <div class="breadcrumb"><a href="../../index.html">Trang chủ</a> / Bài học</div>
+      <!-- TODO: Đổi ngày -->
+      <span class="lesson-date">__DATE__</span>
+      <h1>__TITLE__</h1>
+    </div>
+
+    <!-- ===== VOCABULARY ===== -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon vocab">📗</span>
+        Vocabulary
+      </h2>
+      <table class="vocab-table">
+        <thead>
+          <tr>
+            <th>Word</th>
+            <th>IPA</th>
+            <th>Nghĩa</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Copy thêm <tr> nếu cần -->
+          <tr>
+            <td class="vocab-word">__word__</td>
+            <td class="vocab-ipa">/__ipa__/</td>
+            <td>__meaning__</td>
+            <td>__example sentence__</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===== GRAMMAR (optional - xóa nếu ko cần) ===== -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon grammar">📐</span>
+        Grammar
+      </h2>
+      <div class="grammar-block">
+        <h4>__Grammar point__</h4>
+        <p>__Giải thích__</p>
+        <div class="grammar-example">"__Example sentence__"</div>
+      </div>
+    </section>
+
+    <!-- ===== VIDEO ===== -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon video">🎬</span>
+        Video bài học
+      </h2>
+      <!-- TODO: Đổi YouTube ID (phần sau /embed/) -->
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/__VIDEO_ID__"
+          title="__Video title__"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-caption">__Mô tả video__</p>
+    </section>
+
+    <!-- ===== HOMEWORK ===== -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon homework">📝</span>
+        Homework
+      </h2>
+      <ul class="hw-list">
+        <!-- Copy thêm <li> nếu cần -->
+        <li class="hw-item">
+          <input type="checkbox" class="hw-check">
+          <span>__Bài tập 1__</span>
+        </li>
+        <li class="hw-item">
+          <input type="checkbox" class="hw-check">
+          <span>__Bài tập 2__</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== NOTES (optional - xóa nếu ko cần) ===== -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon notes">💡</span>
+        Ghi chú
+      </h2>
+      <ul class="notes-list">
+        <li class="note-item">__Ghi chú 1__</li>
+        <li class="note-item">__Ghi chú 2__</li>
+      </ul>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="lesson-nav">
+      <!-- TODO: Cập nhật link bài trước/sau -->
+      <a href="../../index.html">← Trang chủ</a>
+      <a href="../../index.html">Trang chủ →</a>
+    </nav>
+
+  </main>
+
+</body>
+</html>

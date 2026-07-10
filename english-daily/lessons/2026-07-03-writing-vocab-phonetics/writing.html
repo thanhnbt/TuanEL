@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing — Bài học 03/07 — English Daily</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .lesson-topbar {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+    .lesson-topbar-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lesson-topbar .back-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 0;
+      margin-right: 16px;
+      white-space: nowrap;
+    }
+    .lesson-topbar .back-link:hover { opacity: 0.7; }
+    .sub-nav { display: flex; gap: 4px; overflow-x: auto; }
+    .sub-nav a {
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .sub-nav a:hover { color: var(--text); }
+    .sub-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .writing-prompt {
+      background: linear-gradient(135deg, #1e3a5f, #2563eb);
+      color: #fff;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      font-size: 1.1rem;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .structure-step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .structure-step .step-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+    .step-intro .step-label { color: var(--accent); }
+    .step-body .step-label { color: var(--green); }
+    .step-conclusion .step-label { color: var(--purple); }
+    .structure-step h4 { font-size: 0.95rem; margin-bottom: 6px; }
+    .structure-step p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 6px; }
+    .example-sentence {
+      background: var(--bg);
+      border-left: 3px solid var(--accent);
+      padding: 10px 14px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-style: italic;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+    .sample-essay {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--green);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+    .sample-essay .word-count {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      text-align: right;
+    }
+    .useful-phrases {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 600px) { .useful-phrases { grid-template-columns: 1fr; } }
+    .phrase-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+    }
+    .phrase-card .phrase-en { font-weight: 600; font-size: 0.9rem; margin-bottom: 2px; }
+    .phrase-card .phrase-vi { font-size: 0.85rem; color: var(--text-muted); }
+    .rewrite-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin-bottom: 10px;
+    }
+    .rewrite-block .original { font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+    .rewrite-block .hint { font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-bottom: 8px; }
+    .rewrite-input {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      padding: 8px 12px;
+      color: var(--text);
+      resize: vertical;
+      min-height: 40px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .rewrite-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+    .rewrite-input::placeholder { color: var(--text-light); font-style: italic; }
+    .checklist-item {
+      display: flex; gap: 8px; align-items: flex-start;
+      padding: 6px 0;
+      font-size: 0.9rem;
+    }
+    .checklist-item .check-mark { color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .checklist-item.warn .check-mark { color: var(--red); }
+  </style>
+</head>
+<body>
+
+  <!-- Sub-nav -->
+  <div class="lesson-topbar">
+    <div class="lesson-topbar-inner">
+      <a href="../../index.html" class="back-link">📘 ← Trang chủ</a>
+      <nav class="sub-nav">
+        <a href="index.html">🔊 Ngữ Âm</a>
+        <a href="vocab.html">📗 Từ vựng</a>
+        <a href="writing.html" class="active">📐 Writing</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="container" style="padding-top: 24px; padding-bottom: 40px;">
+
+    <h1 class="page-title">Writing — Đề thi thử Amsterdam Lớp 6</h1>
+    <p class="page-subtitle">Bộ đề thi thử năm 2024 — Phần Writing Part 1 & 2</p>
+
+    <!-- ===== WRITING PART 2 ===== -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon grammar">📐</span>
+        Part 2 — Opinion Essay (80–100 từ)
+      </h2>
+
+      <div class="writing-prompt">
+        "Should children take part in community activities or not? Why?"
+      </div>
+
+      <div class="structure-step step-intro">
+        <span class="step-label">Câu 1 — Mở bài: Nêu quan điểm</span>
+        <h4>Introduction: State your opinion</h4>
+        <p>Giới thiệu chủ đề + đưa ra quan điểm rõ ràng.</p>
+        <div class="example-sentence">
+          I strongly believe that children should take part in community activities.
+        </div>
+      </div>
+
+      <div class="structure-step step-body">
+        <span class="step-label">Câu 2 — Thân bài: Lập luận + Ví dụ</span>
+        <h4>Body: Reasons + Examples</h4>
+        <p>Đưa ra 2–3 lý do kèm ví dụ cụ thể.</p>
+        <div class="example-sentence">
+          Firstly, these activities help children develop important skills such as teamwork, leadership, and communication.
+          For instance, when they join a neighborhood cleanup, they learn how to work with others and solve problems together.<br><br>
+          Secondly, taking part in community activities teaches children about social responsibility.
+          When they help elderly people or clean up public parks, they realize that contributing to society is meaningful and rewarding.
+        </div>
+      </div>
+
+      <div class="structure-step step-conclusion">
+        <span class="step-label">Câu 3 — Kết bài: Nhấn mạnh quan điểm</span>
+        <h4>Conclusion: Reinforce your opinion</h4>
+        <p>Tóm lại và nhấn mạnh lại quan điểm.</p>
+        <div class="example-sentence">
+          In conclusion, I believe that children should regularly participate in community activities
+          because these experiences shape them into responsible, confident, and empathetic individuals.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BÀI MẪU ===== -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon notes">💡</span>
+        Bài mẫu hoàn chỉnh
+      </h2>
+      <div class="sample-essay">
+        I strongly believe that children should take part in community activities.
+        Firstly, these activities help children develop important skills such as teamwork, leadership, and communication.
+        For instance, when they join a neighborhood cleanup, they learn how to work with others and solve problems together.
+        Secondly, taking part in community activities teaches children about social responsibility.
+        When they help elderly people or clean up public parks, they realize that contributing to society is both meaningful and rewarding.
+        In conclusion, I believe that children should regularly participate in community activities
+        because these experiences shape them into responsible, confident, and empathetic individuals.
+        <div class="word-count">~97 từ</div>
+      </div>
+    </section>
+
+    <!-- ===== TỪ VỰNG HỮU ÍCH ===== -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon vocab">📗</span>
+        Từ vựng & cụm từ hữu ích cho Writing
+      </h2>
+      <div class="useful-phrases">
+        <div class="phrase-card"><div class="phrase-en">take part in / participate in</div><div class="phrase-vi">tham gia</div></div>
+        <div class="phrase-card"><div class="phrase-en">community activities</div><div class="phrase-vi">hoạt động cộng đồng</div></div>
+        <div class="phrase-card"><div class="phrase-en">develop / build skills</div><div class="phrase-vi">phát triển kỹ năng</div></div>
+        <div class="phrase-card"><div class="phrase-en">social responsibility</div><div class="phrase-vi">trách nhiệm xã hội</div></div>
+        <div class="phrase-card"><div class="phrase-en">teamwork / leadership</div><div class="phrase-vi">làm việc nhóm / lãnh đạo</div></div>
+        <div class="phrase-card"><div class="phrase-en">neighborhood cleanup</div><div class="phrase-vi">dọn dẹp khu phố</div></div>
+        <div class="phrase-card"><div class="phrase-en">meaningful and rewarding</div><div class="phrase-vi">có ý nghĩa và bổ ích</div></div>
+        <div class="phrase-card"><div class="phrase-en">sense of belonging</div><div class="phrase-vi">cảm giác thuộc về</div></div>
+      </div>
+
+      <h3 style="font-size:0.95rem; font-weight:600; margin:20px 0 12px;">Liên từ & cách mở/kết bài</h3>
+      <div class="useful-phrases">
+        <div class="phrase-card"><div class="phrase-en">I strongly believe that...</div><div class="phrase-vi">Tôi tin chắc rằng...</div></div>
+        <div class="phrase-card"><div class="phrase-en">In my opinion,...</div><div class="phrase-vi">Theo ý kiến tôi,...</div></div>
+        <div class="phrase-card"><div class="phrase-en">Firstly,... Secondly,...</div><div class="phrase-vi">Thứ nhất,... Thứ hai,...</div></div>
+        <div class="phrase-card"><div class="phrase-en">For example / For instance</div><div class="phrase-vi">Ví dụ</div></div>
+        <div class="phrase-card"><div class="phrase-en">In conclusion, I believe that...</div><div class="phrase-vi">Tóm lại, tôi tin rằng...</div></div>
+        <div class="phrase-card"><div class="phrase-en">Although / Even though</div><div class="phrase-vi">Mặc dù</div></div>
+      </div>
+    </section>
+
+    <!-- ===== WRITING PART 1 ===== -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon grammar">📐</span>
+        Part 1 — Viết lại câu (Câu 41–45)
+      </h2>
+
+      <div class="rewrite-block">
+        <div class="original">41. I can't get better grades because I don't study hard enough.</div>
+        <div class="hint">Gợi ý: Câu điều kiện loại 2 — If I studied...</div>
+        <textarea class="rewrite-input" rows="1" placeholder="Viết lại câu ở đây..."></textarea>
+      </div>
+      <div class="rewrite-block">
+        <div class="original">42. The students spent 3 hours cleaning the school yard before the ceremony.</div>
+        <div class="hint">Gợi ý: It took + time + to-infinitive</div>
+        <textarea class="rewrite-input" rows="1" placeholder="Viết lại câu ở đây..."></textarea>
+      </div>
+      <div class="rewrite-block">
+        <div class="original">43. "Does the bus go to the city center?" Isable asked the driver.</div>
+        <div class="hint">Gợi ý: Reported speech — if + past tense</div>
+        <textarea class="rewrite-input" rows="1" placeholder="Viết lại câu ở đây..."></textarea>
+      </div>
+      <div class="rewrite-block">
+        <div class="original">44. He can find the solutions to maths problems faster than me.</div>
+        <div class="hint">Gợi ý: So sánh bằng — as...as</div>
+        <textarea class="rewrite-input" rows="1" placeholder="Viết lại câu ở đây..."></textarea>
+      </div>
+      <div class="rewrite-block">
+        <div class="original">45. Both teenagers and adults use TikTok widely.</div>
+        <div class="hint">Gợi ý: Câu bị động</div>
+        <textarea class="rewrite-input" rows="1" placeholder="Viết lại câu ở đây..."></textarea>
+      </div>
+    </section>
+
+    <!-- ===== CHECKLIST ===== -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="section-icon notes">💡</span>
+        Checklist — Tự kiểm tra bài Writing
+      </h2>
+      <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:16px 20px;">
+        <div class="checklist-item"><span class="check-mark">✔</span> Đủ số từ: 80–100 từ</div>
+        <div class="checklist-item"><span class="check-mark">✔</span> Quan điểm rõ ràng: Đồng ý hoặc Không đồng ý</div>
+        <div class="checklist-item"><span class="check-mark">✔</span> Ít nhất 2 lý do + ví dụ cụ thể</div>
+        <div class="checklist-item"><span class="check-mark">✔</span> Từ vựng đa dạng, không lặp từ</div>
+        <div class="checklist-item"><span class="check-mark">✔</span> Ngữ pháp đúng (thì, chủ-vị, mạo từ)</div>
+        <div class="checklist-item"><span class="check-mark">✔</span> Dùng cụm nối câu: Firstly, Secondly, In conclusion...</div>
+        <div class="checklist-item warn"><span class="check-mark">✘</span> Không viết dưới 70 từ</div>
+        <div class="checklist-item warn"><span class="check-mark">✘</span> Không lạc đề, phải trả lời đúng câu hỏi</div>
+        <div class="checklist-item warn"><span class="check-mark">✘</span> Không chỉ liệt kê — phải nói rõ "có" hay "không"</div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
