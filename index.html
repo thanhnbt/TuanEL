@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cẩm Nang Ngữ Âm Tiếng Anh Chi Tiết</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #f5f5f0;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b7280;
+    --blue: #2563eb;
+    --green: #059669;
+    --orange: #d97706;
+    --red: #dc2626;
+    --purple: #7c3aed;
+    --teal: #0d9488;
+    --border: #e2e4e8;
+    --ipa-color: #6d28d9;
+    --shadow: 0 1px 3px rgba(0,0,0,.06);
+    --shadow-md: 0 2px 8px rgba(0,0,0,.08);
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: .75rem;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  header {
+    text-align: center;
+    padding: 1.75rem 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+    background: linear-gradient(135deg, #1e3a5f 0%, #1d4ed8 50%, #7c3aed 100%);
+    border-radius: 14px;
+    color: #fff;
+  }
+  header h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -.02em; }
+  header p { font-size: .8rem; opacity: .8; margin-top: .25rem; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+
+  .card-title {
+    font-size: .9rem;
+    font-weight: 700;
+    margin-bottom: .75rem;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: .03em;
+  }
+  .card-title .num {
+    width: 24px; height: 24px;
+    background: var(--blue);
+    color: #fff;
+    border-radius: 6px;
+    font-size: .7rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sub-title {
+    font-size: .8rem;
+    font-weight: 700;
+    margin: .75rem 0 .4rem;
+    color: var(--text);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: .2rem;
+  }
+
+  /* Word chip */
+  .w {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fafafa;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 5px 8px 4px;
+    margin: 3px;
+    cursor: pointer;
+    transition: all .15s;
+    min-width: 72px;
+    position: relative;
+  }
+  .w:hover { background: #eef2ff; border-color: var(--blue); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+  .w:active { transform: translateY(0); }
+  .w.playing { background: #dbeafe; border-color: var(--blue); box-shadow: 0 0 0 2px rgba(37,99,235,.15); }
+  .w.error { border-color: var(--orange); }
+
+  .w .eng {
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .w .eng .sp { font-size: .6rem; opacity: .4; }
+  .w .phon {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .68rem;
+    font-weight: 500;
+    color: var(--ipa-color);
+    margin-top: 1px;
+    white-space: nowrap;
+  }
+  .w .stress-mark { color: var(--red); font-weight: 800; }
+
+  /* IPA big */
+  .ipa { font-family: 'JetBrains Mono', monospace; color: var(--ipa-color); font-weight: 600; }
+  .ipa-lg { font-size: 1.3rem; }
+  .ipa-sm { font-size: .78rem; }
+
+  /* Rule boxes */
+  .rule {
+    border-radius: 10px;
+    padding: .6rem .75rem;
+    margin: .4rem 0;
+    border-left: 4px solid;
+  }
+  .rule.s-voiceless { background: #fffbeb; border-color: var(--orange); }
+  .rule.s-sibilant  { background: #fdf2f8; border-color: var(--red); }
+  .rule.s-voiced    { background: #ecfdf5; border-color: var(--green); }
+  .rule.ed-id       { background: #f5f3ff; border-color: var(--purple); }
+  .rule.ed-t        { background: #fffbeb; border-color: var(--orange); }
+  .rule.ed-d        { background: #ecfdf5; border-color: var(--green); }
+
+  .rule h4 { font-size: .78rem; font-weight: 700; margin-bottom: .15rem; display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+  .rule .desc { font-size: .72rem; color: var(--muted); margin-bottom: .3rem; }
+  .rule .words { display: flex; flex-wrap: wrap; gap: 2px; }
+
+  /* Stress items */
+  .si {
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
+    padding: .5rem .6rem;
+    border-radius: 8px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    margin-bottom: .4rem;
+  }
+  .si .tag {
+    flex-shrink: 0;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: .65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .si .tag.na { background: #dbeafe; color: #1d4ed8; }
+  .si .tag.vb { background: #dcfce7; color: #15803d; }
+  .si .note { font-size: .72rem; color: var(--muted); margin-bottom: .2rem; }
+
+  /* Suffix table */
+  .stbl { width: 100%; border-collapse: collapse; font-size: .75rem; margin-top: .4rem; }
+  .stbl th {
+    background: #f1f5f9; padding: .4rem; text-align: left;
+    font-weight: 600; border-bottom: 2px solid var(--border);
+    font-size: .68rem; text-transform: uppercase; color: var(--muted); letter-spacing: .03em;
+  }
+  .stbl td { padding: .4rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .stbl tr:last-child td { border-bottom: none; }
+  .sfx { font-family: 'JetBrains Mono', monospace; color: var(--red); font-weight: 600; font-size: .75rem; }
+
+  /* Schwa */
+  .schwa {
+    background: #fefce8; border: 1px dashed #ca8a04;
+    border-radius: 8px; padding: .6rem .75rem; margin-top: .6rem; font-size: .75rem;
+  }
+  .schwa h4 { color: #854d0e; font-size: .78rem; margin-bottom: .2rem; }
+
+  /* Vowel grid */
+  .vg {
+    display: grid;
+    grid-template-columns: 36px auto 1fr;
+    gap: .2rem .6rem;
+    font-size: .78rem;
+    align-items: center;
+  }
+  .vl {
+    font-weight: 800; font-size: 1rem;
+    width: 30px; height: 30px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 7px;
+  }
+  .vl.a  { background: #fee2e2; color: #dc2626; }
+  .vl.e  { background: #dbeafe; color: #2563eb; }
+  .vl.o  { background: #dcfce7; color: #15803d; }
+  .vl.ou { background: #fef3c7; color: #92400e; font-size: .8rem; }
+  .vl.u  { background: #ede9fe; color: #7c3aed; }
+  .vl.iy { background: #fce7f3; color: #be185d; font-size: .75rem; }
+
+  .full { grid-column: 1 / -1; }
+
+  footer {
+    text-align: center; padding: 1.25rem;
+    color: var(--muted); font-size: .7rem; margin-top: 1rem;
+  }
+
+  /* Loading indicator */
+  .w .loader {
+    position: absolute; inset: 0;
+    background: rgba(255,255,255,.7);
+    border-radius: 8px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: .6rem;
+    color: var(--blue);
+  }
+  .w.loading .loader { display: flex; }
+
+  @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+  .w.loading .loader::after { content: '⏳'; animation: pulse .8s infinite; font-size: .9rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📖 Cẩm Nang Ngữ Âm Tiếng Anh Chi Tiết</h1>
+  <p>Hướng dẫn từ đề thi TN Lớp 9 & Chuyên Anh — Bấm vào từ để nghe phát âm chuẩn từ điển 🔊</p>
+</header>
+
+<div class="grid">
+
+  <!-- ===== PHẦN 1: TRỌNG ÂM ===== -->
+  <div class="card">
+    <div class="card-title"><span class="num">1</span> Quy Tắc Trọng Âm</div>
+
+    <div class="sub-title">A. Từ 2–3 âm tiết — Quy tắc cơ bản</div>
+
+    <div class="si">
+      <span class="tag na">N & ADJ</span>
+      <div>
+        <div class="note">Thường nhấn <b>âm tiết 1</b></div>
+        <div class="words" id="stress-a1"></div>
+      </div>
+    </div>
+
+    <div class="si">
+      <span class="tag na">Nguyên âm kép</span>
+      <div>
+        <div class="note">Ưu tiên nhấn vào <b>âm kép</b> (ee, eer…)</div>
+        <div class="words" id="stress-a2"></div>
+      </div>
+    </div>
+
+    <div class="si">
+      <span class="tag vb">VERB</span>
+      <div>
+        <div class="note">Thường nhấn <b>âm tiết 2</b></div>
+        <div class="words" id="stress-a3"></div>
+      </div>
+    </div>
+
+    <div class="sub-title">B. Quy tắc Hậu tố & Vị trí trọng âm</div>
+
+    <table class="stbl">
+      <thead><tr><th>Hậu tố</th><th>Trọng âm</th><th>Ví dụ</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="sfx">-oo, -oon, -eer, -ee, -ain</span></td>
+          <td>Nhấn <b>âm cuối</b></td>
+          <td id="sfx-1"></td>
+        </tr>
+        <tr>
+          <td><span class="sfx">-ic, -tion, -ion, -cian, -ive</span></td>
+          <td>Nhấn <b>trước đuôi</b></td>
+          <td id="sfx-2"></td>
+        </tr>
+        <tr>
+          <td><span class="sfx">-ate, -y, -tude, -iar</span></td>
+          <td>Nhấn <b>âm 3 từ cuối</b></td>
+          <td id="sfx-3"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="schwa">
+      <h4>4 Nguyên Âm Yếu (Schwa & Reduced)</h4>
+      <div style="text-align:center;margin:.4rem 0"><span class="ipa ipa-lg">ɪ &nbsp; ə &nbsp; ʊ &nbsp; ɔ</span></div>
+      <p>Âm không nhấn thường chứa các nguyên âm yếu này.</p>
+      <div id="schwa-words" style="margin-top:.3rem"></div>
+    </div>
+  </div>
+
+  <!-- ===== PHẦN 2: -S/ES & -ED ===== -->
+  <div class="card">
+    <div class="card-title"><span class="num">2</span> Phát Âm Đuôi -S/ES & -ED</div>
+
+    <div class="sub-title">A. Cách phát âm -S / -ES</div>
+
+    <div class="rule s-voiceless">
+      <h4><span class="ipa ipa-lg">/s/</span> Vô thanh</h4>
+      <div class="desc">Sau phụ âm vô thanh: <span class="ipa ipa-sm">p, k, t, f, θ</span></div>
+      <div class="words" id="s-voiceless"></div>
+    </div>
+
+    <div class="rule s-sibilant">
+      <h4><span class="ipa ipa-lg">/ɪz/</span> Xuýt (Sibilants)</h4>
+      <div class="desc">Sau âm xuýt: <span class="ipa ipa-sm">s, z, ʃ, ʒ, tʃ, dʒ</span></div>
+      <div class="words" id="s-sibilant"></div>
+    </div>
+
+    <div class="rule s-voiced">
+      <h4><span class="ipa ipa-lg">/z/</span> Còn lại</h4>
+      <div class="desc">Sau phụ âm hữu thanh + nguyên âm</div>
+      <div class="words" id="s-voiced"></div>
+    </div>
+
+    <div class="sub-title">B. Cách phát âm -ED</div>
+
+    <div class="rule ed-id">
+      <h4><span class="ipa ipa-lg">/ɪd/</span> Sau /t/ và /d/</h4>
+      <div class="desc">Động từ kết thúc bằng <span class="ipa ipa-sm">t, d</span></div>
+      <div class="words" id="ed-id"></div>
+    </div>
+
+    <div class="rule ed-t">
+      <h4><span class="ipa ipa-lg">/t/</span> Sau phụ âm vô thanh (trừ /t/)</h4>
+      <div class="desc">Sau <span class="ipa ipa-sm">p, k, f, ʃ, tʃ, s</span></div>
+      <div class="words" id="ed-t"></div>
+    </div>
+
+    <div class="rule ed-d">
+      <h4><span class="ipa ipa-lg">/d/</span> Còn lại</h4>
+      <div class="desc">Sau âm hữu thanh & nguyên âm</div>
+      <div class="words" id="ed-d"></div>
+    </div>
+  </div>
+
+  <!-- ===== NGUYÊN ÂM & CHỮ CÁI ===== -->
+  <div class="card full">
+    <div class="card-title"><span class="num" style="background:var(--teal)">★</span> <span style="color:var(--teal)">Lưu Ý: Vị Trí Trọng Âm và Chữ Cái</span></div>
+    <div class="vg">
+      <span class="vl a">a</span>
+      <span class="ipa ipa-sm">/æ/, /eɪ/, /ɑː/</span>
+      <span id="vow-a"></span>
+
+      <span class="vl e">e</span>
+      <span class="ipa ipa-sm">/ɛ/, /iː/</span>
+      <span id="vow-e"></span>
+
+      <span class="vl o">o</span>
+      <span class="ipa ipa-sm">/ɒ/, /əʊ/</span>
+      <span id="vow-o"></span>
+
+      <span class="vl ou">ou</span>
+      <span class="ipa ipa-sm">/aʊ/</span>
+      <span id="vow-ou"></span>
+
+      <span class="vl u">u</span>
+      <span class="ipa ipa-sm">/ʌ/, /juː/, /ʊ/</span>
+      <span id="vow-u"></span>
+
+      <span class="vl iy">i, y</span>
+      <span class="ipa ipa-sm">/ɪ/, /aɪ/</span>
+      <span id="vow-iy"></span>
+    </div>
+  </div>
+</div>
+
+<footer>📖 Tự Học Thành Tài — Chinh Phục Ngữ Âm &nbsp;|&nbsp; Âm thanh từ Free Dictionary API & Google TTS</footer>
+
+<script>
+// ============================================================
+// WORD DATABASE — word, display (with stress bold), IPA
+// ============================================================
+const DATA = {
+  // --- Stress rules ---
+  'stress-a1': [
+    ['teacher',  '<b>TEA</b>cher',     '/ˈtiː.tʃər/'],
+    ['possible', '<b>POS</b>si.ble',    '/ˈpɒs.ə.bəl/'],
+    ['policy',   '<b>PO</b>li.cy',      '/ˈpɒl.ə.si/'],
+    ['history',  '<b>HIS</b>to.ry',     '/ˈhɪs.tər.i/'],
+  ],
+  'stress-a2': [
+    ['career',   'ca.<b>REER</b>',      '/kəˈrɪər/'],
+    ['engineer', 'en.gi.<b>NEER</b>',   '/ˌen.dʒɪˈnɪər/'],
+  ],
+  'stress-a3': [
+    ['continue',  'con.<b>TI</b>.nue',  '/kənˈtɪn.juː/'],
+    ['determine', 'de.<b>TER</b>.mine', '/dɪˈtɜː.mɪn/'],
+  ],
+
+  // --- Suffix rules ---
+  'sfx-1': [
+    ['tattoo',    'tat.<b>TOO</b>',       '/tæˈtuː/'],
+    ['engineer',  'en.gi.<b>NEER</b>',    '/ˌen.dʒɪˈnɪər/'],
+    ['entertain', 'en.ter.<b>TAIN</b>',   '/ˌen.tərˈteɪn/'],
+  ],
+  'sfx-2': [
+    ['specific',    'spe.<b>CI</b>.fic',    '/spəˈsɪf.ɪk/'],
+    ['commission',  'com.<b>MIS</b>.sion',  '/kəˈmɪʃ.ən/'],
+    ['defective',   'de.<b>FEC</b>.tive',   '/dɪˈfek.tɪv/'],
+  ],
+  'sfx-3': [
+    ['discriminate', 'dis.<b>CRI</b>.mi.nate', '/dɪˈskrɪm.ɪ.neɪt/'],
+    ['possibility',  'pos.si.<b>BI</b>.li.ty', '/ˌpɒs.əˈbɪl.ə.ti/'],
+    ['latitude',     '<b>LA</b>.ti.tude',      '/ˈlæt.ɪ.tjuːd/'],
+    ['familiar',     'fa.<b>MI</b>.liar',      '/fəˈmɪl.i.ər/'],
+  ],
+
+  // --- Schwa ---
+  'schwa-words': [
+    ['literature',  'li.te.ra.ture',   '/ˈlɪt.rə.tʃər/'],
+    ['national',    'na.tio.nal',      '/ˈnæʃ.ən.əl/'],
+    ['procedure',   'pro.ce.dure',     '/prəˈsiː.dʒər/'],
+    ['significant', 'sig.ni.fi.cant',  '/sɪɡˈnɪf.ɪ.kənt/'],
+  ],
+
+  // --- -S/ES ---
+  's-voiceless': [
+    ['cats',   'cats',   '/kæts/'],
+    ['stops',  'stops',  '/stɒps/'],
+    ['walks',  'walks',  '/wɔːks/'],
+    ['laughs', 'laughs', '/lɑːfs/'],
+    ['months', 'months', '/mʌnθs/'],
+  ],
+  's-sibilant': [
+    ['watches',  'watch.es',  '/ˈwɒtʃ.ɪz/'],
+    ['buses',    'bus.es',    '/ˈbʌs.ɪz/'],
+    ['boxes',    'box.es',    '/ˈbɒks.ɪz/'],
+    ['judges',   'judg.es',   '/ˈdʒʌdʒ.ɪz/'],
+    ['washes',   'wash.es',   '/ˈwɒʃ.ɪz/'],
+  ],
+  's-voiced': [
+    ['dogs',  'dogs',  '/dɒɡz/'],
+    ['beds',  'beds',  '/bedz/'],
+    ['runs',  'runs',  '/rʌnz/'],
+    ['plays', 'plays', '/pleɪz/'],
+    ['cars',  'cars',  '/kɑːrz/'],
+  ],
+
+  // --- -ED ---
+  'ed-id': [
+    ['started',  'start.ed',  '/ˈstɑːrt.ɪd/'],
+    ['decided',  'de.cid.ed', '/dɪˈsaɪd.ɪd/'],
+    ['wanted',   'want.ed',   '/ˈwɒnt.ɪd/'],
+    ['needed',   'need.ed',   '/ˈniːd.ɪd/'],
+  ],
+  'ed-t': [
+    ['stopped', 'stopped', '/stɒpt/'],
+    ['walked',  'walked',  '/wɔːkt/'],
+    ['sniffed', 'sniffed', '/snɪft/'],
+    ['watched', 'watched', '/wɒtʃt/'],
+    ['washed',  'washed',  '/wɒʃt/'],
+  ],
+  'ed-d': [
+    ['announced', 'an.nounced', '/əˈnaʊnst/'],
+    ['played',    'played',     '/pleɪd/'],
+    ['called',    'called',     '/kɔːld/'],
+    ['opened',    'o.pened',    '/ˈəʊ.pənd/'],
+    ['loved',     'loved',      '/lʌvd/'],
+  ],
+
+  // --- Vowel notes ---
+  'vow-a': [
+    ['capable',  'ca.pa.ble',  '/ˈkeɪ.pə.bəl/'],
+    ['station',  'sta.tion',   '/ˈsteɪ.ʃən/'],
+    ['quality',  'qua.li.ty',  '/ˈkwɒl.ə.ti/'],
+  ],
+  'vow-e': [
+    ['general',  'ge.ne.ral',  '/ˈdʒen.ər.əl/'],
+    ['feasible', 'fea.si.ble', '/ˈfiː.zə.bəl/'],
+  ],
+  'vow-o': [
+    ['former', 'for.mer', '/ˈfɔːr.mər/'],
+    ['social', 'so.cial', '/ˈsəʊ.ʃəl/'],
+  ],
+  'vow-ou': [
+    ['boundary', 'boun.da.ry', '/ˈbaʊn.dər.i/'],
+    ['mountain', 'moun.tain',  '/ˈmaʊn.tɪn/'],
+  ],
+  'vow-u': [
+    ['culture', 'cul.ture', '/ˈkʌl.tʃər/'],
+    ['future',  'fu.ture',  '/ˈfjuː.tʃər/'],
+    ['studio',  'stu.di.o', '/ˈstjuː.di.əʊ/'],
+  ],
+  'vow-iy': [
+    ['ability', 'a.bi.li.ty', '/əˈbɪl.ə.ti/'],
+    ['combine', 'com.bine',   '/kəmˈbaɪn/'],
+    ['symbol',  'sym.bol',    '/ˈsɪm.bəl/'],
+  ],
+};
+
+// ============================================================
+// AUDIO SYSTEM — tries multiple sources for best quality
+// ============================================================
+const audioCache = {};
+
+function getAudioUrls(word) {
+  const w = word.toLowerCase();
+  return [
+    // 1. Free Dictionary API audio (high quality, recorded)
+    `https://api.dictionaryapi.dev/api/v2/entries/en/${w}`,
+    // 2. Google TTS (fallback, always works)
+    `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=en&q=${encodeURIComponent(w)}`,
+  ];
+}
+
+async function fetchDictAudio(word) {
+  if (audioCache[word]) return audioCache[word];
+
+  try {
+    const resp = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
+    if (resp.ok) {
+      const data = await resp.json();
+      // Find US or first available audio
+      for (const entry of data) {
+        if (!entry.phonetics) continue;
+        for (const p of entry.phonetics) {
+          if (p.audio && p.audio.length > 5) {
+            // Prefer US pronunciation
+            if (p.audio.includes('-us') || p.audio.includes('-US') || p.audio.includes('us.mp3')) {
+              audioCache[word] = p.audio;
+              return p.audio;
+            }
+          }
+        }
+        // Fallback to any audio
+        for (const p of entry.phonetics) {
+          if (p.audio && p.audio.length > 5) {
+            audioCache[word] = p.audio;
+            return p.audio;
+          }
+        }
+      }
+    }
+  } catch (e) { /* silent */ }
+
+  return null;
+}
+
+let currentAudio = null;
+let currentBtn = null;
+
+async function speak(btn, word) {
+  // Cancel current
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+  if (currentBtn) currentBtn.classList.remove('playing');
+  window.speechSynthesis?.cancel();
+
+  btn.classList.add('loading');
+
+  // Try dictionary API audio first
+  let audioUrl = await fetchDictAudio(word);
+
+  btn.classList.remove('loading');
+  btn.classList.add('playing');
+  currentBtn = btn;
+
+  if (audioUrl) {
+    // Play recorded audio
+    const audio = new Audio(audioUrl);
+    currentAudio = audio;
+    audio.playbackRate = 0.9;
+    audio.onended = () => {
+      btn.classList.remove('playing');
+      currentBtn = null;
+      // Play again slower
+      setTimeout(() => {
+        const audio2 = new Audio(audioUrl);
+        audio2.playbackRate = 0.7;
+        btn.classList.add('playing');
+        currentBtn = btn;
+        currentAudio = audio2;
+        audio2.onended = () => { btn.classList.remove('playing'); currentBtn = null; };
+        audio2.onerror = () => { btn.classList.remove('playing'); currentBtn = null; };
+        audio2.play().catch(() => { btn.classList.remove('playing'); });
+      }, 400);
+    };
+    audio.onerror = () => { fallbackTTS(btn, word); };
+    audio.play().catch(() => fallbackTTS(btn, word));
+  } else {
+    // Fallback to Web Speech API
+    fallbackTTS(btn, word);
+  }
+}
+
+function fallbackTTS(btn, word) {
+  const u = new SpeechSynthesisUtterance(word);
+  u.lang = 'en-US';
+  u.rate = 0.8;
+  const voices = speechSynthesis.getVoices();
+  const v = voices.find(v => v.lang === 'en-US' && v.name.includes('Google'))
+    || voices.find(v => v.lang === 'en-US')
+    || voices.find(v => v.lang.startsWith('en'));
+  if (v) u.voice = v;
+
+  u.onend = () => {
+    btn.classList.remove('playing');
+    currentBtn = null;
+    setTimeout(() => {
+      const u2 = new SpeechSynthesisUtterance(word);
+      u2.lang = 'en-US';
+      u2.rate = 0.55;
+      if (v) u2.voice = v;
+      btn.classList.add('playing');
+      currentBtn = btn;
+      u2.onend = () => { btn.classList.remove('playing'); currentBtn = null; };
+      speechSynthesis.speak(u2);
+    }, 350);
+  };
+  speechSynthesis.speak(u);
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderWords(containerId, words) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  words.forEach(([word, display, ipa]) => {
+    const btn = document.createElement('button');
+    btn.className = 'w';
+    btn.innerHTML = `
+      <span class="eng"><span class="sp">🔊</span> ${display}</span>
+      <span class="phon">${ipa}</span>
+      <span class="loader"></span>
+    `;
+    btn.onclick = () => speak(btn, word);
+    container.appendChild(btn);
+  });
+}
+
+// Render all sections
+Object.keys(DATA).forEach(key => renderWords(key, DATA[key]));
+
+// Pre-load voices
+if (window.speechSynthesis) {
+  speechSynthesis.getVoices();
+  speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
+}
+
+// Pre-fetch audio URLs for common words
+setTimeout(() => {
+  const allWords = Object.values(DATA).flat().map(w => w[0]);
+  const unique = [...new Set(allWords)];
+  unique.forEach((w, i) => {
+    setTimeout(() => fetchDictAudio(w), i * 150); // stagger requests
+  });
+}, 1000);
+</script>
+
+</body>
+</html>
