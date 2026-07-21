@@ -6,325 +6,132 @@
   <title>Từ vựng — Bài học 03/07 — English Daily</title>
   <link rel="stylesheet" href="../../css/style.css">
   <style>
-    .lesson-topbar {
-      background: var(--bg-card);
-      border-bottom: 1px solid var(--border);
-      padding: 0 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 99;
-    }
-    .lesson-topbar-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .lesson-topbar .back-link {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 10px 0;
-      margin-right: 16px;
-      white-space: nowrap;
-    }
-    .lesson-topbar .back-link:hover { opacity: 0.7; }
-    .sub-nav { display: flex; gap: 4px; overflow-x: auto; }
-    .sub-nav a {
-      padding: 10px 14px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-muted);
-      text-decoration: none;
-      border-bottom: 2px solid transparent;
-      white-space: nowrap;
-      transition: color 0.15s, border-color 0.15s;
-    }
-    .sub-nav a:hover { color: var(--text); }
-    .sub-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
-
-    /* Vocab card layout */
-    .vocab-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 18px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-    .vocab-card .play-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-      transition: background 0.15s, border-color 0.15s;
-      margin-top: 2px;
-    }
-    .vocab-card .play-btn:hover {
-      background: var(--accent-light);
-      border-color: var(--accent);
-    }
-    .vocab-card .play-btn.playing {
-      background: var(--accent);
-      border-color: var(--accent);
-    }
-    .vocab-info { flex: 1; }
-    .vocab-info .word-line {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 2px;
-    }
-    .vocab-info .word { font-weight: 700; font-size: 1.05rem; }
-    .vocab-info .pos {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--purple);
-      background: var(--purple-light);
-      padding: 1px 7px;
-      border-radius: 4px;
-    }
-    .vocab-info .ipa {
-      font-family: var(--font-mono);
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-    .vocab-info .meaning {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    /* Exercise with input */
-    .exercise-block {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 18px;
-      margin-bottom: 10px;
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-    .exercise-block .q-num {
-      font-weight: 700;
-      color: var(--accent);
-      margin-right: 4px;
-    }
-    .fill-input {
-      border: none;
-      border-bottom: 2px dashed var(--border);
-      background: transparent;
-      font-family: var(--font);
-      font-size: 0.9rem;
-      padding: 2px 6px;
-      min-width: 130px;
-      color: var(--accent);
-      font-weight: 600;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .fill-input:focus { border-color: var(--accent); }
-    .fill-input::placeholder { color: var(--text-light); font-weight: 400; font-style: italic; }
-    .note-print {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      background: var(--bg);
-      border-radius: var(--radius);
-      padding: 12px 16px;
-      margin-top: 16px;
-      text-align: center;
-    }
+    .lesson-topbar{background:var(--bg-card);border-bottom:1px solid var(--border);padding:0 1rem;position:sticky;top:0;z-index:99}
+    .lesson-topbar-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;gap:8px}
+    .lesson-topbar .back-link{color:var(--accent);font-size:13px;font-weight:600;padding:10px 0;margin-right:16px;white-space:nowrap}
+    .sub-nav{display:flex;gap:4px;overflow-x:auto}
+    .sub-nav a{padding:10px 14px;font-size:13px;font-weight:500;color:var(--text-muted);border-bottom:2px solid transparent;white-space:nowrap}
+    .sub-nav a.active{color:var(--accent);border-bottom-color:var(--accent)}
+    .page-wrap{max-width:920px;margin:0 auto;padding:24px 16px 60px}
+    .page-title{font-size:1.5rem;font-weight:700;color:var(--accent);margin:0 0 4px}
+    .page-subtitle{color:var(--text-muted);font-size:.9rem;margin:0 0 16px}
+    .legend{background:#fffbeb;border:1px solid #fbbf24;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:.88rem;color:#92400e;line-height:1.5}
+    .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:32px}
+    .vocab-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;gap:4px;transition:border-color .2s}
+    .vocab-card:hover{border-color:var(--accent)}
+    .vocab-card-top{display:flex;align-items:center;justify-content:space-between}
+    .vc-word{font-weight:700;font-size:1.05rem;color:var(--text)}
+    .vc-type{font-size:.78rem;color:var(--text-muted);margin-left:4px}
+    .vc-phonetics{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+    .vc-ipa{font-family:'Segoe UI',sans-serif;color:#6366f1;font-size:.86rem}
+    .vc-sound{font-size:.9rem;color:#b45309}
+    .vc-sound strong{font-weight:800;font-size:.98rem;color:#92400e}
+    .vc-def{font-size:.88rem;color:var(--text);line-height:1.45;margin-top:2px}
+    .vc-vi{font-size:.8rem;color:var(--text-light);font-style:italic}
+    .audio-btn{background:#10b981;color:#fff;border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;display:inline-flex;align-items:center;justify-content:center;transition:background .2s,transform .1s;flex-shrink:0}
+    .audio-btn:hover{background:#059669}
+    .audio-btn:active{transform:scale(.92)}
+    .exercise-block{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;margin-bottom:8px;font-size:.92rem;line-height:1.6}
+    .fill-input{border:none;border-bottom:2px dashed var(--border);background:transparent;padding:2px 4px;font-size:inherit;font-family:inherit;min-width:100px;color:var(--accent)}
+    .fill-input:focus{border-color:var(--accent);outline:none}
+    .fill-input::placeholder{color:var(--text-light);font-style:italic}
+    .note-print{font-size:.85rem;color:var(--text-muted);margin-top:12px;padding:12px;background:#fffbeb;border-radius:var(--radius);text-align:center}
+    .show-all-btn{display:block;width:100%;padding:12px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);font-size:.95rem;font-weight:600;cursor:pointer;margin-top:20px}
+    .show-all-btn:hover{background:#1d4ed8}
   </style>
 </head>
 <body>
+  <div class="lesson-topbar"><div class="lesson-topbar-inner">
+    <a href="../../index.html" class="back-link">← Trang chủ</a>
+    <nav class="sub-nav">
+      <a href="index.html">🔊 Ngữ Âm</a>
+      <a href="vocab.html" class="active">📗 Từ vựng</a>
+      <a href="writing.html">📐 Writing</a>
+    </nav>
+  </div></div>
 
-  <!-- Sub-nav -->
-  <div class="lesson-topbar">
-    <div class="lesson-topbar-inner">
-      <a href="../../index.html" class="back-link">📘 ← Trang chủ</a>
-      <nav class="sub-nav">
-        <a href="index.html">🔊 Ngữ Âm</a>
-        <a href="vocab.html" class="active">📗 Từ vựng</a>
-        <a href="writing.html">📐 Writing</a>
-      </nav>
-    </div>
-  </div>
+  <div class="page-wrap">
+    <h1 class="page-title">📗 Từ vựng — Ngày 03/07</h1>
+    <p class="page-subtitle">12 từ vựng trọng tâm + 20 câu bài tập điền từ.</p>
+    <div class="legend">💡 <strong>Sound-it-out:</strong> Phiên âm kiểu Mỹ — đọc y như đánh vần tiếng Anh. <strong>CHỮ IN HOA = trọng âm</strong> (đọc to và nhấn mạnh chỗ đó).</div>
 
-  <main class="container" style="padding-top: 24px; padding-bottom: 40px;">
-
-    <h1 class="page-title">Vocabulary — 12 từ vựng trọng tâm</h1>
-    <p class="page-subtitle">Bấm 🔊 để nghe phát âm. Học thuộc rồi làm bài tập bên dưới.</p>
-
-    <!-- ===== VOCAB CARDS ===== -->
-    <section class="section">
-      <div id="vocab-list">
-
-        <div class="vocab-card">
-          <button class="play-btn" onclick="speak('function')">🔊</button>
-          <div class="vocab-info">
-            <div class="word-line">
-              <span class="word">function</span>
-              <span class="pos">v</span>
-              <span class="ipa">/ˈfʌŋkʃn/</span>
-            </div>
-            <div class="meaning">hoạt động, thực hiện chức năng</div>
-          </div>
-        </div>
-
-        <div class="vocab-card">
-          <button class="play-btn" onclick="speak('well off')">🔊</button>
-          <div class="vocab-info">
-            <div class="word-line">
-              <span class="word">well-off</span>
-              <span class="pos">adj</span>
-              <span class="ipa">/ˌwel ˈɒf/</span>
-            </div>
-            <div class="meaning">giàu có, khá giả</div>
-          </div>
-        </div>
-
-        <div class="vocab-card">
-          <button class="play-btn" onclick="speak('ridiculous')">🔊</button>
-          <div class="vocab-info">
-            <div class="word-line">
-              <span class="word">ridiculous</span>
-              <span class="pos">adj</span>
-              <span class="ipa">/rɪˈdɪkjələs/</span>
-            </div>
-            <div class="meaning">nực cười, vô lý</div>
-          </div>
-        </div>
-
-        <div class="vocab-card">
-          <button class="play-btn" onclick="speak('cat on hot bricks')">🔊</button>
-          <div class="vocab-info">
-            <div class="word-line">
-              <span class="word">cat on hot bricks</span>
-              <span class="pos">idiom</span>
-              <span class="ipa">/kæt ɒn hɒt brɪks/</span>
-            </div>
-            <div class="meaning">bồn chồn, lo lắng vô cùng</div>
-          </div>
-        </div>
-
-        <div class="vocab-card">
-          <button class="play-btn" onclick="speak('empathy')">🔊</button>
-          <div class="vocab-info">
-            <div class="word-line">
-              <span class="word">empathy</span>
-              <span class="pos">n</span>
-              <span class="ipa">/ˈempəθi/</span>
-            </div>
-            <div class="meaning">sự đồng cảm</div>
-          </div>
-        </div>
-
-        <div class="vocab-card">
-          <button class="play-btn" onclick="speak('compassion')">🔊</button>
-          <div class="vocab-info">
-            <div class="word-line">
-              <span class="word">compassion</span>
-              <span class="pos">n</span>
-              <span class="ipa">/kəmˈpæʃn/</span>
-            </div>
-            <div class="meaning">lòng thương xót, trắc ẩn</div>
-          </div>
-        </div>
-
-        <div class="vocab-card">
-          <button class="play-btn" onclick="speak('beneficial')">🔊</button>
-          <div class="vocab-info">
-            <div class="word-line">
-              <span class="word">beneficial</span>
-              <span class="pos">adj</span>
-              <span class="ipa">/ˌbenɪˈfɪʃl/</span>
-            </div>
-            <div class="meaning">có ích, có lợi</div>
-          </div>
-        </div>
-
-        <div class="vocab-card">
-          <button class="play-btn" onclick="speak('extinct')">🔊</button>
-          <div class="vocab-info">
-            <div class="word-line">
-              <span class="word">extinct</span>
-              <span class="pos">adj</span>
-              <span class="ipa">/ɪkˈstɪŋkt/</span>
-            </div>
-            <div class="meaning">tuyệt chủng</div>
-          </div>
-        </div>
-
-        <div class="vocab-card">
-          <button class="play-btn" onclick="speak('habitat')">🔊</button>
-          <div class="vocab-info">
-            <div class="word-line">
-              <span class="word">habitat</span>
-              <span class="pos">n</span>
-              <span class="ipa">/ˈhæbɪtæt/</span>
-            </div>
-            <div class="meaning">môi trường sống</div>
-          </div>
-        </div>
-
-        <div class="vocab-card">
-          <button class="play-btn" onclick="speak('hearty')">🔊</button>
-          <div class="vocab-info">
-            <div class="word-line">
-              <span class="word">hearty</span>
-              <span class="pos">adj</span>
-              <span class="ipa">/ˈhɑːti/</span>
-            </div>
-            <div class="meaning">thịnh soạn, nồng nhiệt</div>
-          </div>
-        </div>
-
-        <div class="vocab-card">
-          <button class="play-btn" onclick="speak('equivalent')">🔊</button>
-          <div class="vocab-info">
-            <div class="word-line">
-              <span class="word">equivalent</span>
-              <span class="pos">adj</span>
-              <span class="ipa">/ɪˈkwɪvələnt/</span>
-            </div>
-            <div class="meaning">tương đương</div>
-          </div>
-        </div>
-
-        <div class="vocab-card">
-          <button class="play-btn" onclick="speak('epidemic')">🔊</button>
-          <div class="vocab-info">
-            <div class="word-line">
-              <span class="word">epidemic</span>
-              <span class="pos">n</span>
-              <span class="ipa">/ˌepɪˈdemɪk/</span>
-            </div>
-            <div class="meaning">dịch bệnh</div>
-          </div>
-        </div>
-
+    <div class="vocab-grid">
+      <div class="vocab-card">
+        <div class="vocab-card-top"><div><span class="vc-word">Function</span><span class="vc-type">(v)</span></div><button class="audio-btn" onclick="speak('Function')">🔊</button></div>
+        <div class="vc-phonetics"><span class="vc-ipa">/ˈfʌŋkʃn/</span><span class="vc-sound">→ <strong>FUHNK</strong>-shuhn</span></div>
+        <div class="vc-def">To work or operate; to perform a specific role or task.</div>
+        <div class="vc-vi">hoạt động, thực hiện chức năng</div>
       </div>
-    </section>
+      <div class="vocab-card">
+        <div class="vocab-card-top"><div><span class="vc-word">Well-off</span><span class="vc-type">(adj)</span></div><button class="audio-btn" onclick="speak('Well off')">🔊</button></div>
+        <div class="vc-phonetics"><span class="vc-ipa">/ˌwel ˈɒf/</span><span class="vc-sound">→ wel-<strong>AWF</strong></span></div>
+        <div class="vc-def">Having a lot of money; wealthy and comfortable.</div>
+        <div class="vc-vi">giàu có, khá giả</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-card-top"><div><span class="vc-word">Ridiculous</span><span class="vc-type">(adj)</span></div><button class="audio-btn" onclick="speak('Ridiculous')">🔊</button></div>
+        <div class="vc-phonetics"><span class="vc-ipa">/rɪˈdɪkjələs/</span><span class="vc-sound">→ rih-<strong>DIK</strong>-yuh-luhs</span></div>
+        <div class="vc-def">Extremely silly or unreasonable; absurd.</div>
+        <div class="vc-vi">nực cười, vô lý</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-card-top"><div><span class="vc-word">Cat on hot bricks</span><span class="vc-type">(idiom)</span></div><button class="audio-btn" onclick="speak('Cat on hot bricks')">🔊</button></div>
+        <div class="vc-phonetics"><span class="vc-ipa">/kæt ɒn hɒt brɪks/</span><span class="vc-sound">→ kat on hot briks</span></div>
+        <div class="vc-def">Very nervous, anxious, or restless about something.</div>
+        <div class="vc-vi">bồn chồn, lo lắng vô cùng</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-card-top"><div><span class="vc-word">Empathy</span><span class="vc-type">(n)</span></div><button class="audio-btn" onclick="speak('Empathy')">🔊</button></div>
+        <div class="vc-phonetics"><span class="vc-ipa">/ˈempəθi/</span><span class="vc-sound">→ <strong>EM</strong>-puh-thee</span></div>
+        <div class="vc-def">The ability to understand and share the feelings of others.</div>
+        <div class="vc-vi">sự đồng cảm</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-card-top"><div><span class="vc-word">Compassion</span><span class="vc-type">(n)</span></div><button class="audio-btn" onclick="speak('Compassion')">🔊</button></div>
+        <div class="vc-phonetics"><span class="vc-ipa">/kəmˈpæʃn/</span><span class="vc-sound">→ kuhm-<strong>PASH</strong>-uhn</span></div>
+        <div class="vc-def">A feeling of deep sympathy and concern for those who are suffering.</div>
+        <div class="vc-vi">lòng thương xót, trắc ẩn</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-card-top"><div><span class="vc-word">Beneficial</span><span class="vc-type">(adj)</span></div><button class="audio-btn" onclick="speak('Beneficial')">🔊</button></div>
+        <div class="vc-phonetics"><span class="vc-ipa">/ˌbenɪˈfɪʃl/</span><span class="vc-sound">→ ben-uh-<strong>FISH</strong>-uhl</span></div>
+        <div class="vc-def">Producing good results; helpful and useful.</div>
+        <div class="vc-vi">có ích, có lợi</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-card-top"><div><span class="vc-word">Extinct</span><span class="vc-type">(adj)</span></div><button class="audio-btn" onclick="speak('Extinct')">🔊</button></div>
+        <div class="vc-phonetics"><span class="vc-ipa">/ɪkˈstɪŋkt/</span><span class="vc-sound">→ ik-<strong>STINKT</strong></span></div>
+        <div class="vc-def">No longer existing; having died out completely.</div>
+        <div class="vc-vi">tuyệt chủng</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-card-top"><div><span class="vc-word">Habitat</span><span class="vc-type">(n)</span></div><button class="audio-btn" onclick="speak('Habitat')">🔊</button></div>
+        <div class="vc-phonetics"><span class="vc-ipa">/ˈhæbɪtæt/</span><span class="vc-sound">→ <strong>HAB</strong>-ih-tat</span></div>
+        <div class="vc-def">The natural environment where an animal or plant normally lives.</div>
+        <div class="vc-vi">môi trường sống</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-card-top"><div><span class="vc-word">Hearty</span><span class="vc-type">(adj)</span></div><button class="audio-btn" onclick="speak('Hearty')">🔊</button></div>
+        <div class="vc-phonetics"><span class="vc-ipa">/ˈhɑːrti/</span><span class="vc-sound">→ <strong>HAR</strong>-tee</span></div>
+        <div class="vc-def">Large, satisfying, and full of flavor; warm and enthusiastic.</div>
+        <div class="vc-vi">thịnh soạn, nồng nhiệt</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-card-top"><div><span class="vc-word">Equivalent</span><span class="vc-type">(adj)</span></div><button class="audio-btn" onclick="speak('Equivalent')">🔊</button></div>
+        <div class="vc-phonetics"><span class="vc-ipa">/ɪˈkwɪvələnt/</span><span class="vc-sound">→ ih-<strong>KWIV</strong>-uh-luhnt</span></div>
+        <div class="vc-def">Equal in value, amount, function, or meaning.</div>
+        <div class="vc-vi">tương đương</div>
+      </div>
+      <div class="vocab-card">
+        <div class="vocab-card-top"><div><span class="vc-word">Epidemic</span><span class="vc-type">(n)</span></div><button class="audio-btn" onclick="speak('Epidemic')">🔊</button></div>
+        <div class="vc-phonetics"><span class="vc-ipa">/ˌepɪˈdemɪk/</span><span class="vc-sound">→ ep-ih-<strong>DEM</strong>-ik</span></div>
+        <div class="vc-def">A widespread outbreak of a disease in a community.</div>
+        <div class="vc-vi">dịch bệnh</div>
+      </div>
+    </div>
 
-    <!-- ===== BÀI TẬP ĐIỀN TỪ ===== -->
-    <section class="section">
-      <h2 class="section-title">
-        <span class="section-icon homework">📝</span>
-        Bài tập — Điền từ vựng vào chỗ trống (20 câu)
-      </h2>
-
+        <section class="section">
+      <h2 class="section-title"><span class="section-icon homework">📝</span> Bài tập — Điền từ vựng (20 câu)</h2>
       <div class="exercise-block"><span class="q-num">1.</span> The new hospital will <input type="text" class="fill-input" placeholder="..."> as a center for emergency care.</div>
       <div class="exercise-block"><span class="q-num">2.</span> Having a healthy breakfast every morning is highly <input type="text" class="fill-input" placeholder="..."> to your health.</div>
       <div class="exercise-block"><span class="q-num">3.</span> She was like a <input type="text" class="fill-input" placeholder="..."> before the results of the final exam were announced.</div>
@@ -345,27 +152,52 @@
       <div class="exercise-block"><span class="q-num">18.</span> The chef prepared a <input type="text" class="fill-input" placeholder="..."> breakfast for the guests at the hotel.</div>
       <div class="exercise-block"><span class="q-num">19.</span> We must take action before more animals become <input type="text" class="fill-input" placeholder="...">.</div>
       <div class="exercise-block"><span class="q-num">20.</span> Volunteer work brings <input type="text" class="fill-input" placeholder="..."> effects not only to the community but also to the volunteers themselves.</div>
-
       <div class="note-print">📄 Làm bài trên giấy — trang này chỉ để xem đề và luyện gõ thử.</div>
     </section>
+  </div>
 
-  </main>
-
+  <script src="../../js/config.js"></script>
   <script>
     function speak(word) {
-      if (!window.speechSynthesis) return;
-      window.speechSynthesis.cancel();
-      var u = new SpeechSynthesisUtterance(word);
-      u.lang = 'en-US';
-      u.rate = 0.85;
-      window.speechSynthesis.speak(u);
-    }
-    // Pre-load voices
-    if (window.speechSynthesis) {
-      speechSynthesis.getVoices();
-      speechSynthesis.onvoiceschanged = function() { speechSynthesis.getVoices(); };
+      if (!MW_API_KEY) { alert('Chưa điền API Key!\nMở file js/config.js'); return; }
+      var w = word.trim().split(/\s+/)[0].toLowerCase().replace(/[^a-z\-]/g, '');
+      if (!w) return;
+      fetch('https://www.dictionaryapi.com/api/v3/references/sd3/json/' + encodeURIComponent(w) + '?key=' + MW_API_KEY)
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (!Array.isArray(data) || !data.length || typeof data[0] === 'string') throw 'x';
+          var af = null;
+          for (var i = 0; i < data.length && !af; i++) {
+            var e = data[i];
+            if (e.hwi && e.hwi.prs) {
+              for (var j = 0; j < e.hwi.prs.length && !af; j++) {
+                if (e.hwi.prs[j].sound && e.hwi.prs[j].sound.audio) af = e.hwi.prs[j].sound.audio;
+              }
+            }
+            if (!af && e.uros) {
+              for (var k = 0; k < e.uros.length && !af; k++) {
+                var u = e.uros[k];
+                if (u.prs) for (var j = 0; j < u.prs.length && !af; j++) {
+                  if (u.prs[j].sound && u.prs[j].sound.audio) af = u.prs[j].sound.audio;
+                }
+              }
+            }
+          }
+          if (!af) throw 'no audio';
+          var sub = af.substr(0,3)==='bix'?'bix':af.substr(0,2)==='gg'?'gg':/^\d/.test(af)?'number':af[0];
+          new Audio('https://media.merriam-webster.com/audio/prons/en/us/mp3/'+sub+'/'+af+'.mp3').play();
+        })
+        .catch(function() {
+          var sub = w[0];
+          var a = new Audio('https://media.merriam-webster.com/audio/prons/en/us/mp3/'+sub+'/'+w+'.mp3');
+          a.onerror = function() {
+            if (window.speechSynthesis) { var m = new SpeechSynthesisUtterance(word); m.lang='en-US'; m.rate=0.9; speechSynthesis.speak(m); }
+          };
+          a.play().catch(function() {
+            if (window.speechSynthesis) { var m = new SpeechSynthesisUtterance(word); m.lang='en-US'; m.rate=0.9; speechSynthesis.speak(m); }
+          });
+        });
     }
   </script>
-
 </body>
 </html>

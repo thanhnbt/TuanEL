@@ -7,35 +7,19 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="site-logo">📘 English Daily</a>
-      <nav class="site-nav">
-        <a href="index.html">Trang chủ</a>
-      </nav>
+      <nav class="site-nav"><a href="index.html">Trang chủ</a></nav>
     </div>
   </header>
-
   <main class="container">
     <h1 class="page-title">Nhật ký học tiếng Anh</h1>
     <p class="page-subtitle">Ghi lại nội dung học mỗi ngày — từ vựng, video, bài tập.</p>
-
     <input type="text" id="search" class="search-box" placeholder="Tìm theo ngày, tiêu đề, hoặc tag...">
-
-    <div class="stats-bar">
-      <span><strong id="lesson-count">0</strong> bài học</span>
-    </div>
-
-    <div id="lesson-list" class="lesson-list">
-      <div class="empty-state">Đang tải...</div>
-    </div>
+    <div class="stats-bar"><span><strong id="lesson-count">0</strong> bài học</span></div>
+    <div id="lesson-list" class="lesson-list"><div class="empty-state">Đang tải...</div></div>
   </main>
-
-  <!--
-    ★ THÊM BÀI HỌC MỚI: thêm 1 object vào mảng bên dưới.
-    Xong tạo folder + copy template là được.
-  -->
   <script>
   var LESSONS = [
     {
@@ -43,6 +27,12 @@
       "title": "Writing & Vocabulary — Đề thi thử Amsterdam Lớp 6",
       "path": "lessons/2026-07-03-writing-vocab-phonetics/index.html",
       "tags": ["vocab", "grammar", "homework", "reading"]
+    },
+    {
+      "date": "2026-07-17",
+      "title": "Từ vựng IELTS & Writing — Destination / Vacation",
+      "path": "lessons/2026-07-17-vocab-writing/index.html",
+      "tags": ["vocab", "homework"]
     }
   ];
   </script>
