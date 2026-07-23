@@ -6,7 +6,5 @@ Website ghi lại nội dung học tiếng Anh. Deploy trên GitHub Pages.
 Merriam-Webster Dictionary (giọng Mỹ). Fallback: speechSynthesis.
 
 ## Setup
-git add .  
-git commit -m "update"   
-git remote add origin https://github.com/thanhnbt/TuanEL.git  
-git push -u origin main`
+1. Copy file Cẩm Nang Ngữ Âm (index.html) từ repo cũ vào `lessons/2026-07-03-writing-vocab-phonetics/`
+2. `git add . && git commit -m "update" && git push`

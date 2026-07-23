@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Từ Vựng — Bài học 17/07 — English Daily</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .lesson-topbar{background:var(--bg-card);border-bottom:1px solid var(--border);padding:0 1rem;position:sticky;top:0;z-index:99}
+    .lesson-topbar-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;gap:8px}
+    .lesson-topbar .back-link{color:var(--accent);font-size:13px;font-weight:600;padding:10px 0;margin-right:16px;white-space:nowrap}
+    .sub-nav{display:flex;gap:4px;overflow-x:auto}
+    .sub-nav a{padding:10px 14px;font-size:13px;font-weight:500;color:var(--text-muted);border-bottom:2px solid transparent;white-space:nowrap}
+    .sub-nav a.active{color:var(--accent);border-bottom-color:var(--accent)}
+    .page-wrap{max-width:640px;margin:0 auto;padding:24px 16px 60px}
+    .page-title{font-size:1.5rem;font-weight:700;color:var(--accent);margin:0 0 4px}
+    .page-subtitle{color:var(--text-muted);font-size:.9rem;margin:0 0 20px}
+    .day-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+    .day-tab{padding:8px 18px;border:2px solid var(--border);border-radius:20px;background:#fff;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;user-select:none}
+    .day-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .day-tab:hover:not(.active){border-color:var(--accent);color:var(--accent)}
+    .quiz-controls{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+    .ctrl-btn{padding:8px 14px;border:1px solid var(--border);border-radius:8px;background:#fff;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .15s}
+    .ctrl-btn:hover{background:var(--accent-light);border-color:var(--accent);color:var(--accent)}
+    .ctrl-btn.on{background:#d1fae5;border-color:#059669;color:#059669}
+    .quiz-progress{margin-bottom:16px}
+    .progress-bar{height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden}
+    .progress-fill{height:100%;background:linear-gradient(90deg,#10b981,#059669);border-radius:4px;transition:width .4s ease}
+    .progress-text{font-size:.8rem;color:var(--text-muted);margin-top:4px;text-align:center}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08);margin-bottom:20px}
+    .card-img{width:100%;height:220px;background:#f1f5f9;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+    .card-img img{width:100%;height:100%;object-fit:cover}
+    .card-img .fallback{font-size:72px;user-select:none;display:none;width:100%;height:100%;align-items:center;justify-content:center}
+    .card-counter{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.55);color:#fff;padding:3px 10px;border-radius:16px;font-size:.78rem;font-weight:600}
+    .card-attempts{position:absolute;top:10px;left:10px;background:rgba(220,38,38,.8);color:#fff;padding:3px 10px;border-radius:16px;font-size:.78rem;font-weight:600;display:none}
+    .card-body{padding:20px 24px 24px}
+    .card-type{text-align:center;color:var(--text-muted);font-size:.82rem;margin-bottom:6px}
+    .card-def{text-align:center;font-size:.93rem;color:var(--text);line-height:1.5;margin-bottom:3px}
+    .card-vi{text-align:center;font-size:.84rem;color:var(--text-light);font-style:italic;margin-bottom:18px}
+    /* Hint checkbox */
+    .hint-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px}
+    .hint-label{font-size:.82rem;color:var(--text-muted);cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px}
+    .hint-label input{accent-color:var(--accent);width:16px;height:16px}
+    .hint-audio{display:none;align-items:center;justify-content:center}
+    .hint-audio.show{display:flex}
+    .card-audio{background:#10b981;color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;margin:0 auto;transition:background .2s,transform .1s}
+    .card-audio:hover{background:#059669}
+    .card-audio:active{transform:scale(.9)}
+    /* Letter boxes */
+    .letter-row{display:flex;gap:5px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+    .letter-box{width:38px;height:46px;border:2px solid #cbd5e1;border-radius:8px;text-align:center;font-size:1.3rem;font-weight:700;font-family:var(--font-mono);color:var(--text);background:#fff;outline:none;transition:border-color .2s,background .2s;padding:0}
+    .letter-box:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+    .letter-box.given{background:#eff6ff;border-color:var(--accent);color:var(--accent);cursor:default}
+    .letter-box.correct{background:#d1fae5;border-color:#059669;color:#059669}
+    .letter-box.wrong{background:#fee2e2;border-color:#dc2626;color:#dc2626;animation:shake .4s}
+    @keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-4px)}40%,80%{transform:translateX(4px)}}
+    @media(max-width:420px){.letter-box{width:32px;height:40px;font-size:1.1rem}}
+    .card-check{display:block;width:100%;padding:13px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s}
+    .card-check:hover{background:#1d4ed8}
+    .card-check:disabled{background:#94a3b8;cursor:default}
+    .card-feedback{text-align:center;margin-top:10px;font-size:.95rem;font-weight:600;min-height:26px}
+    .card-feedback .ok{color:#16a34a}.card-feedback .nope{color:#dc2626}.card-feedback .hint-msg{color:#d97706}
+    .card-answer{text-align:center;font-size:1rem;color:var(--accent);font-weight:700;margin-top:6px;padding:8px;background:#eff6ff;border-radius:8px}
+    .quiz-nav{display:flex;gap:10px;margin-bottom:20px}
+    .quiz-nav button{flex:1;padding:12px;border:1px solid var(--border);border-radius:10px;background:#fff;font-size:.95rem;font-weight:600;cursor:pointer;color:var(--text);transition:all .2s}
+    .quiz-nav button:hover:not(:disabled){background:var(--accent-light);border-color:var(--accent);color:var(--accent)}
+    .quiz-nav button:disabled{opacity:.35;cursor:default}
+    .score{text-align:center;padding:40px 20px}
+    .score-icon{font-size:60px;margin-bottom:10px}
+    .score-num{font-size:1.8rem;font-weight:800;color:var(--accent);margin-bottom:6px}
+    .score-msg{font-size:1rem;color:var(--text-muted);margin-bottom:20px}
+    .score-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .score-btn{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:13px 24px;font-size:.95rem;font-weight:600;cursor:pointer}
+    .score-btn:hover{background:#1d4ed8}
+    .score-btn.outline{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+    .score-btn.outline:hover{background:var(--accent-light)}
+  </style>
+</head>
+<body>
+  <div class="lesson-topbar"><div class="lesson-topbar-inner">
+    <a href="../../index.html" class="back-link">← Trang chủ</a>
+    <nav class="sub-nav">
+      <a href="index.html">📗 Từ vựng</a>
+      <a href="writing.html">📐 Writing</a>
+      <a href="quiz.html" class="active">🧩 Quiz</a>
+    </nav>
+  </div></div>
+  <div class="page-wrap">
+    <h1 class="page-title">🧩 Quiz Từ Vựng — Ngày 17/07</h1>
+    <p class="page-subtitle">Nhìn ảnh + nghĩa, điền từ vào ô trống. Sai 3 lần mới hiện đáp án!</p>
+    <div class="day-tabs" id="day-tabs"></div>
+    <div class="quiz-controls">
+      <button class="ctrl-btn" id="btn-shuffle" onclick="Q.toggleShuffle()">🔀 Trộn từ</button>
+    </div>
+    <div class="quiz-progress">
+      <div class="progress-bar"><div class="progress-fill" id="pbar" style="width:0"></div></div>
+      <div class="progress-text" id="ptxt">0 / 0</div>
+    </div>
+    <div id="quiz-area"></div>
+    <div class="quiz-nav" id="quiz-nav">
+      <button id="btn-prev" onclick="Q.prev()" disabled>← Trước</button>
+      <button id="btn-next" onclick="Q.next()">Tiếp →</button>
+    </div>
+  </div>
+  <script src="../../js/config.js"></script>
+  <script>
+  var Q = (function(){
+    var MAX_TRIES = 3;
+    var ALL = [
+      {w:"Landmark",t:"(n)",d:"A famous building or place that is easily recognized.",v:"điểm tham quan, công trình nổi tiếng",img:"https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=480&h=260&fit=crop",em:"🗼",day:1},
+      {w:"Romantic",t:"(adj)",d:"Relating to love; making you feel strong emotions of love.",v:"lãng mạn",img:"https://images.unsplash.com/photo-1529519195486-16945f7dcab9?w=480&h=260&fit=crop",em:"💕",day:1},
+      {w:"Atmosphere",t:"(n)",d:"The feeling or mood that a place gives you.",v:"bầu không khí",img:"https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=480&h=260&fit=crop",em:"🌌",day:1},
+      {w:"Charming",t:"(adj)",d:"Very pleasant and attractive; delightful.",v:"quyến rũ, duyên dáng",img:"https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?w=480&h=260&fit=crop",em:"✨",day:1},
+      {w:"Pleasant",t:"(adj)",d:"Enjoyable, agreeable, and giving a sense of comfort.",v:"dễ chịu, thoải mái",img:"https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=480&h=260&fit=crop",em:"😊",day:1},
+      {w:"Deprivation",t:"(n)",d:"The lack of something considered necessary.",v:"sự thiếu thốn, tước đoạt",img:"https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=480&h=260&fit=crop",em:"😞",day:1},
+      {w:"Critical",t:"(adj)",d:"Extremely important; essential to the outcome.",v:"quan trọng, then chốt",img:"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=480&h=260&fit=crop",em:"⚠️",day:1},
+      {w:"Consolidation",t:"(n)",d:"The act of making something stronger or more solid.",v:"sự củng cố",img:"https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=480&h=260&fit=crop",em:"🧱",day:2},
+      {w:"Adequate",t:"(adj)",d:"Enough in quantity or quality; sufficient.",v:"đầy đủ, thích đáng",img:"https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=480&h=260&fit=crop",em:"✅",day:2},
+      {w:"Depression",t:"(n)",d:"A mental condition of deep sadness; an economic downturn.",v:"trầm cảm, suy thoái",img:"https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?w=480&h=260&fit=crop",em:"🌧️",day:2},
+      {w:"Establish",t:"(v)",d:"To set up or create something on a permanent basis.",v:"thiết lập, thành lập",img:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=480&h=260&fit=crop",em:"🏗️",day:2},
+      {w:"Consistent",t:"(adj)",d:"Always behaving in the same way; unchanging.",v:"nhất quán, kiên định",img:"https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=480&h=260&fit=crop",em:"🎯",day:2},
+      {w:"Balance",t:"(n/v)",d:"A state where things are equal; to keep in a steady position.",v:"sự cân bằng",img:"https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=480&h=260&fit=crop",em:"⚖️",day:2},
+      {w:"Arrangement",t:"(n)",d:"A plan or preparation; the way things are organized.",v:"sự sắp xếp, thỏa thuận",img:"https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=480&h=260&fit=crop",em:"📋",day:2},
+      {w:"Isolated",t:"(adj)",d:"Far away from other places or people; alone and separate.",v:"bị cô lập, riêng biệt",img:"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=480&h=260&fit=crop",em:"🏝️",day:3},
+      {w:"Interaction",t:"(n)",d:"Communication or direct involvement with someone.",v:"sự tương tác",img:"https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=480&h=260&fit=crop",em:"🤝",day:3},
+      {w:"Consumption",t:"(n)",d:"The act of using up a resource such as food or energy.",v:"sự tiêu thụ",img:"https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=480&h=260&fit=crop",em:"🔋",day:3},
+      {w:"Emissions",t:"(n)",d:"Gas or radiation released into the air, especially pollutants.",v:"khí thải, sự phát thải",img:"https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=480&h=260&fit=crop",em:"🏭",day:3},
+      {w:"Essential",t:"(adj)",d:"Absolutely necessary; extremely important.",v:"thiết yếu, cốt yếu",img:"https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=480&h=260&fit=crop",em:"💎",day:3},
+      {w:"Shelter",t:"(n)",d:"A place giving protection from bad weather or danger.",v:"nơi trú ẩn, che chở",img:"https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=480&h=260&fit=crop",em:"🏠",day:3},
+      {w:"Erosion",t:"(n)",d:"The gradual wearing away of soil or rock by wind or water.",v:"sự xói mòn",img:"https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=480&h=260&fit=crop",em:"🌊",day:3}
+    ];
+    var DAYS=[{id:1,l:"📅 Ngày 1"},{id:2,l:"📅 Ngày 2"},{id:3,l:"📅 Ngày 3"}];
+
+    var curDay=1,curIdx=0,shuffled=false,words=[],results={},tries={};
+
+    /* Tabs */
+    var tabsEl=document.getElementById('day-tabs');
+    DAYS.forEach(function(d){
+      var b=document.createElement('button');b.className='day-tab'+(d.id===1?' active':'');b.textContent=d.l;
+      b.setAttribute('data-day',d.id);b.onclick=function(){pickDay(d.id);};tabsEl.appendChild(b);
+    });
+
+    function pickDay(day){curDay=day;curIdx=0;results={};tries={};
+      tabsEl.querySelectorAll('.day-tab').forEach(function(b){b.className='day-tab'+(parseInt(b.getAttribute('data-day'))===day?' active':'');});
+      buildWords();render();
+    }
+    function buildWords(){words=ALL.filter(function(x){return x.day===curDay;});if(shuffled)shuffle(words);}
+    function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}}
+
+    function toggleShuffle(){
+      shuffled=!shuffled;var b=document.getElementById('btn-shuffle');
+      b.className='ctrl-btn'+(shuffled?' on':'');b.textContent=shuffled?'🔀 Đang trộn ✓':'🔀 Trộn từ';
+      curIdx=0;results={};tries={};buildWords();render();
+    }
+
+    function render(){
+      var area=document.getElementById('quiz-area'),nav=document.getElementById('quiz-nav');nav.style.display='flex';
+      var done=Object.keys(results).length;
+      document.getElementById('pbar').style.width=(words.length?Math.round(done/words.length*100):0)+'%';
+      document.getElementById('ptxt').textContent=done+' / '+words.length+' đã làm';
+      if(curIdx>=words.length){showScore();return;}
+      var it=words[curIdx],answered=results.hasOwnProperty(it.w),t=tries[it.w]||0;
+      var letters=it.w.split(''),boxesHTML='';
+      for(var i=0;i<letters.length;i++){
+        if(i===0){boxesHTML+='<input class="letter-box given" value="'+letters[0].toUpperCase()+'" readonly tabindex="-1">';}
+        else{
+          var cls='letter-box';
+          if(answered) cls+=' correct';
+          boxesHTML+='<input class="'+cls+'" maxlength="1" data-idx="'+i+'"'+(answered?' value="'+letters[i]+'" readonly':'')+' autocomplete="off" autocapitalize="off" spellcheck="false">';
+        }
+      }
+      area.innerHTML=
+        '<div class="quiz-card"><div class="card-img">'+
+          '<img src="'+it.img+'" alt="" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'+
+          '<div class="fallback">'+it.em+'</div>'+
+          '<div class="card-counter">'+(curIdx+1)+' / '+words.length+'</div>'+
+          (t>0&&!answered?'<div class="card-attempts" style="display:block">❌ '+t+'/'+MAX_TRIES+'</div>':'')+
+        '</div><div class="card-body">'+
+          '<div class="hint-row"><label class="hint-label"><input type="checkbox" id="hint-chk" onchange="Q.toggleHint()"> 💡 Gợi ý nghe phát âm</label></div>'+
+          '<div class="hint-audio" id="hint-audio"><button class="card-audio" onclick="Q.speak(\''+it.w.replace(/'/g,"\\'")+'\')">🔊</button></div>'+
+          '<div class="card-type">'+it.t+'</div>'+
+          '<div class="card-def">'+it.d+'</div>'+
+          '<div class="card-vi">'+it.v+'</div>'+
+          '<div class="letter-row" id="letter-row">'+boxesHTML+'</div>'+
+          (answered?'':'<button class="card-check" id="btn-check" onclick="Q.check()">Kiểm tra</button>')+
+          '<div class="card-feedback" id="fb">'+
+            (answered?(results[it.w]?'<span class="ok">✅ Chính xác!</span>':'<span class="nope">Đã hết lượt — xem đáp án ở trên</span>'):'')+
+          '</div>'+
+          (answered&&!results[it.w]?'<div class="card-answer">Đáp án: <strong>'+it.w+'</strong></div>':'')+
+        '</div></div>';
+      if(!answered) wireBoxes();
+      document.getElementById('btn-prev').disabled=(curIdx===0);
+      document.getElementById('btn-next').textContent=(curIdx>=words.length-1&&done===words.length)?'🏆 Kết quả':'Tiếp →';
+    }
+
+    function wireBoxes(){
+      var boxes=document.querySelectorAll('#letter-row .letter-box:not(.given)');
+      boxes.forEach(function(box,bi){
+        box.addEventListener('input',function(){this.value=this.value.slice(-1);if(this.value&&bi<boxes.length-1)boxes[bi+1].focus();});
+        box.addEventListener('keydown',function(e){
+          if(e.key==='Backspace'&&!this.value&&bi>0){e.preventDefault();boxes[bi-1].focus();boxes[bi-1].value='';}
+          if(e.key==='Enter')check();
+          if(e.key==='ArrowLeft'&&bi>0)boxes[bi-1].focus();
+          if(e.key==='ArrowRight'&&bi<boxes.length-1)boxes[bi+1].focus();
+        });
+      });
+      if(boxes.length)boxes[0].focus();
+    }
+
+    function check(){
+      var it=words[curIdx];if(results.hasOwnProperty(it.w))return;
+      var letters=it.w.split(''),boxes=document.querySelectorAll('#letter-row .letter-box'),allCorrect=true,anyFilled=false;
+      // Check if any box filled
+      boxes.forEach(function(b,i){if(i>0&&b.value.trim())anyFilled=true;});
+      if(!anyFilled)return;
+
+      boxes.forEach(function(box,i){
+        if(i===0)return;
+        if(box.value.toLowerCase()!==letters[i].toLowerCase())allCorrect=false;
+      });
+
+      if(allCorrect){
+        results[it.w]=true;
+        boxes.forEach(function(box,i){if(i>0){box.classList.add('correct');box.readOnly=true;}});
+        document.getElementById('fb').innerHTML='<span class="ok">✅ Chính xác! Giỏi lắm!</span>';
+        var btn=document.getElementById('btn-check');if(btn)btn.remove();
+        updateProgress();
+      } else {
+        tries[it.w]=(tries[it.w]||0)+1;
+        var t=tries[it.w];
+        // Shake wrong boxes
+        boxes.forEach(function(box,i){
+          if(i===0)return;
+          if(box.value.toLowerCase()!==letters[i].toLowerCase()){box.classList.add('wrong');}
+          else{box.classList.add('correct');box.readOnly=true;}
+        });
+
+        if(t>=MAX_TRIES){
+          // Reveal answer
+          results[it.w]=false;
+          boxes.forEach(function(box,i){if(i>0){box.value=letters[i];box.className='letter-box correct';box.readOnly=true;}});
+          document.getElementById('fb').innerHTML='<span class="nope">❌ Hết '+MAX_TRIES+' lượt rồi!</span>';
+          document.getElementById('fb').insertAdjacentHTML('afterend','<div class="card-answer">Đáp án: <strong>'+it.w+'</strong></div>');
+          var btn=document.getElementById('btn-check');if(btn)btn.remove();
+          updateProgress();
+        } else {
+          document.getElementById('fb').innerHTML='<span class="hint-msg">Sai rồi! Còn '+(MAX_TRIES-t)+' lượt nữa — thử lại!</span>';
+          // Update attempts badge
+          var badge=document.querySelector('.card-attempts');
+          if(badge){badge.style.display='block';badge.textContent='❌ '+t+'/'+MAX_TRIES;}
+          // Clear wrong boxes after short delay so user can retry
+          setTimeout(function(){
+            boxes.forEach(function(box,i){
+              if(i>0&&!box.readOnly){box.classList.remove('wrong');box.value='';}
+            });
+            var first=document.querySelector('#letter-row .letter-box:not(.given):not([readonly])');
+            if(first)first.focus();
+          },800);
+        }
+      }
+    }
+
+    function updateProgress(){
+      var done=Object.keys(results).length;
+      document.getElementById('pbar').style.width=Math.round(done/words.length*100)+'%';
+      document.getElementById('ptxt').textContent=done+' / '+words.length+' đã làm';
+      document.getElementById('btn-next').textContent=(curIdx>=words.length-1&&done===words.length)?'🏆 Kết quả':'Tiếp →';
+    }
+
+    function next(){if(curIdx>=words.length-1&&Object.keys(results).length===words.length){showScore();return;}if(curIdx<words.length-1){curIdx++;render();}}
+    function prev(){if(curIdx>0){curIdx--;render();}}
+
+    function showScore(){
+      var c=0,total=words.length;for(var k in results)if(results[k])c++;var pct=Math.round(c/total*100);
+      var icon=pct>=90?'🏆':pct>=70?'🌟':pct>=50?'💪':'📖';
+      var msg=pct>=90?'Xuất sắc!':pct>=70?'Tốt lắm!':pct>=50?'Cố gắng thêm nhé!':'Học lại từ vựng rồi thử lại nha!';
+      document.getElementById('quiz-area').innerHTML=
+        '<div class="score"><div class="score-icon">'+icon+'</div><div class="score-num">'+c+' / '+total+' đúng</div>'+
+        '<div class="score-msg">'+pct+'% — '+msg+'</div><div class="score-btns">'+
+        '<button class="score-btn" onclick="Q.retry()">🔄 Làm lại</button>'+
+        '<button class="score-btn outline" onclick="Q.retryWrong()">❌ Làm lại từ sai</button></div></div>';
+      document.getElementById('quiz-nav').style.display='none';
+      document.getElementById('pbar').style.width='100%';
+    }
+
+    function retry(){results={};tries={};curIdx=0;document.getElementById('quiz-nav').style.display='flex';buildWords();render();}
+    function retryWrong(){
+      var wrong=[];for(var k in results)if(!results[k])for(var i=0;i<ALL.length;i++)if(ALL[i].w===k){wrong.push(ALL[i]);break;}
+      if(!wrong.length){alert('Không có từ nào sai — giỏi quá!');return;}
+      words=wrong;if(shuffled)shuffle(words);results={};tries={};curIdx=0;
+      document.getElementById('quiz-nav').style.display='flex';render();
+    }
+
+    function toggleHint(){
+      var chk=document.getElementById('hint-chk'),el=document.getElementById('hint-audio');
+      if(chk&&el){el.className='hint-audio'+(chk.checked?' show':'');}
+    }
+
+    /* Audio */
+    function speakWord(word){
+      if(!MW_API_KEY){_tts(word);return;}
+      var w=word.trim().split(/\s+/)[0].toLowerCase().replace(/[^a-z\-]/g,'');if(!w)return;
+      fetch('https://www.dictionaryapi.com/api/v3/references/sd3/json/'+encodeURIComponent(w)+'?key='+MW_API_KEY)
+        .then(function(r){return r.json();})
+        .then(function(data){
+          if(!Array.isArray(data)||!data.length||typeof data[0]==='string')throw'x';
+          var af=_findAudio(data,w);if(!af)throw'no audio';
+          var sub=af.substr(0,3)==='bix'?'bix':af.substr(0,2)==='gg'?'gg':/^\d/.test(af)?'number':af[0];
+          new Audio('https://media.merriam-webster.com/audio/prons/en/us/mp3/'+sub+'/'+af+'.mp3').play();
+        }).catch(function(){_tts(word);});
+    }
+    function _findAudio(data,w){
+      for(var i=0;i<data.length;i++){var e=data[i],hw=(e.hwi&&e.hwi.hw)?e.hwi.hw.replace(/\*/g,''):'';
+        if(hw===w&&e.hwi.prs)for(var j=0;j<e.hwi.prs.length;j++)if(e.hwi.prs[j].sound&&e.hwi.prs[j].sound.audio)return e.hwi.prs[j].sound.audio;}
+      for(var i=0;i<data.length;i++){if(!data[i].uros)continue;
+        for(var k=0;k<data[i].uros.length;k++){var ure=(data[i].uros[k].ure||'').replace(/\*/g,'');
+          if(ure===w&&data[i].uros[k].prs)for(var j=0;j<data[i].uros[k].prs.length;j++)if(data[i].uros[k].prs[j].sound&&data[i].uros[k].prs[j].sound.audio)return data[i].uros[k].prs[j].sound.audio;}}
+      return null;
+    }
+    function _tts(word){if(window.speechSynthesis){var m=new SpeechSynthesisUtterance(word);m.lang='en-US';m.rate=0.85;speechSynthesis.speak(m);}}
+
+    buildWords();render();
+    return{toggleShuffle:toggleShuffle,check:check,next:next,prev:prev,retry:retry,retryWrong:retryWrong,speak:speakWord,toggleHint:toggleHint};
+  })();
+  </script>
+</body>
+</html>

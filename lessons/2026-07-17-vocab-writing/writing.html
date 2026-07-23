@@ -49,6 +49,7 @@
     <nav class="sub-nav">
       <a href="index.html">📗 Từ vựng</a>
       <a href="writing.html" class="active">📐 Writing</a>
+      <a href="quiz.html">🧩 Quiz</a>
     </nav>
   </div></div>
 
@@ -120,44 +121,36 @@
   <script src="../../js/config.js"></script>
   <script>
     function speak(word) {
-      if (!MW_API_KEY) { alert('Chưa điền API Key!\nMở file js/config.js'); return; }
+      if (!MW_API_KEY) { _tts(word); return; }
       var w = word.trim().split(/\s+/)[0].toLowerCase().replace(/[^a-z\-]/g, '');
       if (!w) return;
       fetch('https://www.dictionaryapi.com/api/v3/references/sd3/json/' + encodeURIComponent(w) + '?key=' + MW_API_KEY)
         .then(function(r) { return r.json(); })
         .then(function(data) {
           if (!Array.isArray(data) || !data.length || typeof data[0] === 'string') throw 'x';
-          var af = null;
-          for (var i = 0; i < data.length && !af; i++) {
-            var e = data[i];
-            if (e.hwi && e.hwi.prs) {
-              for (var j = 0; j < e.hwi.prs.length && !af; j++) {
-                if (e.hwi.prs[j].sound && e.hwi.prs[j].sound.audio) af = e.hwi.prs[j].sound.audio;
-              }
-            }
-            if (!af && e.uros) {
-              for (var k = 0; k < e.uros.length && !af; k++) {
-                var u = e.uros[k];
-                if (u.prs) for (var j = 0; j < u.prs.length && !af; j++) {
-                  if (u.prs[j].sound && u.prs[j].sound.audio) af = u.prs[j].sound.audio;
-                }
-              }
-            }
-          }
+          var af = _findAudio(data, w);
           if (!af) throw 'no audio';
           var sub = af.substr(0,3)==='bix'?'bix':af.substr(0,2)==='gg'?'gg':/^\d/.test(af)?'number':af[0];
           new Audio('https://media.merriam-webster.com/audio/prons/en/us/mp3/'+sub+'/'+af+'.mp3').play();
         })
-        .catch(function() {
-          var sub = w[0];
-          var a = new Audio('https://media.merriam-webster.com/audio/prons/en/us/mp3/'+sub+'/'+w+'.mp3');
-          a.onerror = function() {
-            if (window.speechSynthesis) { var m = new SpeechSynthesisUtterance(word); m.lang='en-US'; m.rate=0.9; speechSynthesis.speak(m); }
-          };
-          a.play().catch(function() {
-            if (window.speechSynthesis) { var m = new SpeechSynthesisUtterance(word); m.lang='en-US'; m.rate=0.9; speechSynthesis.speak(m); }
-          });
-        });
+        .catch(function() { _tts(word); });
+    }
+    function _findAudio(data, w) {
+      for (var i=0;i<data.length;i++){
+        var e=data[i], hw=(e.hwi&&e.hwi.hw)?e.hwi.hw.replace(/\*/g,''):'';
+        if(hw===w&&e.hwi.prs) for(var j=0;j<e.hwi.prs.length;j++) if(e.hwi.prs[j].sound&&e.hwi.prs[j].sound.audio) return e.hwi.prs[j].sound.audio;
+      }
+      for(var i=0;i<data.length;i++){
+        if(!data[i].uros) continue;
+        for(var k=0;k<data[i].uros.length;k++){
+          var ure=(data[i].uros[k].ure||'').replace(/\*/g,'');
+          if(ure===w&&data[i].uros[k].prs) for(var j=0;j<data[i].uros[k].prs.length;j++) if(data[i].uros[k].prs[j].sound&&data[i].uros[k].prs[j].sound.audio) return data[i].uros[k].prs[j].sound.audio;
+        }
+      }
+      return null;
+    }
+    function _tts(word) {
+      if (window.speechSynthesis) { var m = new SpeechSynthesisUtterance(word); m.lang='en-US'; m.rate=0.85; speechSynthesis.speak(m); }
     }
   </script>
 </body>

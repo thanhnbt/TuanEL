@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Từ Vựng — Bài học 03/07 — English Daily</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .lesson-topbar{background:var(--bg-card);border-bottom:1px solid var(--border);padding:0 1rem;position:sticky;top:0;z-index:99}
+    .lesson-topbar-inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;gap:8px}
+    .lesson-topbar .back-link{color:var(--accent);font-size:13px;font-weight:600;padding:10px 0;margin-right:16px;white-space:nowrap}
+    .sub-nav{display:flex;gap:4px;overflow-x:auto}
+    .sub-nav a{padding:10px 14px;font-size:13px;font-weight:500;color:var(--text-muted);border-bottom:2px solid transparent;white-space:nowrap}
+    .sub-nav a.active{color:var(--accent);border-bottom-color:var(--accent)}
+    .page-wrap{max-width:640px;margin:0 auto;padding:24px 16px 60px}
+    .page-title{font-size:1.5rem;font-weight:700;color:var(--accent);margin:0 0 4px}
+    .page-subtitle{color:var(--text-muted);font-size:.9rem;margin:0 0 20px}
+    .day-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+    .day-tab{padding:8px 18px;border:2px solid var(--border);border-radius:20px;background:#fff;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;user-select:none}
+    .day-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .day-tab:hover:not(.active){border-color:var(--accent);color:var(--accent)}
+    .quiz-controls{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+    .ctrl-btn{padding:8px 14px;border:1px solid var(--border);border-radius:8px;background:#fff;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .15s}
+    .ctrl-btn:hover{background:var(--accent-light);border-color:var(--accent);color:var(--accent)}
+    .ctrl-btn.on{background:#d1fae5;border-color:#059669;color:#059669}
+    .quiz-progress{margin-bottom:16px}
+    .progress-bar{height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden}
+    .progress-fill{height:100%;background:linear-gradient(90deg,#10b981,#059669);border-radius:4px;transition:width .4s ease}
+    .progress-text{font-size:.8rem;color:var(--text-muted);margin-top:4px;text-align:center}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08);margin-bottom:20px}
+    .card-img{width:100%;height:220px;background:#f1f5f9;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+    .card-img img{width:100%;height:100%;object-fit:cover}
+    .card-img .fallback{font-size:72px;user-select:none;display:none;width:100%;height:100%;align-items:center;justify-content:center}
+    .card-counter{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.55);color:#fff;padding:3px 10px;border-radius:16px;font-size:.78rem;font-weight:600}
+    .card-attempts{position:absolute;top:10px;left:10px;background:rgba(220,38,38,.8);color:#fff;padding:3px 10px;border-radius:16px;font-size:.78rem;font-weight:600;display:none}
+    .card-body{padding:20px 24px 24px}
+    .card-type{text-align:center;color:var(--text-muted);font-size:.82rem;margin-bottom:6px}
+    .card-def{text-align:center;font-size:.93rem;color:var(--text);line-height:1.5;margin-bottom:3px}
+    .card-vi{text-align:center;font-size:.84rem;color:var(--text-light);font-style:italic;margin-bottom:18px}
+    .hint-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px}
+    .hint-label{font-size:.82rem;color:var(--text-muted);cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px}
+    .hint-label input{accent-color:var(--accent);width:16px;height:16px}
+    .hint-audio{display:none;align-items:center;justify-content:center}
+    .hint-audio.show{display:flex}
+    .card-audio{background:#10b981;color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;margin:0 auto;transition:background .2s,transform .1s}
+    .card-audio:hover{background:#059669}
+    .card-audio:active{transform:scale(.9)}
+    .letter-row{display:flex;gap:5px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+    .letter-box{width:38px;height:46px;border:2px solid #cbd5e1;border-radius:8px;text-align:center;font-size:1.3rem;font-weight:700;font-family:var(--font-mono);color:var(--text);background:#fff;outline:none;transition:border-color .2s,background .2s;padding:0}
+    .letter-box:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+    .letter-box.given{background:#eff6ff;border-color:var(--accent);color:var(--accent);cursor:default}
+    .letter-box.correct{background:#d1fae5;border-color:#059669;color:#059669}
+    .letter-box.wrong{background:#fee2e2;border-color:#dc2626;color:#dc2626;animation:shake .4s}
+    .letter-box.space{width:16px;border:none;background:transparent;cursor:default}
+    @keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-4px)}40%,80%{transform:translateX(4px)}}
+    @media(max-width:420px){.letter-box{width:30px;height:38px;font-size:1rem}}
+    .card-check{display:block;width:100%;padding:13px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .2s}
+    .card-check:hover{background:#1d4ed8}
+    .card-check:disabled{background:#94a3b8;cursor:default}
+    .card-feedback{text-align:center;margin-top:10px;font-size:.95rem;font-weight:600;min-height:26px}
+    .card-feedback .ok{color:#16a34a}.card-feedback .nope{color:#dc2626}.card-feedback .hint-msg{color:#d97706}
+    .card-answer{text-align:center;font-size:1rem;color:var(--accent);font-weight:700;margin-top:6px;padding:8px;background:#eff6ff;border-radius:8px}
+    .quiz-nav{display:flex;gap:10px;margin-bottom:20px}
+    .quiz-nav button{flex:1;padding:12px;border:1px solid var(--border);border-radius:10px;background:#fff;font-size:.95rem;font-weight:600;cursor:pointer;color:var(--text);transition:all .2s}
+    .quiz-nav button:hover:not(:disabled){background:var(--accent-light);border-color:var(--accent);color:var(--accent)}
+    .quiz-nav button:disabled{opacity:.35;cursor:default}
+    .score{text-align:center;padding:40px 20px}
+    .score-icon{font-size:60px;margin-bottom:10px}
+    .score-num{font-size:1.8rem;font-weight:800;color:var(--accent);margin-bottom:6px}
+    .score-msg{font-size:1rem;color:var(--text-muted);margin-bottom:20px}
+    .score-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .score-btn{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:13px 24px;font-size:.95rem;font-weight:600;cursor:pointer}
+    .score-btn:hover{background:#1d4ed8}
+    .score-btn.outline{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+    .score-btn.outline:hover{background:var(--accent-light)}
+  </style>
+</head>
+<body>
+  <div class="lesson-topbar"><div class="lesson-topbar-inner">
+    <a href="../../index.html" class="back-link">← Trang chủ</a>
+    <nav class="sub-nav">
+      <a href="index.html">🔊 Ngữ Âm</a>
+      <a href="vocab.html">📗 Từ vựng</a>
+      <a href="writing.html">📐 Writing</a>
+      <a href="quiz.html" class="active">🧩 Quiz</a>
+    </nav>
+  </div></div>
+  <div class="page-wrap">
+    <h1 class="page-title">🧩 Quiz Từ Vựng — Ngày 03/07</h1>
+    <p class="page-subtitle">Nhìn ảnh + nghĩa, điền từ vào ô trống. Sai 3 lần mới hiện đáp án!</p>
+    <div class="day-tabs" id="day-tabs"></div>
+    <div class="quiz-controls">
+      <button class="ctrl-btn" id="btn-shuffle" onclick="Q.toggleShuffle()">🔀 Trộn từ</button>
+    </div>
+    <div class="quiz-progress">
+      <div class="progress-bar"><div class="progress-fill" id="pbar" style="width:0"></div></div>
+      <div class="progress-text" id="ptxt">0 / 0</div>
+    </div>
+    <div id="quiz-area"></div>
+    <div class="quiz-nav" id="quiz-nav">
+      <button id="btn-prev" onclick="Q.prev()" disabled>← Trước</button>
+      <button id="btn-next" onclick="Q.next()">Tiếp →</button>
+    </div>
+  </div>
+  <script src="../../js/config.js"></script>
+  <script>
+  var Q=(function(){
+    var MAX_TRIES=3;
+    var ALL=[
+      {w:"Function",t:"(v)",d:"To work or operate; to perform a specific role or task.",v:"hoạt động, thực hiện chức năng",img:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=480&h=260&fit=crop",em:"⚙️",day:1},
+      {w:"Well-off",t:"(adj)",d:"Having a lot of money; wealthy and comfortable.",v:"giàu có, khá giả",img:"https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=480&h=260&fit=crop",em:"💰",day:1},
+      {w:"Ridiculous",t:"(adj)",d:"Extremely silly or unreasonable; absurd.",v:"nực cười, vô lý",img:"https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=480&h=260&fit=crop",em:"🤡",day:1},
+      {w:"Empathy",t:"(n)",d:"The ability to understand and share the feelings of others.",v:"sự đồng cảm",img:"https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=480&h=260&fit=crop",em:"🤗",day:1},
+      {w:"Compassion",t:"(n)",d:"A feeling of deep sympathy and concern for those who are suffering.",v:"lòng thương xót, trắc ẩn",img:"https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=480&h=260&fit=crop",em:"❤️",day:1},
+      {w:"Beneficial",t:"(adj)",d:"Producing good results; helpful and useful.",v:"có ích, có lợi",img:"https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=480&h=260&fit=crop",em:"🌱",day:1},
+      {w:"Extinct",t:"(adj)",d:"No longer existing; having died out completely.",v:"tuyệt chủng",img:"https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=480&h=260&fit=crop",em:"🦕",day:2},
+      {w:"Habitat",t:"(n)",d:"The natural environment where an animal or plant normally lives.",v:"môi trường sống",img:"https://images.unsplash.com/photo-1474511320723-9a56873571b7?w=480&h=260&fit=crop",em:"🌿",day:2},
+      {w:"Hearty",t:"(adj)",d:"Large, satisfying, and full of flavor; warm and enthusiastic.",v:"thịnh soạn, nồng nhiệt",img:"https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=480&h=260&fit=crop",em:"🍲",day:2},
+      {w:"Equivalent",t:"(adj)",d:"Equal in value, amount, function, or meaning.",v:"tương đương",img:"https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=480&h=260&fit=crop",em:"⚖️",day:2},
+      {w:"Epidemic",t:"(n)",d:"A widespread outbreak of a disease in a community.",v:"dịch bệnh",img:"https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=480&h=260&fit=crop",em:"🦠",day:2},
+      {w:"Cat on hot bricks",t:"(idiom)",d:"Very nervous, anxious, or restless about something.",v:"bồn chồn, lo lắng vô cùng",img:"https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=480&h=260&fit=crop",em:"🐱",day:2}
+    ];
+    var DAYS=[{id:1,l:"📅 Ngày 1"},{id:2,l:"📅 Ngày 2"}];
+    var curDay=1,curIdx=0,shuffled=false,words=[],results={},tries={};
+
+    var tabsEl=document.getElementById('day-tabs');
+    DAYS.forEach(function(d){
+      var b=document.createElement('button');b.className='day-tab'+(d.id===1?' active':'');b.textContent=d.l;
+      b.setAttribute('data-day',d.id);b.onclick=function(){pickDay(d.id);};tabsEl.appendChild(b);
+    });
+
+    function pickDay(day){curDay=day;curIdx=0;results={};tries={};
+      tabsEl.querySelectorAll('.day-tab').forEach(function(b){b.className='day-tab'+(parseInt(b.getAttribute('data-day'))===day?' active':'');});
+      buildWords();render();
+    }
+    function buildWords(){words=ALL.filter(function(x){return x.day===curDay;});if(shuffled)shuffle(words);}
+    function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}}
+
+    function toggleShuffle(){
+      shuffled=!shuffled;var b=document.getElementById('btn-shuffle');
+      b.className='ctrl-btn'+(shuffled?' on':'');b.textContent=shuffled?'🔀 Đang trộn ✓':'🔀 Trộn từ';
+      curIdx=0;results={};tries={};buildWords();render();
+    }
+
+    function render(){
+      var area=document.getElementById('quiz-area'),nav=document.getElementById('quiz-nav');nav.style.display='flex';
+      var done=Object.keys(results).length;
+      document.getElementById('pbar').style.width=(words.length?Math.round(done/words.length*100):0)+'%';
+      document.getElementById('ptxt').textContent=done+' / '+words.length+' đã làm';
+      if(curIdx>=words.length){showScore();return;}
+      var it=words[curIdx],answered=results.hasOwnProperty(it.w),t=tries[it.w]||0;
+      // Build letter boxes - handle spaces for idioms like "Cat on hot bricks" and hyphens like "Well-off"
+      var chars=it.w.split(''),boxesHTML='',givenFirst=true;
+      for(var i=0;i<chars.length;i++){
+        if(chars[i]===' '){
+          boxesHTML+='<div class="letter-box space"></div>';
+        } else if(chars[i]==='-'){
+          boxesHTML+='<input class="letter-box given" value="-" readonly tabindex="-1">';
+        } else if(givenFirst){
+          boxesHTML+='<input class="letter-box given" value="'+chars[i].toUpperCase()+'" readonly tabindex="-1">';
+          givenFirst=false;
+        } else {
+          var cls='letter-box';if(answered)cls+=' correct';
+          boxesHTML+='<input class="'+cls+'" maxlength="1" data-idx="'+i+'"'+(answered?' value="'+chars[i]+'" readonly':'')+' autocomplete="off" autocapitalize="off" spellcheck="false">';
+        }
+      }
+      area.innerHTML=
+        '<div class="quiz-card"><div class="card-img">'+
+          '<img src="'+it.img+'" alt="" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'+
+          '<div class="fallback">'+it.em+'</div>'+
+          '<div class="card-counter">'+(curIdx+1)+' / '+words.length+'</div>'+
+          (t>0&&!answered?'<div class="card-attempts" style="display:block">❌ '+t+'/'+MAX_TRIES+'</div>':'')+
+        '</div><div class="card-body">'+
+          '<div class="hint-row"><label class="hint-label"><input type="checkbox" id="hint-chk" onchange="Q.toggleHint()"> 💡 Gợi ý nghe phát âm</label></div>'+
+          '<div class="hint-audio" id="hint-audio"><button class="card-audio" onclick="Q.speak(\''+it.w.replace(/'/g,"\\'")+'\')">🔊</button></div>'+
+          '<div class="card-type">'+it.t+'</div>'+
+          '<div class="card-def">'+it.d+'</div>'+
+          '<div class="card-vi">'+it.v+'</div>'+
+          '<div class="letter-row" id="letter-row">'+boxesHTML+'</div>'+
+          (answered?'':'<button class="card-check" id="btn-check" onclick="Q.check()">Kiểm tra</button>')+
+          '<div class="card-feedback" id="fb">'+(answered?(results[it.w]?'<span class="ok">✅ Chính xác!</span>':'<span class="nope">Đã hết lượt</span>'):'')+
+          '</div>'+(answered&&!results[it.w]?'<div class="card-answer">Đáp án: <strong>'+it.w+'</strong></div>':'')+
+        '</div></div>';
+      if(!answered)wireBoxes();
+      document.getElementById('btn-prev').disabled=(curIdx===0);
+      document.getElementById('btn-next').textContent=(curIdx>=words.length-1&&done===words.length)?'🏆 Kết quả':'Tiếp →';
+    }
+
+    function wireBoxes(){
+      var boxes=document.querySelectorAll('#letter-row .letter-box:not(.given):not(.space)');
+      boxes.forEach(function(box,bi){
+        box.addEventListener('input',function(){this.value=this.value.slice(-1);if(this.value&&bi<boxes.length-1)boxes[bi+1].focus();});
+        box.addEventListener('keydown',function(e){
+          if(e.key==='Backspace'&&!this.value&&bi>0){e.preventDefault();boxes[bi-1].focus();boxes[bi-1].value='';}
+          if(e.key==='Enter')check();
+          if(e.key==='ArrowLeft'&&bi>0)boxes[bi-1].focus();
+          if(e.key==='ArrowRight'&&bi<boxes.length-1)boxes[bi+1].focus();
+        });
+      });
+      if(boxes.length)boxes[0].focus();
+    }
+
+    function check(){
+      var it=words[curIdx];if(results.hasOwnProperty(it.w))return;
+      var chars=it.w.split(''),allBoxes=document.querySelectorAll('#letter-row .letter-box'),allCorrect=true,anyFilled=false;
+      // Check fillable boxes
+      allBoxes.forEach(function(b){if(!b.classList.contains('given')&&!b.classList.contains('space')&&b.value.trim())anyFilled=true;});
+      if(!anyFilled)return;
+      allBoxes.forEach(function(box,i){
+        if(box.classList.contains('given')||box.classList.contains('space'))return;
+        if(box.value.toLowerCase()!==chars[i].toLowerCase())allCorrect=false;
+      });
+      if(allCorrect){
+        results[it.w]=true;
+        allBoxes.forEach(function(box){if(!box.classList.contains('given')&&!box.classList.contains('space')){box.classList.add('correct');box.readOnly=true;}});
+        document.getElementById('fb').innerHTML='<span class="ok">✅ Chính xác! Giỏi lắm!</span>';
+        var btn=document.getElementById('btn-check');if(btn)btn.remove();updateProgress();
+      } else {
+        tries[it.w]=(tries[it.w]||0)+1;var t=tries[it.w];
+        allBoxes.forEach(function(box,i){
+          if(box.classList.contains('given')||box.classList.contains('space'))return;
+          if(box.value.toLowerCase()===chars[i].toLowerCase()){box.classList.add('correct');box.readOnly=true;}
+          else box.classList.add('wrong');
+        });
+        if(t>=MAX_TRIES){
+          results[it.w]=false;
+          allBoxes.forEach(function(box,i){if(!box.classList.contains('given')&&!box.classList.contains('space')){box.value=chars[i];box.className='letter-box correct';box.readOnly=true;}});
+          document.getElementById('fb').innerHTML='<span class="nope">❌ Hết '+MAX_TRIES+' lượt rồi!</span>';
+          document.getElementById('fb').insertAdjacentHTML('afterend','<div class="card-answer">Đáp án: <strong>'+it.w+'</strong></div>');
+          var btn=document.getElementById('btn-check');if(btn)btn.remove();updateProgress();
+        } else {
+          document.getElementById('fb').innerHTML='<span class="hint-msg">Sai rồi! Còn '+(MAX_TRIES-t)+' lượt nữa — thử lại!</span>';
+          var badge=document.querySelector('.card-attempts');if(badge){badge.style.display='block';badge.textContent='❌ '+t+'/'+MAX_TRIES;}
+          setTimeout(function(){
+            allBoxes.forEach(function(box){if(!box.classList.contains('given')&&!box.classList.contains('space')&&!box.readOnly){box.classList.remove('wrong');box.value='';}});
+            var first=document.querySelector('#letter-row .letter-box:not(.given):not(.space):not([readonly])');if(first)first.focus();
+          },800);
+        }
+      }
+    }
+
+    function updateProgress(){
+      var done=Object.keys(results).length;
+      document.getElementById('pbar').style.width=Math.round(done/words.length*100)+'%';
+      document.getElementById('ptxt').textContent=done+' / '+words.length+' đã làm';
+      document.getElementById('btn-next').textContent=(curIdx>=words.length-1&&done===words.length)?'🏆 Kết quả':'Tiếp →';
+    }
+
+    function next(){if(curIdx>=words.length-1&&Object.keys(results).length===words.length){showScore();return;}if(curIdx<words.length-1){curIdx++;render();}}
+    function prev(){if(curIdx>0){curIdx--;render();}}
+
+    function showScore(){
+      var c=0,total=words.length;for(var k in results)if(results[k])c++;var pct=Math.round(c/total*100);
+      var icon=pct>=90?'🏆':pct>=70?'🌟':pct>=50?'💪':'📖';
+      var msg=pct>=90?'Xuất sắc!':pct>=70?'Tốt lắm!':pct>=50?'Cố gắng thêm nhé!':'Học lại từ vựng rồi thử lại nha!';
+      document.getElementById('quiz-area').innerHTML=
+        '<div class="score"><div class="score-icon">'+icon+'</div><div class="score-num">'+c+' / '+total+' đúng</div>'+
+        '<div class="score-msg">'+pct+'% — '+msg+'</div><div class="score-btns">'+
+        '<button class="score-btn" onclick="Q.retry()">🔄 Làm lại</button>'+
+        '<button class="score-btn outline" onclick="Q.retryWrong()">❌ Làm lại từ sai</button></div></div>';
+      document.getElementById('quiz-nav').style.display='none';document.getElementById('pbar').style.width='100%';
+    }
+    function retry(){results={};tries={};curIdx=0;document.getElementById('quiz-nav').style.display='flex';buildWords();render();}
+    function retryWrong(){
+      var wrong=[];for(var k in results)if(!results[k])for(var i=0;i<ALL.length;i++)if(ALL[i].w===k){wrong.push(ALL[i]);break;}
+      if(!wrong.length){alert('Không có từ nào sai — giỏi quá!');return;}
+      words=wrong;if(shuffled)shuffle(words);results={};tries={};curIdx=0;
+      document.getElementById('quiz-nav').style.display='flex';render();
+    }
+    function toggleHint(){
+      var chk=document.getElementById('hint-chk'),el=document.getElementById('hint-audio');
+      if(chk&&el)el.className='hint-audio'+(chk.checked?' show':'');
+    }
+
+    function speakWord(word){
+      if(!MW_API_KEY){_tts(word);return;}
+      var w=word.trim().split(/\s+/)[0].toLowerCase().replace(/[^a-z\-]/g,'');if(!w)return;
+      fetch('https://www.dictionaryapi.com/api/v3/references/sd3/json/'+encodeURIComponent(w)+'?key='+MW_API_KEY)
+        .then(function(r){return r.json();})
+        .then(function(data){
+          if(!Array.isArray(data)||!data.length||typeof data[0]==='string')throw'x';
+          var af=_findAudio(data,w);if(!af)throw'no audio';
+          var sub=af.substr(0,3)==='bix'?'bix':af.substr(0,2)==='gg'?'gg':/^\d/.test(af)?'number':af[0];
+          new Audio('https://media.merriam-webster.com/audio/prons/en/us/mp3/'+sub+'/'+af+'.mp3').play();
+        }).catch(function(){_tts(word);});
+    }
+    function _findAudio(data,w){
+      for(var i=0;i<data.length;i++){var e=data[i],hw=(e.hwi&&e.hwi.hw)?e.hwi.hw.replace(/\*/g,''):'';
+        if(hw===w&&e.hwi.prs)for(var j=0;j<e.hwi.prs.length;j++)if(e.hwi.prs[j].sound&&e.hwi.prs[j].sound.audio)return e.hwi.prs[j].sound.audio;}
+      for(var i=0;i<data.length;i++){if(!data[i].uros)continue;
+        for(var k=0;k<data[i].uros.length;k++){var ure=(data[i].uros[k].ure||'').replace(/\*/g,'');
+          if(ure===w&&data[i].uros[k].prs)for(var j=0;j<data[i].uros[k].prs.length;j++)if(data[i].uros[k].prs[j].sound&&data[i].uros[k].prs[j].sound.audio)return data[i].uros[k].prs[j].sound.audio;}}
+      return null;
+    }
+    function _tts(word){if(window.speechSynthesis){var m=new SpeechSynthesisUtterance(word);m.lang='en-US';m.rate=0.85;speechSynthesis.speak(m);}}
+
+    buildWords();render();
+    return{toggleShuffle:toggleShuffle,check:check,next:next,prev:prev,retry:retry,retryWrong:retryWrong,speak:speakWord,toggleHint:toggleHint};
+  })();
+  </script>
+</body>
+</html>
