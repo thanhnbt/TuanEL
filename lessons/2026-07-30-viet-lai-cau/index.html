@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ngữ pháp — Viết lại câu 30/07 — English Daily</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .lesson-topbar{background:#fff;border-bottom:1px solid #e2e4e8;padding:0 1rem;position:sticky;top:0;z-index:99}
+    .lesson-topbar-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;gap:8px}
+    .lesson-topbar .back-link{color:#2563eb;text-decoration:none;font-size:13px;font-weight:600;padding:10px 0;margin-right:16px;white-space:nowrap}
+    .lesson-topbar .back-link:hover{opacity:.7}
+    .sub-nav{display:flex;gap:4px;overflow-x:auto}
+    .sub-nav a{padding:10px 14px;font-size:13px;font-weight:500;color:#6b7280;text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s}
+    .sub-nav a:hover{color:#1a1a1a}
+    .sub-nav a.active{color:#2563eb;border-bottom-color:#2563eb}
+
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fafaf7;color:#1a1a1a}
+    .container{max-width:920px;margin:0 auto;padding:1.5rem 1rem 3rem}
+    h1{font-size:1.6rem;margin:0 0 .3rem;color:#1e293b}
+    .sub-title{color:#6b7280;font-size:.9rem;margin-bottom:1.2rem}
+
+    /* Flow guide */
+    .flow-guide{background:linear-gradient(135deg,#eff6ff,#f0fdf4);border:2px solid #bfdbfe;border-radius:14px;padding:1.2rem 1.5rem;margin-bottom:1.8rem}
+    .flow-guide h2{margin:0 0 .6rem;font-size:1rem;color:#1e40af}
+    .flow-steps{display:flex;gap:0;align-items:stretch;flex-wrap:wrap}
+    .flow-step{flex:1;min-width:140px;text-align:center;padding:.8rem .6rem;position:relative}
+    .flow-step .step-num{width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;color:#fff;margin-bottom:.4rem}
+    .flow-step:nth-child(1) .step-num{background:#2563eb}
+    .flow-step:nth-child(2) .step-num{background:#f59e0b}
+    .flow-step:nth-child(3) .step-num{background:#10b981}
+    .flow-step .step-title{font-weight:700;font-size:.9rem;margin-bottom:.2rem}
+    .flow-step .step-desc{font-size:.78rem;color:#6b7280;line-height:1.4}
+    .flow-arrow{display:flex;align-items:center;font-size:1.4rem;color:#94a3b8;padding:0 2px}
+    @media(max-width:600px){
+      .flow-steps{flex-direction:column;gap:0}
+      .flow-arrow{justify-content:center;transform:rotate(90deg);padding:4px 0}
+    }
+
+    /* Section */
+    .grammar-section{background:#fff;border-radius:12px;border:1px solid #e2e4e8;padding:1.3rem 1.5rem;margin-bottom:1.4rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+    .grammar-section h2{font-size:1.15rem;color:#1e293b;margin:0 0 .8rem;display:flex;align-items:center;gap:8px}
+    .grammar-section h2 .num{background:#2563eb;color:#fff;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+
+    /* Formula box */
+    .formula{background:#f8fafc;border:2px solid #c7d2fe;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem;box-shadow:0 1px 4px rgba(99,102,241,.08)}
+    .formula-label{font-size:.75rem;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.5rem}
+    .formula-content{font-size:1.02rem;line-height:2;font-weight:500}
+    .formula-content .struct{color:#2563eb;font-weight:800;font-size:1.08rem}
+    .formula-content .arrow{color:#10b981;font-weight:900;font-size:1.5rem;vertical-align:middle;display:inline-block;margin:0 2px}
+    .formula-line{background:#fff;border:2px solid #e0e7ff;border-radius:8px;padding:.5rem .9rem;margin:.4rem 0;display:inline-block;width:auto;max-width:100%;box-sizing:border-box}
+
+    /* Changed parts highlight */
+    .ch{color:#dc2626;font-weight:700}
+    .ch-bg{background:#fef2f2;color:#dc2626;font-weight:700;padding:1px 4px;border-radius:3px}
+
+    /* Example */
+    .ex-group{border-left:3px solid #dbeafe;padding-left:1rem;margin:.6rem 0 1rem}
+    .ex-item{background:#f8fafc;border-radius:8px;padding:.6rem 1rem;margin-bottom:.5rem;font-size:.9rem;line-height:1.7}
+    .ex-item .ex-label{font-size:.7rem;font-weight:700;color:#2563eb;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.1rem}
+    .ex-item .orig{color:#475569}
+    .ex-item .rewrite{color:#1e293b}
+    .ex-item .arrow-line{color:#10b981;font-weight:900;font-size:1.4rem;line-height:1;margin:2px 0}
+    .ex-item .vi{color:#6b7280;font-style:italic;font-size:.82rem;margin-top:.15rem}
+
+    /* Tip */
+    .tip{background:#fefce8;border-radius:8px;padding:.5rem .9rem;font-size:.84rem;color:#854d0e;margin:.5rem 0 .3rem;line-height:1.5}
+    .tip::before{content:'💡 ';font-style:normal}
+
+    /* Change table */
+    .change-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.5rem 0 .8rem}
+    .change-table th{background:#eff6ff;color:#1e40af;padding:8px 10px;text-align:left;font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.3px}
+    .change-table td{padding:7px 10px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+    .change-table td em{font-style:normal;font-size:.82rem;color:#94a3b8;display:block;margin-top:1px}
+    .change-table .from{color:#6b7280}
+    .change-table .to{color:#dc2626;font-weight:600}
+    .change-table .arr{color:#10b981;font-weight:700;text-align:center;width:30px}
+
+    @media(max-width:700px){
+      .container{padding:1rem .7rem 2rem}
+      .grammar-section{padding:1rem}
+      .formula-content{font-size:.8rem}
+    }
+  </style>
+</head>
+<body>
+
+<div class="lesson-topbar">
+  <div class="lesson-topbar-inner">
+    <a href="../../index.html" class="back-link">📘 ← Trang chủ</a>
+    <nav class="sub-nav">
+      <a href="index.html" class="active">📗 Ngữ pháp</a>
+      <a href="writing.html">📐 Writing</a>
+      <a href="quiz.html">🧩 Quiz</a>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <h1>📝 Viết lại câu — Ôn thi lớp 6 CLC</h1>
+  <p class="sub-title">Buổi 3 — 30/07/2026 · 5 chuyên đề · 30 câu</p>
+
+  <!-- FLOW GUIDE -->
+  <div class="flow-guide">
+    <h2>🗺️ Lộ trình học</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="step-num">1</div>
+        <div class="step-title">📗 Đọc Ngữ pháp</div>
+        <div class="step-desc">Đọc kỹ công thức + ví dụ.<br>Chú ý phần <span style="color:#dc2626;font-weight:700">in đỏ</span> = thay đổi.</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="step-num">2</div>
+        <div class="step-title">📐 Làm Writing</div>
+        <div class="step-desc">Viết trên giấy trước.<br>Gõ đáp án vào ô để kiểm tra.</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="step-num">3</div>
+        <div class="step-title">🧩 Làm Quiz</div>
+        <div class="step-desc">Nhận dạng loại câu + viết lại.<br>Sai 3 lần mới hiện đáp án.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== I. CONDITIONAL ====== -->
+  <div class="grammar-section">
+    <h2><span class="num">I</span> Câu điều kiện (Conditional Sentences)</h2>
+
+    <!-- Type 2 -->
+    <div class="formula">
+      <div class="formula-label">Công thức — If loại 2 (không có thật ở hiện tại)</div>
+      <div class="formula-content">
+        <div class="formula-line">Gốc: S + <span class="struct">don't/can't</span> + V, so S + <span class="struct">don't/can't</span> + V</div>
+        <div class="formula-line"><span class="arrow">→</span> <span class="struct">If</span> + S + <span class="struct">V<sub>ed/2</sub></span>, S + <span class="struct">would/could</span> + V</div>
+      </div>
+    </div>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 1</div>
+        <div class="orig">I <span class="ch">don't have</span> enough money, so I <span class="ch">can't buy</span> that dictionary.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite"><span class="ch-bg">If</span> I <span class="ch-bg">had</span> enough money, I <span class="ch-bg">could buy</span> that dictionary.</div>
+        <div class="vi">don't have → had · can't buy → could buy</div>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 2</div>
+        <div class="orig">I <span class="ch">don't know</span> her phone number, so I <span class="ch">don't call</span> her.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite"><span class="ch-bg">If</span> I <span class="ch-bg">knew</span> her phone number, I <span class="ch-bg">would call</span> her.</div>
+        <div class="vi">don't know → knew · don't call → would call</div>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 3</div>
+        <div class="orig">He <span class="ch">is</span> very lazy, so he <span class="ch">gets</span> bad marks.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite"><span class="ch-bg">If</span> he <span class="ch-bg">weren't</span> so lazy, he <span class="ch-bg">wouldn't get</span> bad marks.</div>
+        <div class="vi">is → weren't · gets → wouldn't get · "be" luôn dùng "were" trong If loại 2</div>
+      </div>
+    </div>
+
+    <!-- Imperative → If type 1 -->
+    <div class="formula">
+      <div class="formula-label">Công thức — Mệnh lệnh → If loại 1</div>
+      <div class="formula-content">
+        <div class="formula-line">Gốc: <span class="struct">V</span> + ... <span class="struct">or</span> + S + will + V</div>
+        <div class="formula-line"><span class="arrow">→</span> <span class="struct">If</span> + S + <span class="struct">don't/doesn't</span> + V, S + <span class="struct">will</span> + V</div>
+      </div>
+    </div>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 1</div>
+        <div class="orig"><span class="ch">Work hard</span> <span class="ch">or</span> you will fail the final exam.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite"><span class="ch-bg">If</span> you <span class="ch-bg">don't work</span> hard, you will fail the final exam.</div>
+        <div class="vi">"V + or" → "If + don't V" — giữ nguyên vế sau</div>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 2</div>
+        <div class="orig"><span class="ch">Stop talking</span> <span class="ch">or</span> the teacher will punish you.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite"><span class="ch-bg">If</span> you <span class="ch-bg">don't stop</span> talking, the teacher will punish you.</div>
+        <div class="vi">Thêm chủ ngữ "you" + "don't" trước động từ</div>
+      </div>
+    </div>
+
+    <div class="tip">Phân biệt: Câu gốc có "don't/can't" → If loại 2 (giả định, lùi thì). Câu gốc có "V + or" → If loại 1 (cảnh báo, giữ nguyên thì).</div>
+  </div>
+
+  <!-- ====== II. REPORTED SPEECH ====== -->
+  <div class="grammar-section">
+    <h2><span class="num">II</span> Câu gián tiếp (Reported Speech)</h2>
+
+    <!-- Statement -->
+    <div class="formula">
+      <div class="formula-label">Công thức 1 — Câu trần thuật</div>
+      <div class="formula-content">
+        <div class="formula-line">"S + V ..." <span class="arrow">→</span> S + <span class="struct">said (that)</span> + S + <span class="struct">V lùi thì</span></div>
+      </div>
+    </div>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 1</div>
+        <div class="orig">"<span class="ch">I am doing</span> <span class="ch">my</span> homework <span class="ch">now</span>," said my sister.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">My sister said that <span class="ch-bg">she was doing</span> <span class="ch-bg">her</span> homework <span class="ch-bg">then</span>.</div>
+        <div class="vi">I → she · am doing → was doing · my → her · now → then</div>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 2</div>
+        <div class="orig">"<span class="ch">I will</span> visit <span class="ch">my</span> grandparents <span class="ch">tomorrow</span>," she said.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">She said that <span class="ch-bg">she would</span> visit <span class="ch-bg">her</span> grandparents <span class="ch-bg">the next day</span>.</div>
+        <div class="vi">I → she · will → would · my → her · tomorrow → the next day</div>
+      </div>
+    </div>
+
+    <!-- Wh-question -->
+    <div class="formula">
+      <div class="formula-label">Công thức 2 — Câu hỏi Wh-</div>
+      <div class="formula-content">
+        <div class="formula-line">"Wh- + <span class="struct">aux</span> + S + V?" <span class="arrow">→</span> S + asked + <span class="struct">Wh-</span> + S + <span class="struct">V lùi thì</span> (không đảo ngữ)</div>
+      </div>
+    </div>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ</div>
+        <div class="orig">"Where <span class="ch">are you going</span> for <span class="ch">your</span> holiday?" she asked me.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">She asked me where <span class="ch-bg">I was going</span> for <span class="ch-bg">my</span> holiday.</div>
+        <div class="vi">are you going → I was going · your → my · Bỏ dấu "?" — dùng trật tự S + V</div>
+      </div>
+    </div>
+
+    <!-- Yes/No question -->
+    <div class="formula">
+      <div class="formula-label">Công thức 3 — Câu hỏi Yes/No</div>
+      <div class="formula-content">
+        <div class="formula-line">"<span class="struct">Do/Can</span> + S + V?" <span class="arrow">→</span> S + asked + <span class="struct">if/whether</span> + S + <span class="struct">V lùi thì</span></div>
+      </div>
+    </div>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 1</div>
+        <div class="orig">"<span class="ch">Can I</span> borrow <span class="ch">your</span> pen?" Nam asked Lan.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">Nam asked Lan <span class="ch-bg">if he could</span> borrow <span class="ch-bg">her</span> pen.</div>
+        <div class="vi">Can → could · I → he · your → her · thêm if/whether</div>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 2</div>
+        <div class="orig">"<span class="ch">Do you</span> like listening to pop music?" he asked her.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">He asked her <span class="ch-bg">if she liked</span> listening to pop music.</div>
+        <div class="vi">Do you like → she liked · you → she · thêm if/whether</div>
+      </div>
+    </div>
+
+    <!-- Imperative -->
+    <div class="formula">
+      <div class="formula-label">Công thức 4 — Câu mệnh lệnh</div>
+      <div class="formula-content">
+        <div class="formula-line">"<span class="struct">(Don't) V</span> ...!" <span class="arrow">→</span> S + <span class="struct">told</span> + O + <span class="struct">(not) to V</span></div>
+      </div>
+    </div>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ</div>
+        <div class="orig">"<span class="ch">Don't play</span> football in the street," the policeman said to the boys.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">The policeman <span class="ch-bg">told</span> the boys <span class="ch-bg">not to play</span> football in the street.</div>
+        <div class="vi">Don't V → told + O + not to V · "said to" → "told"</div>
+      </div>
+    </div>
+
+    <!-- Backshift explanation -->
+    <div class="formula" style="background:#fff;border-color:#a5b4fc">
+      <div class="formula-label" style="font-size:.85rem;color:#4338ca">🔄 "Lùi thì" là gì?</div>
+      <div style="font-size:.9rem;line-height:1.7;color:#334155;margin-bottom:.6rem">
+        Khi chuyển từ câu trực tiếp sang câu gián tiếp, động từ phải <strong>lùi về 1 thì</strong> — nghĩa là mỗi thì sẽ "đẩy lùi" về thì quá khứ hơn nó một bậc:
+      </div>
+
+      <table class="change-table" style="margin-bottom:.6rem">
+        <tr><th colspan="3" style="background:#e0e7ff;color:#3730a3;text-align:center;font-size:.82rem">BẢNG LÙI THÌ — ĐỘNG TỪ</th></tr>
+        <tr><th style="width:40%">Trực tiếp (nói thẳng)</th><th class="arr"></th><th style="width:40%">Gián tiếp (thuật lại)</th></tr>
+        <tr>
+          <td class="from">Hiện tại đơn<br><em>am / is / are / do / does / V(s)</em></td>
+          <td class="arr" style="font-size:1.2rem">→</td>
+          <td class="to">Quá khứ đơn<br><em>was / were / did / V-ed</em></td>
+        </tr>
+        <tr>
+          <td class="from">Hiện tại tiếp diễn<br><em>am/is/are + V-ing</em></td>
+          <td class="arr" style="font-size:1.2rem">→</td>
+          <td class="to">Quá khứ tiếp diễn<br><em>was/were + V-ing</em></td>
+        </tr>
+        <tr>
+          <td class="from">Hiện tại hoàn thành<br><em>have/has + V3</em></td>
+          <td class="arr" style="font-size:1.2rem">→</td>
+          <td class="to">Quá khứ hoàn thành<br><em>had + V3</em></td>
+        </tr>
+        <tr>
+          <td class="from">Quá khứ đơn<br><em>V-ed / V2</em></td>
+          <td class="arr" style="font-size:1.2rem">→</td>
+          <td class="to">Quá khứ hoàn thành<br><em>had + V3</em></td>
+        </tr>
+      </table>
+
+      <table class="change-table" style="margin-bottom:.6rem">
+        <tr><th colspan="3" style="background:#e0e7ff;color:#3730a3;text-align:center;font-size:.82rem">BẢNG LÙI THÌ — ĐỘNG TỪ KHUYẾT THIẾU</th></tr>
+        <tr><th>Trực tiếp</th><th class="arr"></th><th>Gián tiếp</th></tr>
+        <tr><td class="from">will</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">would</td></tr>
+        <tr><td class="from">can</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">could</td></tr>
+        <tr><td class="from">may</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">might</td></tr>
+        <tr><td class="from">shall</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">should</td></tr>
+        <tr><td class="from">must</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">had to</td></tr>
+      </table>
+
+      <table class="change-table" style="margin-bottom:.6rem">
+        <tr><th colspan="3" style="background:#e0e7ff;color:#3730a3;text-align:center;font-size:.82rem">ĐỔI ĐẠI TỪ & TRẠNG TỪ</th></tr>
+        <tr><th>Trực tiếp</th><th class="arr"></th><th>Gián tiếp</th></tr>
+        <tr><td class="from">I / me / my</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">he·she / him·her / his·her</td></tr>
+        <tr><td class="from">you / your</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">I·he·she / my·his·her</td></tr>
+        <tr><td class="from">we / us / our</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">they / them / their</td></tr>
+        <tr><td class="from">this / these</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">that / those</td></tr>
+        <tr><td class="from">now</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">then</td></tr>
+        <tr><td class="from">today</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">that day</td></tr>
+        <tr><td class="from">tomorrow</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">the next day / the following day</td></tr>
+        <tr><td class="from">yesterday</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">the day before / the previous day</td></tr>
+        <tr><td class="from">tonight</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">that night</td></tr>
+        <tr><td class="from">here</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">there</td></tr>
+        <tr><td class="from">ago</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">before</td></tr>
+      </table>
+
+      <div style="background:#fef3c7;border-radius:8px;padding:.5rem .9rem;font-size:.84rem;color:#92400e;line-height:1.6">
+        💡 <strong>Mẹo nhớ:</strong> Tưởng tượng bạn đang đứng trên cầu thang — mỗi bậc là 1 thì. Khi thuật lại lời ai đó, bạn phải <strong>bước xuống 1 bậc</strong>. Hiện tại bước xuống thành Quá khứ, Quá khứ bước xuống thành Quá khứ hoàn thành. Nếu đã ở bậc cuối (quá khứ hoàn thành) thì giữ nguyên — không lùi thêm được nữa!
+      </div>
+    </div>
+
+    <div class="tip">Câu hỏi gián tiếp dùng trật tự khẳng định (S + V), KHÔNG đảo ngữ, KHÔNG dấu "?".</div>
+  </div>
+
+  <!-- ====== III. COMPARATIVES ====== -->
+  <div class="grammar-section">
+    <h2><span class="num">III</span> Câu so sánh (Comparatives)</h2>
+
+    <!-- more...than <span class="arrow">↔</span> not as...as -->
+    <div class="formula">
+      <div class="formula-label">Công thức 1 — So sánh hơn <span class="arrow">↔</span> Không ... bằng</div>
+      <div class="formula-content">
+        <div class="formula-line">A + V + <span class="struct">more ... than</span> B</div>
+        <div class="formula-line"><span class="arrow">↔</span> B + <span class="struct">doesn't V as ... as</span> A</div>
+      </div>
+    </div>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 1</div>
+        <div class="orig">My father drives <span class="ch">more carefully than</span> my brother.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">My brother <span class="ch-bg">doesn't drive as carefully as</span> my father.</div>
+        <div class="vi">Đảo chủ ngữ + more...than → doesn't V as...as</div>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 2</div>
+        <div class="orig">Jane cooks <span class="ch">better than</span> Mary.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">Mary <span class="ch-bg">doesn't cook as well as</span> Jane.</div>
+        <div class="vi">better → as well as (trạng từ gốc "well")</div>
+      </div>
+    </div>
+
+    <!-- superlative <span class="arrow">↔</span> never -->
+    <div class="formula">
+      <div class="formula-label">Công thức 2 — So sánh nhất <span class="arrow">↔</span> Never</div>
+      <div class="formula-content">
+        <div class="formula-line">This is <span class="struct">the most</span> + adj + N + S + <span class="struct">have ever</span> V<sub>3</sub></div>
+        <div class="formula-line"><span class="arrow">↔</span> S + <span class="struct">have never</span> V<sub>3</sub> + <span class="struct">a more</span> + adj + N + <span class="struct">than this</span></div>
+      </div>
+    </div>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ</div>
+        <div class="orig">This is <span class="ch">the most interesting</span> book I have <span class="ch">ever</span> read.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">I have <span class="ch-bg">never</span> read <span class="ch-bg">a more interesting</span> book <span class="ch-bg">than this</span>.</div>
+        <div class="vi">the most → a more · ever → never · thêm "than this"</div>
+      </div>
+    </div>
+
+    <!-- No one...than <span class="arrow">↔</span> the ...est -->
+    <div class="formula">
+      <div class="formula-label">Công thức 3 — No one ... than <span class="arrow">↔</span> The ...-est</div>
+      <div class="formula-content">
+        <div class="formula-line"><span class="struct">No one</span> ... + adj<span class="struct">-er</span> + <span class="struct">than</span> A</div>
+        <div class="formula-line"><span class="arrow">↔</span> A + is + <span class="struct">the + adj-est</span> ...</div>
+      </div>
+    </div>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ</div>
+        <div class="orig"><span class="ch">No one</span> in our class is <span class="ch">taller than</span> Nam.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">Nam is <span class="ch-bg">the tallest</span> in our class.</div>
+        <div class="vi">No one ... taller than → the tallest</div>
+      </div>
+    </div>
+
+    <!-- not as...as <span class="arrow">↔</span> ...er than -->
+    <div class="formula">
+      <div class="formula-label">Công thức 4 — Không bằng <span class="arrow">↔</span> So sánh hơn (đảo)</div>
+      <div class="formula-content">
+        <div class="formula-line">A is <span class="struct">not as</span> + adj + <span class="struct">as</span> B</div>
+        <div class="formula-line"><span class="arrow">↔</span> B is <span class="struct">adj-er than</span> A &nbsp;·&nbsp; A is <span class="struct">adj ngược-er than</span> B</div>
+      </div>
+    </div>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 1</div>
+        <div class="orig">A train is <span class="ch">not as fast as</span> a plane.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">A plane is <span class="ch-bg">faster than</span> a train.</div>
+        <div class="vi">Đảo chủ ngữ + not as fast as → faster than</div>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 2</div>
+        <div class="orig">My house is <span class="ch">bigger than</span> your house.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">Your house is <span class="ch-bg">smaller than</span> my house.</div>
+        <div class="vi">Đảo chủ ngữ + đảo tính từ: bigger → smaller</div>
+      </div>
+    </div>
+
+    <div class="tip">Luôn nhớ đảo vị trí A và B khi chuyển đổi. Trạng từ: better → as well as, more carefully → as carefully as.</div>
+  </div>
+
+  <!-- ====== IV. PASSIVE ====== -->
+  <div class="grammar-section">
+    <h2><span class="num">IV</span> Câu bị động (Passive Voice)</h2>
+
+    <div class="formula">
+      <div class="formula-label">Công thức chung</div>
+      <div class="formula-content">
+        <div class="formula-line">Chủ động: <span class="struct">S + V + O</span></div>
+        <div class="formula-line"><span class="arrow">→</span> Bị động: <span class="struct">O + be + V<sub>3</sub></span> (+ by S)</div>
+      </div>
+    </div>
+
+    <table class="change-table">
+      <tr><th>Thì</th><th class="arr"></th><th>Dạng bị động</th></tr>
+      <tr><td class="from">Hiện tại đơn (speak/speaks)</td><td class="arr">→</td><td class="to">am/is/are + V3</td></tr>
+      <tr><td class="from">Quá khứ đơn (built)</td><td class="arr">→</td><td class="to">was/were + V3</td></tr>
+      <tr><td class="from">Hiện tại hoàn thành (has stolen)</td><td class="arr">→</td><td class="to">has/have been + V3</td></tr>
+      <tr><td class="from">Tương lai đơn (will finish)</td><td class="arr">→</td><td class="to">will be + V3</td></tr>
+    </table>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 1 — Hiện tại đơn</div>
+        <div class="orig"><span class="ch">People speak</span> English all over the world.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">English <span class="ch-bg">is spoken</span> all over the world.</div>
+        <div class="vi">speak → is spoken · bỏ "by people" (chủ ngữ chung chung)</div>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 2 — Quá khứ đơn</div>
+        <div class="orig">Alexander Graham Bell <span class="ch">invented</span> the telephone in 1876.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">The telephone <span class="ch-bg">was invented</span> in 1876 <span class="ch-bg">by Alexander Graham Bell</span>.</div>
+        <div class="vi">invented → was invented · giữ "by + tên riêng"</div>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Ví dụ 3 — Hiện tại hoàn thành</div>
+        <div class="orig">Someone <span class="ch">has stolen</span> my bike.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">My bike <span class="ch-bg">has been stolen</span>.</div>
+        <div class="vi">has stolen → has been stolen · bỏ "by someone"</div>
+      </div>
+    </div>
+
+    <div class="tip">Bỏ "by people / someone / they" khi chủ ngữ không quan trọng. Giữ "by + tên riêng" (by Alexander Graham Bell).</div>
+  </div>
+
+  <!-- ====== V. OTHER STRUCTURES ====== -->
+  <div class="grammar-section">
+    <h2><span class="num">V</span> Các cấu trúc khác (Other Structures)</h2>
+
+    <!-- It takes → spend -->
+    <div class="formula">
+      <div class="formula-label">1. It takes → Spend</div>
+      <div class="formula-content">
+        <div class="formula-line"><span class="struct">It takes</span> + O + time + <span class="struct">to V</span></div>
+        <div class="formula-line"><span class="arrow">→</span> S + <span class="struct">spend(s)</span> + time + <span class="struct">V-ing</span></div>
+      </div>
+    </div>
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="orig"><span class="ch">It takes</span> me 30 minutes <span class="ch">to walk</span> to school every day.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">I <span class="ch-bg">spend</span> 30 minutes <span class="ch-bg">walking</span> to school every day.</div>
+      </div>
+    </div>
+
+    <!-- Because → Because of -->
+    <div class="formula">
+      <div class="formula-label">2. Because → Because of</div>
+      <div class="formula-content">
+        <div class="formula-line"><span class="struct">Because</span> + S + V (mệnh đề)</div>
+        <div class="formula-line"><span class="arrow">→</span> <span class="struct">Because of</span> + N / V-ing (cụm danh từ)</div>
+      </div>
+    </div>
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="orig"><span class="ch">Because</span> it <span class="ch">rained heavily</span>, we stayed at home.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite"><span class="ch-bg">Because of</span> <span class="ch-bg">the heavy rain</span>, we stayed at home.</div>
+        <div class="vi">"rained heavily" (V + adv) → "the heavy rain" (danh từ)</div>
+      </div>
+    </div>
+
+    <!-- Although → In spite of -->
+    <div class="formula">
+      <div class="formula-label">3. Although → In spite of / Despite</div>
+      <div class="formula-content">
+        <div class="formula-line"><span class="struct">Although</span> + S + V (mệnh đề)</div>
+        <div class="formula-line"><span class="arrow">→</span> <span class="struct">In spite of / Despite</span> + N / V-ing</div>
+      </div>
+    </div>
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="orig"><span class="ch">Although</span> he <span class="ch">was tired</span>, he finished his homework.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite"><span class="ch-bg">In spite of</span> <span class="ch-bg">being tired</span>, he finished his homework.</div>
+        <div class="vi">"was tired" → "being tired" (V-ing) hoặc "his tiredness" (danh từ)</div>
+      </div>
+    </div>
+
+    <!-- Let's → suggested -->
+    <div class="formula">
+      <div class="formula-label">4. Let's → Suggested</div>
+      <div class="formula-content">
+        <div class="formula-line">"<span class="struct">Let's</span> + V ..." <span class="arrow">→</span> S + <span class="struct">suggested</span> + <span class="struct">V-ing</span></div>
+      </div>
+    </div>
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="orig">"<span class="ch">Let's go</span> to the cinema <span class="ch">tonight</span>," said Peter.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">Peter <span class="ch-bg">suggested going</span> to the cinema <span class="ch-bg">that night</span>.</div>
+        <div class="vi">Let's go → suggested going · tonight → that night</div>
+      </div>
+    </div>
+
+    <!-- started...ago → have V3 for -->
+    <div class="formula">
+      <div class="formula-label">5. Started ... ago → Have V3 ... for</div>
+      <div class="formula-content">
+        <div class="formula-line">S + <span class="struct">started</span> + V-ing + time + <span class="struct">ago</span></div>
+        <div class="formula-line"><span class="arrow">→</span> S + <span class="struct">have/has + V<sub>3</sub></span> + <span class="struct">for</span> + time</div>
+      </div>
+    </div>
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="orig">I <span class="ch">started learning</span> English <span class="ch">3 years ago</span>.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">I <span class="ch-bg">have learned</span> English <span class="ch-bg">for 3 years</span>.</div>
+        <div class="vi">started V-ing ... ago → have V3 ... for</div>
+      </div>
+    </div>
+
+    <!-- It's a pity → wish -->
+    <div class="formula">
+      <div class="formula-label">6. It's a pity → Wish</div>
+      <div class="formula-content">
+        <div class="formula-line"><span class="struct">It's a pity</span> + S + <span class="struct">can't / don't</span> + V</div>
+        <div class="formula-line"><span class="arrow">→</span> S + <span class="struct">wish</span> + S + <span class="struct">could / V<sub>ed</sub></span></div>
+      </div>
+    </div>
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="orig"><span class="ch">It's a pity</span> I <span class="ch">can't speak</span> English fluently.</div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">I <span class="ch-bg">wish</span> I <span class="ch-bg">could speak</span> English fluently.</div>
+        <div class="vi">It's a pity → wish · can't → could (lùi thì)</div>
+      </div>
+    </div>
+
+    <div class="tip">Because/Although + mệnh đề (S+V). Because of / In spite of + cụm danh từ hoặc V-ing.</div>
+  </div>
+
+</div>
+</body>
+</html>

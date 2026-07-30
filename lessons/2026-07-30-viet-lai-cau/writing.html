@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing — Viết lại câu 30/07 — English Daily</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .lesson-topbar{background:#fff;border-bottom:1px solid #e2e4e8;padding:0 1rem;position:sticky;top:0;z-index:99}
+    .lesson-topbar-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:8px}
+    .lesson-topbar .back-link{color:#2563eb;text-decoration:none;font-size:13px;font-weight:600;padding:10px 0;margin-right:16px;white-space:nowrap}
+    .lesson-topbar .back-link:hover{opacity:.7}
+    .sub-nav{display:flex;gap:4px;overflow-x:auto}
+    .sub-nav a{padding:10px 14px;font-size:13px;font-weight:500;color:#6b7280;text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s}
+    .sub-nav a:hover{color:#1a1a1a}
+    .sub-nav a.active{color:#2563eb;border-bottom-color:#2563eb}
+
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fafaf7;color:#1a1a1a}
+    .container{max-width:900px;margin:0 auto;padding:1.5rem 1rem 3rem}
+    h1{font-size:1.5rem;margin:0 0 .2rem;color:#1e293b}
+    .sub-title{color:#6b7280;font-size:.88rem;margin-bottom:1.2rem}
+
+    .section-title{font-size:1.05rem;font-weight:700;color:#2563eb;margin:1.5rem 0 .8rem;padding-bottom:.4rem;border-bottom:2px solid #dbeafe;display:flex;align-items:center;gap:8px}
+    .section-title .badge{background:#2563eb;color:#fff;font-size:.75rem;padding:2px 10px;border-radius:12px}
+
+    .exercise{background:#fff;border:1px solid #e2e4e8;border-radius:10px;padding:1rem 1.2rem;margin-bottom:.8rem;counter-increment:ex}
+    .exercise .q-num{font-weight:700;color:#2563eb;margin-right:4px}
+    .exercise .original{font-size:.95rem;line-height:1.6;margin-bottom:.6rem}
+    .exercise .prompt{display:flex;align-items:flex-start;gap:6px;margin-bottom:.5rem}
+    .exercise .prompt-label{font-weight:600;color:#15803d;font-size:.9rem;white-space:nowrap;padding-top:6px}
+    .exercise .answer-input{width:100%;padding:8px 12px;border:2px solid #e2e4e8;border-radius:8px;font-size:.92rem;font-family:inherit;transition:border-color .2s;background:#fafaf7}
+    .exercise .answer-input:focus{outline:none;border-color:#2563eb;background:#fff}
+
+    .exercise.correct .answer-input{border-color:#10b981;background:#f0fdf4}
+    .exercise.wrong .answer-input{border-color:#ef4444;background:#fef2f2}
+.controls{display:flex;gap:10px;margin:1.5rem 0;flex-wrap:wrap;align-items:center}
+    .btn{padding:10px 20px;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;transition:opacity .2s}
+    .btn-primary{background:#2563eb;color:#fff}
+    .btn-outline{background:#fff;color:#2563eb;border:2px solid #2563eb}
+    .btn:hover{opacity:.85}
+
+    .score-bar{background:#fff;border:1px solid #e2e4e8;border-radius:10px;padding:1rem 1.2rem;margin-bottom:1rem;display:none;align-items:center;gap:12px;flex-wrap:wrap}
+    .score-bar.show{display:flex}
+    .score-num{font-size:1.8rem;font-weight:800;color:#2563eb}
+    .score-label{color:#6b7280;font-size:.85rem}
+
+    .note-box{background:#eff6ff;border-radius:8px;padding:.7rem 1rem;font-size:.85rem;color:#1e40af;margin-bottom:1.2rem}
+    .note-box::before{content:'📌 '}
+
+    .flow-mini{background:linear-gradient(135deg,#eff6ff,#f0fdf4);border:2px solid #bfdbfe;border-radius:10px;padding:.7rem 1rem;margin-bottom:1rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.85rem}
+    .flow-mini .step{font-weight:700;padding:3px 10px;border-radius:6px;white-space:nowrap}
+    .flow-mini .done{background:#d1fae5;color:#065f46}
+    .flow-mini .current{background:#fef3c7;color:#92400e}
+    .flow-mini .todo{background:#f1f5f9;color:#6b7280}
+    .flow-mini .arr{color:#94a3b8}
+
+    @media(max-width:700px){
+      .container{padding:1rem .7rem 2rem}
+      .exercise{padding:.8rem 1rem}
+    }
+  </style>
+</head>
+<body>
+
+<div class="lesson-topbar">
+  <div class="lesson-topbar-inner">
+    <a href="../../index.html" class="back-link">📘 ← Trang chủ</a>
+    <nav class="sub-nav">
+      <a href="index.html">📗 Ngữ pháp</a>
+      <a href="writing.html" class="active">📐 Writing</a>
+      <a href="quiz.html">🧩 Quiz</a>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <h1>📐 Bài tập viết lại câu</h1>
+  <p class="sub-title">Ôn thi vào lớp 6 CLC · 30 câu · Viết trên giấy trước, rồi gõ đáp án để kiểm tra</p>
+
+  <div class="flow-mini">
+    <span class="step done">✅ 1. Ngữ pháp</span>
+    <span class="arr">→</span>
+    <span class="step current">📐 2. Writing</span>
+    <span class="arr">→</span>
+    <a href="quiz.html" class="step todo" style="text-decoration:none">🧩 3. Quiz</a>
+  </div>
+
+  <div class="note-box">Hãy viết câu trả lời trên giấy trước, sau đó gõ vào ô bên dưới để tự kiểm tra. Nhấn "Kiểm tra" để so đáp án.</div>
+
+  <div class="controls">
+    <button class="btn btn-primary" onclick="checkAll()">✅ Kiểm tra tất cả</button>
+    <button class="btn btn-outline" onclick="resetAll()">🔄 Làm lại</button>
+  </div>
+
+  <div class="score-bar" id="scoreBar">
+    <div><span class="score-num" id="scoreNum">0</span><span class="score-label"> / 30</span></div>
+    <div class="score-label" id="scoreMsg"></div>
+  </div>
+
+  <!-- === I. CONDITIONAL === -->
+  <div class="section-title"><span class="badge">I</span> Câu điều kiện (Conditional Sentences)</div>
+
+  <div class="exercise" data-answer="If I had enough money, I could buy that dictionary.">
+    <div class="original"><span class="q-num">1.</span> I don't have enough money, so I can't buy that dictionary.</div>
+    <div class="prompt">
+      <span class="prompt-label">If</span>
+      <input class="answer-input" type="text" data-prefix="If ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="If he weren't/wasn't so lazy, he wouldn't get bad marks.">
+    <div class="original"><span class="q-num">2.</span> He is very lazy, so he gets bad marks.</div>
+    <div class="prompt">
+      <span class="prompt-label">If</span>
+      <input class="answer-input" type="text" data-prefix="If ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="If you don't work hard, you will fail the final exam.">
+    <div class="original"><span class="q-num">3.</span> Work hard or you will fail the final exam.</div>
+    <div class="prompt">
+      <span class="prompt-label">If</span>
+      <input class="answer-input" type="text" data-prefix="If ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="If I knew her phone number, I would call her.">
+    <div class="original"><span class="q-num">4.</span> I don't know her phone number, so I don't call her.</div>
+    <div class="prompt">
+      <span class="prompt-label">If</span>
+      <input class="answer-input" type="text" data-prefix="If ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="If you don't stop talking, the teacher will punish you.">
+    <div class="original"><span class="q-num">5.</span> Stop talking or the teacher will punish you.</div>
+    <div class="prompt">
+      <span class="prompt-label">If</span>
+      <input class="answer-input" type="text" data-prefix="If ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="If we had a map, we wouldn't get lost in the forest.">
+    <div class="original"><span class="q-num">6.</span> We don't have a map, so we get lost in the forest.</div>
+    <div class="prompt">
+      <span class="prompt-label">If</span>
+      <input class="answer-input" type="text" data-prefix="If ">
+    </div>
+</div>
+
+  <!-- === II. REPORTED SPEECH === -->
+  <div class="section-title"><span class="badge">II</span> Câu gián tiếp (Reported Speech)</div>
+
+  <div class="exercise" data-answer="She asked me where I was going for my holiday.">
+    <div class="original"><span class="q-num">7.</span> "Where are you going for your holiday?" she asked me.</div>
+    <div class="prompt">
+      <span class="prompt-label">She asked me</span>
+      <input class="answer-input" type="text" data-prefix="She asked me ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="Nam asked Lan if/whether he could borrow her pen.">
+    <div class="original"><span class="q-num">8.</span> "Can I borrow your pen?" Nam asked Lan.</div>
+    <div class="prompt">
+      <span class="prompt-label">Nam asked Lan</span>
+      <input class="answer-input" type="text" data-prefix="Nam asked Lan ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="My sister said that she was doing her homework then.">
+    <div class="original"><span class="q-num">9.</span> "I am doing my homework now," said my sister.</div>
+    <div class="prompt">
+      <span class="prompt-label">My sister said that</span>
+      <input class="answer-input" type="text" data-prefix="My sister said that ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="He asked her if/whether she liked listening to pop music.">
+    <div class="original"><span class="q-num">10.</span> "Do you like listening to pop music?" he asked her.</div>
+    <div class="prompt">
+      <span class="prompt-label">He asked her</span>
+      <input class="answer-input" type="text" data-prefix="He asked her ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="The policeman told the boys not to play football in the street.">
+    <div class="original"><span class="q-num">11.</span> "Don't play football in the street," the policeman said to the boys.</div>
+    <div class="prompt">
+      <span class="prompt-label">The policeman told</span>
+      <input class="answer-input" type="text" data-prefix="The policeman told ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="She said that she would visit her grandparents the next day.">
+    <div class="original"><span class="q-num">12.</span> "I will visit my grandparents tomorrow," she said.</div>
+    <div class="prompt">
+      <span class="prompt-label">She said</span>
+      <input class="answer-input" type="text" data-prefix="She said ">
+    </div>
+</div>
+
+  <!-- === III. COMPARATIVES === -->
+  <div class="section-title"><span class="badge">III</span> Câu so sánh (Comparatives)</div>
+
+  <div class="exercise" data-answer="My brother doesn't drive as carefully as my father.">
+    <div class="original"><span class="q-num">13.</span> My father drives more carefully than my brother.</div>
+    <div class="prompt">
+      <span class="prompt-label">My brother doesn't</span>
+      <input class="answer-input" type="text" data-prefix="My brother doesn't ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="Nam is the tallest in our class.">
+    <div class="original"><span class="q-num">14.</span> No one in our class is taller than Nam.</div>
+    <div class="prompt">
+      <span class="prompt-label">Nam is</span>
+      <input class="answer-input" type="text" data-prefix="Nam is ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="I have never read a more interesting book than this.">
+    <div class="original"><span class="q-num">15.</span> This is the most interesting book I have ever read.</div>
+    <div class="prompt">
+      <span class="prompt-label">I have never</span>
+      <input class="answer-input" type="text" data-prefix="I have never ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="A plane is faster than a train.">
+    <div class="original"><span class="q-num">16.</span> A train is not as fast as a plane.</div>
+    <div class="prompt">
+      <span class="prompt-label">A plane is</span>
+      <input class="answer-input" type="text" data-prefix="A plane is ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="Your house is smaller than my house.">
+    <div class="original"><span class="q-num">17.</span> My house is bigger than your house.</div>
+    <div class="prompt">
+      <span class="prompt-label">Your house is</span>
+      <input class="answer-input" type="text" data-prefix="Your house is ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="Mary doesn't cook as well as Jane.">
+    <div class="original"><span class="q-num">18.</span> Jane cooks better than Mary.</div>
+    <div class="prompt">
+      <span class="prompt-label">Mary doesn't</span>
+      <input class="answer-input" type="text" data-prefix="Mary doesn't ">
+    </div>
+</div>
+
+  <!-- === IV. PASSIVE VOICE === -->
+  <div class="section-title"><span class="badge">IV</span> Câu bị động (Passive Voice)</div>
+
+  <div class="exercise" data-answer="English is spoken all over the world.">
+    <div class="original"><span class="q-num">19.</span> People speak English all over the world.</div>
+    <div class="prompt">
+      <span class="prompt-label">English</span>
+      <input class="answer-input" type="text" data-prefix="English ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="The floor is cleaned every morning by my mother.">
+    <div class="original"><span class="q-num">20.</span> My mother cleans the floor every morning.</div>
+    <div class="prompt">
+      <span class="prompt-label">The floor</span>
+      <input class="answer-input" type="text" data-prefix="The floor ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="This school was built 10 years ago.">
+    <div class="original"><span class="q-num">21.</span> They built this school 10 years ago.</div>
+    <div class="prompt">
+      <span class="prompt-label">This school</span>
+      <input class="answer-input" type="text" data-prefix="This school ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="My bike has been stolen.">
+    <div class="original"><span class="q-num">22.</span> Someone has stolen my bike.</div>
+    <div class="prompt">
+      <span class="prompt-label">My bike</span>
+      <input class="answer-input" type="text" data-prefix="My bike ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="The project will be finished next week.">
+    <div class="original"><span class="q-num">23.</span> He will finish the project next week.</div>
+    <div class="prompt">
+      <span class="prompt-label">The project</span>
+      <input class="answer-input" type="text" data-prefix="The project ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="The telephone was invented in 1876 by Alexander Graham Bell.">
+    <div class="original"><span class="q-num">24.</span> Alexander Graham Bell invented the telephone in 1876.</div>
+    <div class="prompt">
+      <span class="prompt-label">The telephone</span>
+      <input class="answer-input" type="text" data-prefix="The telephone ">
+    </div>
+</div>
+
+  <!-- === V. OTHER STRUCTURES === -->
+  <div class="section-title"><span class="badge">V</span> Các cấu trúc khác (Other Structures)</div>
+
+  <div class="exercise" data-answer="I spend 30 minutes walking to school every day.">
+    <div class="original"><span class="q-num">25.</span> It takes me 30 minutes to walk to school every day.</div>
+    <div class="prompt">
+      <span class="prompt-label">I spend</span>
+      <input class="answer-input" type="text" data-prefix="I spend ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="Because of the heavy rain, we stayed at home.">
+    <div class="original"><span class="q-num">26.</span> Because it rained heavily, we stayed at home.</div>
+    <div class="prompt">
+      <span class="prompt-label">Because of</span>
+      <input class="answer-input" type="text" data-prefix="Because of ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="In spite of being tired, he finished his homework.">
+    <div class="original"><span class="q-num">27.</span> Although he was tired, he finished his homework.</div>
+    <div class="prompt">
+      <span class="prompt-label">In spite of</span>
+      <input class="answer-input" type="text" data-prefix="In spite of ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="Peter suggested going to the cinema that night.">
+    <div class="original"><span class="q-num">28.</span> "Let's go to the cinema tonight," said Peter.</div>
+    <div class="prompt">
+      <span class="prompt-label">Peter suggested</span>
+      <input class="answer-input" type="text" data-prefix="Peter suggested ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="I have learned/learnt English for 3 years.">
+    <div class="original"><span class="q-num">29.</span> I started learning English 3 years ago.</div>
+    <div class="prompt">
+      <span class="prompt-label">I have</span>
+      <input class="answer-input" type="text" data-prefix="I have ">
+    </div>
+</div>
+
+  <div class="exercise" data-answer="I wish I could speak English fluently.">
+    <div class="original"><span class="q-num">30.</span> It's a pity I can't speak English fluently.</div>
+    <div class="prompt">
+      <span class="prompt-label">I wish</span>
+      <input class="answer-input" type="text" data-prefix="I wish ">
+    </div>
+</div>
+
+  <div class="controls">
+    <button class="btn btn-primary" onclick="checkAll()">✅ Kiểm tra tất cả</button>
+    <button class="btn btn-outline" onclick="resetAll()">🔄 Làm lại</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Normalize: lowercase, trim, collapse spaces, remove trailing period
+  function norm(s) {
+    return s.trim().toLowerCase()
+      .replace(/\s+/g,' ')
+      .replace(/\.\s*$/,'')
+      .replace(/['']/g,"'");
+  }
+
+  // Check if user answer matches any accepted variant
+  function isCorrect(userAns, correctStr) {
+    var u = norm(userAns);
+    if (!u) return false;
+    // Handle multiple accepted answers separated by /
+    // e.g. "weren't/wasn't" means either word is okay
+    // Build all permutations from slash-alternatives
+    var variants = [norm(correctStr)];
+
+    // Also accept "the next day" or "the following day"
+    // Accept with or without trailing period
+    // Accept learned/learnt
+    // Accept if/whether
+    // Simple: check if normalized matches
+    // For slash variants like "weren't/wasn't", expand
+    if (correctStr.indexOf('/') !== -1) {
+      // Split into tokens, for tokens with /, create alternatives
+      var tokens = correctStr.split(' ');
+      var combos = [[]];
+      for (var i = 0; i < tokens.length; i++) {
+        var alts = tokens[i].split('/');
+        var newCombos = [];
+        for (var c = 0; c < combos.length; c++) {
+          for (var a = 0; a < alts.length; a++) {
+            newCombos.push(combos[c].concat(alts[a]));
+          }
+        }
+        combos = newCombos;
+      }
+      variants = combos.map(function(c){return norm(c.join(' '));});
+    }
+
+    for (var v = 0; v < variants.length; v++) {
+      if (u === variants[v]) return true;
+    }
+
+    // Flexible check: also accept without prefix if data-prefix was auto-added
+    return false;
+  }
+window.checkAll = function() {
+    var exercises = document.querySelectorAll('.exercise');
+    var correct = 0;
+    for (var i = 0; i < exercises.length; i++) {
+      var ex = exercises[i];
+      var input = ex.querySelector('.answer-input');
+      var answer = ex.getAttribute('data-answer');
+      var prefix = input.getAttribute('data-prefix') || '';
+      var userFull = prefix + input.value;
+
+      ex.classList.remove('correct','wrong');
+      if (!input.value.trim()) continue;
+
+      if (isCorrect(userFull, answer)) {
+        ex.classList.add('correct');
+        correct++;
+      } else {
+        ex.classList.add('wrong');
+      }
+    }
+
+    var bar = document.getElementById('scoreBar');
+    bar.classList.add('show');
+    document.getElementById('scoreNum').textContent = correct;
+    var pct = Math.round(correct/30*100);
+    var msg = pct >= 90 ? '🌟 Xuất sắc!' : pct >= 70 ? '👍 Tốt lắm!' : pct >= 50 ? '💪 Cố gắng thêm!' : '📖 Ôn lại ngữ pháp nhé!';
+    document.getElementById('scoreMsg').textContent = msg + ' (' + pct + '%)';
+  };
+
+  window.resetAll = function() {
+    var exercises = document.querySelectorAll('.exercise');
+    for (var i = 0; i < exercises.length; i++) {
+      exercises[i].classList.remove('correct','wrong');
+      exercises[i].querySelector('.answer-input').value = '';
+    }
+    document.getElementById('scoreBar').classList.remove('show');
+  };
+
+  // Enter key moves to next input
+  var inputs = document.querySelectorAll('.answer-input');
+  for (var i = 0; i < inputs.length; i++) {
+    (function(idx){
+      inputs[idx].addEventListener('keydown', function(e){
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          if (idx + 1 < inputs.length) inputs[idx+1].focus();
+          else checkAll();
+        }
+      });
+    })(i);
+  }
+})();
+</script>
+</body>
+</html>

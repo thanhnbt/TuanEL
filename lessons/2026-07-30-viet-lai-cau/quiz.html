@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz — Viết lại câu 30/07 — English Daily</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .lesson-topbar{background:#fff;border-bottom:1px solid #e2e4e8;padding:0 1rem;position:sticky;top:0;z-index:99}
+    .lesson-topbar-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:8px}
+    .lesson-topbar .back-link{color:#2563eb;text-decoration:none;font-size:13px;font-weight:600;padding:10px 0;margin-right:16px;white-space:nowrap}
+    .lesson-topbar .back-link:hover{opacity:.7}
+    .sub-nav{display:flex;gap:4px;overflow-x:auto}
+    .sub-nav a{padding:10px 14px;font-size:13px;font-weight:500;color:#6b7280;text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s}
+    .sub-nav a:hover{color:#1a1a1a}
+    .sub-nav a.active{color:#2563eb;border-bottom-color:#2563eb}
+
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fafaf7;color:#1a1a1a}
+    .container{max-width:720px;margin:0 auto;padding:1.5rem 1rem 3rem}
+
+    /* Day tabs */
+    .day-tabs{display:flex;gap:6px;margin-bottom:1rem;flex-wrap:wrap}
+    .day-tab{padding:8px 16px;border:2px solid #e2e4e8;border-radius:20px;font-size:.85rem;font-weight:600;cursor:pointer;background:#fff;color:#6b7280;transition:all .2s}
+    .day-tab.active{background:#2563eb;color:#fff;border-color:#2563eb}
+    .day-tab:hover:not(.active){border-color:#2563eb;color:#2563eb}
+
+    .controls{display:flex;gap:8px;margin-bottom:1rem;align-items:center;flex-wrap:wrap}
+    .shuffle-btn{padding:6px 14px;border:2px solid #e2e4e8;border-radius:8px;font-size:.85rem;cursor:pointer;background:#fff;transition:all .2s}
+    .shuffle-btn.on{background:#fef3c7;border-color:#f59e0b;color:#92400e}
+
+    .progress-wrap{display:flex;align-items:center;gap:10px;margin-bottom:1.2rem}
+    .progress-bar{flex:1;height:8px;background:#e2e4e8;border-radius:4px;overflow:hidden}
+    .progress-fill{height:100%;background:#2563eb;border-radius:4px;transition:width .3s}
+    .progress-text{font-size:.82rem;color:#6b7280;white-space:nowrap}
+
+    /* Quiz card */
+    .quiz-card{background:#fff;border:1px solid #e2e4e8;border-radius:14px;padding:1.5rem;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+    .quiz-card.hidden{display:none}
+
+    .q-original{font-size:1rem;line-height:1.7;margin-bottom:1rem;background:#f8fafc;padding:.8rem 1rem;border-radius:8px;border-left:4px solid #2563eb}
+
+    /* Step 1: Identify type */
+    .step-box{margin-bottom:1rem;padding:1rem;border-radius:10px;border:2px solid #e2e4e8;transition:border-color .3s}
+    .step-box.active-step{border-color:#2563eb}
+    .step-box.done-step{border-color:#10b981;background:#f0fdf4}
+    .step-box.wrong-step{border-color:#ef4444;background:#fef2f2}
+
+    .step-label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.5rem;display:flex;align-items:center;gap:6px}
+    .step-label .step-num{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.7rem;color:#fff;flex-shrink:0}
+    .step1 .step-num{background:#6366f1}
+    .step2 .step-num{background:#2563eb}
+
+    .type-options{display:flex;flex-wrap:wrap;gap:6px}
+    .type-opt{padding:7px 14px;border:2px solid #e2e4e8;border-radius:8px;font-size:.85rem;cursor:pointer;background:#fff;transition:all .15s;user-select:none}
+    .type-opt:hover{border-color:#6366f1;color:#6366f1}
+    .type-opt.selected{background:#6366f1;color:#fff;border-color:#6366f1}
+    .type-opt.correct-type{background:#10b981;color:#fff;border-color:#10b981}
+    .type-opt.wrong-type{background:#fecaca;color:#dc2626;border-color:#dc2626;text-decoration:line-through}
+    .type-opt.disabled{pointer-events:none;opacity:.6}
+
+    .type-result{font-size:.85rem;margin-top:.5rem;font-weight:600}
+    .type-result.ok{color:#15803d}
+    .type-result.nok{color:#dc2626}
+
+    /* Step 2: Write answer */
+    .q-prompt{font-size:.9rem;color:#15803d;font-weight:600;margin-bottom:.5rem}
+    .q-input{width:100%;padding:10px 14px;border:2px solid #e2e4e8;border-radius:10px;font-size:1rem;font-family:inherit;box-sizing:border-box;transition:border-color .2s}
+    .q-input:focus{outline:none;border-color:#2563eb}
+    .q-input.correct{border-color:#10b981;background:#f0fdf4}
+    .q-input.wrong{border-color:#ef4444;background:#fef2f2}
+    .q-input:disabled{background:#f1f5f9}
+
+    .attempt-info{font-size:.8rem;color:#9ca3af;margin-top:.3rem}
+
+    .hint-area{margin-top:.6rem}
+    .hint-label{font-size:.82rem;color:#6b7280;cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:4px}
+    .hint-content{display:none;font-size:.83rem;color:#854d0e;background:#fefce8;padding:4px 10px;border-radius:6px;margin-top:.3rem}
+    .hint-content.show{display:block}
+
+    .feedback{margin-top:.8rem;padding:.6rem 1rem;border-radius:8px;font-size:.9rem;display:none;text-align:left}
+    .feedback.correct-fb{display:block;background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
+    .feedback.wrong-fb{display:block;background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+    .feedback.reveal-fb{display:block;background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe}
+    .answer-reveal{font-family:'Courier New',monospace;font-weight:700;font-size:.95rem;margin-top:.3rem}
+
+    .card-btns{margin-top:1rem;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+    .btn{padding:10px 20px;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;transition:opacity .2s}
+    .btn:hover{opacity:.85}
+    .btn-primary{background:#6366f1;color:#fff}
+    .btn-check{background:#2563eb;color:#fff}
+    .btn-next{background:#10b981;color:#fff}
+
+    /* Score screen */
+    .score-screen{display:none;text-align:center;padding:2rem 1rem}
+    .score-screen.show{display:block}
+    .score-big{font-size:3.5rem;font-weight:800;color:#2563eb}
+    .score-sub{font-size:1.1rem;color:#6b7280;margin:.3rem 0 .5rem}
+    .stars{font-size:2rem;margin:.5rem 0}
+    .score-detail{font-size:.88rem;color:#475569;margin-bottom:1rem}
+    .retry-btn{margin-top:.5rem}
+
+    @media(max-width:700px){
+      .container{padding:1rem .7rem 2rem}
+      .quiz-card{padding:1rem}
+      .type-opt{padding:6px 10px;font-size:.8rem}
+    }
+  </style>
+</head>
+<body>
+
+<div class="lesson-topbar">
+  <div class="lesson-topbar-inner">
+    <a href="../../index.html" class="back-link">📘 ← Trang chủ</a>
+    <nav class="sub-nav">
+      <a href="index.html">📗 Ngữ pháp</a>
+      <a href="writing.html">📐 Writing</a>
+      <a href="quiz.html" class="active">🧩 Quiz</a>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <div class="day-tabs" id="dayTabs"></div>
+  <div class="controls">
+    <button class="shuffle-btn" id="shuffleBtn" onclick="toggleShuffle()">🔀 Trộn câu</button>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-text"><span id="curQ">0</span>/<span id="totalQ">0</span></div>
+  </div>
+
+  <div class="quiz-card" id="quizCard">
+    <!-- Original sentence -->
+    <div class="q-original" id="qOriginal"></div>
+
+    <!-- STEP 1: Identify grammar type -->
+    <div class="step-box step1 active-step" id="step1Box">
+      <div class="step-label"><span class="step-num">1</span> Đây là loại câu gì?</div>
+      <div class="type-options" id="typeOptions"></div>
+      <div class="type-result" id="typeResult"></div>
+      <div class="card-btns" id="step1Btns">
+        <button class="btn btn-primary" id="confirmTypeBtn" onclick="confirmType()">Xác nhận loại câu</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Write the answer -->
+    <div class="step-box step2" id="step2Box" style="opacity:.4;pointer-events:none">
+      <div class="step-label"><span class="step-num">2</span> Viết lại câu</div>
+      <div class="q-prompt" id="qPrompt"></div>
+      <input class="q-input" id="qInput" type="text" autocomplete="off" autocorrect="off" spellcheck="false" disabled>
+      <div class="attempt-info" id="attemptInfo"></div>
+
+      <div class="hint-area">
+        <label class="hint-label"><input type="checkbox" id="hintCheck" onchange="toggleQuizHint()"> 💡 Gợi ý</label>
+        <div class="hint-content" id="hintContent"></div>
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+
+      <div class="card-btns">
+        <button class="btn btn-check" id="checkBtn" onclick="checkAnswer()">Kiểm tra</button>
+        <button class="btn btn-next" id="nextBtn" onclick="nextQuestion()" style="display:none">Câu tiếp →</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="score-screen" id="scoreScreen">
+    <div class="stars" id="stars"></div>
+    <div class="score-big" id="scoreBig"></div>
+    <div class="score-sub" id="scoreSub"></div>
+    <div class="score-detail" id="scoreDetail"></div>
+    <button class="btn btn-check" onclick="restartDay()">🔄 Làm lại</button>
+    <button class="btn btn-next retry-btn" id="retryWrongBtn" onclick="retryWrong()" style="display:none">❌ Làm lại câu sai</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var TYPE_LABELS = ['Conditional','Reported Speech','Comparatives','Passive Voice','Other Structures'];
+  var TYPE_SHORT  = ['Conditional','Reported','Comparatives','Passive','Other'];
+
+  var DAYS = [
+    {
+      name: 'Ngày 1 — Conditional & Reported',
+      questions: [
+        {cat:'Conditional',original:"I don't have enough money, so I can't buy that dictionary.",prompt:'If',answer:'If I had enough money, I could buy that dictionary.',hint:"don't have → had · can't → could"},
+        {cat:'Conditional',original:'He is very lazy, so he gets bad marks.',prompt:'If',answer:"If he weren't/wasn't so lazy, he wouldn't get bad marks.",hint:"is → weren't · gets → wouldn't get"},
+        {cat:'Conditional',original:'Work hard or you will fail the final exam.',prompt:'If',answer:"If you don't work hard, you will fail the final exam.",hint:'"V + or" → "If + don\'t V"'},
+        {cat:'Conditional',original:"I don't know her phone number, so I don't call her.",prompt:'If',answer:'If I knew her phone number, I would call her.',hint:"don't know → knew · would call"},
+        {cat:'Conditional',original:'Stop talking or the teacher will punish you.',prompt:'If',answer:"If you don't stop talking, the teacher will punish you.",hint:'"V + or" → "If + don\'t V"'},
+        {cat:'Conditional',original:"We don't have a map, so we get lost in the forest.",prompt:'If',answer:"If we had a map, we wouldn't get lost in the forest.",hint:"don't have → had · wouldn't get lost"},
+        {cat:'Reported',original:'"Where are you going for your holiday?" she asked me.',prompt:'She asked me',answer:'She asked me where I was going for my holiday.',hint:'Wh + S + V lùi · are going → was going'},
+        {cat:'Reported',original:'"Can I borrow your pen?" Nam asked Lan.',prompt:'Nam asked Lan',answer:'Nam asked Lan if/whether he could borrow her pen.',hint:'if/whether · can → could · I → he'},
+        {cat:'Reported',original:'"I am doing my homework now," said my sister.',prompt:'My sister said that',answer:'My sister said that she was doing her homework then.',hint:'am doing → was doing · now → then'},
+        {cat:'Reported',original:'"Do you like listening to pop music?" he asked her.',prompt:'He asked her',answer:'He asked her if/whether she liked listening to pop music.',hint:'if/whether · do you like → she liked'}
+      ]
+    },
+    {
+      name: 'Ngày 2 — Reported, So sánh & Bị động',
+      questions: [
+        {cat:'Reported',original:'"Don\'t play football in the street," the policeman said to the boys.',prompt:'The policeman told',answer:'The policeman told the boys not to play football in the street.',hint:'told + O + not to V'},
+        {cat:'Reported',original:'"I will visit my grandparents tomorrow," she said.',prompt:'She said',answer:'She said that she would visit her grandparents the next day.',hint:'will → would · tomorrow → the next day'},
+        {cat:'Comparatives',original:'My father drives more carefully than my brother.',prompt:"My brother doesn't",answer:"My brother doesn't drive as carefully as my father.",hint:"more...than → doesn't V as...as"},
+        {cat:'Comparatives',original:'No one in our class is taller than Nam.',prompt:'Nam is',answer:'Nam is the tallest in our class.',hint:'No one...taller than → the tallest'},
+        {cat:'Comparatives',original:'This is the most interesting book I have ever read.',prompt:'I have never',answer:'I have never read a more interesting book than this.',hint:'the most...ever → never...a more...than this'},
+        {cat:'Comparatives',original:'A train is not as fast as a plane.',prompt:'A plane is',answer:'A plane is faster than a train.',hint:'not as fast as → faster than'},
+        {cat:'Comparatives',original:'My house is bigger than your house.',prompt:'Your house is',answer:'Your house is smaller than my house.',hint:'bigger → smaller (đảo)'},
+        {cat:'Comparatives',original:'Jane cooks better than Mary.',prompt:"Mary doesn't",answer:"Mary doesn't cook as well as Jane.",hint:"better → as well as"},
+        {cat:'Passive',original:'People speak English all over the world.',prompt:'English',answer:'English is spoken all over the world.',hint:'is + V3 · bỏ by people'},
+        {cat:'Passive',original:'My mother cleans the floor every morning.',prompt:'The floor',answer:'The floor is cleaned every morning by my mother.',hint:'is + V3 + by my mother'}
+      ]
+    },
+    {
+      name: 'Ngày 3 — Bị động & Cấu trúc khác',
+      questions: [
+        {cat:'Passive',original:'They built this school 10 years ago.',prompt:'This school',answer:'This school was built 10 years ago.',hint:'was + V3 · bỏ by them'},
+        {cat:'Passive',original:'Someone has stolen my bike.',prompt:'My bike',answer:'My bike has been stolen.',hint:'has been + V3'},
+        {cat:'Passive',original:'He will finish the project next week.',prompt:'The project',answer:'The project will be finished next week.',hint:'will be + V3'},
+        {cat:'Passive',original:'Alexander Graham Bell invented the telephone in 1876.',prompt:'The telephone',answer:'The telephone was invented in 1876 by Alexander Graham Bell.',hint:'was + V3 + by (tên riêng)'},
+        {cat:'Other',original:'It takes me 30 minutes to walk to school every day.',prompt:'I spend',answer:'I spend 30 minutes walking to school every day.',hint:'It takes...to V → spend...V-ing'},
+        {cat:'Other',original:'Because it rained heavily, we stayed at home.',prompt:'Because of',answer:'Because of the heavy rain, we stayed at home.',hint:'Because + clause → Because of + N'},
+        {cat:'Other',original:'Although he was tired, he finished his homework.',prompt:'In spite of',answer:'In spite of being tired, he finished his homework.',hint:'Although → In spite of + V-ing/N'},
+        {cat:'Other',original:'"Let\'s go to the cinema tonight," said Peter.',prompt:'Peter suggested',answer:'Peter suggested going to the cinema that night.',hint:"Let's V → suggested V-ing"},
+        {cat:'Other',original:'I started learning English 3 years ago.',prompt:'I have',answer:'I have learned/learnt English for 3 years.',hint:'started...ago → have V3 for'},
+        {cat:'Other',original:"It's a pity I can't speak English fluently.",prompt:'I wish',answer:'I wish I could speak English fluently.',hint:"can't → could · wish + V lùi"}
+      ]
+    }
+  ];
+
+  /* ====== STATE ====== */
+  var currentDay=0, order=[], currentIdx=0, score=0, typeScore=0;
+  var attempts=0, maxAttempts=3, shuffleOn=false;
+  var wrongOnes=[], isRetryMode=false, activeQuestions=[];
+  var selectedType=null, typeConfirmed=false;
+
+  /* ====== HELPERS ====== */
+  function norm(s){return s.trim().toLowerCase().replace(/\s+/g,' ').replace(/\.\s*$/,'').replace(/['']/g,"'");}
+
+  function isCorrect(userAns,correctStr){
+    var u=norm(userAns);if(!u)return false;
+    var tokens=correctStr.split(' ');var combos=[[]];
+    for(var i=0;i<tokens.length;i++){
+      var alts=tokens[i].split('/');var nc=[];
+      for(var c=0;c<combos.length;c++)for(var a=0;a<alts.length;a++)nc.push(combos[c].concat(alts[a]));
+      combos=nc;
+    }
+    for(var v=0;v<combos.length;v++)if(u===norm(combos[v].join(' ')))return true;
+    return false;
+  }
+
+  function shuffle(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  /* ====== UI ====== */
+  function buildDayTabs(){
+    var h='';
+    for(var i=0;i<DAYS.length;i++) h+='<div class="day-tab'+(i===currentDay?' active':'')+'" onclick="selectDay('+i+')">'+DAYS[i].name+'</div>';
+    document.getElementById('dayTabs').innerHTML=h;
+  }
+
+  function selectDay(d){currentDay=d;isRetryMode=false;activeQuestions=DAYS[d].questions;buildDayTabs();restart();}
+
+  function restart(){
+    order=shuffleOn?shuffle([...Array(activeQuestions.length).keys()]):[...Array(activeQuestions.length).keys()];
+    currentIdx=0;score=0;typeScore=0;wrongOnes=[];
+    document.getElementById('quizCard').classList.remove('hidden');
+    document.getElementById('scoreScreen').classList.remove('show');
+    showQuestion();
+  }
+
+  function showQuestion(){
+    if(currentIdx>=order.length){showScore();return;}
+    var q=activeQuestions[order[currentIdx]];
+    attempts=0;selectedType=null;typeConfirmed=false;
+
+    // Progress
+    document.getElementById('curQ').textContent=currentIdx+1;
+    document.getElementById('totalQ').textContent=order.length;
+    document.getElementById('progressFill').style.width=(currentIdx/order.length*100)+'%';
+
+    // Original
+    document.getElementById('qOriginal').textContent=q.original;
+
+    // Step 1: type options
+    var s1=document.getElementById('step1Box');
+    s1.className='step-box step1 active-step';
+    document.getElementById('typeResult').innerHTML='';
+    document.getElementById('confirmTypeBtn').style.display='';
+
+    var optsHtml='';
+    for(var i=0;i<TYPE_LABELS.length;i++){
+      optsHtml+='<div class="type-opt" data-type="'+TYPE_SHORT[i]+'" onclick="pickType(this)">'+TYPE_LABELS[i]+'</div>';
+    }
+    document.getElementById('typeOptions').innerHTML=optsHtml;
+
+    // Step 2: locked
+    var s2=document.getElementById('step2Box');
+    s2.style.opacity='.4';s2.style.pointerEvents='none';
+    s2.className='step-box step2';
+    document.getElementById('qPrompt').textContent=q.prompt+' ...';
+    var inp=document.getElementById('qInput');
+    inp.value='';inp.className='q-input';inp.disabled=true;
+    inp.placeholder='Hoàn thành bước 1 trước';
+    document.getElementById('attemptInfo').textContent='';
+    document.getElementById('feedback').className='feedback';
+    document.getElementById('feedback').innerHTML='';
+    document.getElementById('checkBtn').style.display='';
+    document.getElementById('nextBtn').style.display='none';
+    document.getElementById('hintCheck').checked=false;
+    document.getElementById('hintContent').className='hint-content';
+    document.getElementById('hintContent').textContent=q.hint;
+  }
+
+  window.pickType=function(el){
+    if(typeConfirmed)return;
+    var opts=document.querySelectorAll('.type-opt');
+    for(var i=0;i<opts.length;i++)opts[i].classList.remove('selected');
+    el.classList.add('selected');
+    selectedType=el.getAttribute('data-type');
+  };
+
+  window.confirmType=function(){
+    if(!selectedType||typeConfirmed)return;
+    typeConfirmed=true;
+    var q=activeQuestions[order[currentIdx]];
+    var correct=(selectedType===q.cat);
+    var s1=document.getElementById('step1Box');
+    var result=document.getElementById('typeResult');
+
+    // Disable all options
+    var opts=document.querySelectorAll('.type-opt');
+    for(var i=0;i<opts.length;i++){
+      opts[i].classList.add('disabled');
+      if(opts[i].getAttribute('data-type')===q.cat) opts[i].classList.add('correct-type');
+      if(opts[i].classList.contains('selected')&&!correct) opts[i].classList.add('wrong-type');
+    }
+
+    if(correct){
+      s1.className='step-box step1 done-step';
+      result.className='type-result ok';
+      result.innerHTML='✅ Đúng! Đây là dạng <strong>'+q.cat+'</strong>';
+      typeScore++;
+    }else{
+      s1.className='step-box step1 wrong-step';
+      result.className='type-result nok';
+      result.innerHTML='❌ Sai! Đây là dạng <strong>'+q.cat+'</strong>, không phải '+selectedType;
+    }
+    document.getElementById('confirmTypeBtn').style.display='none';
+
+    // Unlock step 2
+    var s2=document.getElementById('step2Box');
+    s2.style.opacity='1';s2.style.pointerEvents='auto';
+    s2.className='step-box step2 active-step';
+    var inp=document.getElementById('qInput');
+    inp.disabled=false;
+    inp.placeholder='Gõ phần còn lại sau "'+q.prompt+'"';
+    inp.focus();
+  };
+
+  window.toggleQuizHint=function(){
+    var c=document.getElementById('hintCheck').checked;
+    document.getElementById('hintContent').className='hint-content'+(c?' show':'');
+  };
+
+  window.checkAnswer=function(){
+    var q=activeQuestions[order[currentIdx]];
+    var inp=document.getElementById('qInput');
+    var userFull=q.prompt+' '+inp.value.trim();
+    var fb=document.getElementById('feedback');
+    attempts++;
+
+    if(isCorrect(userFull,q.answer)){
+      inp.className='q-input correct';inp.disabled=true;
+      fb.className='feedback correct-fb';fb.innerHTML='✅ Chính xác!';
+      score++;
+      document.getElementById('step2Box').className='step-box step2 done-step';
+      document.getElementById('checkBtn').style.display='none';
+      document.getElementById('nextBtn').style.display='';
+    }else if(attempts>=maxAttempts){
+      inp.className='q-input wrong';inp.disabled=true;
+      fb.className='feedback reveal-fb';
+      fb.innerHTML='Đáp án:<div class="answer-reveal">'+q.answer+'</div>';
+      wrongOnes.push(order[currentIdx]);
+      document.getElementById('step2Box').className='step-box step2 wrong-step';
+      document.getElementById('checkBtn').style.display='none';
+      document.getElementById('nextBtn').style.display='';
+    }else{
+      inp.className='q-input wrong';
+      fb.className='feedback wrong-fb';
+      fb.innerHTML='❌ Sai rồi! Thử lại. (Lần '+attempts+'/'+maxAttempts+')';
+      document.getElementById('attemptInfo').textContent='Còn '+(maxAttempts-attempts)+' lần thử';
+      setTimeout(function(){inp.className='q-input';inp.focus();inp.select();},800);
+    }
+  };
+
+  window.nextQuestion=function(){currentIdx++;showQuestion();};
+
+  function showScore(){
+    document.getElementById('quizCard').classList.add('hidden');
+    var screen=document.getElementById('scoreScreen');screen.classList.add('show');
+    var total=order.length;
+    var pct=Math.round(score/total*100);
+    var typePct=Math.round(typeScore/total*100);
+    document.getElementById('scoreBig').textContent=score+'/'+total;
+    document.getElementById('scoreSub').textContent=pct+'% '+(pct>=90?'Xuất sắc!':pct>=70?'Tốt lắm!':pct>=50?'Cố gắng thêm!':'Ôn lại ngữ pháp nhé!');
+    document.getElementById('scoreDetail').innerHTML='Nhận dạng loại câu: <strong>'+typeScore+'/'+total+'</strong> ('+typePct+'%) · Viết lại câu: <strong>'+score+'/'+total+'</strong> ('+pct+'%)';
+    document.getElementById('progressFill').style.width='100%';
+    var starCount=pct>=90?3:pct>=70?2:pct>=40?1:0;
+    document.getElementById('stars').textContent='⭐'.repeat(starCount)+'☆'.repeat(3-starCount);
+    document.getElementById('retryWrongBtn').style.display=wrongOnes.length>0?'':'none';
+  }
+
+  window.restartDay=function(){restart();};
+  window.retryWrong=function(){
+    isRetryMode=true;
+    var retryOrder=wrongOnes.slice();wrongOnes=[];
+    order=shuffleOn?shuffle(retryOrder):retryOrder;
+    currentIdx=0;score=0;typeScore=0;
+    document.getElementById('quizCard').classList.remove('hidden');
+    document.getElementById('scoreScreen').classList.remove('show');
+    showQuestion();
+  };
+  window.toggleShuffle=function(){
+    shuffleOn=!shuffleOn;
+    document.getElementById('shuffleBtn').className='shuffle-btn'+(shuffleOn?' on':'');
+  };
+  window.selectDay=selectDay;
+
+  document.getElementById('qInput').addEventListener('keydown',function(e){
+    if(e.key==='Enter'){
+      e.preventDefault();
+      if(document.getElementById('nextBtn').style.display!=='none')nextQuestion();
+      else checkAnswer();
+    }
+  });
+
+  buildDayTabs();selectDay(0);
+})();
+</script>
+</body>
+</html>
