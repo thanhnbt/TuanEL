@@ -81,7 +81,121 @@
       .grammar-section{padding:1rem}
       .formula-content{font-size:.8rem}
     }
+
+    /* ===== Print — Kindle e-ink, học sinh 9 tuổi ===== */
+    @media print{
+      body{background:#fff!important;color:#000!important;font-size:14pt;line-height:1.7}
+      .lesson-topbar{display:none}
+      .container{max-width:100%;padding:0}
+
+      h1{font-size:18pt}
+      .sub-title{font-size:13pt;color:#000!important}
+      .grammar-section h2{font-size:16pt}
+      .grammar-section{background:#fff!important;border:1.5px solid #333;box-shadow:none;page-break-inside:avoid;margin-bottom:24px}
+      .grammar-section h2 .num{background:#000!important;color:#fff!important}
+
+      .flow-guide{background:#fff!important;border:2px solid #000;page-break-inside:avoid}
+      .flow-step .step-num{background:#000!important;color:#fff!important}
+      .flow-step .step-title{font-size:13pt}
+      .flow-step .step-desc{font-size:12pt;color:#000!important}
+      .flow-arrow{color:#000}
+
+      .formula{background:#fff!important;border:2px solid #000;box-shadow:none;padding:14px 16px}
+      .formula-label{color:#000!important;font-weight:800;font-size:12pt}
+      .formula-content{font-size:14pt}
+      .formula-content .struct{color:#000!important;font-weight:900}
+      .formula-content .arrow{color:#000!important}
+      .formula-line{background:#fff!important;border:1.5px solid #333}
+
+      /* Kindle e-ink: no background, use thick underline + bold border */
+      .ch{color:#000!important;font-weight:900;text-decoration:underline;text-decoration-thickness:2.5px}
+      .ch-bg{background:transparent!important;color:#000!important;font-weight:900;border:2px solid #000;padding:2px 5px}
+
+      .ex-group{border-left:4px solid #000}
+      .ex-item{background:#fff!important;font-size:13pt;padding:10px 14px}
+      .ex-item .ex-label{color:#000!important;font-weight:800;font-size:12pt}
+      .ex-item .arrow-line{color:#000!important}
+      .ex-item .vi{color:#333!important;font-size:12pt}
+
+      .change-table th{background:transparent!important;color:#000!important;border:1.5px solid #333;font-size:12pt}
+      .change-table td{border:1px solid #666;font-size:13pt;padding:10px 12px}
+      .change-table .from{color:#000!important}
+      .change-table .to{color:#000!important;font-weight:900;text-decoration:underline}
+      .change-table .arr{color:#000!important}
+
+      .tip{background:#fff!important;color:#000!important;border:2px solid #000;font-size:13pt;padding:10px 14px}
+      .tip::before{content:'💡 '}
+
+      a{color:#000!important;text-decoration:underline}
+      .grammar-section{page-break-inside:avoid}
+      h1,h2{page-break-after:avoid}
+    }
+    @media (monochrome){
+      *,*::before,*::after{transition:none!important;animation:none!important;box-shadow:none!important}
+      body{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
+      .lesson-topbar{border-bottom:2px solid #000}
+      .sub-nav a{color:#000}.sub-nav a.active{color:#000;border-bottom-color:#000}
+      .lesson-topbar .back-link{color:#000}
+      .flow-guide{background:#fff!important;border:2px solid #000}
+      .flow-step .step-num{background:#000!important;color:#fff!important}
+      .flow-step .step-desc{color:#000!important}
+      .flow-arrow{color:#000!important}
+      .grammar-section{background:#fff!important;border:2px solid #000}
+      .grammar-section h2{color:#000!important}
+      .grammar-section h2 .num{background:#000!important;color:#fff!important}
+      .sub-title{color:#000!important}
+      .formula{background:#fff!important;border:2px solid #000}
+      .formula-label{color:#000!important}
+      .formula-content .struct{color:#000!important}
+      .formula-content .arrow{color:#000!important}
+      .formula-line{background:#fff!important;border:2px solid #000}
+      .ch{color:#000!important;font-weight:900;text-decoration:underline;text-decoration-thickness:2.5px}
+      .ch-bg{background:transparent!important;color:#000!important;font-weight:900;border:2px solid #000;padding:2px 5px}
+      .ex-group{border-left:4px solid #000}
+      .ex-item{background:#fff!important}
+      .ex-item .ex-label{color:#000!important}
+      .ex-item .arrow-line{color:#000!important}
+      .change-table th{background:transparent!important;color:#000!important;border:2px solid #000;font-weight:800}
+      .change-table td{border:1.5px solid #444}
+      .change-table .from{color:#000!important}
+      .change-table .to{color:#000!important;font-weight:900;text-decoration:underline}
+      .change-table .arr{color:#000!important}
+      .tip{background:#fff!important;color:#000!important;border:2px solid #000}
+      a{color:#000!important;text-decoration:underline}
+    }
+    body.eink,body.eink *,body.eink *::before,body.eink *::after{transition:none!important;animation:none!important;box-shadow:none!important}
+    body.eink{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
+    body.eink .lesson-topbar{border-bottom:2px solid #000}
+    body.eink .sub-nav a{color:#000}body.eink .sub-nav a.active{color:#000;border-bottom-color:#000}
+    body.eink .lesson-topbar .back-link{color:#000}
+    body.eink .flow-guide{background:#fff!important;border:2px solid #000}
+    body.eink .flow-step .step-num{background:#000!important;color:#fff!important}
+    body.eink .flow-step .step-desc{color:#000!important}
+    body.eink .flow-arrow{color:#000!important}
+    body.eink .grammar-section{background:#fff!important;border:2px solid #000}
+    body.eink .grammar-section h2{color:#000!important}
+    body.eink .grammar-section h2 .num{background:#000!important;color:#fff!important}
+    body.eink .sub-title{color:#000!important}
+    body.eink .formula{background:#fff!important;border:2px solid #000}
+    body.eink .formula-label{color:#000!important}
+    body.eink .formula-content .struct{color:#000!important}
+    body.eink .formula-content .arrow{color:#000!important}
+    body.eink .formula-line{background:#fff!important;border:2px solid #000}
+    body.eink .ch{color:#000!important;font-weight:900;text-decoration:underline;text-decoration-thickness:2.5px}
+    body.eink .ch-bg{background:transparent!important;color:#000!important;font-weight:900;border:2px solid #000;padding:2px 5px}
+    body.eink .ex-group{border-left:4px solid #000}
+    body.eink .ex-item{background:#fff!important}
+    body.eink .ex-item .ex-label{color:#000!important}
+    body.eink .ex-item .arrow-line{color:#000!important}
+    body.eink .change-table th{background:transparent!important;color:#000!important;border:2px solid #000;font-weight:800}
+    body.eink .change-table td{border:1.5px solid #444}
+    body.eink .change-table .from{color:#000!important}
+    body.eink .change-table .to{color:#000!important;font-weight:900;text-decoration:underline}
+    body.eink .change-table .arr{color:#000!important}
+    body.eink .tip{background:#fff!important;color:#000!important;border:2px solid #000}
+    body.eink a{color:#000!important;text-decoration:underline}
   </style>
+  <script>if(localStorage.getItem('eink')==='true')document.addEventListener('DOMContentLoaded',function(){document.body.classList.add('eink');});</script>
 </head>
 <body>
 
@@ -147,10 +261,10 @@
       </div>
       <div class="ex-item">
         <div class="ex-label">Ví dụ 2</div>
-        <div class="orig">I <span class="ch">don't know</span> her phone number, so I <span class="ch">don't call</span> her.</div>
+        <div class="orig">I <span class="ch">don't know</span> her phone number, so I <span class="ch">can't call</span> her.</div>
         <div class="arrow-line">⟶</div>
-        <div class="rewrite"><span class="ch-bg">If</span> I <span class="ch-bg">knew</span> her phone number, I <span class="ch-bg">would call</span> her.</div>
-        <div class="vi">don't know → knew · don't call → would call</div>
+        <div class="rewrite"><span class="ch-bg">If</span> I <span class="ch-bg">knew</span> her phone number, I <span class="ch-bg">could call</span> her.</div>
+        <div class="vi">don't know → knew · can't call → could call</div>
       </div>
       <div class="ex-item">
         <div class="ex-label">Ví dụ 3</div>
@@ -187,7 +301,8 @@
       </div>
     </div>
 
-    <div class="tip">Phân biệt: Câu gốc có "don't/can't" → If loại 2 (giả định, lùi thì). Câu gốc có "V + or" → If loại 1 (cảnh báo, giữ nguyên thì).</div>
+    <div class="tip">Nhận biết: Nếu câu diễn tả tình trạng hiện tại không có thật và kết quả giả định → dùng If loại 2. Câu gốc có "V + or" (cảnh báo) → dùng If loại 1 (giữ nguyên thì).</div>
+    <div class="tip">Trong bài thi, động từ "be" trong If loại 2 luôn ưu tiên dùng "were" (If he were…). Trong giao tiếp, "was" đôi khi xuất hiện nhưng bài thi nên viết "were".</div>
   </div>
 
   <!-- ====== II. REPORTED SPEECH ====== -->
@@ -284,7 +399,7 @@
     <div class="formula" style="background:#fff;border-color:#a5b4fc">
       <div class="formula-label" style="font-size:.85rem;color:#4338ca">🔄 "Lùi thì" là gì?</div>
       <div style="font-size:.9rem;line-height:1.7;color:#334155;margin-bottom:.6rem">
-        Khi chuyển từ câu trực tiếp sang câu gián tiếp, động từ phải <strong>lùi về 1 thì</strong> — nghĩa là mỗi thì sẽ "đẩy lùi" về thì quá khứ hơn nó một bậc:
+        Khi động từ tường thuật ở quá khứ (said, asked, told), động từ trong lời nói <strong>thường được lùi 1 thì</strong>:
       </div>
 
       <table class="change-table" style="margin-bottom:.6rem">
@@ -318,8 +433,8 @@
         <tr><td class="from">will</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">would</td></tr>
         <tr><td class="from">can</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">could</td></tr>
         <tr><td class="from">may</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">might</td></tr>
-        <tr><td class="from">shall</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">should</td></tr>
-        <tr><td class="from">must</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">had to</td></tr>
+        <tr><td class="from">shall</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">should / would <em>(tùy ý nghĩa)</em></td></tr>
+        <tr><td class="from">must</td><td class="arr" style="font-size:1.2rem">→</td><td class="to">had to <em>(nghĩa vụ)</em><br>must <em>(giữ nguyên nếu vẫn còn đúng hoặc suy luận)</em></td></tr>
       </table>
 
       <table class="change-table" style="margin-bottom:.6rem">
@@ -339,11 +454,21 @@
       </table>
 
       <div style="background:#fef3c7;border-radius:8px;padding:.5rem .9rem;font-size:.84rem;color:#92400e;line-height:1.6">
-        💡 <strong>Mẹo nhớ:</strong> Tưởng tượng bạn đang đứng trên cầu thang — mỗi bậc là 1 thì. Khi thuật lại lời ai đó, bạn phải <strong>bước xuống 1 bậc</strong>. Hiện tại bước xuống thành Quá khứ, Quá khứ bước xuống thành Quá khứ hoàn thành. Nếu đã ở bậc cuối (quá khứ hoàn thành) thì giữ nguyên — không lùi thêm được nữa!
+        💡 <strong>Mẹo nhớ:</strong> Tưởng tượng bạn đang đứng trên cầu thang — mỗi bậc là 1 thì. Khi thuật lại lời ai đó, bạn <strong>bước xuống 1 bậc</strong>. Hiện tại → Quá khứ, Quá khứ → Quá khứ hoàn thành. Nếu đã ở bậc cuối (quá khứ hoàn thành) thì giữ nguyên.
+      </div>
+      <div style="background:#eff6ff;border-radius:8px;padding:.5rem .9rem;font-size:.84rem;color:#1e40af;line-height:1.6;margin-top:.5rem">
+        ⚠️ <strong>Không nhất thiết lùi thì khi:</strong><br>
+        • Động từ tường thuật ở hiện tại (He <em>says</em> that…).<br>
+        • Thông tin là chân lý hoặc vẫn còn đúng (The earth <em>is</em> round).<br>
+        • Động từ đã ở quá khứ hoàn thành — giữ nguyên.<br>
+        • could, would, should, might — thường giữ nguyên.
+      </div>
+      <div style="background:#f0fdf4;border-radius:8px;padding:.5rem .9rem;font-size:.84rem;color:#166534;line-height:1.6;margin-top:.5rem">
+        📝 <strong>Đại từ:</strong> Không đổi máy móc theo bảng — phải xác định <em>ai nói với ai</em> để chọn đại từ phù hợp với ngữ cảnh.
       </div>
     </div>
 
-    <div class="tip">Câu hỏi gián tiếp dùng trật tự khẳng định (S + V), KHÔNG đảo ngữ, KHÔNG dấu "?".</div>
+    <div class="tip">Câu tường thuật dạng "She asked me…" dùng trật tự khẳng định (S + V), KHÔNG đảo ngữ, KHÔNG dấu "?". Tuy nhiên, nếu toàn bộ câu là câu hỏi thì vẫn có dấu "?" — Ví dụ: "Did she ask you where you were going?"</div>
   </div>
 
   <!-- ====== III. COMPARATIVES ====== -->
@@ -354,8 +479,9 @@
     <div class="formula">
       <div class="formula-label">Công thức 1 — So sánh hơn <span class="arrow">↔</span> Không ... bằng</div>
       <div class="formula-content">
-        <div class="formula-line">A + V + <span class="struct">more ... than</span> B</div>
-        <div class="formula-line"><span class="arrow">↔</span> B + <span class="struct">doesn't V as ... as</span> A</div>
+        <div class="formula-line">A + V + <span class="struct">more + adv + than</span> B</div>
+        <div class="formula-line"><span class="arrow">↔</span> Với <strong>be</strong>: B + <span class="struct">be not as</span> + adj + <span class="struct">as</span> A</div>
+        <div class="formula-line"><span class="arrow">↔</span> Với <strong>V thường</strong>: B + <span class="struct">do/does not V as</span> + adv + <span class="struct">as</span> A</div>
       </div>
     </div>
 
@@ -399,8 +525,8 @@
     <div class="formula">
       <div class="formula-label">Công thức 3 — No one ... than <span class="arrow">↔</span> The ...-est</div>
       <div class="formula-content">
-        <div class="formula-line"><span class="struct">No one</span> ... + adj<span class="struct">-er</span> + <span class="struct">than</span> A</div>
-        <div class="formula-line"><span class="arrow">↔</span> A + is + <span class="struct">the + adj-est</span> ...</div>
+        <div class="formula-line"><span class="struct">No one</span> in + group + <span class="struct">be</span> + adj<span class="struct">-er</span> + <span class="struct">than</span> A</div>
+        <div class="formula-line"><span class="arrow">↔</span> A + <span class="struct">be</span> + <span class="struct">the + adj-est</span> + in + group</div>
       </div>
     </div>
 
@@ -419,7 +545,7 @@
       <div class="formula-label">Công thức 4 — Không bằng <span class="arrow">↔</span> So sánh hơn (đảo)</div>
       <div class="formula-content">
         <div class="formula-line">A is <span class="struct">not as</span> + adj + <span class="struct">as</span> B</div>
-        <div class="formula-line"><span class="arrow">↔</span> B is <span class="struct">adj-er than</span> A &nbsp;·&nbsp; A is <span class="struct">adj ngược-er than</span> B</div>
+        <div class="formula-line"><span class="arrow">↔</span> B is <span class="struct">adj-er / more adj + than</span> A</div>
       </div>
     </div>
 
@@ -440,7 +566,7 @@
       </div>
     </div>
 
-    <div class="tip">Luôn nhớ đảo vị trí A và B khi chuyển đổi. Trạng từ: better → as well as, more carefully → as carefully as.</div>
+    <div class="tip">Khi chuyển "more…than" ↔ "not as…as": đảo vị trí A và B. Trạng từ: better → as well as, more carefully → as carefully as. Lưu ý: không phải tính từ nào cũng có từ trái nghĩa tương đương — chỉ dùng từ trái nghĩa khi chắc chắn (big ↔ small, fast ↔ slow).</div>
   </div>
 
   <!-- ====== IV. PASSIVE ====== -->
@@ -459,7 +585,7 @@
       <tr><th>Thì</th><th class="arr"></th><th>Dạng bị động</th></tr>
       <tr><td class="from">Hiện tại đơn (speak/speaks)</td><td class="arr">→</td><td class="to">am/is/are + V3</td></tr>
       <tr><td class="from">Quá khứ đơn (built)</td><td class="arr">→</td><td class="to">was/were + V3</td></tr>
-      <tr><td class="from">Hiện tại hoàn thành (has stolen)</td><td class="arr">→</td><td class="to">has/have been + V3</td></tr>
+      <tr><td class="from">Hiện tại hoàn thành (has/have + V3)</td><td class="arr">→</td><td class="to">has/have been + V3</td></tr>
       <tr><td class="from">Tương lai đơn (will finish)</td><td class="arr">→</td><td class="to">will be + V3</td></tr>
     </table>
 
@@ -487,7 +613,7 @@
       </div>
     </div>
 
-    <div class="tip">Bỏ "by people / someone / they" khi chủ ngữ không quan trọng. Giữ "by + tên riêng" (by Alexander Graham Bell).</div>
+    <div class="tip">Bỏ "by + tác nhân" khi người thực hiện không quan trọng hoặc chung chung (people, someone, they). Giữ "by + tác nhân" khi người thực hiện cần được nhấn mạnh (by Alexander Graham Bell, by the police).</div>
   </div>
 
   <!-- ====== V. OTHER STRUCTURES ====== -->
@@ -562,18 +688,21 @@
 
     <!-- started...ago → have V3 for -->
     <div class="formula">
-      <div class="formula-label">5. Started ... ago → Have V3 ... for</div>
+      <div class="formula-label">5. Started ... ago → Have V3 / Have been V-ing ... for</div>
       <div class="formula-content">
         <div class="formula-line">S + <span class="struct">started</span> + V-ing + time + <span class="struct">ago</span></div>
         <div class="formula-line"><span class="arrow">→</span> S + <span class="struct">have/has + V<sub>3</sub></span> + <span class="struct">for</span> + time</div>
+        <div class="formula-line"><span class="arrow">→</span> S + <span class="struct">have/has been + V-ing</span> + <span class="struct">for</span> + time <em style="font-size:.85rem;color:#6b7280">(nếu hành động vẫn tiếp diễn)</em></div>
       </div>
     </div>
     <div class="ex-group">
       <div class="ex-item">
         <div class="orig">I <span class="ch">started learning</span> English <span class="ch">3 years ago</span>.</div>
         <div class="arrow-line">⟶</div>
-        <div class="rewrite">I <span class="ch-bg">have learned</span> English <span class="ch-bg">for 3 years</span>.</div>
-        <div class="vi">started V-ing ... ago → have V3 ... for</div>
+        <div class="rewrite">I <span class="ch-bg">have learned</span> English <span class="ch-bg">for 3 years</span>. <em style="color:#6b7280;font-size:.85rem">(bài thi chấp nhận)</em></div>
+        <div class="arrow-line">⟶</div>
+        <div class="rewrite">I <span class="ch-bg">have been learning</span> English <span class="ch-bg">for 3 years</span>. <em style="color:#6b7280;font-size:.85rem">(tự nhiên hơn — vẫn đang học)</em></div>
+        <div class="vi">started V-ing ... ago → have V3 / have been V-ing ... for</div>
       </div>
     </div>
 
@@ -590,11 +719,11 @@
         <div class="orig"><span class="ch">It's a pity</span> I <span class="ch">can't speak</span> English fluently.</div>
         <div class="arrow-line">⟶</div>
         <div class="rewrite">I <span class="ch-bg">wish</span> I <span class="ch-bg">could speak</span> English fluently.</div>
-        <div class="vi">It's a pity → wish · can't → could (lùi thì)</div>
+        <div class="vi">It's a pity → wish · can't → could (sau wish diễn tả điều trái hiện tại, dùng quá khứ; could = khả năng mong muốn)</div>
       </div>
     </div>
 
-    <div class="tip">Because/Although + mệnh đề (S+V). Because of / In spite of + cụm danh từ hoặc V-ing.</div>
+    <div class="tip">Because/Although + mệnh đề (S+V). Because of / In spite of + cụm danh từ hoặc V-ing. Lưu ý: chỉ rút thành V-ing khi chủ thể trùng với chủ ngữ mệnh đề chính (VD: "Although <em>he</em> was tired, <em>he</em>…" → "In spite of being tired, he…").</div>
   </div>
 
 </div>
