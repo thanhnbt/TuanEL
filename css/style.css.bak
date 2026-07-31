@@ -361,83 +361,6 @@ body {
 }
 .lesson-nav a:hover { text-decoration: underline; }
 
-/* ===== E-ink (monochrome screens & manual toggle) ===== */
-@media (monochrome) {
-  :root {
-    --bg: #ffffff; --bg-card: #ffffff;
-    --text: #000000; --text-muted: #333333; --text-light: #444444;
-    --border: #333333;
-    --accent: #000000; --accent-light: transparent;
-    --green: #000000; --green-light: transparent;
-    --amber: #000000; --amber-light: transparent;
-    --red: #000000; --red-light: transparent;
-    --purple: #000000; --purple-light: transparent;
-    --shadow: none; --shadow-md: none;
-  }
-  *, *::before, *::after { transition: none !important; animation: none !important; box-shadow: none !important; }
-  body { background: #fff !important; color: #000 !important; -webkit-font-smoothing: auto; font-weight: 450; line-height: 1.75; }
-  .site-header { border-bottom: 2px solid #000; }
-  .site-logo { color: #000; }
-  .site-nav a { color: #000; }
-  .search-box { border: 2px solid #000; }
-  .search-box:focus { box-shadow: none; border-color: #000; }
-  .lesson-card { border: 2px solid #000; }
-  .lesson-card:hover { box-shadow: none; border-color: #000; }
-  .lesson-day { background: transparent; color: #000; border: 2px solid #000; }
-  .tag { background: transparent; color: #000; border: 1.5px solid #000; }
-  .section-icon { background: transparent !important; border: 2px solid #000; }
-  .vocab-table { border: 2px solid #000; }
-  .vocab-table th { background: transparent; color: #000; border-bottom: 3px solid #000; font-weight: 800; }
-  .vocab-table td { border-top: 1.5px solid #444; }
-  .vocab-table tr:hover td { background: transparent; }
-  .grammar-block { border: 2px solid #000; border-left: 5px solid #000; }
-  .hw-item, .note-item { border: 2px solid #000; }
-  .hw-check:checked { background: #000; border-color: #000; }
-  a { color: #000 !important; text-decoration: underline; }
-  .lesson-nav a { color: #000; }
-  .breadcrumb a { color: #000; }
-}
-
-body.eink {
-  --bg: #ffffff; --bg-card: #ffffff;
-  --text: #000000; --text-muted: #333333; --text-light: #444444;
-  --border: #333333;
-  --accent: #000000; --accent-light: transparent;
-  --green: #000000; --green-light: transparent;
-  --amber: #000000; --amber-light: transparent;
-  --red: #000000; --red-light: transparent;
-  --purple: #000000; --purple-light: transparent;
-  --shadow: none; --shadow-md: none;
-  background: #fff !important; color: #000 !important;
-  -webkit-font-smoothing: auto; font-weight: 450; line-height: 1.75;
-}
-body.eink *, body.eink *::before, body.eink *::after { transition: none !important; animation: none !important; box-shadow: none !important; }
-body.eink .site-header { border-bottom: 2px solid #000; }
-body.eink .site-logo { color: #000; }
-body.eink .site-nav a { color: #000; }
-body.eink .search-box { border: 2px solid #000; }
-body.eink .search-box:focus { box-shadow: none; border-color: #000; }
-body.eink .lesson-card { border: 2px solid #000; }
-body.eink .lesson-card:hover { box-shadow: none; border-color: #000; }
-body.eink .lesson-day { background: transparent; color: #000; border: 2px solid #000; }
-body.eink .tag { background: transparent; color: #000; border: 1.5px solid #000; }
-body.eink .section-icon { background: transparent !important; border: 2px solid #000; }
-body.eink .vocab-table { border: 2px solid #000; }
-body.eink .vocab-table th { background: transparent; color: #000; border-bottom: 3px solid #000; font-weight: 800; }
-body.eink .vocab-table td { border-top: 1.5px solid #444; }
-body.eink .vocab-table tr:hover td { background: transparent; }
-body.eink .grammar-block { border: 2px solid #000; border-left: 5px solid #000; }
-body.eink .hw-item, body.eink .note-item { border: 2px solid #000; }
-body.eink .hw-check:checked { background: #000; border-color: #000; }
-body.eink a { color: #000 !important; text-decoration: underline; }
-body.eink .lesson-nav a { color: #000; }
-body.eink .breadcrumb a { color: #000; }
-
-/* E-ink toggle button */
-#eink-toggle { background: transparent; border: 1.5px solid var(--border); border-radius: 6px; padding: 4px 8px; font-size: 14px; cursor: pointer; color: var(--text-muted); line-height: 1; }
-#eink-toggle:hover { border-color: var(--accent); color: var(--accent); }
-body.eink #eink-toggle { background: #000; color: #fff; border-color: #000; }
-
 /* ===== Responsive ===== */
 @media (max-width: 600px) {
   .page-title { font-size: 1.25rem; }
@@ -447,35 +370,4 @@ body.eink #eink-toggle { background: #000; color: #fff; border-color: #000; }
   .vocab-table { font-size: 0.85rem; }
   .vocab-table th, .vocab-table td { padding: 8px 10px; }
   .stats-bar { gap: 16px; }
-}
-
-/* ===== Print (Kindle e-ink, 9-year-old reader) ===== */
-@media print {
-  body { background: #fff !important; color: #000 !important; font-size: 14pt; line-height: 1.7; }
-  .site-header, .lesson-topbar { display: none !important; }
-  .container, .page-wrap { max-width: 100%; padding: 0; }
-
-  h1 { font-size: 18pt; }
-  h2 { font-size: 16pt; }
-
-  .lesson-card { box-shadow: none; border: 1.5px solid #333; }
-  .lesson-card:hover { box-shadow: none; }
-  .lesson-day { background: transparent !important; color: #000 !important; border: 1.5px solid #000; }
-  .tag { border: 1.5px solid #333; background: transparent !important; color: #000 !important; }
-
-  .vocab-table { border: 1.5px solid #333; }
-  .vocab-table th { background: transparent !important; color: #000 !important; border-bottom: 2px solid #000; font-size: 12pt; }
-  .vocab-table td { border-top: 1px solid #666; font-size: 13pt; padding: 10px 12px; }
-  .vocab-table tr:hover td { background: transparent; }
-
-  .grammar-block { border-left: 4px solid #000; box-shadow: none; }
-  .hw-item, .note-item { box-shadow: none; border: 1.5px solid #666; }
-  .section-icon { background: transparent !important; border: 1.5px solid #000; }
-
-  a { color: #000 !important; text-decoration: underline; }
-  .breadcrumb a { color: #000 !important; }
-  .lesson-nav { display: none; }
-
-  h1, h2, h3 { page-break-after: avoid; }
-  .section { page-break-inside: avoid; }
 }

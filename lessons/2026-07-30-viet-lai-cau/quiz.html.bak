@@ -104,75 +104,7 @@
       .quiz-card{padding:1rem}
       .type-opt{padding:6px 10px;font-size:.8rem}
     }
-    @media print{
-      body{background:#fff!important;color:#000!important;font-size:14pt;line-height:1.7}
-      .lesson-topbar,.day-tabs,.controls,.progress-wrap,.card-btns,.score-screen,.btn,.shuffle-btn{display:none!important}
-      .container{max-width:100%;padding:0}
-      .quiz-card{display:block!important;box-shadow:none;border:1.5px solid #333;margin-bottom:16px;page-break-inside:avoid}
-      .quiz-card.hidden{display:block!important}
-      .q-original{background:#fff!important;border-left:4px solid #000;font-size:13pt;padding:10px 14px}
-      .step-box{border:1.5px solid #333}
-      .step-label{font-size:12pt}
-      .step-label .step-num{background:#000!important;color:#fff!important}
-      .type-opt{border:1.5px solid #333;background:#fff!important;color:#000!important;font-size:12pt}
-      .q-input{border:1.5px solid #000!important;background:#fff!important;font-size:13pt}
-      .hint-area,.feedback{display:none!important}
-      a{color:#000!important;text-decoration:underline}
-    }
-    @media (monochrome){
-      *,*::before,*::after{transition:none!important;animation:none!important;box-shadow:none!important}
-      body{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
-      .lesson-topbar{border-bottom:2px solid #000}
-      .sub-nav a{color:#000}.sub-nav a.active{color:#000;border-bottom-color:#000}
-      .lesson-topbar .back-link{color:#000}
-      .day-tabs .day-tab{background:#fff!important;color:#000!important;border:2px solid #000}
-      .day-tabs .day-tab.active{background:#000!important;color:#fff!important}
-      .controls .btn,.shuffle-btn{background:#fff!important;color:#000!important;border:2px solid #000}
-      .progress-wrap{background:#ddd!important}
-      .progress-wrap .progress-fill{background:#000!important}
-      .quiz-card{border:2px solid #000;background:#fff!important}
-      .q-original{background:#fff!important;border-left:4px solid #000}
-      .step-box{border:2px solid #000;background:#fff!important}
-      .step-label{color:#000!important}
-      .step-label .step-num{background:#000!important;color:#fff!important}
-      .type-opt{border:2px solid #000;background:#fff!important;color:#000!important}
-      .type-opt.selected{background:#000!important;color:#fff!important}
-      .type-opt.correct{background:#ddd!important;color:#000!important;border-color:#000!important}
-      .type-opt.wrong{border-style:dashed!important;color:#000!important}
-      .q-input{border:2px solid #000!important;background:#fff!important;color:#000!important}
-      .card-btns .btn{background:#000!important;color:#fff!important}
-      .feedback .correct-text{color:#000!important;font-weight:700}
-      .score-screen{background:#fff!important;border:2px solid #000}
-      .score-num{color:#000!important}
-      a{color:#000!important;text-decoration:underline}
-    }
-    body.eink,body.eink *,body.eink *::before,body.eink *::after{transition:none!important;animation:none!important;box-shadow:none!important}
-    body.eink{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
-    body.eink .lesson-topbar{border-bottom:2px solid #000}
-    body.eink .sub-nav a{color:#000}body.eink .sub-nav a.active{color:#000;border-bottom-color:#000}
-    body.eink .lesson-topbar .back-link{color:#000}
-    body.eink .day-tabs .day-tab{background:#fff!important;color:#000!important;border:2px solid #000}
-    body.eink .day-tabs .day-tab.active{background:#000!important;color:#fff!important}
-    body.eink .controls .btn,body.eink .shuffle-btn{background:#fff!important;color:#000!important;border:2px solid #000}
-    body.eink .progress-wrap{background:#ddd!important}
-    body.eink .progress-wrap .progress-fill{background:#000!important}
-    body.eink .quiz-card{border:2px solid #000;background:#fff!important}
-    body.eink .q-original{background:#fff!important;border-left:4px solid #000}
-    body.eink .step-box{border:2px solid #000;background:#fff!important}
-    body.eink .step-label{color:#000!important}
-    body.eink .step-label .step-num{background:#000!important;color:#fff!important}
-    body.eink .type-opt{border:2px solid #000;background:#fff!important;color:#000!important}
-    body.eink .type-opt.selected{background:#000!important;color:#fff!important}
-    body.eink .type-opt.correct{background:#ddd!important;color:#000!important;border-color:#000!important}
-    body.eink .type-opt.wrong{border-style:dashed!important;color:#000!important}
-    body.eink .q-input{border:2px solid #000!important;background:#fff!important;color:#000!important}
-    body.eink .card-btns .btn{background:#000!important;color:#fff!important}
-    body.eink .feedback .correct-text{color:#000!important;font-weight:700}
-    body.eink .score-screen{background:#fff!important;border:2px solid #000}
-    body.eink .score-num{color:#000!important}
-    body.eink a{color:#000!important;text-decoration:underline}
   </style>
-  <script>if(localStorage.getItem('eink')==='true')document.addEventListener('DOMContentLoaded',function(){document.body.classList.add('eink');});</script>
 </head>
 <body>
 

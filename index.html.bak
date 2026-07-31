@@ -10,7 +10,7 @@
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="site-logo">📘 English Daily</a>
-      <nav class="site-nav"><a href="index.html">Trang chủ</a><button id="eink-toggle" title="E-ink mode">◐</button></nav>
+      <nav class="site-nav"><a href="index.html">Trang chủ</a></nav>
     </div>
   </header>
   <main class="container">
@@ -20,9 +20,6 @@
     <div class="stats-bar"><span><strong id="lesson-count">0</strong> bài học</span></div>
     <div id="lesson-list" class="lesson-list"><div class="empty-state">Đang tải...</div></div>
   </main>
-  <script>
-  (function(){var b=document.body,t=document.getElementById('eink-toggle');if(localStorage.getItem('eink')==='true')b.classList.add('eink');t.onclick=function(){b.classList.toggle('eink');localStorage.setItem('eink',b.classList.contains('eink'));}})();
-  </script>
   <script>
   var LESSONS = [
     {

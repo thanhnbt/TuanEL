@@ -73,7 +73,78 @@
     .score-btn:hover{background:#1d4ed8}
     .score-btn.outline{background:transparent;color:var(--accent);border:2px solid var(--accent)}
     .score-btn.outline:hover{background:var(--accent-light)}
+    @media print{
+      body{background:#fff!important;color:#000!important;font-size:14pt;line-height:1.7}
+      .lesson-topbar,.day-tabs,.quiz-controls,.quiz-progress,.quiz-nav,.card-check,.card-feedback,.card-answer,.hint-row,.hint-audio,.score,.score-btns{display:none!important}
+      .page-wrap{max-width:100%;padding:0}
+      .page-title{color:#000!important;font-size:18pt}
+      .quiz-card{display:block!important;box-shadow:none;border:1.5px solid #333;margin-bottom:16px;page-break-inside:avoid}
+      .card-img{height:auto;max-height:150px}
+      .card-body{padding:14px}
+      .card-def{font-size:13pt}
+      .card-vi{font-size:12pt;color:#000!important}
+      .letter-box{border:2px solid #000;background:#fff!important;width:40px;height:48px;font-size:16pt}
+      .letter-box.given{background:transparent!important;color:#000!important;border-color:#000;font-weight:900}
+      a{color:#000!important;text-decoration:underline}
+    }
+    @media (monochrome){
+      *,*::before,*::after{transition:none!important;animation:none!important;box-shadow:none!important}
+      body{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
+      .lesson-topbar{border-bottom:2px solid #000}
+      .sub-nav a{color:#000}.sub-nav a.active{color:#000;border-bottom-color:#000}
+      .lesson-topbar .back-link{color:#000}
+      .page-title{color:#000!important}
+      .day-tab{background:#fff!important;color:#000!important;border:2px solid #000}
+      .day-tab.active{background:#000!important;color:#fff!important}
+      .ctrl-btn{background:#fff!important;color:#000!important;border:2px solid #000}
+      .ctrl-btn.on{background:#ddd!important;color:#000!important;border-color:#000}
+      .progress-bar{background:#ddd!important}
+      .progress-fill{background:#000!important}
+      .quiz-card{border:2px solid #000;background:#fff!important}
+      .card-img{background:#f0f0f0!important}
+      .card-audio{background:#fff!important;color:#000!important;border:2px solid #000}
+      .letter-box{border:2px solid #000!important;color:#000!important;background:#fff!important}
+      .letter-box.given{background:#eee!important;color:#000!important;border-color:#000!important}
+      .letter-box.correct{background:#ccc!important;color:#000!important;border-color:#000!important}
+      .letter-box.wrong{background:#fff!important;color:#000!important;border-color:#000!important;border-style:dashed!important}
+      .card-check{background:#000!important;color:#fff!important;border:2px solid #000}
+      .card-feedback .ok{color:#000!important}.card-feedback .nope{color:#000!important}
+      .card-answer{background:#eee!important;color:#000!important}
+      .quiz-nav button{border:2px solid #000;background:#fff!important;color:#000!important}
+      .score-num{color:#000!important}
+      .score-btn{background:#000!important;color:#fff!important}
+      .score-btn.outline{background:#fff!important;color:#000!important;border:2px solid #000}
+      a{color:#000!important;text-decoration:underline}
+    }
+    body.eink,body.eink *,body.eink *::before,body.eink *::after{transition:none!important;animation:none!important;box-shadow:none!important}
+    body.eink{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
+    body.eink .lesson-topbar{border-bottom:2px solid #000}
+    body.eink .sub-nav a{color:#000}body.eink .sub-nav a.active{color:#000;border-bottom-color:#000}
+    body.eink .lesson-topbar .back-link{color:#000}
+    body.eink .page-title{color:#000!important}
+    body.eink .day-tab{background:#fff!important;color:#000!important;border:2px solid #000}
+    body.eink .day-tab.active{background:#000!important;color:#fff!important}
+    body.eink .ctrl-btn{background:#fff!important;color:#000!important;border:2px solid #000}
+    body.eink .ctrl-btn.on{background:#ddd!important;color:#000!important;border-color:#000}
+    body.eink .progress-bar{background:#ddd!important}
+    body.eink .progress-fill{background:#000!important}
+    body.eink .quiz-card{border:2px solid #000;background:#fff!important}
+    body.eink .card-img{background:#f0f0f0!important}
+    body.eink .card-audio{background:#fff!important;color:#000!important;border:2px solid #000}
+    body.eink .letter-box{border:2px solid #000!important;color:#000!important;background:#fff!important}
+    body.eink .letter-box.given{background:#eee!important;color:#000!important;border-color:#000!important}
+    body.eink .letter-box.correct{background:#ccc!important;color:#000!important;border-color:#000!important}
+    body.eink .letter-box.wrong{background:#fff!important;color:#000!important;border-color:#000!important;border-style:dashed!important}
+    body.eink .card-check{background:#000!important;color:#fff!important;border:2px solid #000}
+    body.eink .card-feedback .ok{color:#000!important}body.eink .card-feedback .nope{color:#000!important}
+    body.eink .card-answer{background:#eee!important;color:#000!important}
+    body.eink .quiz-nav button{border:2px solid #000;background:#fff!important;color:#000!important}
+    body.eink .score-num{color:#000!important}
+    body.eink .score-btn{background:#000!important;color:#fff!important}
+    body.eink .score-btn.outline{background:#fff!important;color:#000!important;border:2px solid #000}
+    body.eink a{color:#000!important;text-decoration:underline}
   </style>
+  <script>if(localStorage.getItem('eink')==='true')document.addEventListener('DOMContentLoaded',function(){document.body.classList.add('eink');});</script>
 </head>
 <body>
   <div class="lesson-topbar"><div class="lesson-topbar-inner">

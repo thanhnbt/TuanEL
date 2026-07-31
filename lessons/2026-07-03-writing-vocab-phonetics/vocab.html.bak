@@ -38,52 +38,7 @@
     .note-print{font-size:.85rem;color:var(--text-muted);margin-top:12px;padding:12px;background:#fffbeb;border-radius:var(--radius);text-align:center}
     .show-all-btn{display:block;width:100%;padding:12px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);font-size:.95rem;font-weight:600;cursor:pointer;margin-top:20px}
     .show-all-btn:hover{background:#1d4ed8}
-    @media print{
-      body{background:#fff!important;color:#000!important;font-size:14pt;line-height:1.7}
-      .lesson-topbar,.show-all-btn{display:none!important}
-      .page-wrap,.container{max-width:100%;padding:0}
-      .fill-input{border-bottom:2px solid #000!important;font-size:14pt}
-      .note-print{background:#fff!important;color:#000!important;border:2px solid #000;font-size:13pt}
-      a{color:#000!important;text-decoration:underline}
-    }
-    @media (monochrome){
-      *,*::before,*::after{transition:none!important;animation:none!important;box-shadow:none!important}
-      body{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
-      .lesson-topbar{border-bottom:2px solid #000}
-      .sub-nav a{color:#000}.sub-nav a.active{color:#000;border-bottom-color:#000}
-      .lesson-topbar .back-link{color:#000}
-      .page-title{color:#000!important}
-      .legend{background:#fff!important;color:#000!important;border:2px solid #000}
-      .vocab-card{border:2px solid #000;background:#fff!important}
-      .vocab-card:hover{border-color:#000}
-      .vc-ipa{color:#000!important}
-      .vc-sound{color:#000!important}.vc-sound strong{color:#000!important}
-      .audio-btn{background:#fff!important;color:#000!important;border:2px solid #000}
-      .exercise-block{border:2px solid #000;background:#fff!important}
-      .fill-input{border-bottom:2px solid #000!important;color:#000!important}
-      .note-print{background:#fff!important;color:#000!important;border:2px solid #000}
-      .show-all-btn{background:#000!important;color:#fff!important;border:2px solid #000}
-      a{color:#000!important;text-decoration:underline}
-    }
-    body.eink,body.eink *,body.eink *::before,body.eink *::after{transition:none!important;animation:none!important;box-shadow:none!important}
-    body.eink{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
-    body.eink .lesson-topbar{border-bottom:2px solid #000}
-    body.eink .sub-nav a{color:#000}body.eink .sub-nav a.active{color:#000;border-bottom-color:#000}
-    body.eink .lesson-topbar .back-link{color:#000}
-    body.eink .page-title{color:#000!important}
-    body.eink .legend{background:#fff!important;color:#000!important;border:2px solid #000}
-    body.eink .vocab-card{border:2px solid #000;background:#fff!important}
-    body.eink .vocab-card:hover{border-color:#000}
-    body.eink .vc-ipa{color:#000!important}
-    body.eink .vc-sound{color:#000!important}body.eink .vc-sound strong{color:#000!important}
-    body.eink .audio-btn{background:#fff!important;color:#000!important;border:2px solid #000}
-    body.eink .exercise-block{border:2px solid #000;background:#fff!important}
-    body.eink .fill-input{border-bottom:2px solid #000!important;color:#000!important}
-    body.eink .note-print{background:#fff!important;color:#000!important;border:2px solid #000}
-    body.eink .show-all-btn{background:#000!important;color:#fff!important;border:2px solid #000}
-    body.eink a{color:#000!important;text-decoration:underline}
   </style>
-  <script>if(localStorage.getItem('eink')==='true')document.addEventListener('DOMContentLoaded',function(){document.body.classList.add('eink');});</script>
 </head>
 <body>
   <div class="lesson-topbar"><div class="lesson-topbar-inner">

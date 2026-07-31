@@ -146,55 +146,7 @@
     }
     .checklist-item .check-mark { color: var(--green); font-weight: 700; flex-shrink: 0; }
     .checklist-item.warn .check-mark { color: var(--red); }
-    @media print{
-      body{background:#fff!important;color:#000!important;font-size:14pt;line-height:1.7}
-      .lesson-topbar{display:none!important}
-      .page-wrap,.container{max-width:100%;padding:0}
-      .card,.section-card{box-shadow:none;border:1.5px solid #333;page-break-inside:avoid}
-      .card h2{font-size:16pt}
-      .checklist-item{font-size:13pt}
-      .checklist-item .check-mark{color:#000!important}
-      .checklist-item.warn .check-mark{color:#000!important}
-      a{color:#000!important;text-decoration:underline}
-    }
-    @media (monochrome){
-      *,*::before,*::after{transition:none!important;animation:none!important;box-shadow:none!important}
-      body{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
-      .lesson-topbar{border-bottom:2px solid #000}
-      .sub-nav a{color:#000}.sub-nav a.active{color:#000;border-bottom-color:#000}
-      .lesson-topbar .back-link{color:#000}
-      .page-title{color:#000!important}
-      .writing-prompt{background:#000!important;color:#fff!important;border-radius:8px}
-      .structure-step{border:2px solid #000;background:#fff!important}
-      .step-label{color:#000!important}
-      .example-sentence{background:#fff!important;border-left:4px solid #000}
-      .card,.section-card{border:2px solid #000;background:#fff!important}
-      .card h2{color:#000!important}
-      .phrases-grid span{border:1.5px solid #000;background:#fff!important;color:#000!important}
-      .rewrite-block{border:2px solid #000;background:#fff!important}
-      .fill-input{border-bottom:2px solid #000!important;color:#000!important}
-      .checklist-item .check-mark{color:#000!important}
-      a{color:#000!important;text-decoration:underline}
-    }
-    body.eink,body.eink *,body.eink *::before,body.eink *::after{transition:none!important;animation:none!important;box-shadow:none!important}
-    body.eink{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
-    body.eink .lesson-topbar{border-bottom:2px solid #000}
-    body.eink .sub-nav a{color:#000}body.eink .sub-nav a.active{color:#000;border-bottom-color:#000}
-    body.eink .lesson-topbar .back-link{color:#000}
-    body.eink .page-title{color:#000!important}
-    body.eink .writing-prompt{background:#000!important;color:#fff!important;border-radius:8px}
-    body.eink .structure-step{border:2px solid #000;background:#fff!important}
-    body.eink .step-label{color:#000!important}
-    body.eink .example-sentence{background:#fff!important;border-left:4px solid #000}
-    body.eink .card,body.eink .section-card{border:2px solid #000;background:#fff!important}
-    body.eink .card h2{color:#000!important}
-    body.eink .phrases-grid span{border:1.5px solid #000;background:#fff!important;color:#000!important}
-    body.eink .rewrite-block{border:2px solid #000;background:#fff!important}
-    body.eink .fill-input{border-bottom:2px solid #000!important;color:#000!important}
-    body.eink .checklist-item .check-mark{color:#000!important}
-    body.eink a{color:#000!important;text-decoration:underline}
   </style>
-  <script>if(localStorage.getItem('eink')==='true')document.addEventListener('DOMContentLoaded',function(){document.body.classList.add('eink');});</script>
 </head>
 <body>
 
@@ -284,86 +236,24 @@
         Từ vựng & cụm từ hữu ích cho Writing
       </h2>
       <div class="useful-phrases">
-        <div class="phrase-card">
-          <div class="phrase-en"><strong>participate</strong> <span style="color:var(--text-muted);font-size:.8rem">(v)</span></div>
-          <div style="font-size:.82rem;color:#6366f1;font-family:var(--font-mono)">/pɑːrˈtɪsɪpeɪt/</div>
-          <div style="font-size:.82rem;color:#b45309">par-<strong>TIS</strong>-uh-payt</div>
-          <div class="phrase-en" style="font-weight:700;margin-top:3px">To take part in an activity or event.</div>
-          <div class="phrase-vi">tham gia</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-en"><strong>community</strong> <span style="color:var(--text-muted);font-size:.8rem">(n)</span></div>
-          <div style="font-size:.82rem;color:#6366f1;font-family:var(--font-mono)">/kəˈmjuːnəti/</div>
-          <div style="font-size:.82rem;color:#b45309">kuh-<strong>MYOO</strong>-nuh-tee</div>
-          <div class="phrase-en" style="font-weight:700;margin-top:3px">A group of people living in the same area.</div>
-          <div class="phrase-vi">cộng đồng</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-en"><strong>develop</strong> <span style="color:var(--text-muted);font-size:.8rem">(v)</span></div>
-          <div style="font-size:.82rem;color:#6366f1;font-family:var(--font-mono)">/dɪˈveləp/</div>
-          <div style="font-size:.82rem;color:#b45309">dih-<strong>VEL</strong>-up</div>
-          <div class="phrase-en" style="font-weight:700;margin-top:3px">To grow or improve something over time.</div>
-          <div class="phrase-vi">phát triển</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-en"><strong>responsibility</strong> <span style="color:var(--text-muted);font-size:.8rem">(n)</span></div>
-          <div style="font-size:.82rem;color:#6366f1;font-family:var(--font-mono)">/rɪˌspɒnsəˈbɪləti/</div>
-          <div style="font-size:.82rem;color:#b45309">rih-spon-suh-<strong>BIL</strong>-uh-tee</div>
-          <div class="phrase-en" style="font-weight:700;margin-top:3px">A duty to deal with something or take care of someone.</div>
-          <div class="phrase-vi">trách nhiệm</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-en"><strong>teamwork</strong> <span style="color:var(--text-muted);font-size:.8rem">(n)</span></div>
-          <div style="font-size:.82rem;color:#6366f1;font-family:var(--font-mono)">/ˈtiːmwɜːrk/</div>
-          <div style="font-size:.82rem;color:#b45309"><strong>TEEM</strong>-wurk</div>
-          <div class="phrase-en" style="font-weight:700;margin-top:3px">Working together with others to achieve a goal.</div>
-          <div class="phrase-vi">làm việc nhóm</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-en"><strong>leadership</strong> <span style="color:var(--text-muted);font-size:.8rem">(n)</span></div>
-          <div style="font-size:.82rem;color:#6366f1;font-family:var(--font-mono)">/ˈliːdərʃɪp/</div>
-          <div style="font-size:.82rem;color:#b45309"><strong>LEE</strong>-dur-ship</div>
-          <div class="phrase-en" style="font-weight:700;margin-top:3px">The ability to lead and guide others.</div>
-          <div class="phrase-vi">khả năng lãnh đạo</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-en"><strong>meaningful</strong> <span style="color:var(--text-muted);font-size:.8rem">(adj)</span></div>
-          <div style="font-size:.82rem;color:#6366f1;font-family:var(--font-mono)">/ˈmiːnɪŋfʊl/</div>
-          <div style="font-size:.82rem;color:#b45309"><strong>MEE</strong>-ning-ful</div>
-          <div class="phrase-en" style="font-weight:700;margin-top:3px">Having a serious, important, or useful purpose.</div>
-          <div class="phrase-vi">có ý nghĩa</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-en"><strong>rewarding</strong> <span style="color:var(--text-muted);font-size:.8rem">(adj)</span></div>
-          <div style="font-size:.82rem;color:#6366f1;font-family:var(--font-mono)">/rɪˈwɔːrdɪŋ/</div>
-          <div style="font-size:.82rem;color:#b45309">rih-<strong>WARD</strong>-ing</div>
-          <div class="phrase-en" style="font-weight:700;margin-top:3px">Giving you satisfaction and a sense of achievement.</div>
-          <div class="phrase-vi">bổ ích, đáng làm</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-en"><strong>confident</strong> <span style="color:var(--text-muted);font-size:.8rem">(adj)</span></div>
-          <div style="font-size:.82rem;color:#6366f1;font-family:var(--font-mono)">/ˈkɒnfɪdənt/</div>
-          <div style="font-size:.82rem;color:#b45309"><strong>KON</strong>-fih-dunt</div>
-          <div class="phrase-en" style="font-weight:700;margin-top:3px">Feeling sure about your own abilities.</div>
-          <div class="phrase-vi">tự tin</div>
-        </div>
-        <div class="phrase-card">
-          <div class="phrase-en"><strong>empathetic</strong> <span style="color:var(--text-muted);font-size:.8rem">(adj)</span></div>
-          <div style="font-size:.82rem;color:#6366f1;font-family:var(--font-mono)">/ˌempəˈθetɪk/</div>
-          <div style="font-size:.82rem;color:#b45309">em-puh-<strong>THET</strong>-ik</div>
-          <div class="phrase-en" style="font-weight:700;margin-top:3px">Able to understand and share the feelings of others.</div>
-          <div class="phrase-vi">biết đồng cảm</div>
-        </div>
+        <div class="phrase-card"><div class="phrase-en">take part in / participate in</div><div class="phrase-vi">tham gia</div></div>
+        <div class="phrase-card"><div class="phrase-en">community activities</div><div class="phrase-vi">hoạt động cộng đồng</div></div>
+        <div class="phrase-card"><div class="phrase-en">develop / build skills</div><div class="phrase-vi">phát triển kỹ năng</div></div>
+        <div class="phrase-card"><div class="phrase-en">social responsibility</div><div class="phrase-vi">trách nhiệm xã hội</div></div>
+        <div class="phrase-card"><div class="phrase-en">teamwork / leadership</div><div class="phrase-vi">làm việc nhóm / lãnh đạo</div></div>
+        <div class="phrase-card"><div class="phrase-en">neighborhood cleanup</div><div class="phrase-vi">dọn dẹp khu phố</div></div>
+        <div class="phrase-card"><div class="phrase-en">meaningful and rewarding</div><div class="phrase-vi">có ý nghĩa và bổ ích</div></div>
+        <div class="phrase-card"><div class="phrase-en">sense of belonging</div><div class="phrase-vi">cảm giác thuộc về</div></div>
       </div>
 
       <h3 style="font-size:0.95rem; font-weight:600; margin:20px 0 12px;">Liên từ & cách mở/kết bài</h3>
       <div class="useful-phrases">
-        <div class="phrase-card"><div class="phrase-en"><strong>I strongly believe that...</strong></div><div class="phrase-vi">Tôi tin chắc rằng...</div></div>
-        <div class="phrase-card"><div class="phrase-en"><strong>In my opinion,...</strong></div><div class="phrase-vi">Theo ý kiến tôi,...</div></div>
-        <div class="phrase-card"><div class="phrase-en"><strong>Firstly,... Secondly,...</strong></div><div class="phrase-vi">Thứ nhất,... Thứ hai,...</div></div>
-        <div class="phrase-card"><div class="phrase-en"><strong>For example / For instance</strong></div><div class="phrase-vi">Ví dụ</div></div>
-        <div class="phrase-card"><div class="phrase-en"><strong>In conclusion, I believe that...</strong></div><div class="phrase-vi">Tóm lại, tôi tin rằng...</div></div>
-        <div class="phrase-card"><div class="phrase-en"><strong>Although / Even though</strong></div><div class="phrase-vi">Mặc dù</div></div>
+        <div class="phrase-card"><div class="phrase-en">I strongly believe that...</div><div class="phrase-vi">Tôi tin chắc rằng...</div></div>
+        <div class="phrase-card"><div class="phrase-en">In my opinion,...</div><div class="phrase-vi">Theo ý kiến tôi,...</div></div>
+        <div class="phrase-card"><div class="phrase-en">Firstly,... Secondly,...</div><div class="phrase-vi">Thứ nhất,... Thứ hai,...</div></div>
+        <div class="phrase-card"><div class="phrase-en">For example / For instance</div><div class="phrase-vi">Ví dụ</div></div>
+        <div class="phrase-card"><div class="phrase-en">In conclusion, I believe that...</div><div class="phrase-vi">Tóm lại, tôi tin rằng...</div></div>
+        <div class="phrase-card"><div class="phrase-en">Although / Even though</div><div class="phrase-vi">Mặc dù</div></div>
       </div>
     </section>
 

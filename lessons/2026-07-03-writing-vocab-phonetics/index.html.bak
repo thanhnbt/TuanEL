@@ -284,79 +284,7 @@
     color: #2563eb;
     border-bottom-color: #2563eb;
   }
-  @media print{
-    body{background:#fff!important;color:#000!important;font-size:14pt;line-height:1.7;padding:0}
-    .lesson-topbar{display:none!important}
-    header{background:#000!important;color:#fff!important;border-radius:0;padding:1rem}
-    header h1{font-size:18pt}
-    .grid{display:block}
-    .card{box-shadow:none;border:1.5px solid #333;page-break-inside:avoid;margin-bottom:16px}
-    .card-title{color:#000!important;font-size:14pt}
-    .card-title .num{background:#000!important}
-    .sub-title{font-size:13pt}
-    .rule{border-left:4px solid #000;background:#fff!important;font-size:13pt}
-    .rule h4{font-size:13pt}
-    .rule .desc{font-size:12pt;color:#000!important}
-    .w{border:1.5px solid #333;background:#fff!important;min-width:80px}
-    .w .eng{font-size:13pt}
-    .w .phon{color:#000!important;font-size:12pt}
-    .w:hover{background:#fff!important;box-shadow:none;transform:none}
-    a{color:#000!important;text-decoration:underline}
-  }
-  @media (monochrome) {
-    *,*::before,*::after{transition:none!important;animation:none!important;box-shadow:none!important}
-    body{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
-    header{background:#000!important;color:#fff!important;border-radius:8px}
-    .lesson-topbar{border-bottom:2px solid #000}
-    .sub-nav a{color:#000}.sub-nav a.active{color:#000;border-bottom-color:#000}
-    .lesson-topbar .back-link{color:#000}
-    .card{border:2px solid #000;background:#fff!important}
-    .card-title{color:#000!important}
-    .card-title .num{background:#000!important;color:#fff}
-    .rule{background:#fff!important;border-left:4px solid #000!important;border-color:#000!important}
-    .rule .desc{color:#000!important}
-    .w{border:2px solid #000;background:#fff!important}
-    .w:hover{background:#fff!important;border-color:#000;transform:none}
-    .w.playing{background:#ddd!important;border-color:#000}
-    .w .phon{color:#000!important}
-    .w .stress-mark{color:#000!important;font-weight:900}
-    .ipa{color:#000!important}
-    .si .tag{background:transparent!important;color:#000!important;border:1.5px solid #000}
-    .stbl th{background:transparent!important;color:#000!important;border-bottom:2px solid #000}
-    .stbl td{border-bottom:1px solid #444}
-    .sfx{color:#000!important}
-    .schwa{background:#fff!important;border:2px solid #000}
-    .schwa h4{color:#000!important}
-    .vl{background:transparent!important;color:#000!important;border:2px solid #000}
-    a{color:#000!important;text-decoration:underline}
-  }
-  body.eink,body.eink *,body.eink *::before,body.eink *::after{transition:none!important;animation:none!important;box-shadow:none!important}
-  body.eink{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
-  body.eink header{background:#000!important;color:#fff!important;border-radius:8px}
-  body.eink .lesson-topbar{border-bottom:2px solid #000}
-  body.eink .sub-nav a{color:#000}body.eink .sub-nav a.active{color:#000;border-bottom-color:#000}
-  body.eink .lesson-topbar .back-link{color:#000}
-  body.eink .card{border:2px solid #000;background:#fff!important}
-  body.eink .card-title{color:#000!important}
-  body.eink .card-title .num{background:#000!important;color:#fff}
-  body.eink .rule{background:#fff!important;border-left:4px solid #000!important;border-color:#000!important}
-  body.eink .rule .desc{color:#000!important}
-  body.eink .w{border:2px solid #000;background:#fff!important}
-  body.eink .w:hover{background:#fff!important;border-color:#000;transform:none}
-  body.eink .w.playing{background:#ddd!important;border-color:#000}
-  body.eink .w .phon{color:#000!important}
-  body.eink .w .stress-mark{color:#000!important;font-weight:900}
-  body.eink .ipa{color:#000!important}
-  body.eink .si .tag{background:transparent!important;color:#000!important;border:1.5px solid #000}
-  body.eink .stbl th{background:transparent!important;color:#000!important;border-bottom:2px solid #000}
-  body.eink .stbl td{border-bottom:1px solid #444}
-  body.eink .sfx{color:#000!important}
-  body.eink .schwa{background:#fff!important;border:2px solid #000}
-  body.eink .schwa h4{color:#000!important}
-  body.eink .vl{background:transparent!important;color:#000!important;border:2px solid #000}
-  body.eink a{color:#000!important;text-decoration:underline}
 </style>
-<script>if(localStorage.getItem('eink')==='true')document.documentElement.className+=' ';document.addEventListener('DOMContentLoaded',function(){if(localStorage.getItem('eink')==='true')document.body.classList.add('eink');});</script>
 </head>
 <body>
 <div class="lesson-topbar">

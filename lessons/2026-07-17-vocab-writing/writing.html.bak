@@ -41,69 +41,7 @@
     .tip-box strong{color:#4338ca}
     .legend{background:#fffbeb;border:1px solid #fbbf24;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:.85rem;color:#92400e;line-height:1.5}
     @media(max-width:640px){.card{padding:16px}.vbt th,.vbt td{padding:7px 6px;font-size:.82rem}}
-    @media print{
-      body{background:#fff!important;color:#000!important;font-size:14pt;line-height:1.7}
-      .lesson-topbar{display:none!important}
-      .page-wrap{max-width:100%;padding:0}
-      .page-title{color:#000!important;font-size:18pt}
-      .card{box-shadow:none;border:1.5px solid #333;page-break-inside:avoid}
-      .card h2{font-size:16pt}
-      .vbt{border:1.5px solid #333}
-      .vbt th{background:transparent!important;color:#000!important;border-bottom:2px solid #000;font-size:12pt}
-      .vbt td{border-bottom:1px solid #666;font-size:13pt;padding:10px 12px}
-      .vbt tr:hover{background:transparent}
-      .audio-btn{display:none!important}
-      .tip-box{background:#fff!important;color:#000!important;border:2px solid #000;font-size:13pt}
-      .legend{background:#fff!important;color:#000!important;border:2px solid #000;font-size:13pt}
-      .wh-q li{font-size:13pt}
-      a{color:#000!important;text-decoration:underline}
-    }
-    @media (monochrome){
-      *,*::before,*::after{transition:none!important;animation:none!important;box-shadow:none!important}
-      body{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
-      .lesson-topbar{border-bottom:2px solid #000}
-      .sub-nav a{color:#000}.sub-nav a.active{color:#000;border-bottom-color:#000}
-      .lesson-topbar .back-link{color:#000}
-      .page-title{color:#000!important}
-      .card{border:2px solid #000;background:#fff!important}
-      .card h2{color:#000!important}
-      .wh-label{background:#000!important;color:#fff!important}
-      .wh-q li::before{color:#000!important}
-      .group-title{color:#000!important;border-bottom-color:#000}
-      .vbt{border:2px solid #000}
-      .vbt th{background:transparent!important;color:#000!important;border-bottom:3px solid #000;font-weight:800}
-      .vbt td{border-bottom:1.5px solid #444}
-      .vbt tr:hover{background:transparent}
-      .vb-ipa{color:#000!important}
-      .vb-snd{color:#000!important}.vb-snd strong{color:#000!important}
-      .audio-btn{background:#fff!important;color:#000!important;border:2px solid #000}
-      .tip-box{background:#fff!important;color:#000!important;border:2px solid #000}
-      .legend{background:#fff!important;color:#000!important;border:2px solid #000}
-      a{color:#000!important;text-decoration:underline}
-    }
-    body.eink,body.eink *,body.eink *::before,body.eink *::after{transition:none!important;animation:none!important;box-shadow:none!important}
-    body.eink{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
-    body.eink .lesson-topbar{border-bottom:2px solid #000}
-    body.eink .sub-nav a{color:#000}body.eink .sub-nav a.active{color:#000;border-bottom-color:#000}
-    body.eink .lesson-topbar .back-link{color:#000}
-    body.eink .page-title{color:#000!important}
-    body.eink .card{border:2px solid #000;background:#fff!important}
-    body.eink .card h2{color:#000!important}
-    body.eink .wh-label{background:#000!important;color:#fff!important}
-    body.eink .wh-q li::before{color:#000!important}
-    body.eink .group-title{color:#000!important;border-bottom-color:#000}
-    body.eink .vbt{border:2px solid #000}
-    body.eink .vbt th{background:transparent!important;color:#000!important;border-bottom:3px solid #000;font-weight:800}
-    body.eink .vbt td{border-bottom:1.5px solid #444}
-    body.eink .vbt tr:hover{background:transparent}
-    body.eink .vb-ipa{color:#000!important}
-    body.eink .vb-snd{color:#000!important}body.eink .vb-snd strong{color:#000!important}
-    body.eink .audio-btn{background:#fff!important;color:#000!important;border:2px solid #000}
-    body.eink .tip-box{background:#fff!important;color:#000!important;border:2px solid #000}
-    body.eink .legend{background:#fff!important;color:#000!important;border:2px solid #000}
-    body.eink a{color:#000!important;text-decoration:underline}
   </style>
-  <script>if(localStorage.getItem('eink')==='true')document.addEventListener('DOMContentLoaded',function(){document.body.classList.add('eink');});</script>
 </head>
 <body>
   <div class="lesson-topbar"><div class="lesson-topbar-inner">
