@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ngữ pháp — Grammar Intermediate 31/07 — English Daily</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .lesson-topbar{background:#fff;border-bottom:1px solid #e2e4e8;padding:0 1rem;position:sticky;top:0;z-index:99}
+    .lesson-topbar-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;gap:8px}
+    .lesson-topbar .back-link{color:#2563eb;text-decoration:none;font-size:13px;font-weight:600;padding:10px 0;margin-right:16px;white-space:nowrap}
+    .lesson-topbar .back-link:hover{opacity:.7}
+    .sub-nav{display:flex;gap:4px;overflow-x:auto}
+    .sub-nav a{padding:10px 14px;font-size:13px;font-weight:500;color:#6b7280;text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s}
+    .sub-nav a:hover{color:#1a1a1a}
+    .sub-nav a.active{color:#2563eb;border-bottom-color:#2563eb}
+
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fafaf7;color:#1a1a1a}
+    .container{max-width:920px;margin:0 auto;padding:1.5rem 1rem 3rem}
+    h1{font-size:1.6rem;margin:0 0 .3rem;color:#1e293b}
+    .sub-title{color:#6b7280;font-size:.9rem;margin-bottom:1.2rem}
+
+    .flow-guide{background:linear-gradient(135deg,#eff6ff,#f0fdf4);border:2px solid #bfdbfe;border-radius:14px;padding:1.2rem 1.5rem;margin-bottom:1.8rem}
+    .flow-guide h2{margin:0 0 .6rem;font-size:1rem;color:#1e40af}
+    .flow-steps{display:flex;gap:0;align-items:stretch;flex-wrap:wrap}
+    .flow-step{flex:1;min-width:140px;text-align:center;padding:.8rem .6rem;position:relative}
+    .flow-step .step-num{width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;color:#fff;margin-bottom:.4rem}
+    .flow-step:nth-child(1) .step-num{background:#2563eb}
+    .flow-step:nth-child(2) .step-num{background:#10b981}
+    .flow-step .step-title{font-weight:700;font-size:.9rem;margin-bottom:.2rem}
+    .flow-step .step-desc{font-size:.78rem;color:#6b7280;line-height:1.4}
+    .flow-arrow{display:flex;align-items:center;font-size:1.4rem;color:#94a3b8;padding:0 2px}
+    @media(max-width:600px){
+      .flow-steps{flex-direction:column;gap:0}
+      .flow-arrow{justify-content:center;transform:rotate(90deg);padding:4px 0}
+    }
+
+    .grammar-section{background:#fff;border-radius:12px;border:1px solid #e2e4e8;padding:1.3rem 1.5rem;margin-bottom:1.4rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+    .grammar-section h2{font-size:1.15rem;color:#1e293b;margin:0 0 .8rem;display:flex;align-items:center;gap:8px}
+    .grammar-section h2 .num{background:#2563eb;color:#fff;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+
+    .formula{background:#f8fafc;border:2px solid #c7d2fe;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem;box-shadow:0 1px 4px rgba(99,102,241,.08)}
+    .formula-label{font-size:.75rem;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.5rem}
+    .formula-content{font-size:1.02rem;line-height:2;font-weight:500}
+    .formula-content .struct{color:#2563eb;font-weight:800;font-size:1.08rem}
+
+    .ex-group{border-left:3px solid #dbeafe;padding-left:1rem;margin:.6rem 0 1rem}
+    .ex-item{background:#f8fafc;border-radius:8px;padding:.6rem 1rem;margin-bottom:.5rem;font-size:.9rem;line-height:1.7}
+    .ex-item .ex-label{font-size:.7rem;font-weight:700;color:#2563eb;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.1rem}
+    .ch{color:#dc2626;font-weight:700}
+    .ch-bg{background:#fef2f2;color:#dc2626;font-weight:700;padding:1px 4px;border-radius:3px}
+
+    .tip{background:#fefce8;border-radius:8px;padding:.5rem .9rem;font-size:.84rem;color:#854d0e;margin:.5rem 0 .3rem;line-height:1.5}
+    .tip::before{content:'💡 ';font-style:normal}
+
+    .change-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.5rem 0 .8rem}
+    .change-table th{background:#eff6ff;color:#1e40af;padding:8px 10px;text-align:left;font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.3px}
+    .change-table td{padding:7px 10px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+    .change-table .from{color:#6b7280}
+    .change-table .to{color:#dc2626;font-weight:600}
+    .change-table .arr{color:#10b981;font-weight:700;text-align:center;width:30px}
+
+    @media(max-width:700px){
+      .container{padding:1rem .7rem 2rem}
+      .grammar-section{padding:1rem}
+      .formula-content{font-size:.8rem}
+    }
+    @media print{
+      body{background:#fff!important;color:#000!important;font-size:14pt;line-height:1.7}
+      .lesson-topbar{display:none}
+      .container{max-width:100%;padding:0}
+      h1{font-size:18pt}
+      .grammar-section{background:#fff!important;border:1.5px solid #333;box-shadow:none;page-break-inside:avoid;margin-bottom:24px}
+      .grammar-section h2 .num{background:#000!important;color:#fff!important}
+      .flow-guide{background:#fff!important;border:2px solid #000;page-break-inside:avoid}
+      .flow-step .step-num{background:#000!important;color:#fff!important}
+      .formula{background:#fff!important;border:2px solid #000;box-shadow:none}
+      .formula-label{color:#000!important}
+      .formula-content .struct{color:#000!important}
+      .ch{color:#000!important;font-weight:900;text-decoration:underline;text-decoration-thickness:2.5px}
+      .ch-bg{background:transparent!important;color:#000!important;font-weight:900;border:2px solid #000;padding:2px 5px}
+      .ex-group{border-left:4px solid #000}
+      .ex-item{background:#fff!important;font-size:13pt}
+      .change-table th{background:transparent!important;color:#000!important;border:1.5px solid #333}
+      .change-table td{border:1px solid #666}
+      .tip{background:#fff!important;color:#000!important;border:2px solid #000}
+      a{color:#000!important;text-decoration:underline}
+    }
+    @media (monochrome){
+      *,*::before,*::after{transition:none!important;animation:none!important;box-shadow:none!important}
+      body{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
+      .lesson-topbar{border-bottom:2px solid #000}
+      .sub-nav a{color:#000}.sub-nav a.active{color:#000;border-bottom-color:#000}
+      .lesson-topbar .back-link{color:#000}
+      .grammar-section{background:#fff!important;border:2px solid #000}
+      .grammar-section h2{color:#000!important}
+      .grammar-section h2 .num{background:#000!important;color:#fff!important}
+      .formula{background:#fff!important;border:2px solid #000}
+      .formula-label{color:#000!important}
+      .formula-content .struct{color:#000!important}
+      .ch{color:#000!important;font-weight:900;text-decoration:underline}
+      .ch-bg{background:transparent!important;color:#000!important;font-weight:900;border:2px solid #000}
+      .ex-group{border-left:4px solid #000}
+      .ex-item{background:#fff!important}
+      .change-table th{background:transparent!important;color:#000!important;border:2px solid #000}
+      .change-table td{border:1.5px solid #444}
+      .tip{background:#fff!important;color:#000!important;border:2px solid #000}
+      a{color:#000!important;text-decoration:underline}
+    }
+    body.eink,body.eink *,body.eink *::before,body.eink *::after{transition:none!important;animation:none!important;box-shadow:none!important}
+    body.eink{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
+    body.eink .lesson-topbar{border-bottom:2px solid #000}
+    body.eink .sub-nav a{color:#000}body.eink .sub-nav a.active{color:#000;border-bottom-color:#000}
+    body.eink .lesson-topbar .back-link{color:#000}
+    body.eink .grammar-section{background:#fff!important;border:2px solid #000}
+    body.eink .grammar-section h2{color:#000!important}
+    body.eink .grammar-section h2 .num{background:#000!important;color:#fff!important}
+    body.eink .formula{background:#fff!important;border:2px solid #000}
+    body.eink .formula-label{color:#000!important}
+    body.eink .formula-content .struct{color:#000!important}
+    body.eink .ch{color:#000!important;font-weight:900;text-decoration:underline}
+    body.eink .ch-bg{background:transparent!important;color:#000!important;font-weight:900;border:2px solid #000}
+    body.eink .ex-group{border-left:4px solid #000}
+    body.eink .ex-item{background:#fff!important}
+    body.eink .change-table th{background:transparent!important;color:#000!important;border:2px solid #000}
+    body.eink .change-table td{border:1.5px solid #444}
+    body.eink .tip{background:#fff!important;color:#000!important;border:2px solid #000}
+    body.eink a{color:#000!important;text-decoration:underline}
+  </style>
+</head>
+<body>
+
+<div class="lesson-topbar">
+  <div class="lesson-topbar-inner">
+    <a href="../../index.html" class="back-link">📘 ← Trang chủ</a>
+    <nav class="sub-nav">
+      <a href="index.html" class="active">📗 Ngữ pháp</a>
+      <a href="quiz.html">🧩 Quiz</a>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <h1>📝 Ngữ pháp Intermediate — Tổng hợp 5 bài Test</h1>
+  <p class="sub-title">Buổi 4 — 31/07/2026 · 6 chuyên đề · Ôn thi lớp 6 CLC</p>
+
+  <div class="flow-guide">
+    <h2>🗺️ Lộ trình học</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="step-num">1</div>
+        <div class="step-title">📗 Đọc Ngữ pháp</div>
+        <div class="step-desc">Đọc kỹ công thức + ví dụ.<br>Nắm vững 6 chuyên đề.</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="step-num">2</div>
+        <div class="step-title">🧩 Làm Quiz</div>
+        <div class="step-desc">5 bài test trắc nghiệm.<br>Sai sẽ hiện giải thích ngữ pháp.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== I. BASIC TENSES ====== -->
+  <div class="grammar-section">
+    <h2><span class="num">I</span> Các Thì Cơ Bản & Từ Để Hỏi (Pre-Int Test 1)</h2>
+
+    <div class="formula">
+      <div class="formula-label">4 thì cơ bản</div>
+      <div class="formula-content">
+        <span class="struct">Present Simple:</span> S + V(s/es) — thói quen, sự thật<br>
+        <span class="struct">Present Continuous:</span> S + am/is/are + V-ing — đang xảy ra<br>
+        <span class="struct">Past Simple:</span> S + V-ed/V2 — đã kết thúc trong quá khứ<br>
+        <span class="struct">Future (be going to):</span> S + am/is/are + going to + V — dự định
+      </div>
+    </div>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Present Simple</div>
+        She <span class="ch">speaks</span> English every day. <em style="color:#6b7280;font-size:.85rem">(thói quen → V-s)</em>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Present Continuous</div>
+        Look! It <span class="ch">is raining</span> outside. <em style="color:#6b7280;font-size:.85rem">(đang xảy ra → is + V-ing)</em>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Past Simple</div>
+        We <span class="ch">visited</span> Hanoi last summer. <em style="color:#6b7280;font-size:.85rem">(đã xong → V-ed)</em>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Future</div>
+        I <span class="ch">am going to</span> study abroad next year. <em style="color:#6b7280;font-size:.85rem">(dự định → be going to)</em>
+      </div>
+    </div>
+
+    <div class="formula">
+      <div class="formula-label">Từ để hỏi (Question Words)</div>
+      <div class="formula-content">
+        <span class="struct">How much</span> — danh từ không đếm được / hỏi giá tiền<br>
+        <span class="struct">How many</span> — danh từ đếm được (số nhiều)<br>
+        <span class="struct">What / Where / When / Who / Why / How</span> — đứng đầu câu hỏi
+      </div>
+    </div>
+
+    <div class="tip">Nhận biết thì: xem trạng từ chỉ thời gian (every day, now, yesterday, next week) và dấu hiệu ngữ cảnh.</div>
+  </div>
+
+  <!-- ====== II. AUXILIARY VERBS ====== -->
+  <div class="grammar-section">
+    <h2><span class="num">II</span> Trợ Động Từ — Auxiliary Verbs (Int Test 1)</h2>
+
+    <div class="formula">
+      <div class="formula-label">3 nhóm trợ động từ chính</div>
+      <div class="formula-content">
+        <span class="struct">Do / Does / Did</span> — lập câu hỏi/phủ định cho động từ thường<br>
+        <span class="struct">Be (am/is/are/was/were)</span> — trước V-ing (Tiếp diễn) hoặc V3 (Bị động)<br>
+        <span class="struct">Have / Has / Had</span> — trước V3 (thì Hoàn thành)
+      </div>
+    </div>
+
+    <table class="change-table">
+      <tr><th>Trợ ĐT</th><th class="arr"></th><th>Vai trò</th><th>Ví dụ</th></tr>
+      <tr><td class="from">Do/Does</td><td class="arr">→</td><td class="to">Hiện tại đơn (hỏi/phủ định)</td><td><em>Do you like...? / She doesn't...</em></td></tr>
+      <tr><td class="from">Did</td><td class="arr">→</td><td class="to">Quá khứ đơn (hỏi/phủ định)</td><td><em>Did he go...? / I didn't...</em></td></tr>
+      <tr><td class="from">Am/Is/Are</td><td class="arr">→</td><td class="to">Tiếp diễn / Bị động hiện tại</td><td><em>She is reading / It is made</em></td></tr>
+      <tr><td class="from">Was/Were</td><td class="arr">→</td><td class="to">Tiếp diễn / Bị động quá khứ</td><td><em>They were playing / It was built</em></td></tr>
+      <tr><td class="from">Have/Has</td><td class="arr">→</td><td class="to">Hiện tại hoàn thành</td><td><em>I have visited / She has gone</em></td></tr>
+      <tr><td class="from">Had</td><td class="arr">→</td><td class="to">Quá khứ hoàn thành</td><td><em>They had finished before...</em></td></tr>
+    </table>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Câu hỏi với Have</div>
+        <span class="ch">Have</span> you ever stayed at the Ritz? <em style="color:#6b7280;font-size:.85rem">(Have + ever + V3 → Hiện tại hoàn thành)</em>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Câu phủ định ngắn (Short answer)</div>
+        I watched TV but my sister <span class="ch">didn't</span>. <em style="color:#6b7280;font-size:.85rem">(watched → quá khứ → dùng didn't)</em>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Bị động</div>
+        Lots of trees <span class="ch">were</span> blown down by the wind. <em style="color:#6b7280;font-size:.85rem">(were + V3 → bị động quá khứ)</em>
+      </div>
+    </div>
+
+    <div class="tip">Mẹo: Xem động từ chính ở dạng gì → chọn trợ ĐT phù hợp. V-ing → dùng Be. V3/ed → dùng Have hoặc Be (bị động). V nguyên mẫu → dùng Do/Does/Did.</div>
+    <div class="tip">Short answers: Lặp lại trợ ĐT của câu trước. "She likes..." → "but I don't." / "He has gone..." → "but I haven't."</div>
+  </div>
+
+  <!-- ====== III. PRESENT SIMPLE/CONTINUOUS & PASSIVE ====== -->
+  <div class="grammar-section">
+    <h2><span class="num">III</span> Hiện Tại Đơn/Tiếp Diễn & Bị Động (Int Test 2)</h2>
+
+    <div class="formula">
+      <div class="formula-label">Phân biệt Hiện tại Đơn vs Tiếp Diễn</div>
+      <div class="formula-content">
+        <span class="struct">Present Simple</span> — hành động lâu dài, cố định, lặp lại<br>
+        <em style="font-size:.9rem;color:#6b7280">She runs a shop. / The shop closes at 10pm.</em><br>
+        <span class="struct">Present Continuous</span> — hành động tạm thời, đang xảy ra<br>
+        <em style="font-size:.9rem;color:#6b7280">Our kitchen is being decorated at the moment.</em>
+      </div>
+    </div>
+
+    <div class="formula">
+      <div class="formula-label">Bị động Hiện tại (Present Passive)</div>
+      <div class="formula-content">
+        <span class="struct">S + am/is/are + V3/ed</span> (+ by + tác nhân)<br>
+        <em style="font-size:.9rem;color:#6b7280">English is spoken here. / Volvos are produced in Sweden.</em><br><br>
+        <span class="struct">S + am/is/are + being + V3</span> (bị động tiếp diễn)<br>
+        <em style="font-size:.9rem;color:#6b7280">Our factory is being taken over by an American company.</em>
+      </div>
+    </div>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Present Simple</div>
+        It <span class="ch">takes</span> her fifteen minutes <span class="ch">to walk</span> to school. <em style="color:#6b7280;font-size:.85rem">(It takes + O + time + to V)</em>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Present Passive</div>
+        Is service <span class="ch">included</span> in the bill? <em style="color:#6b7280;font-size:.85rem">(is + V3 → bị động)</em>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Present Continuous Passive</div>
+        Our kitchen <span class="ch">is being</span> decorated at the moment. <em style="color:#6b7280;font-size:.85rem">(is being + V3)</em>
+      </div>
+    </div>
+
+    <div class="tip">Dấu hiệu bị động: không có tân ngữ sau V3, hoặc chủ ngữ là vật/người CHỊU tác động.</div>
+  </div>
+
+  <!-- ====== IV. PAST TENSES & WHILE/DURING/FOR ====== -->
+  <div class="grammar-section">
+    <h2><span class="num">IV</span> Quá Khứ & While / During / For (Int Test 3)</h2>
+
+    <div class="formula">
+      <div class="formula-label">While / During / For</div>
+      <div class="formula-content">
+        <span class="struct">While</span> + Mệnh đề (S + V) — "trong lúc"<br>
+        <em style="font-size:.9rem;color:#6b7280">The phone rang while I was having supper.</em><br>
+        <span class="struct">During</span> + Danh từ (khoảng thời gian) — "trong suốt"<br>
+        <em style="font-size:.9rem;color:#6b7280">My uncle died during the war.</em><br>
+        <span class="struct">For</span> + Khoảng thời gian đo đếm được — "trong (bao lâu)"<br>
+        <em style="font-size:.9rem;color:#6b7280">I lived in Paris for several years.</em>
+      </div>
+    </div>
+
+    <div class="formula">
+      <div class="formula-label">Giới từ thời gian: At / In / On / không giới từ</div>
+      <div class="formula-content">
+        <span class="struct">At</span> — giờ cụ thể, weekend: <em>at 8:00, at the weekend</em><br>
+        <span class="struct">In</span> — tháng, năm, mùa, buổi: <em>in June, in 1980, in the morning</em><br>
+        <span class="struct">On</span> — ngày, thứ: <em>on Monday, on Friday evening</em><br>
+        <span class="struct">Không giới từ</span> — next/last/this/every: <em>next week, last year, this evening</em>
+      </div>
+    </div>
+
+    <table class="change-table">
+      <tr><th>Trường hợp</th><th class="arr"></th><th>Giới từ</th><th>Ví dụ</th></tr>
+      <tr><td class="from">Giờ</td><td class="arr">→</td><td class="to">at</td><td>at 7:00, at six</td></tr>
+      <tr><td class="from">Ngày/Thứ</td><td class="arr">→</td><td class="to">on</td><td>on Monday, on Saturday morning</td></tr>
+      <tr><td class="from">Tháng/Năm/Mùa</td><td class="arr">→</td><td class="to">in</td><td>in June, in 1980, in spring</td></tr>
+      <tr><td class="from">next/last/this</td><td class="arr">→</td><td class="to">không</td><td>next week, last year, this evening</td></tr>
+    </table>
+
+    <div class="formula">
+      <div class="formula-label">Bị động Quá khứ (Past Passive)</div>
+      <div class="formula-content">
+        <span class="struct">S + was/were + V3/ed</span> (+ by + tác nhân)<br>
+        <em style="font-size:.9rem;color:#6b7280">Helen Keller's deafness was caused by a severe illness.</em>
+      </div>
+    </div>
+
+    <div class="tip">While + MỆNH ĐỀ (có S + V). During + DANH TỪ (không có V). For + SỐ LƯỢNG thời gian (three weeks, ninety minutes).</div>
+    <div class="tip">Không dùng giới từ trước next, last, this, every, tomorrow, yesterday.</div>
+  </div>
+
+  <!-- ====== V. MODAL VERBS ====== -->
+  <div class="grammar-section">
+    <h2><span class="num">V</span> Động Từ Khuyết Thiếu — Modal Verbs (Int Test 4)</h2>
+
+    <div class="formula">
+      <div class="formula-label">Can / Could / Be able to</div>
+      <div class="formula-content">
+        <span class="struct">Can</span> — khả năng hiện tại: <em>I can swim.</em><br>
+        <span class="struct">Could</span> — khả năng quá khứ / lịch sự: <em>I could swim when I was 5. / Could I borrow...?</em><br>
+        <span class="struct">Managed to</span> — thành công làm được (1 lần cụ thể): <em>They managed to buy the house.</em><br>
+        <span class="struct">Couldn't</span> — không thể (quá khứ): <em>I couldn't get an answer.</em><br>
+        <span class="struct">Will be able to</span> — khả năng tương lai: <em>I will be able to speak Spanish.</em>
+      </div>
+    </div>
+
+    <div class="formula">
+      <div class="formula-label">Have to / Don't have to</div>
+      <div class="formula-content">
+        <span class="struct">Have to / Has to</span> — bắt buộc (nội quy, luật): <em>I have to work hard.</em><br>
+        <span class="struct">Don't have to</span> — không cần thiết: <em>You don't have to wear a uniform.</em><br>
+        <span class="struct">Had to</span> — bắt buộc trong quá khứ: <em>We had to be home by nine.</em><br>
+        <span class="struct">Will have to</span> — sẽ phải: <em>I will have to wear glasses.</em>
+      </div>
+    </div>
+
+    <div class="ex-group">
+      <div class="ex-item">
+        <div class="ex-label">Could vs Managed to</div>
+        My grandfather <span class="ch">could</span> speak four languages. <em style="color:#6b7280;font-size:.85rem">(khả năng chung, kéo dài)</em><br>
+        They saved and finally <span class="ch">managed to</span> buy the house. <em style="color:#6b7280;font-size:.85rem">(thành công 1 lần cụ thể)</em>
+      </div>
+      <div class="ex-item">
+        <div class="ex-label">Have to vs Don't have to</div>
+        Children <span class="ch">have to</span> go to school. <em style="color:#6b7280;font-size:.85rem">(bắt buộc — luật)</em><br>
+        Adults <span class="ch">don't have to</span> go to school. <em style="color:#6b7280;font-size:.85rem">(không cần thiết)</em>
+      </div>
+    </div>
+
+    <div class="tip">Could = khả năng chung (biết làm nhưng không nhất thiết đã làm). Managed to = thành công thật sự trong 1 tình huống cụ thể.</div>
+    <div class="tip">Don't have to ≠ Mustn't! "Don't have to" = không cần. "Mustn't" = cấm.</div>
+  </div>
+
+  <!-- ====== VI. MAKE/DO & INDEFINITE PRONOUNS ====== -->
+  <div class="grammar-section">
+    <h2><span class="num">VI</span> Make/Do & Đại Từ Bất Định (Int Test 5)</h2>
+
+    <div class="formula">
+      <div class="formula-label">Make vs Do</div>
+      <div class="formula-content">
+        <span class="struct">Make</span> — tạo ra cái mới, gây ra: <em>make a phone call, make a noise, make a mistake, make friends, make money, make sure, make up one's mind, make a complaint, make progress</em><br><br>
+        <span class="struct">Do</span> — hành động, công việc chung: <em>do homework, do exercises, do a favor, do nothing, do the washing up, do one's best</em>
+      </div>
+    </div>
+
+    <div class="formula">
+      <div class="formula-label">Đại từ bất định (Indefinite Pronouns)</div>
+      <div class="formula-content">
+        <span class="struct">Some-</span> (something, someone, somewhere) — câu khẳng định, lời mời, đề nghị<br>
+        <em style="font-size:.9rem;color:#6b7280">Would you like something to eat? (mời) / Can I have something? (request)</em><br>
+        <span class="struct">Any-</span> (anything, anyone, anywhere) — câu phủ định, nghi vấn, "bất kỳ"<br>
+        <em style="font-size:.9rem;color:#6b7280">If you need anything... / Come any time you want.</em><br>
+        <span class="struct">No-</span> (nothing, no one, nowhere) — mang sẵn nghĩa phủ định<br>
+        <em style="font-size:.9rem;color:#6b7280">I have nothing more to say. (= I don't have anything)</em><br>
+        <span class="struct">Every-</span> (everything, everyone, everywhere) — tất cả<br>
+        <em style="font-size:.9rem;color:#6b7280">Everyone was laughing. / Help yourself to anything.</em>
+      </div>
+    </div>
+
+    <div class="formula">
+      <div class="formula-label">Giới từ vị trí: In / On / At</div>
+      <div class="formula-content">
+        <span class="struct">In</span> — không gian kín/lớn: <em>in a queue, in a cave, in a car</em><br>
+        <span class="struct">On</span> — bề mặt: <em>on the table, on the shelves, on the floor, on the beach</em><br>
+        <span class="struct">At</span> — địa điểm cụ thể: <em>at work, at Sally's house, at school</em>
+      </div>
+    </div>
+
+    <div class="tip">Make = tạo ra/gây ra kết quả cụ thể (make money, make a decision). Do = hoạt động/công việc không tạo vật mới (do homework, do the dishes).</div>
+    <div class="tip">Some- trong câu hỏi khi mời/đề nghị (expect "yes"): "Would you like something?" Any- khi hỏi thật sự (không biết đáp án): "Did anyone call?"</div>
+  </div>
+
+</div>
+</body>
+</html>
