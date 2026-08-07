@@ -1,7 +1,7 @@
 window.TESTS=window.TESTS||[];
 window.TESTS.push({
   name:"Intermediate Test 5",
-  badge:"\u{1F4D8} Make/Do · Prepositions · Indefinite Pronouns",
+  badge:"\u{1F4D8} Make/Do · Prepositions · Indefinite Pronouns · Infinitive/Gerund",
   questions:[
     {q:"Is there a public call box near here? I have to _____ a phone call.", opts:["do","make","get","hear"], ans:1, exp:"MAKE a phone call (make + communication/creation)"},
     {q:"First she said 'Yes', then she said 'No', but in the end she _____ up her mind to marry him.", opts:["did","made","got","said"], ans:1, exp:"MAKE up one's mind = decide (fixed expression)"},
@@ -45,6 +45,15 @@ window.TESTS.push({
     {q:"\"What do you want for supper?\" \"_____ . I don't mind.\"", opts:["Something","Anything","Nothing","Everything"], ans:1, exp:"Anything — free choice meaning 'I don't care which'"},
     {q:"It was Sunday, and the town was deserted. _____ was in the streets, and _____ was open.", opts:["Somebody / somewhere","Anybody / anywhere","Nobody / nowhere","Everybody / everywhere"], ans:2, exp:"Nobody/nowhere — deserted means empty (negative meaning)"},
     {q:"\"Who was at the party?\" \"_____ , Pete, Ann, James...\"", opts:["Someone","Anyone","No one","Everyone"], ans:3, exp:"Everyone — listing all people = everyone was there"},
-    {q:"\"Where do you want to go on holiday?\" \"_____ hot.\"", opts:["Somebody","Anywhere","Nowhere","Everywhere"], ans:1, exp:"Anywhere — free choice meaning 'any place, as long as it's hot'"}
+    {q:"\"Where do you want to go on holiday?\" \"_____ hot.\"", opts:["Somebody","Anywhere","Nowhere","Everywhere"], ans:1, exp:"Anywhere — free choice meaning 'any place, as long as it's hot'"},
+    {q:"I want _____ more careful with your homework in future.", opts:["you be","you to be","that you are","you being"], ans:1, exp:"want + object + to V (infinitive pattern)"},
+    {q:"I stopped _____ when I was thirty.", opts:["to smoke","smoke","smoking","too smoke"], ans:2, exp:"stop + V-ing = stop doing the activity (quit the habit)"},
+    {q:"Why did I agree _____ with you? I can't stand it.", opts:["to work","work","working","to working"], ans:0, exp:"agree + to V (infinitive — agree is followed by to-infinitive)"},
+    {q:"I'm really looking forward to _____ my new course.", opts:["start","starting","started","to start"], ans:1, exp:"look forward to + V-ing ('to' here is a preposition, not infinitive)"},
+    {q:"They can't help us _____ the house.", opts:["move","moving","moved","move to"], ans:0, exp:"help + object + bare infinitive (V without 'to')"},
+    {q:"She refused _____ the phone.", opts:["answer","to answer","answered","answering"], ans:1, exp:"refuse + to V (infinitive — refuse always takes to-infinitive)"},
+    {q:"I don't mind _____ to the restaurant.", opts:["driving","drive","drove","to drive"], ans:0, exp:"mind + V-ing (gerund — mind is followed by -ing form)"},
+    {q:"We encouraged them _____ a new business.", opts:["setting up","to set up","set up","'d set up"], ans:1, exp:"encourage + object + to V (infinitive pattern)"},
+    {q:"His parents don't allow him _____ after ten o'clock.", opts:["stay up","to stay up","stay up","stayed up"], ans:1, exp:"allow + object + to V (infinitive pattern)"}
   ]
 });
