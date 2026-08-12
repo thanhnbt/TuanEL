@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ngữ pháp — Grammar Practice 07/08 — English Daily</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .lesson-topbar{background:#fff;border-bottom:1px solid #e2e4e8;padding:0 1rem;position:sticky;top:0;z-index:99}
+    .lesson-topbar-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;gap:8px}
+    .lesson-topbar .back-link{color:#2563eb;text-decoration:none;font-size:13px;font-weight:600;padding:10px 0;margin-right:16px;white-space:nowrap}
+    .lesson-topbar .back-link:hover{opacity:.7}
+    .sub-nav{display:flex;gap:4px;overflow-x:auto}
+    .sub-nav a{padding:10px 14px;font-size:13px;font-weight:500;color:#6b7280;text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s}
+    .sub-nav a:hover{color:#1a1a1a}
+    .sub-nav a.active{color:#2563eb;border-bottom-color:#2563eb}
+
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fafaf7;color:#1a1a1a}
+    .container{max-width:920px;margin:0 auto;padding:1.5rem 1rem 3rem}
+    h1{font-size:1.6rem;margin:0 0 .3rem;color:#1e293b}
+    .sub-title{color:#6b7280;font-size:.9rem;margin-bottom:1.2rem}
+
+    /* Flow guide */
+    .flow-guide{background:linear-gradient(135deg,#eff6ff,#f0fdf4);border:2px solid #bfdbfe;border-radius:14px;padding:1.2rem 1.5rem;margin-bottom:1.8rem}
+    .flow-guide h2{margin:0 0 .6rem;font-size:1rem;color:#1e40af}
+    .flow-steps{display:flex;gap:0;align-items:stretch;flex-wrap:wrap}
+    .flow-step{flex:1;min-width:140px;text-align:center;padding:.8rem .6rem;position:relative}
+    .flow-step .step-num{width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;color:#fff;margin-bottom:.4rem}
+    .flow-step:nth-child(1) .step-num{background:#2563eb}
+    .flow-step:nth-child(2) .step-num{background:#f59e0b}
+    .flow-step:nth-child(3) .step-num{background:#10b981}
+    .flow-step .step-title{font-weight:700;font-size:.9rem;margin-bottom:.2rem}
+    .flow-step .step-desc{font-size:.78rem;color:#6b7280;line-height:1.4}
+    .flow-arrow{display:flex;align-items:center;font-size:1.4rem;color:#94a3b8;padding:0 2px}
+    @media(max-width:600px){
+      .flow-steps{flex-direction:column;gap:0}
+      .flow-arrow{justify-content:center;transform:rotate(90deg);padding:4px 0}
+    }
+
+    /* Section */
+    .grammar-section{background:#fff;border-radius:12px;border:1px solid #e2e4e8;padding:1.3rem 1.5rem;margin-bottom:1.4rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+    .grammar-section h2{font-size:1.15rem;color:#1e293b;margin:0 0 .8rem;display:flex;align-items:center;gap:8px}
+    .grammar-section h2 .num{background:#2563eb;color:#fff;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+
+    /* Formula box */
+    .formula{background:#f8fafc;border:2px solid #c7d2fe;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem;box-shadow:0 1px 4px rgba(99,102,241,.08)}
+    .formula-label{font-size:.75rem;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.5rem}
+    .formula-content{font-size:1.02rem;line-height:2;font-weight:500}
+    .formula-content .struct{color:#2563eb;font-weight:800;font-size:1.08rem}
+    .formula-content .arrow{color:#10b981;font-weight:900;font-size:1.5rem;vertical-align:middle;display:inline-block;margin:0 2px}
+    .formula-line{background:#fff;border:2px solid #e0e7ff;border-radius:8px;padding:.5rem .9rem;margin:.4rem 0;display:inline-block;width:auto;max-width:100%;box-sizing:border-box}
+    .formula-line.result{border-color:#ef4444;background:#fef2f2}
+    .formula-arrow{color:#ef4444;font-weight:900;font-size:1.6rem;display:block;text-align:center;margin:.4rem 0;line-height:1}
+
+    /* Changed parts highlight */
+    .ch{color:#dc2626;font-weight:700}
+    .ch-bg{background:#fef2f2;color:#dc2626;font-weight:700;padding:1px 4px;border-radius:3px}
+
+    /* Example */
+    .ex-group{border-left:3px solid #dbeafe;padding-left:1rem;margin:.6rem 0 1rem}
+    .ex-item{background:#f8fafc;border-radius:8px;padding:.6rem 1rem;margin-bottom:.5rem;font-size:.9rem;line-height:1.7}
+    .ex-item .ex-label{font-size:.7rem;font-weight:700;color:#2563eb;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.1rem}
+    .ex-item .orig{color:#475569}
+    .ex-item .rewrite{color:#1e293b}
+    .ex-item .arrow-line{color:#10b981;font-weight:900;font-size:1.4rem;line-height:1;margin:2px 0}
+    .ex-item .vi{color:#6b7280;font-style:italic;font-size:.82rem;margin-top:.15rem}
+
+    /* Tip */
+    .tip{background:#fefce8;border-radius:8px;padding:.5rem .9rem;font-size:.84rem;color:#854d0e;margin:.5rem 0 .3rem;line-height:1.5}
+    .tip::before{content:'💡 ';font-style:normal}
+
+    /* Change table */
+    .change-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.5rem 0 .8rem}
+    .change-table th{background:#eff6ff;color:#1e40af;padding:8px 10px;text-align:left;font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.3px}
+    .change-table td{padding:7px 10px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+    .change-table td em{font-style:normal;font-size:.82rem;color:#94a3b8;display:block;margin-top:1px}
+    .change-table .from{color:#6b7280}
+    .change-table .to{color:#dc2626;font-weight:600}
+    .change-table .arr{color:#10b981;font-weight:700;text-align:center;width:30px}
+
+    @media(max-width:700px){
+      .container{padding:1rem .7rem 2rem}
+      .grammar-section{padding:1rem}
+      .formula-content{font-size:.8rem}
+    }
+
+    /* ===== Print — Kindle e-ink, học sinh 9 tuổi ===== */
+    @media print{
+      body{background:#fff!important;color:#000!important;font-size:14pt;line-height:1.7}
+      .lesson-topbar{display:none}
+      .container{max-width:100%;padding:0}
+
+      h1{font-size:18pt}
+      .sub-title{font-size:13pt;color:#000!important}
+      .grammar-section h2{font-size:16pt}
+      .grammar-section{background:#fff!important;border:1.5px solid #333;box-shadow:none;page-break-inside:avoid;margin-bottom:24px}
+      .grammar-section h2 .num{background:#000!important;color:#fff!important}
+
+      .flow-guide{background:#fff!important;border:2px solid #000;page-break-inside:avoid}
+      .flow-step .step-num{background:#000!important;color:#fff!important}
+      .flow-step .step-title{font-size:13pt}
+      .flow-step .step-desc{font-size:12pt;color:#000!important}
+      .flow-arrow{color:#000}
+
+      .formula{background:#fff!important;border:2px solid #000;box-shadow:none;padding:14px 16px}
+      .formula-label{color:#000!important;font-weight:800;font-size:12pt}
+      .formula-content{font-size:14pt}
+      .formula-content .struct{color:#000!important;font-weight:900}
+      .formula-content .arrow{color:#000!important}
+      .formula-line{background:#fff!important;border:1.5px solid #333}
+      .formula-line.result{border:2.5px solid #000!important;background:#fff!important}
+      .formula-arrow{color:#000!important;font-size:18pt}
+
+      /* Kindle e-ink: no background, use thick underline + bold border */
+      .ch{color:#000!important;font-weight:900;text-decoration:underline;text-decoration-thickness:2.5px}
+      .ch-bg{background:transparent!important;color:#000!important;font-weight:900;border:2px solid #000;padding:2px 5px}
+
+      .ex-group{border-left:4px solid #000}
+      .ex-item{background:#fff!important;font-size:13pt;padding:10px 14px}
+      .ex-item .ex-label{color:#000!important;font-weight:800;font-size:12pt}
+      .ex-item .arrow-line{color:#000!important}
+      .ex-item .vi{color:#333!important;font-size:12pt}
+
+      .change-table th{background:transparent!important;color:#000!important;border:1.5px solid #333;font-size:12pt}
+      .change-table td{border:1px solid #666;font-size:13pt;padding:10px 12px}
+      .change-table .from{color:#000!important}
+      .change-table .to{color:#000!important;font-weight:900;text-decoration:underline}
+      .change-table .arr{color:#000!important}
+
+      .tip{background:#fff!important;color:#000!important;border:2px solid #000;font-size:13pt;padding:10px 14px}
+      .tip::before{content:'💡 '}
+
+      a{color:#000!important;text-decoration:underline}
+      .grammar-section{page-break-inside:avoid}
+      h1,h2{page-break-after:avoid}
+    }
+    @media (monochrome){
+      *,*::before,*::after{transition:none!important;animation:none!important;box-shadow:none!important}
+      body{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
+      .lesson-topbar{border-bottom:2px solid #000}
+      .sub-nav a{color:#000}.sub-nav a.active{color:#000;border-bottom-color:#000}
+      .lesson-topbar .back-link{color:#000}
+      .flow-guide{background:#fff!important;border:2px solid #000}
+      .flow-step .step-num{background:#000!important;color:#fff!important}
+      .flow-step .step-desc{color:#000!important}
+      .flow-arrow{color:#000!important}
+      .grammar-section{background:#fff!important;border:2px solid #000}
+      .grammar-section h2{color:#000!important}
+      .grammar-section h2 .num{background:#000!important;color:#fff!important}
+      .sub-title{color:#000!important}
+      .formula{background:#fff!important;border:2px solid #000}
+      .formula-label{color:#000!important}
+      .formula-content .struct{color:#000!important}
+      .formula-content .arrow{color:#000!important}
+      .formula-line{background:#fff!important;border:2px solid #000}
+      .ch{color:#000!important;font-weight:900;text-decoration:underline;text-decoration-thickness:2.5px}
+      .ch-bg{background:transparent!important;color:#000!important;font-weight:900;border:2px solid #000;padding:2px 5px}
+      .ex-group{border-left:4px solid #000}
+      .ex-item{background:#fff!important}
+      .ex-item .ex-label{color:#000!important}
+      .ex-item .arrow-line{color:#000!important}
+      .change-table th{background:transparent!important;color:#000!important;border:2px solid #000;font-weight:800}
+      .change-table td{border:1.5px solid #444}
+      .change-table .from{color:#000!important}
+      .change-table .to{color:#000!important;font-weight:900;text-decoration:underline}
+      .change-table .arr{color:#000!important}
+      .tip{background:#fff!important;color:#000!important;border:2px solid #000}
+      a{color:#000!important;text-decoration:underline}
+    }
+    body.eink,body.eink *,body.eink *::before,body.eink *::after{transition:none!important;animation:none!important;box-shadow:none!important}
+    body.eink{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
+    body.eink .lesson-topbar{border-bottom:2px solid #000}
+    body.eink .sub-nav a{color:#000}body.eink .sub-nav a.active{color:#000;border-bottom-color:#000}
+    body.eink .lesson-topbar .back-link{color:#000}
+    body.eink .flow-guide{background:#fff!important;border:2px solid #000}
+    body.eink .flow-step .step-num{background:#000!important;color:#fff!important}
+    body.eink .flow-step .step-desc{color:#000!important}
+    body.eink .flow-arrow{color:#000!important}
+    body.eink .grammar-section{background:#fff!important;border:2px solid #000}
+    body.eink .grammar-section h2{color:#000!important}
+    body.eink .grammar-section h2 .num{background:#000!important;color:#fff!important}
+    body.eink .sub-title{color:#000!important}
+    body.eink .formula{background:#fff!important;border:2px solid #000}
+    body.eink .formula-label{color:#000!important}
+    body.eink .formula-content .struct{color:#000!important}
+    body.eink .formula-content .arrow{color:#000!important}
+    body.eink .formula-line{background:#fff!important;border:2px solid #000}
+    body.eink .ch{color:#000!important;font-weight:900;text-decoration:underline;text-decoration-thickness:2.5px}
+    body.eink .ch-bg{background:transparent!important;color:#000!important;font-weight:900;border:2px solid #000;padding:2px 5px}
+    body.eink .ex-group{border-left:4px solid #000}
+    body.eink .ex-item{background:#fff!important}
+    body.eink .ex-item .ex-label{color:#000!important}
+    body.eink .ex-item .arrow-line{color:#000!important}
+    body.eink .change-table th{background:transparent!important;color:#000!important;border:2px solid #000;font-weight:800}
+    body.eink .change-table td{border:1.5px solid #444}
+    body.eink .change-table .from{color:#000!important}
+    body.eink .change-table .to{color:#000!important;font-weight:900;text-decoration:underline}
+    body.eink .change-table .arr{color:#000!important}
+    body.eink .tip{background:#fff!important;color:#000!important;border:2px solid #000}
+    body.eink a{color:#000!important;text-decoration:underline}
+  </style>
+</head>
+
+<body>
+
+  <div class="lesson-topbar">
+    <div class="lesson-topbar-inner">
+      <a href="../../index.html" class="back-link">📘 ← Trang chủ</a>
+      <nav class="sub-nav">
+        <a href="index.html" class="active">📗 Ngữ pháp</a>
+        <a href="quiz.html">🧩 Quiz</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>📝 Ngữ pháp Intermediate & Pre-Int</h1>
+    <p class="sub-title">07/08/2026 · Ôn thi lớp 6 CLC</p>
+
+    <div class="flow-guide">
+      <h2>🗺️ Lộ trình học</h2>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="step-num">1</div>
+          <div class="step-title">📗 Đọc Ngữ pháp</div>
+          <div class="step-desc">Ôn lại Hiện tại hoàn thành, Bị động, và Câu điều kiện.</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="step-num">2</div>
+          <div class="step-title">🧩 Làm Quiz</div>
+          <div class="step-desc">Test trắc nghiệm từ vựng & ngữ pháp.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== I. PRESENT PERFECT VS PAST SIMPLE ====== -->
+    <div class="grammar-section">
+      <h2><span class="num">I</span> Quá khứ đơn & Hiện tại hoàn thành</h2>
+
+      <div class="formula">
+        <div class="formula-label">Sự khác biệt cơ bản</div>
+        <div class="formula-content">
+          <div class="formula-line"><span class="struct">Quá khứ đơn:</span> S + V-ed / V2</div>
+          <div class="formula-arrow">vs</div>
+          <div class="formula-line result"><span class="struct">HT Hoàn thành:</span> S + have/has + V<sub>3/ed</sub></div>
+        </div>
+      </div>
+
+      <div class="ex-group">
+        <div class="ex-item">
+          <div class="ex-label">Ví dụ 1 — Quá khứ đơn</div>
+          <div class="orig">I <span class="ch">lived</span> abroad 10 years <span class="ch">ago</span>.</div>
+          <div class="vi">Đã xảy ra và CHẤM DỨT hoàn toàn trong quá khứ.</div>
+        </div>
+        <div class="ex-item">
+          <div class="ex-label">Ví dụ 2 — Hiện tại hoàn thành</div>
+          <div class="orig">I <span class="ch">have lived</span> abroad <span class="ch">since</span> 2016.</div>
+          <div class="vi">Bắt đầu từ 2016 và ĐẾN NAY vẫn đang sống ở nước ngoài.</div>
+        </div>
+      </div>
+
+      <div class="tip" style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0">
+        🌟 <strong>Em dùng cấu trúc này khi nào?</strong><br>
+        🚪 <strong>Quá khứ đơn (Đóng cửa):</strong> Kể một chuyện đã chốt sổ, đóng cửa hoàn toàn ở quá khứ.<br>
+        🦖 <strong>HT Hoàn thành (Có chiếc đuôi):</strong> Kể chuyện ở quá khứ nhưng có cái đuôi kéo dài vắt qua tận hiện tại.<br>
+        ✏️ <strong>Viết văn:</strong> Dùng Quá khứ đơn khi viết nhật ký (diary) kể chuyện ngày hôm qua. Dùng HT Hoàn thành khi khoe thành tích hoặc kinh nghiệm (experience).<br>
+        💬 VD: "I <em>went</em> to the zoo yesterday." (Đã qua) · "I <em>have visited</em> 3 countries." (Khoe kinh nghiệm đến nay)
+      </div>
+
+      <table class="change-table">
+        <tr>
+          <th>Dấu hiệu</th>
+          <th>Sử dụng như thế nào?</th>
+          <th>Ví dụ</th>
+        </tr>
+        <tr>
+          <td class="from">For</td>
+          <td>+ Khoảng thời gian <em>(Đếm số lượng: 2 năm, 3 tháng)</em></td>
+          <td>for two years, for a long time</td>
+        </tr>
+        <tr>
+          <td class="from">Since</td>
+          <td>+ Mốc thời gian <em>(Điểm bắt đầu: năm 1990, thứ Hai)</em></td>
+          <td>since 1990, since I was a child</td>
+        </tr>
+        <tr>
+          <td class="from">Already</td>
+          <td>Đã xong rồi <em>(Câu khẳng định)</em></td>
+          <td>I have already finished it.</td>
+        </tr>
+        <tr>
+          <td class="from">Yet</td>
+          <td>Vẫn chưa <em>(Cuối câu phủ định/hỏi)</em></td>
+          <td>I haven't eaten yet.</td>
+        </tr>
+      </table>
+
+      <div class="tip">Không dùng giới từ (in/on/at) trước "last year", "next week", "this morning". Ví dụ: I met him
+        last year (không có "in last year").</div>
+    </div>
+
+    <!-- ====== II. PRESENT PERFECT PASSIVE ====== -->
+    <div class="grammar-section">
+      <h2><span class="num">II</span> Câu Bị Động - Hiện Tại Hoàn Thành</h2>
+
+      <div class="formula">
+        <div class="formula-label">Sự biến đổi Chủ động ⟶ Bị động</div>
+        <div class="formula-content">
+          <div class="formula-line">Chủ động: S + <span class="struct">have/has</span> + V<sub>3/ed</sub></div>
+          <div class="formula-arrow">⟶</div>
+          <div class="formula-line result">Bị động: O + <span class="struct">have/has been</span> + V<sub>3/ed</sub> (+ by S)</div>
+        </div>
+      </div>
+
+      <div class="ex-group">
+        <div class="ex-item">
+          <div class="ex-label">Ví dụ 1 — Số ít</div>
+          <div class="orig">Someone <span class="ch">has damaged</span> their car.</div>
+          <div class="arrow-line">⟶</div>
+          <div class="rewrite">Their car <span class="ch-bg">has been damaged</span>.</div>
+          <div class="vi">"Their car" lên làm chủ ngữ · has damaged → has been damaged</div>
+        </div>
+        <div class="ex-item">
+          <div class="ex-label">Ví dụ 2 — Số nhiều</div>
+          <div class="orig">A train crash <span class="ch">has killed</span> four people.</div>
+          <div class="arrow-line">⟶</div>
+          <div class="rewrite">Four people <span class="ch-bg">have been killed</span> in a train crash.</div>
+          <div class="vi">Four people là SỐ NHIỀU → đổi "has" thành "have been killed"</div>
+        </div>
+      </div>
+
+      <div class="tip" style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0">
+        🌟 <strong>Em dùng cấu trúc này khi nào?</strong> Thay vì kể <em>ai</em> làm gì, câu bị động mời "nạn nhân/đồ vật" lên làm diễn viên chính. Dùng khi KHÔNG BIẾT ai là thủ phạm, hoặc đồ vật quan trọng hơn.<br>
+        ✏️ <strong>Viết văn:</strong> Khi thông báo tin tức hoặc miêu tả sự cố mà không muốn chỉ mặt điểm tên người gây ra.<br>
+        💬 VD: "My bike <em>has been stolen</em>!" (Xe bị trộm rồi - không biết ai trộm) · "A new bridge <em>has been built</em>."
+      </div>
+    </div>
+
+    <!-- ====== III. CONDITIONAL TYPE 1 ====== -->
+    <div class="grammar-section">
+      <h2><span class="num">III</span> Câu Điều Kiện Loại 1</h2>
+
+      <div class="formula">
+        <div class="formula-label">Công thức</div>
+        <div class="formula-content">
+          <div class="formula-line"><span class="struct">Loại 1:</span> If + S + V<sub>(Hiện tại đơn)</sub>, S + <span class="struct">will</span> + V</div>
+        </div>
+      </div>
+
+      <div class="ex-group">
+        <div class="ex-item">
+          <div class="ex-label">Ví dụ</div>
+          <div class="orig"><span class="ch">If</span> you <span class="ch">eat</span> your vegetables, you <span class="ch">will be</span> healthy.</div>
+          <div class="vi">Có thể xảy ra thật ở hiện tại/tương lai (kế hoạch thật).</div>
+        </div>
+      </div>
+
+      <div class="tip" style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0">
+        ⚠️ <strong>Em dùng cấu trúc này khi nào?</strong> Khi muốn <em>nhắc nhở, hứa hẹn hoặc cảnh báo</em> ai đó về một việc có khả năng xảy ra thật ở hiện tại hoặc tương lai.<br>
+        ✏️ <strong>Viết văn:</strong> Khi viết đoạn "Advice" hay "School rules", em dùng cấu trúc này để đưa ra lời khuyên.<br>
+        💬 VD: "If you don't brush your teeth, you <em>will</em> get cavities." · "If you read every day, you <em>will</em> become smarter."
+      </div>
+    </div>
+
+    <!-- ====== IV. CONDITIONAL TYPE 2 ====== -->
+    <div class="grammar-section">
+      <h2><span class="num">IV</span> Câu Điều Kiện Loại 2</h2>
+
+      <div class="formula">
+        <div class="formula-label">Công thức — Không có thật ở hiện tại</div>
+        <div class="formula-content">
+          <div class="formula-line">Gốc (Sự thật): S + <span class="struct">don't/can't</span> + V, so S + <span class="struct">don't/can't</span> + V</div>
+          <div class="formula-arrow">⟶</div>
+          <div class="formula-line result"><span class="struct">Loại 2:</span> If + S + <span class="struct">V<sub>ed/2</sub></span>, S + <span class="struct">would/could</span> + V</div>
+        </div>
+      </div>
+
+      <div class="ex-group">
+        <div class="ex-item">
+          <div class="ex-label">Ví dụ</div>
+          <div class="orig">She <span class="ch">doesn't have</span> a bike, so she <span class="ch">can't ride</span> to school.</div>
+          <div class="arrow-line">⟶</div>
+          <div class="rewrite"><span class="ch-bg">If</span> she <span class="ch-bg">had</span> a bike, she <span class="ch-bg">could ride</span> to school.</div>
+          <div class="vi">doesn't have → had · can't ride → could ride · "be" luôn dùng "were"</div>
+        </div>
+      </div>
+
+      <div class="tip" style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0">
+        🌟 <strong>Em dùng cấu trúc này khi nào?</strong> Khi muốn nói về <em>ước mơ, tưởng tượng</em> một việc KHÔNG CÓ THẬT ở hiện tại — giống như "Nếu mình có phép thuật thì mình sẽ..."<br>
+        ✏️ <strong>Viết văn:</strong> Khi viết đoạn "My dream" hay "What I wish", em dùng <em>"If I had/were... I would/could..."</em><br>
+        💬 VD: "If I had a robot, I <em>could</em> finish my homework faster." · "If I were a bird, I <em>would</em> fly to the moon."
+      </div>
+    </div>
+
+    <!-- ====== V. WISH ====== -->
+    <div class="grammar-section">
+      <h2><span class="num">V</span> Câu Điều Ước (Wish)</h2>
+
+      <div class="formula">
+        <div class="formula-label">Công thức — Trái ngược hiện tại</div>
+        <div class="formula-content">
+          <div class="formula-line">Gốc (Sự thật): S + <span class="struct">don't/can't</span> + V</div>
+          <div class="formula-arrow">⟶</div>
+          <div class="formula-line result"><span class="struct">Wish:</span> S + wish(es) + S + <span class="struct">V<sub>ed/2</sub></span> (Quá khứ đơn)</div>
+        </div>
+      </div>
+
+      <div class="ex-group">
+        <div class="ex-item">
+          <div class="ex-label">Ví dụ</div>
+          <div class="orig">I <span class="ch">don't have</span> a magic wand.</div>
+          <div class="arrow-line">⟶</div>
+          <div class="rewrite">I <span class="ch-bg">wish</span> I <span class="ch-bg">had</span> a magic wand.</div>
+          <div class="vi">don't have → had. Lùi 1 thì về Quá khứ đơn. Động từ "be" dùng "were".</div>
+        </div>
+      </div>
+
+      <div class="tip" style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0">
+        🙏 <strong>Em dùng cấu trúc này khi nào?</strong> Khi muốn <em>cầu nguyện hoặc ao ước</em> một thứ ngược lại với sự thật hiện tại. Hoạt động giống hệt If Loại 2 (lùi về Quá khứ đơn).<br>
+        ✏️ <strong>Viết văn:</strong> Khi phàn nàn về thực tại hoặc bày tỏ ước muốn thay đổi bản thân.<br>
+        💬 VD: "I wish I <em>were</em> taller." (Ước gì mình cao hơn) · "I wish it <em>didn't</em> rain today."
+      </div>
+    </div>
+
+    <!-- ====== VI. PRONOUNS & DETERMINERS ====== -->
+    <div class="grammar-section">
+      <h2><span class="num">VI</span> Đại từ & Mạo từ</h2>
+
+      <div class="formula">
+        <div class="formula-label">Bảng Đại từ & Tân ngữ</div>
+        <div class="formula-content">
+          <table class="change-table">
+            <tr>
+              <th>Chủ ngữ (Đầu câu)</th>
+              <th>Tân ngữ (Sau Động/Giới từ)</th>
+              <th>Sở hữu (Của...)</th>
+              <th>Phản thân (Tự...)</th>
+            </tr>
+            <tr>
+              <td class="from">I</td>
+              <td class="to">me</td>
+              <td>my</td>
+              <td>myself</td>
+            </tr>
+            <tr>
+              <td class="from">You</td>
+              <td class="to">you</td>
+              <td>your</td>
+              <td>yourself/yourselves</td>
+            </tr>
+            <tr>
+              <td class="from">He</td>
+              <td class="to">him</td>
+              <td>his</td>
+              <td>himself</td>
+            </tr>
+            <tr>
+              <td class="from">She</td>
+              <td class="to">her</td>
+              <td>her</td>
+              <td>herself</td>
+            </tr>
+            <tr>
+              <td class="from">It</td>
+              <td class="to">it</td>
+              <td>its</td>
+              <td>itself</td>
+            </tr>
+            <tr>
+              <td class="from">We</td>
+              <td class="to">us</td>
+              <td>our</td>
+              <td>ourselves</td>
+            </tr>
+            <tr>
+              <td class="from">They</td>
+              <td class="to">them</td>
+              <td>their</td>
+              <td>themselves</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="ex-group">
+        <div class="ex-item">
+          <div class="ex-label">Ví dụ 1 — Tân ngữ</div>
+          <div class="orig">I haven't got the keys. Father has got <span class="ch">them</span>.</div>
+          <div class="vi">"keys" là số nhiều ⟶ dùng "them" làm tân ngữ thay thế.</div>
+        </div>
+        <div class="ex-item">
+          <div class="ex-label">Ví dụ 2 — Tính từ sở hữu</div>
+          <div class="orig">Can you see those boys and <span class="ch">their</span> father?</div>
+          <div class="vi">Bố CỦA NHỮNG cậu bé đó ⟶ dùng "their" (của họ).</div>
+        </div>
+      </div>
+
+      <div class="formula">
+        <div class="formula-label">Mạo từ a / an / the</div>
+        <div class="formula-content">
+          <div class="formula-line"><span class="struct">a / an:</span> Danh từ số ít, chưa xác định. Dùng "an" trước <strong>u, e, o, a, i</strong>.</div>
+          <div class="formula-line result"><span class="struct">the:</span> Danh từ ĐÃ xác định, hoặc duy nhất (the sun, the world).</div>
+        </div>
+      </div>
+
+      <div class="tip" style="background:#f0fdf4;color:#166534;border:1px solid #bbf7d0">
+        🌟 <strong>Em dùng mạo từ khi nào?</strong> Dùng <strong>a/an</strong> khi nhắc đến thứ gì đó lần đầu tiên (một cái chung chung). Dùng <strong>the</strong> khi cả người nói và người nghe ĐỀU BIẾT rõ đang nhắc đến cái nào.<br>
+        ✏️ <strong>Viết văn:</strong> Khi kể chuyện, câu đầu tiên giới thiệu nhân vật dùng "a" (I saw <em>a</em> dog), các câu sau dùng "the" vì đã biết con chó nào (<em>The</em> dog was cute).<br>
+        💬 VD: "I bought <em>an</em> apple. <em>The</em> apple is sweet."<br>
+        ⚠️ <strong>Lưu ý:</strong> Không dùng "a/an/the" sau sở hữu cách (VD: <em>Mrs. Taylor's husband</em>, KHÔNG dùng "Mrs. Taylor's the husband").
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    if (localStorage.getItem('eink') === 'true') document.body.classList.add('eink');
+  </script>
+</body>
+
+</html>

@@ -151,6 +151,12 @@
 
   window.handleSubmit=function(){
     if(phase!=='answer')return;
+    var answeredCount=selections.filter(function(s){return s!==-1;}).length;
+    var minReq=Math.ceil(order.length * 2 / 3);
+    if(answeredCount<minReq){
+      alert('Vui lòng làm ít nhất '+minReq+' câu trước khi nộp bài để xem đáp án nhé!');
+      return;
+    }
     phase='done';
     var qs=TESTS[currentTest].questions;
     var score=0;
@@ -174,7 +180,6 @@
     for(var k=0;k<opts.length;k++)opts[k].style.pointerEvents='none';
     document.getElementById('submitBtn').textContent=stars+' '+score+'/'+answered+' (đã làm '+answered+'/'+total+')';
     document.getElementById('submitBtn').className='btn-submit final';
-    document.getElementById('submitBtn').onclick=null;
     window.scrollTo({top:0,behavior:'smooth'});
   };
 

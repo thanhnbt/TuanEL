@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ngữ Âm — Bài học 03/07 — English Daily</title>
+<link rel="stylesheet" href="../../css/style.css">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -27,13 +28,9 @@
   }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
-    padding: .75rem;
-    max-width: 1120px;
-    margin: 0 auto;
   }
 
   header {
@@ -371,7 +368,7 @@
   </div>
 </div>
 
-
+<div class="container" style="padding-top: .75rem; padding-bottom: 2rem;">
 <header>
   <h1>📖 Cẩm Nang Ngữ Âm Tiếng Anh Chi Tiết</h1>
   <p>Hướng dẫn từ đề thi TN Lớp 9 & Chuyên Anh — Bấm vào từ để nghe phát âm chuẩn từ điển 🔊</p>
@@ -592,9 +589,11 @@
   </div>
 </div>
 
-<footer>📖 Tự Học Thành Tài — Chinh Phục Ngữ Âm &nbsp;|&nbsp; Âm thanh từ Free Dictionary API & Google TTS</footer>
+<footer>&copy; Tự Học Thành Tài - Chinh Phục Ngữ Âm 
+&nbsp;|&nbsp; Âm thanh từ Free Dictionary API & Google TTS</footer>
+</div>
 
-  <script src="../../js/config.js"></script>
+<script src="../../js/config.js"></script>
   <script>
     function speak(word) {
       if (!MW_API_KEY) { _tts(word); return; }

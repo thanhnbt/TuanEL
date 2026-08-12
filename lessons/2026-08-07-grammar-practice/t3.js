@@ -1,0 +1,27 @@
+window.TESTS = window.TESTS || [];
+window.TESTS.push({
+  name: "Intermediate Test 8",
+  badge: "📘 Conditionals (Type 1-2) · Wishes",
+  questions: [
+    { q: "1. Suppose! If it _______ last weekend, we _______ to play tennis.", opts: ["rained - wouldn't be able", "rains - won't be able", "rain - would be able", "had rained - could"], ans: 3, exp: "Signal: 'last weekend' (past) -> Third Conditional (If + Past Perfect, could/would + have + V3). But here 'could' is an acceptable colloquial shortcut in the options for 'had rained - could'." },
+    { q: "2. Give me Peter's letter. If I _______ him, I _______ it to him.", opts: ["see - will give", "saw - would give", "meet - would visit", "had seen - would give"], ans: 0, exp: "Signal: 'Give me Peter's letter' (possible future action) -> First Conditional (If + Present Simple, will + V)." },
+    { q: "3. I have to work about 80 hours a week, so I'm very busy. But if I _______ any spare time, I _______ a sport like golf.", opts: ["will have / will take up", "had / will take up", "will have / had", "had / would take up"], ans: 3, exp: "Signal: 'I'm very busy' (Present reality) -> Second Conditional for unreal present (If + Past Simple, would + V)." },
+    { q: "4. If I _______ taller, I _______ be a policeman, but I'm too short.", opts: ["was / can", "had / could", "were / could", "am / will"], ans: 2, exp: "Signal: 'I'm too short' (Unreal present) -> Second Conditional (If + were, could + V)." },
+    { q: "5. Please, start your meal. If you _______ your soup now, it _______ cold.", opts: ["didn't have / would go", "had / got", "can eat / doesn't go", "don't have / will go"], ans: 3, exp: "Signal: 'start your meal... now' (Real possibility) -> First Conditional (If + Present Simple, will + V)." },
+    { q: "6. What noisy neighbors you've got! If my neighbors _______ as bad as yours, I _______ crazy.", opts: ["were / would go", "are / will go", "are / would go", "had been / would have gone"], ans: 0, exp: "Signal: Imaginary situation about neighbors -> Second Conditional (were / would go)." },
+    { q: "7. If you _______ any problems, let me know and I _______ and help you straight away.", opts: ["had / would come", "have / will come", "had had / would come", "have / would go"], ans: 1, exp: "Signal: 'let me know' (Real offer for future) -> First Conditional (If + Present Simple, will + V)." },
+    { q: "8. You're a brilliant cook! If I _______ cook as well as you, I _______ a restaurant.", opts: ["could / would open", "can / will open", "could / will open", "can / would open"], ans: 0, exp: "Signal: 'You're a brilliant cook' (I am not) -> Second Conditional (could / would open)." },
+    { q: "9. If there _______ some nice fish in the supermarket, _______ you _______ some for supper tonight?", opts: ["had been / would / buy", "were / would / buy", "is / will / buy", "are / will / buy"], ans: 2, exp: "Signal: 'tonight' (Real future possibility) -> First Conditional (If + is, will you buy)." },
+    { q: "10. I'm small. I wish I _______ small.", opts: ["am not", "was", "were", "weren't"], ans: 3, exp: "Signal: 'I'm small' (Present reality) -> Wish for present uses Past Subjunctive ('weren't')." },
+    { q: "11. I'm small. If only I _______ taller.", opts: ["were", "wasn't", "am", "have"], ans: 0, exp: "Signal: 'If only' for present reality -> Past Subjunctive ('were')." },
+    { q: "12. \"We have mice in the kitchen.\" - \"If you _______ a cat, the mice _______ soon _______.\"", opts: ["had / would / disappear", "have / will / disappear", "are / will / disappear", "had / will / disappear"], ans: 1, exp: "Signal: Real solution to a present problem -> First Conditional (If + have, will disappear)." },
+    { q: "13. We live in the city. We wish we _______ in the country.", opts: ["have lived", "living", "lived", "live"], ans: 2, exp: "Signal: 'live' (Present reality) -> Wish for present uses Past Simple ('lived')." },
+    { q: "14. We live in the city. If only we _______ in the city!", opts: ["lived", "didn't live", "haven't lived", "living"], ans: 1, exp: "Signal: 'If only' for present reality -> Past Simple Negative ('didn't live')." },
+    { q: "15. I'm not having a holiday this year. I wish I _______ a holiday.", opts: ["was having", "is having", "will have", "have"], ans: 0, exp: "Signal: 'am not having' (Present Continuous) -> Wish for present continuous uses Past Continuous ('was having')." },
+    { q: "16. I'm going to the dentist tomorrow. I wish I _______ to the dentist.", opts: ["am not going", "will go", "wasn't going", "went"], ans: 2, exp: "Signal: 'am going' (Future arrangement) -> Wish uses Past Continuous ('wasn't going')." },
+    { q: "17. I can't ski. I wish I _______ ski.", opts: ["can", "could", "will", "couldn't"], ans: 1, exp: "Signal: 'can't' (Present ability) -> Wish uses 'could'." },
+    { q: "18. I wasn't happy at school. I wish I _______ happy.", opts: ["has been", "had had", "will have", "had been"], ans: 3, exp: "Signal: 'wasn't' (Past reality) -> Wish for past uses Past Perfect ('had been')." },
+    { q: "19. He didn't pass his driving test. He wishes he _______ it.", opts: ["have passed", "had passed", "will pass", "pass"], ans: 1, exp: "Signal: 'didn't pass' (Past reality) -> Wish for past uses Past Perfect ('had passed')." },
+    { q: "20. I haven't been to Beijing. I wish I _______ to Beijing.", opts: ["had been", "have been", "has been", "will be"], ans: 0, exp: "Signal: 'haven't been' (Past experience) -> Wish for past uses Past Perfect ('had been')." }
+  ]
+});

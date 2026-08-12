@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz — Grammar Practice 07/08 — English Daily</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .lesson-topbar{background:#fff;border-bottom:1px solid #e2e4e8;padding:0 1rem;position:sticky;top:0;z-index:99}
+    .lesson-topbar-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:8px}
+    .lesson-topbar .back-link{color:#2563eb;text-decoration:none;font-size:13px;font-weight:600;padding:10px 0;margin-right:16px;white-space:nowrap}
+    .lesson-topbar .back-link:hover{opacity:.7}
+    .sub-nav{display:flex;gap:4px;overflow-x:auto}
+    .sub-nav a{padding:10px 14px;font-size:13px;font-weight:500;color:#6b7280;text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s}
+    .sub-nav a:hover{color:#1a1a1a}
+    .sub-nav a.active{color:#2563eb;border-bottom-color:#2563eb}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fafaf7;color:#1a1a1a}
+    .container{max-width:800px;margin:0 auto;padding:1.5rem 1rem 5rem}
+    .test-tabs{display:flex;gap:6px;margin-bottom:1rem;flex-wrap:wrap}
+    .test-tab{padding:8px 14px;border:2px solid #e2e4e8;border-radius:20px;font-size:.82rem;font-weight:600;cursor:pointer;background:#fff;color:#6b7280;transition:all .2s}
+    .test-tab.active{background:#2563eb;color:#fff;border-color:#2563eb}
+    .test-tab:hover:not(.active){border-color:#2563eb;color:#2563eb}
+    .grammar-badge{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:.5rem .9rem;font-size:.82rem;color:#1e40af;margin-bottom:1rem;line-height:1.5}
+    .controls{display:flex;gap:8px;margin-bottom:1rem;align-items:center;flex-wrap:wrap}
+    .shuffle-btn{padding:6px 14px;border:2px solid #e2e4e8;border-radius:8px;font-size:.85rem;cursor:pointer;background:#fff;transition:all .2s}
+    .shuffle-btn.on{background:#fef3c7;border-color:#f59e0b;color:#92400e}
+    .passage-block{background:#f8fafc;border-left:4px solid #3b82f6;padding:.8rem 1rem;margin:1.2rem 0 .6rem;font-size:.9rem;line-height:1.7;border-radius:0 8px 8px 0;font-style:italic;color:#334155}
+    .q-item{background:#fff;border:1px solid #e2e4e8;border-radius:12px;padding:1rem 1.2rem;margin-bottom:.8rem}
+    .q-item .q-num{font-weight:700;color:#2563eb;margin-right:6px}
+    .q-text{font-size:.95rem;line-height:1.6;margin-bottom:.7rem}
+    .opts{display:flex;flex-direction:column;gap:6px}
+    .opt{display:flex;align-items:center;gap:8px;padding:8px 12px;border:2px solid #e2e4e8;border-radius:8px;cursor:pointer;font-size:.9rem;transition:all .15s;line-height:1.4}
+    .opt:hover{border-color:#93c5fd;background:#f0f7ff}
+    .opt.selected{border-color:#2563eb;background:#eff6ff}
+    .opt .letter{width:26px;height:26px;border-radius:50%;background:#f1f5f9;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;color:#64748b;flex-shrink:0}
+    .opt.selected .letter{background:#2563eb;color:#fff}
+    .hint-box{display:none;margin-top:.6rem;padding:.5rem .8rem;background:#fefce8;border:1px solid #fde047;border-radius:8px;font-size:.84rem;line-height:1.5;color:#854d0e}
+    .hint-box.show{display:block}
+    .submit-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e2e4e8;padding:.8rem 1rem;text-align:center;z-index:98;box-shadow:0 -2px 8px rgba(0,0,0,.06)}
+    .btn-submit{padding:12px 32px;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;background:#2563eb;color:#fff;transition:opacity .2s}
+    .btn-submit:hover{opacity:.85}
+    .btn-submit.final{background:#10b981}
+    .btn-reset{padding:12px 24px;border:2px solid #e2e4e8;border-radius:10px;font-size:.95rem;font-weight:600;cursor:pointer;background:#fff;color:#6b7280;transition:all .2s;margin-left:8px}
+    .btn-reset:hover{border-color:#2563eb;color:#2563eb}
+    .opt.correct{border-color:#10b981;background:#f0fdf4}
+    .opt.correct .letter{background:#10b981;color:#fff}
+    .opt.wrong{border-color:#ef4444;background:#fef2f2}
+    .opt.wrong .letter{background:#ef4444;color:#fff}
+    .score-screen{display:none;text-align:center;padding:2rem 1rem}
+    .score-screen.show{display:block}
+    .score-big{font-size:3.5rem;font-weight:800;color:#2563eb}
+    .score-sub{font-size:1.1rem;color:#6b7280;margin:.5rem 0}
+    .score-stars{font-size:2rem;margin:.5rem 0}
+    .btn-again{padding:10px 20px;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;background:#2563eb;color:#fff;margin-top:1rem}
+    @media(max-width:700px){.container{padding:1rem .7rem 5rem}.q-item{padding:.8rem}.opt{padding:6px 10px;font-size:.84rem}}
+    @media print{.submit-bar,.controls,.score-screen{display:none!important}.q-item{border:1.5px solid #333;page-break-inside:avoid}}
+    @media(monochrome){*{transition:none!important;box-shadow:none!important}body{background:#fff!important;color:#000!important}.test-tab{border:2px solid #000;background:#fff!important;color:#000!important}.test-tab.active{background:#000!important;color:#fff!important}.opt{border:2px solid #000}.opt.selected{background:#ddd!important}}
+    body.eink,body.eink *{transition:none!important;box-shadow:none!important}body.eink{background:#fff!important;color:#000!important}body.eink .test-tab{border:2px solid #000;background:#fff!important;color:#000!important}body.eink .test-tab.active{background:#000!important;color:#fff!important}body.eink .opt{border:2px solid #000}body.eink .opt.selected{background:#ddd!important}
+</style>
+</head>
+<body>
+<div class="lesson-topbar">
+  <div class="lesson-topbar-inner">
+    <a href="../../index.html" class="back-link">📘 ← Trang chủ</a>
+    <nav class="sub-nav">
+      <a href="index.html">📗 Ngữ pháp</a>
+      <a href="quiz.html" class="active">🧩 Quiz</a>
+    </nav>
+  </div>
+</div>
+<div class="container">
+  <div class="test-tabs" id="testTabs"></div>
+  <div class="grammar-badge" id="grammarBadge"></div>
+  <div class="controls">
+    <button class="shuffle-btn" id="shuffleBtn" onclick="toggleShuffle()">🔀 Trộn câu</button>
+  </div>
+  <div id="questionList"></div>
+  <div class="score-screen" id="scoreScreen"></div>
+</div>
+<div class="submit-bar" id="submitBar">
+  <button class="btn-submit" id="submitBtn" onclick="handleSubmit()">📝 Kiểm tra</button>
+  <button class="btn-reset" id="resetBtn" onclick="selectTest(currentTest)">🔄 Làm lại</button>
+</div>
+<script src="t1.js"></script>
+<script src="t2.js"></script>
+<script src="t3.js"></script>
+<script src="t4.js"></script>
+<script>
+(function(){
+  if(localStorage.getItem('eink')==='true')document.body.classList.add('eink');
+  window.TESTS=window.TESTS||[];
+  window.currentTest=0;
+  var order=[],selections=[],phase='answer',shuffleOn=false;
+
+  function buildTabs(){
+    var h='';
+    for(var i=0;i<TESTS.length;i++)h+='<div class="test-tab'+(i===currentTest?' active':'')+'" onclick="selectTest('+i+')">Test '+(i+1)+'</div>';
+    document.getElementById('testTabs').innerHTML=h;
+    document.getElementById('grammarBadge').innerHTML=TESTS[currentTest].badge;
+  }
+
+  function shuffle(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  function renderAll(){
+    var qs=TESTS[currentTest].questions;
+    selections=new Array(order.length).fill(-1);
+    phase='answer';
+    document.getElementById('submitBtn').textContent='📝 Kiểm tra';
+    document.getElementById('submitBtn').className='btn-submit';
+    document.getElementById('scoreScreen').className='score-screen';
+    document.getElementById('submitBar').style.display='';
+    var html='';var letters=['A','B','C','D'];
+    for(var i=0;i<order.length;i++){
+      var q=qs[order[i]];
+      if(q.passage)html+='<div class="passage-block">'+q.passage+'</div>';
+      html+='<div class="q-item" id="qi'+i+'">';
+      html+='<div class="q-text"><span class="q-num">'+(i+1)+'.</span> '+q.q+'</div>';
+      html+='<div class="opts">';
+      for(var j=0;j<q.opts.length;j++){
+        html+='<div class="opt" data-q="'+i+'" data-o="'+j+'" onclick="pickOpt('+i+','+j+',this)">';
+        html+='<span class="letter">'+letters[j]+'</span><span>'+q.opts[j]+'</span></div>';
+      }
+      html+='</div>';
+      html+='<div class="hint-box" id="hint'+i+'">💡 '+q.exp+'</div>';
+      html+='</div>';
+    }
+    document.getElementById('questionList').innerHTML=html;
+  }
+
+  window.selectTest=function(t){window.currentTest=t;startTest();};
+  window.toggleShuffle=function(){
+    shuffleOn=!shuffleOn;
+    document.getElementById('shuffleBtn').className='shuffle-btn'+(shuffleOn?' on':'');
+    startTest();
+  };
+
+  function startTest(){
+    var qs=TESTS[currentTest].questions;
+    order=shuffleOn?shuffle([...Array(qs.length).keys()]):[...Array(qs.length).keys()];
+    buildTabs();renderAll();
+  }
+
+  window.pickOpt=function(qi,oi,el){
+    if(phase==='done')return;
+    selections[qi]=oi;
+    var opts=document.querySelectorAll('#qi'+qi+' .opt');
+    for(var k=0;k<opts.length;k++)opts[k].classList.remove('selected');
+    el.classList.add('selected');
+  };
+
+  window.handleSubmit=function(){
+    if(phase!=='answer')return;
+    var answeredCount=selections.filter(function(s){return s!==-1;}).length;
+    var minReq=Math.ceil(order.length * 2 / 3);
+    if(answeredCount<minReq){
+      alert('Vui lòng làm ít nhất '+minReq+' câu trước khi nộp bài để xem đáp án nhé!');
+      return;
+    }
+    phase='done';
+    var qs=TESTS[currentTest].questions;
+    var score=0;
+    for(var i=0;i<order.length;i++){
+      if(selections[i]===-1)continue;
+      var correct=qs[order[i]].ans;
+      if(selections[i]===correct){
+        score++;
+        document.querySelector('#qi'+i+' .opt[data-o="'+selections[i]+'"]').classList.add('correct');
+      }else{
+        document.querySelector('#qi'+i+' .opt[data-o="'+selections[i]+'"]').classList.add('wrong');
+        document.querySelector('#qi'+i+' .opt[data-o="'+correct+'"]').classList.add('correct');
+      }
+      document.getElementById('hint'+i).classList.add('show');
+    }
+    var answered=selections.filter(function(s){return s!==-1;}).length;
+    var total=order.length;
+    var pct=Math.round(score/total*100);
+    var stars=pct>=90?'⭐⭐⭐':pct>=70?'⭐⭐':pct>=50?'⭐':'💪';
+    var opts=document.querySelectorAll('.opt');
+    for(var k=0;k<opts.length;k++)opts[k].style.pointerEvents='none';
+    document.getElementById('submitBtn').textContent=stars+' '+score+'/'+answered+' (đã làm '+answered+'/'+total+')';
+    document.getElementById('submitBtn').className='btn-submit final';
+  };
+
+  if(TESTS.length>0)startTest();
+})();
+</script>
+</body>
+</html>
