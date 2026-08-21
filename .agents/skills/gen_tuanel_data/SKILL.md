@@ -11,6 +11,10 @@ This skill governs the creation of JavaScript data files (e.g., `t1.js`, `t2.js`
 - Create one JavaScript data file per test based on exact boundaries from the original source.
 - If answers are missing in the raw data, deduce them logically based on English grammar rules.
 
+## Phonetics & Stress Special Rules
+- If the test involves **Phonetics (Ngữ Âm)** or **Stress (Trọng Âm)**, the `exp` data MUST NOT be a plain string. It must be highly detailed HTML containing IPA, "Sound It Out" phonetic spelling, part of speech, syllable count, and a `speak()` audio icon for every single option.
+- You MUST read `.agents/rules/tuanel_phonetics_stress.md` for the exact HTML structure and anchor link implementation before generating JS data for phonetics.
+
 ## Data Schema
 ```javascript
 window.TESTS = window.TESTS || [];

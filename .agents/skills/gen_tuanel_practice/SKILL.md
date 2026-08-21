@@ -21,3 +21,8 @@ This skill governs the creation of `practice.html` (formerly known as the quiz p
 - **UX Rules**: 
   - Do NOT use `window.scrollTo` after submitting (prevents disorienting jumps). 
   - Do NOT set `onclick=null` on the submit button. Use `if(phase!=='answer')return;` to guard against double clicks so the button continues to work after switching test tabs.
+
+## Phonetics & Stress Special Rules
+- **Theory Inclusion**: If the topic involves Phonetics/Stress, you MUST inject the relevant Theory cards (from the theory page) at the very top of `practice.html` (inside `.container` but before `.test-tabs`). Assign specific IDs to these cards (e.g., `id="theory-stress"`, `id="theory-vowels"`) so the anchor links in the data hints can smooth scroll to them.
+- **Audio Setup**: You MUST inject `<script src="../../js/config.js"></script>` to load `window.MW_API_KEY`.
+- **Speak Function**: You MUST inject the `speak(word)` function into the `<script>` block. This function must fetch audio from `https://www.dictionaryapi.com/api/v3/references/sd3/json/${word}?key=${window.MW_API_KEY}` and parse the first object's `hwi.prs[0].sound.audio` field to construct the mp3 URL (`https://media.merriam-webster.com/audio/prons/en/us/mp3/${subdir}/${audio}.mp3`). It must fallback to `window.speechSynthesis` if the API fails or no audio is found. Add `.loading` state to the clicked word's DOM element while fetching.
