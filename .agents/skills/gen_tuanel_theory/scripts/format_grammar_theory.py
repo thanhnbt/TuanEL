@@ -51,6 +51,71 @@ css = """
     .ch{color:#dc2626;font-weight:700}
     .en-term{color:#0f766e; font-weight:600;}
     .vi-hint{font-size:0.8rem; font-weight:normal; color:#6b7280; font-style:italic;}
+
+    /* ===== Print — Kindle e-ink, học sinh 9 tuổi ===== */
+    @media print{
+      body{background:#fff!important;color:#000!important;font-size:14pt;line-height:1.7}
+      .lesson-topbar{display:none}
+      .container{max-width:100%;padding:0}
+
+      h1{font-size:18pt}
+      .sub-title{font-size:13pt;color:#000!important}
+      .grammar-section h2{font-size:16pt}
+      .grammar-section{background:#fff!important;border:1.5px solid #333;box-shadow:none;page-break-inside:avoid;margin-bottom:24px}
+      .grammar-section h2 .num{background:#000!important;color:#fff!important}
+
+      .formula{background:#fff!important;border:2px solid #000;box-shadow:none;padding:14px 16px}
+      .formula-content{font-size:14pt}
+      
+      .ch{color:#000!important;font-weight:900;text-decoration:underline;text-decoration-thickness:2.5px}
+      
+      .ex-group{border-left:4px solid #000}
+      .ex-item{background:#fff!important;font-size:13pt;padding:10px 14px}
+
+      .tip{background:#fff!important;color:#000!important;border:2px solid #000;font-size:13pt;padding:10px 14px}
+      
+      .en-term{color:#000!important;font-weight:800}
+      .vi-hint{font-size:12pt;color:#333!important}
+      
+      a{color:#000!important;text-decoration:underline}
+      .grammar-section{page-break-inside:avoid}
+      h1,h2{page-break-after:avoid}
+    }
+    @media (monochrome){
+      *,*::before,*::after{transition:none!important;animation:none!important;box-shadow:none!important}
+      body{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
+      .lesson-topbar{border-bottom:2px solid #000}
+      .sub-nav a{color:#000}.sub-nav a.active{color:#000;border-bottom-color:#000}
+      .lesson-topbar .back-link{color:#000}
+      .grammar-section{background:#fff!important;border:2px solid #000}
+      .grammar-section h2{color:#000!important}
+      .grammar-section h2 .num{background:#000!important;color:#fff!important}
+      .sub-title{color:#000!important}
+      .formula{background:#fff!important;border:2px solid #000}
+      .ch{color:#000!important;font-weight:900;text-decoration:underline;text-decoration-thickness:2.5px}
+      .ex-group{border-left:4px solid #000}
+      .ex-item{background:#fff!important}
+      .tip{background:#fff!important;color:#000!important;border:2px solid #000}
+      .en-term{color:#000!important;font-weight:800}
+      .vi-hint{color:#333!important}
+      a{color:#000!important;text-decoration:underline}
+    }
+    body.eink,body.eink *,body.eink *::before,body.eink *::after{transition:none!important;animation:none!important;box-shadow:none!important}
+    body.eink{background:#fff!important;color:#000!important;font-weight:450;line-height:1.75}
+    body.eink .lesson-topbar{border-bottom:2px solid #000}
+    body.eink .sub-nav a{color:#000}body.eink .sub-nav a.active{color:#000;border-bottom-color:#000}
+    body.eink .lesson-topbar .back-link{color:#000}
+    body.eink .grammar-section{background:#fff!important;border:2px solid #000}
+    body.eink .grammar-section h2{color:#000!important}
+    body.eink .grammar-section h2 .num{background:#000!important;color:#fff!important}
+    body.eink .sub-title{color:#000!important}
+    body.eink .formula{background:#fff!important;border:2px solid #000}
+    body.eink .ch{color:#000!important;font-weight:900;text-decoration:underline;text-decoration-thickness:2.5px}
+    body.eink .ex-group{border-left:4px solid #000}
+    body.eink .ex-item{background:#fff!important}
+    body.eink .tip{background:#fff!important;color:#000!important;border:2px solid #000}
+    body.eink .en-term{color:#000!important;font-weight:800}
+    body.eink .vi-hint{color:#333!important}
 """
 
 html_head = f"""<!DOCTYPE html>
@@ -234,6 +299,7 @@ html_body = re.sub(r"(<div class='tip'>)(.*?)(</div>)", replace_in_tags, html_bo
 
 html_tail = """
 </div>
+<script>if(localStorage.getItem('eink')==='true') document.body.classList.add('eink');</script>
 </body>
 </html>
 """
