@@ -6,9 +6,10 @@
   <title>Lý thuyết Ngữ pháp 14/08 — English Daily</title>
   <link rel="stylesheet" href="../../css/style.css">
   <style>
-    body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background: #fafaf7; color: #1a1a1a; margin: 0; line-height: 1.6; }
+
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fafaf7;color:#1a1a1a}
     .lesson-topbar{background:#fff;border-bottom:1px solid #e2e4e8;padding:0 1rem;position:sticky;top:0;z-index:99}
-    .lesson-topbar-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:8px}
+    .lesson-topbar-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;gap:8px}
     .lesson-topbar .back-link{color:#2563eb;text-decoration:none;font-size:13px;font-weight:600;padding:10px 0;margin-right:16px;white-space:nowrap}
     .lesson-topbar .back-link:hover{opacity:.7}
     .sub-nav{display:flex;gap:4px;overflow-x:auto}
@@ -16,14 +17,30 @@
     .sub-nav a:hover{color:#1a1a1a}
     .sub-nav a.active{color:#2563eb;border-bottom-color:#2563eb}
     
-    .container { max-width: 800px; margin: 0 auto; padding: 2rem 1rem 5rem; }
-    .card { background: #fff; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #e2e4e8; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
-    h1 { font-size: 1.5rem; color: #1e40af; margin-top: 0; text-align: center; margin-bottom: 2rem; }
-    h2 { font-size: 1.2rem; color: #2563eb; margin-top: 1.5rem; margin-bottom: 0.5rem; border-bottom: 2px solid #eff6ff; padding-bottom: 0.3rem; }
-    h3 { font-size: 1.05rem; color: #0d9488; margin-top: 1rem; margin-bottom: 0.3rem; }
-    p { margin: 0.5rem 0; font-size: 0.95rem; }
-    .vd { background: #f8fafc; border-left: 3px solid #60a5fa; padding: 0.5rem 0.8rem; font-style: italic; font-size: 0.9rem; color: #334155; margin: 0.5rem 0; border-radius: 0 8px 8px 0; }
-    .note { background: #fffbeb; border-left: 3px solid #f59e0b; padding: 0.5rem 0.8rem; font-size: 0.9rem; color: #92400e; margin: 0.5rem 0; border-radius: 0 8px 8px 0; }
+    .container{max-width:920px;margin:0 auto;padding:1.5rem 1rem 3rem}
+    h1{font-size:1.6rem;margin:0 0 .3rem;color:#1e293b; text-align:center;}
+    .sub-title{color:#6b7280;font-size:.9rem;margin-bottom:1.2rem; text-align:center;}
+
+    .grammar-section{background:#fff;border-radius:12px;border:1px solid #e2e4e8;padding:1.3rem 1.5rem;margin-bottom:1.4rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+    .grammar-section h2{font-size:1.15rem;color:#1e293b;margin:0 0 .8rem;display:flex;align-items:center;gap:8px}
+    .grammar-section h2 .num{background:#2563eb;color:#fff;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0}
+    .grammar-section h3 {font-size: 1.05rem; color: #0d9488; margin-top: 1rem; margin-bottom: 0.3rem;}
+    
+    .formula{background:#f8fafc;border:2px solid #c7d2fe;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem;box-shadow:0 1px 4px rgba(99,102,241,.08)}
+    .formula-content{font-size:1.02rem;line-height:1.8;font-weight:500}
+    
+    .ex-group{border-left:3px solid #dbeafe;padding-left:1rem;margin:.6rem 0 1rem}
+    .ex-item{background:#f8fafc;border-radius:8px;padding:.6rem 1rem;margin-bottom:.5rem;font-size:.9rem;line-height:1.7}
+    .ex-item .orig{color:#1e293b; font-weight: 500;}
+    
+    .tip{background:#fefce8;border-radius:8px;padding:.5rem .9rem;font-size:.9rem;color:#854d0e;margin:.5rem 0 .3rem;line-height:1.8}
+    .tip::before{content:'💡 ';font-style:normal}
+    p { margin: 0.5rem 0; font-size: 0.95rem; line-height: 1.8; }
+    
+    .ch{color:#dc2626;font-weight:700}
+    .en-term{color:#0f766e; font-weight:600;}
+    .vi-hint{font-size:0.8rem; font-weight:normal; color:#6b7280; font-style:italic;}
+
   </style>
 </head>
 <body>
@@ -38,152 +55,115 @@
 </div>
 <div class="container">
 <h1>TÓM TẮT LÝ THUYẾT NGỮ PHÁP</h1>
-<p style='text-align:center; color:#6b7280; margin-top:-1.5rem; margin-bottom:2rem;'>Pronouns – Adverbs – Adjectives – Determiners – Comparatives</p>
-<div class='card'>
-<h2>1. LƯỢNG TỪ (QUANTIFIERS & DETERMINERS)</h2>
-<h3>1.1. Much / Many / A lot of / Lots of</h3>
-<p>MANY + danh từ đếm được số nhiều (dùng trong câu phủ định, nghi vấn, văn phong trang trọng).</p>
-<div class='vd'>VD: There aren't many people here. / How many books do you have?</div>
-<p>MUCH + danh từ không đếm được (dùng trong câu phủ định, nghi vấn, văn phong trang trọng).</p>
-<div class='vd'>VD: I haven't got much time. / How much money do you need?</div>
-<p>A LOT OF / LOTS OF: dùng được với cả danh từ đếm được và không đếm được, phổ biến trong câu khẳng định và văn nói.</p>
-<div class='vd'>VD: She has a lot of friends. / We don't have lots of milk left.</div>
-<div class='note'>Lưu ý: Trong câu khẳng định trang trọng, many/much vẫn có thể dùng được (There is much interest in this topic), nhưng a lot of tự nhiên hơn trong văn nói hàng ngày.</div>
-<h3>1.2. A few / Few — A little / A little</h3>
-<div class='vd'>VD: I have a few friends here. (= tôi có vài người bạn, ổn) >< I have few friends here. (= tôi hầu như không có bạn nào)</div>
-<div class='vd'>VD: There's a little milk left. (= còn một chút, đủ dùng) >< There's little milk left. (= gần như hết sữa)</div>
-<h3>1.3. All / Whole</h3>
-<p>ALL + (the) + danh từ số nhiều/không đếm được: toàn bộ, tất cả.</p>
-<div class='vd'>VD: All (the) students passed. / All the water is gone.</div>
-<p>WHOLE + danh từ số ít (đếm được), thường có mạo từ 'the/a' đứng trước: cả, nguyên.</p>
-<div class='vd'>VD: He ate the whole cake. (KHÔNG dùng: the all cake)</div>
-<div class='note'>Lưu ý: WHOLE không dùng trực tiếp với danh từ không đếm được hoặc số nhiều theo cách thông thường: dùng 'all' thay vì 'whole' trong các trường hợp đó.</div>
-<h3>1.4. Every / Each</h3>
-<p>EVERY: mỗi (nhấn mạnh tổng thể, dùng khi có từ 3 đối tượng trở lên), theo sau là danh từ số ít, động từ chia số ít.</p>
-<div class='vd'>VD: Every student must bring a laptop.</div>
-<p>EACH: mỗi (nhấn mạnh từng cá thể riêng lẻ), có thể dùng với 'each of + danh từ', dùng được cho cả 2 đối tượng trở lên.</p>
-<div class='vd'>VD: Each of the two boys got a prize.</div>
-<h3>1.5. No / None / Neither / Both</h3>
-<p>NO + danh từ: đứng trước danh từ, mang nghĩa phủ định (= not any).</p>
-<div class='vd'>VD: There is no milk in the fridge.</div>
-<p>NONE (of): đại từ, không đi trực tiếp với danh từ, dùng để trả lời/thay thế danh từ đã nhắc.</p>
-<div class='vd'>VD: None of the students failed. / 'How many are left?' — 'None.'</div>
-<p>NEITHER (of): không cái nào trong 2 (phủ định); BOTH: cả hai (khẳng định).</p>
-<div class='vd'>VD: Neither of us wants to go. / Both of them are ready.</div>
+<p class='sub-title'>Pronouns – Adverbs – Adjectives – Determiners – Comparatives</p>
+<div class='grammar-section'>
+  <h2><span class='num'>1</span> LƯỢNG TỪ (QUANTIFIERS & DETERMINERS)</h2>
+  <h3>1.1. Much / Many / A lot of / Lots of</h3>
+  <div class='formula'><div class='formula-content'><span class='ch'>MANY</span> + <span class='en-term'>Plural Countable Noun</span> <span class='vi-hint'>(danh từ đếm được số nhiều)</span> (dùng trong <span class='en-term'>Negative sentences</span> <span class='vi-hint'>(câu phủ định)</span>, <span class='en-term'>Interrogative sentences</span> <span class='vi-hint'>(câu hỏi)</span>, <span class='en-term'>Formal English</span> <span class='vi-hint'>(văn phong trang trọng)</span>).</div></div>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: There aren't many people here. / How many books do you have?</div></div></div>
+  <div class='formula'><div class='formula-content'><span class='ch'>MUCH</span> + <span class='en-term'>Uncountable Noun</span> <span class='vi-hint'>(danh từ không đếm được)</span> (dùng trong <span class='en-term'>Negative sentences</span> <span class='vi-hint'>(câu phủ định)</span>, <span class='en-term'>Interrogative sentences</span> <span class='vi-hint'>(câu hỏi)</span>, <span class='en-term'>Formal English</span> <span class='vi-hint'>(văn phong trang trọng)</span>).</div></div>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: I haven't got much time. / How much money do you need?</div></div></div>
+  <p><span class='ch'>A LOT OF</span> / <span class='ch'>LOTS OF</span>: dùng được với cả <span class='en-term'>Countable Nouns</span> <span class='vi-hint'>(danh từ đếm được)</span> và <span class='en-term'>Uncountable Nouns</span> <span class='vi-hint'>(không đếm được)</span>, phổ biến trong <span class='en-term'>Affirmative sentences</span> <span class='vi-hint'>(câu khẳng định)</span> và <span class='en-term'>Spoken English</span> <span class='vi-hint'>(văn nói)</span>.</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: She has a lot of friends. / We don't have lots of milk left.</div></div></div>
+  <div class='tip'>Lưu ý: Trong <span class='en-term'>Affirmative sentences</span> <span class='vi-hint'>(câu khẳng định)</span> trang trọng, many/much vẫn có thể dùng được (There is much interest in this topic), nhưng a lot of tự nhiên hơn trong <span class='en-term'>Spoken English</span> <span class='vi-hint'>(văn nói)</span> hàng ngày.</div>
+  <h3>1.2. A few / Few — A little / A little</h3>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: I have a few friends here. (= tôi có vài người bạn, ổn) >< I have few friends here. (= tôi hầu như không có bạn nào)</div></div></div>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: There's a little milk left. (= còn một chút, đủ dùng) >< There's little milk left. (= gần như hết sữa)</div></div></div>
+  <h3>1.3. All / Whole</h3>
+  <div class='formula'><div class='formula-content'><span class='ch'>ALL</span> + (the) + <span class='en-term'>Plural Nouns</span> <span class='vi-hint'>(danh từ số nhiều)</span> / <span class='en-term'>Uncountable Nouns</span> <span class='vi-hint'>(không đếm được)</span>: toàn bộ, tất cả.</div></div>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: All (the) students passed. / All the water is gone.</div></div></div>
+  <div class='formula'><div class='formula-content'><span class='ch'>WHOLE</span> + <span class='en-term'>Singular Noun</span> <span class='vi-hint'>(danh từ số ít)</span> (đếm được), thường có mạo từ 'the/a' đứng trước: cả, nguyên.</div></div>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: He ate the whole cake. (KHÔNG dùng: the all cake)</div></div></div>
+  <div class='tip'>Lưu ý: <span class='ch'>WHOLE</span> không dùng trực tiếp với <span class='en-term'>Uncountable Noun</span> <span class='vi-hint'>(danh từ không đếm được)</span> hoặc số nhiều theo cách thông thường: dùng 'all' thay vì 'whole' trong các trường hợp đó.</div>
+  <h3>1.4. Every / Each</h3>
+  <p><span class='ch'>EVERY</span>: mỗi (nhấn mạnh tổng thể, dùng khi có từ 3 đối tượng trở lên), theo sau là <span class='en-term'>Singular Noun</span> <span class='vi-hint'>(danh từ số ít)</span>, <span class='en-term'>Singular Verbs</span> <span class='vi-hint'>(động từ số ít)</span>.</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: Every student must bring a laptop.</div></div></div>
+  <p><span class='ch'>EACH</span>: mỗi (nhấn mạnh từng cá thể riêng lẻ), có thể dùng với 'each of + <span class='en-term'>Noun (N)</span> <span class='vi-hint'>(danh từ)</span>', dùng được cho cả 2 đối tượng trở lên.</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: Each of the two boys got a prize.</div></div></div>
+  <h3>1.5. No / None / Neither / Both</h3>
+  <div class='formula'><div class='formula-content'><span class='ch'>NO</span> + <span class='en-term'>Noun (N)</span> <span class='vi-hint'>(danh từ)</span>: đứng trước <span class='en-term'>Noun (N)</span> <span class='vi-hint'>(danh từ)</span>, mang nghĩa phủ định (= not any).</div></div>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: There is no milk in the fridge.</div></div></div>
+  <p><span class='ch'>NONE</span> (of): <span class='en-term'>Pronoun</span> <span class='vi-hint'>(đại từ)</span>, không đi trực tiếp với <span class='en-term'>Noun (N)</span> <span class='vi-hint'>(danh từ)</span>, dùng để trả lời/thay thế <span class='en-term'>Noun (N)</span> <span class='vi-hint'>(danh từ)</span> đã nhắc.</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: None of the students failed. / 'How many are left?' — 'None.'</div></div></div>
+  <p><span class='ch'>NEITHER</span> (of): không cái nào trong 2 (phủ định); <span class='ch'>BOTH</span>: cả hai (khẳng định).</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: Neither of us wants to go. / Both of them are ready.</div></div></div>
 </div>
-<div class='card'>
-<h2>2. SO SÁNH (COMPARATIVES & SUPERLATIVES)</h2>
-<h3>2.1. So sánh bằng: as...as</h3>
-<p>Khẳng định: S + V + as + adj/adv (nguyên thể) + as + N/pronoun.</p>
-<div class='vd'>VD: This bag is as heavy as that one.</div>
-<p>Phủ định: S + V + not as/so + adj/adv + as + N/pronoun.</p>
-<div class='vd'>VD: This film isn't as (so) boring as I expected.</div>
-<h3>2.2. So sánh hơn (Comparative)</h3>
-<p>Tính từ/trạng từ ngắn (1 âm tiết, một số 2 âm tiết): thêm -er. Tính từ dài (từ 2 âm tiết trở lên): more + adj.</p>
-<div class='vd'>VD: taller, bigger, hotter, safer / more expensive, more carefully</div>
-<p>Cấu trúc: S + V + adj/adv-er / more + adj/adv + than + N/pronoun.</p>
-<div class='vd'>VD: Today is hotter than yesterday. / She works more carefully than him.</div>
-<p>Một số dạng bất quy tắc: good/well → better; bad/badly → worse; far → farther/further; little → less; many/much → more.</p>
-<div class='note'>Lưu ý: Có thể thêm 'much, a lot, far, a little, slightly' trước dạng so sánh hơn để nhấn mạnh mức độ: much more expensive, a little colder.</div>
-<h3>2.3. So sánh nhất (Superlative)</h3>
-<p>Tính từ/trạng từ ngắn: the + adj/adv-est. Tính từ dài: the most + adj/adv.</p>
-<div class='vd'>VD: the tallest, the biggest / the most expensive, the most carefully</div>
-<p>Bất quy tắc: good/well → the best; bad/badly → the worst; far → the farthest/furthest; little → the least; many/much → the most.</p>
-<div class='vd'>VD: This is the most boring film I've ever watched. / He is the best player in the team.</div>
-<h3>2.4. So sánh kép & so sánh tăng tiến</h3>
-<p>Càng ngày càng: adj/adv-er and adj/adv-er (ngắn) / more and more + adj/adv (dài).</p>
-<div class='vd'>VD: The weather is getting colder and colder. / The exercise is becoming more and more difficult.</div>
-<p>Càng...càng...: The + comparative..., the + comparative...</p>
-<div class='vd'>VD: The more you practice, the better you become.</div>
+<div class='grammar-section'>
+  <h2><span class='num'>2</span> SO SÁNH (COMPARATIVES & SUPERLATIVES)</h2>
+  <h3>2.1. So sánh bằng: as...as</h3>
+  <div class='formula'><div class='formula-content'>Affirmative: S + V + as + adj/adv (nguyên thể) + as + N/pronoun.</div></div>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: This bag is as heavy as that one.</div></div></div>
+  <div class='formula'><div class='formula-content'>Negative: S + V + not as/so + adj/adv + as + N/pronoun.</div></div>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: This film isn't as (so) boring as I expected.</div></div></div>
+  <h3>2.2. So sánh hơn (Comparative)</h3>
+  <p><span class='en-term'>Short Adjectives</span> <span class='vi-hint'>(tính từ ngắn)</span> / <span class='en-term'>Short Adverbs</span> <span class='vi-hint'>(trạng từ ngắn)</span> (1 âm tiết, một số 2 âm tiết): thêm -er. <span class='en-term'>Long Adjectives</span> <span class='vi-hint'>(tính từ dài)</span> (từ 2 âm tiết trở lên): more + adj.</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: taller, bigger, hotter, safer / more expensive, more carefully</div></div></div>
+  <div class='formula'><div class='formula-content'>Structure: S + V + adj/adv-er / more + adj/adv + than + N/pronoun.</div></div>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: Today is hotter than yesterday. / She works more carefully than him.</div></div></div>
+  <p>Irregular forms: good/well → better; bad/badly → worse; far → farther/further; <span class='ch'>little</span> → less; many/much → more.</p>
+  <div class='tip'>Lưu ý: Có thể thêm 'much, a lot, far, a <span class='ch'>little</span>, slightly' trước dạng so sánh hơn để nhấn mạnh mức độ: much more expensive, a <span class='ch'>little</span> colder.</div>
+  <h3>2.3. So sánh nhất (Superlative)</h3>
+  <p><span class='en-term'>Short Adjectives</span> <span class='vi-hint'>(tính từ ngắn)</span> / <span class='en-term'>Short Adverbs</span> <span class='vi-hint'>(trạng từ ngắn)</span>: the + adj/adv-est. <span class='en-term'>Long Adjectives</span> <span class='vi-hint'>(tính từ dài)</span>: the most + adj/adv.</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: the tallest, the biggest / the most expensive, the most carefully</div></div></div>
+  <p>Irregular forms: good/well → the best; bad/badly → the worst; far → the farthest/furthest; <span class='ch'>little</span> → the least; many/much → the most.</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: This is the most boring film I've ever watched. / He is the best player in the team.</div></div></div>
+  <h3>2.4. So sánh kép & so sánh tăng tiến</h3>
+  <p>Càng ngày càng: adj/adv-er and adj/adv-er (ngắn) / more and more + adj/adv (dài).</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: The weather is getting colder and colder. / The exercise is becoming more and more difficult.</div></div></div>
+  <p>Càng...càng...: The + comparative..., the + comparative...</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: The more you practice, the better you become.</div></div></div>
 </div>
-<div class='card'>
-<h2>3. TÍNH TỪ & TRẠNG TỪ (ADJECTIVES & ADVERBS)</h2>
-<h3>3.1. Vị trí và chức năng</h3>
-<p>Tính từ (adjective) bổ nghĩa cho danh từ, hoặc đứng sau các động từ nối (linking verbs: be, seem, look, feel, smell, taste, sound...).</p>
-<div class='vd'>VD: a careful driver / This soup smells delicious.</div>
-<p>Trạng từ (adverb) bổ nghĩa cho động từ, tính từ, trạng từ khác hoặc cả câu, thường có đuôi -ly.</p>
-<div class='vd'>VD: He drives carefully. / She is extremely tired. / Honestly, I don't know.</div>
-<h3>3.2. Các cặp dễ nhầm lẫn</h3>
-<div class='vd'>VD: He works hard. (chăm chỉ) >< He hardly works. (hầu như không làm việc)</div>
-<div class='vd'>VD: I haven't seen him lately. (gần đây) >< He arrived late. (trễ giờ)</div>
-<div class='note'>Lưu ý: 'Good' luôn là tính từ; dạng trạng từ tương ứng là 'well'. Riêng 'well' cũng có thể là tính từ mang nghĩa 'khỏe' (I feel well).</div>
+<div class='grammar-section'>
+  <h2><span class='num'>3</span> TÍNH TỪ & TRẠNG TỪ (ADJECTIVES & ADVERBS)</h2>
+  <h3>3.1. Vị trí và chức năng</h3>
+  <p>Tính từ bổ nghĩa cho <span class='en-term'>Noun (N)</span> <span class='vi-hint'>(danh từ)</span>, hoặc đứng sau các <span class='en-term'>Linking Verbs</span> <span class='vi-hint'>(động từ nối)</span> (linking verbs: be, seem, look, feel, smell, taste, sound...).</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: a careful driver / This soup smells delicious.</div></div></div>
+  <p>Trạng từ bổ nghĩa cho <span class='en-term'>Verb (V)</span> <span class='vi-hint'>(động từ)</span>, <span class='en-term'>Adjective (adj)</span> <span class='vi-hint'>(tính từ)</span>, <span class='en-term'>Adverb (adv)</span> <span class='vi-hint'>(trạng từ)</span> khác hoặc cả câu, thường có đuôi -ly.</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: He drives carefully. / She is extremely tired. / Honestly, I don't know.</div></div></div>
+  <h3>3.2. Các cặp dễ nhầm lẫn</h3>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: He works hard. (chăm chỉ) >< He hardly works. (hầu như không làm việc)</div></div></div>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: I haven't seen him lately. (gần đây) >< He arrived late. (trễ giờ)</div></div></div>
+  <div class='tip'>Lưu ý: 'Good' luôn là <span class='en-term'>Adjective (adj)</span> <span class='vi-hint'>(tính từ)</span>; dạng <span class='en-term'>Adverb (adv)</span> <span class='vi-hint'>(trạng từ)</span> tương ứng là 'well'. Riêng 'well' cũng có thể là <span class='en-term'>Adjective (adj)</span> <span class='vi-hint'>(tính từ)</span> mang nghĩa 'khỏe' (I feel well).</div>
 </div>
-<div class='card'>
-<h2>4. ĐẠI TỪ BẤT ĐỊNH (INDEFINITE PRONOUNS)</h2>
-<h3>4.1. Cấu tạo</h3>
-<p>Các đại từ/trạng từ bất định được tạo thành từ tiền tố SOME- / ANY- / NO- / EVERY- kết hợp với hậu tố -ONE, -BODY (chỉ người), -THING (chỉ vật), -WHERE (chỉ nơi chốn).</p>
-<div class='vd'>VD: Someone is knocking at the door. / Is there anybody home? / I looked everywhere but found nothing.</div>
-<div class='note'>Lưu ý: SOME- cũng có thể dùng trong câu hỏi mang tính đề nghị/mời (Would you like something to drink?). ANY- có thể dùng trong câu khẳng định khi mang nghĩa 'bất kỳ' (You can ask anyone; they'll help you).</div>
-<h3>4.2. Chia động từ</h3>
-<p>Các đại từ bất định (some-/any-/no-/every- + one/body/thing) luôn được coi là số ít, động từ chia ở ngôi thứ 3 số ít.</p>
-<div class='vd'>VD: Everybody is here. / Nothing has happened.</div>
+<div class='grammar-section'>
+  <h2><span class='num'>4</span> ĐẠI TỪ BẤT ĐỊNH (INDEFINITE PRONOUNS)</h2>
+  <h3>4.1. Cấu tạo</h3>
+  <p>Các <span class='en-term'>Pronouns</span> <span class='vi-hint'>(đại từ)</span> / <span class='en-term'>Adverbs</span> <span class='vi-hint'>(trạng từ)</span> bất định được tạo thành từ tiền tố SOME- / ANY- / <span class='ch'>NO</span>- / <span class='ch'>EVERY</span>- kết hợp với hậu tố -ONE, -BODY (chỉ người), -THING (chỉ vật), -WHERE (chỉ nơi chốn).</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: Someone is knocking at the door. / Is there anybody home? / I looked everywhere but found nothing.</div></div></div>
+  <div class='tip'>Lưu ý: SOME- cũng có thể dùng trong câu hỏi mang tính đề nghị/mời (Would you like something to drink?). ANY- có thể dùng trong <span class='en-term'>Affirmative sentences</span> <span class='vi-hint'>(câu khẳng định)</span> khi mang nghĩa 'bất kỳ' (You can ask anyone; they'll help you).</div>
+  <h3>4.2. Chia <span class='en-term'>Verb (V)</span> <span class='vi-hint'>(động từ)</span></h3>
+  <p>Các <span class='en-term'>Pronoun</span> <span class='vi-hint'>(đại từ)</span> bất định (some-/any-/no-/every- + one/body/thing) luôn được coi là số ít, <span class='en-term'>Verb (V)</span> <span class='vi-hint'>(động từ)</span> chia ở ngôi thứ 3 số ít.</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: Everybody is here. / Nothing has happened.</div></div></div>
 </div>
-<div class='card'>
-<h2>5. ĐẠI TỪ PHẢN THÂN, TƯƠNG HỖ, ĐẠI TỪ QUAN HỆ TỰ DO</h2>
-<h3>5.1. Đại từ phản thân (Reflexive pronouns)</h3>
-<p>myself, yourself, himself, herself, itself, ourselves, yourselves, themselves</p>
-<p>Dùng khi chủ ngữ và tân ngữ của động từ cùng chỉ một đối tượng.</p>
-<div class='vd'>VD: I cut myself while cooking. / She talks to herself when nervous.</div>
-<p>Dùng để nhấn mạnh 'tự bản thân làm gì, không nhờ ai': đứng sau tân ngữ hoặc cuối câu.</p>
-<div class='vd'>VD: I made this cake myself. / He did it himself.</div>
-<p>Cụm cố định: by oneself = một mình, không có ai giúp.</p>
-<div class='vd'>VD: She lives by herself.</div>
-<h3>5.2. Đại từ tương hỗ (Reciprocal pronouns)</h3>
-<p>EACH OTHER / ONE ANOTHER: nhau (hành động qua lại giữa 2 hoặc nhiều đối tượng).</p>
-<div class='vd'>VD: Tom and Mary love each other. / The students helped one another with their homework.</div>
-<div class='note'>Lưu ý: Trong tiếng Anh hiện đại, each other và one another gần như được dùng thay thế nhau tự do, dù trước đây each other thường dùng cho 2 đối tượng, one another cho nhiều hơn 2.</div>
-<h3>5.3. Whoever / Whatever / Whichever / Whenever / Wherever</h3>
-<p>Đây là các đại từ/trạng từ quan hệ tự do (free relative), mang nghĩa 'bất kỳ ai/cái gì/cái nào/khi nào/nơi nào'.</p>
-<p>WHOEVER: bất kỳ ai (chỉ người).</p>
-<div class='vd'>VD: Whoever finishes first can leave early.</div>
-<p>WHATEVER: bất kỳ cái gì (không giới hạn lựa chọn).</p>
-<div class='vd'>VD: You can eat whatever you like.</div>
-<p>WHICHEVER: bất kỳ cái nào (có giới hạn trong một số lựa chọn cụ thể).</p>
-<div class='vd'>VD: Take whichever seat you want; there are only three left.</div>
-<p>WHENEVER / WHEREVER: bất cứ khi nào / bất cứ nơi đâu.</p>
-<div class='vd'>VD: Call me whenever you need help. / Sit wherever you like.</div>
-<p><strong>BẢNG TỔNG HỢP NHANH</strong></p>
-<p>CÓ MẠO TỪ 'A' (đủ dùng)</p>
-<p>KHÔNG CÓ 'A' (không đủ, thiếu)</p>
-<p>A FEW + danh từ đếm được số nhiều → nghĩa: một vài (đủ dùng, ý tích cực)</p>
-<p>FEW + danh từ đếm được số nhiều → nghĩa: rất ít, hầu như không có (ý tiêu cực)</p>
-<p>A LITTLE + danh từ không đếm được → nghĩa: một chút (đủ dùng, ý tích cực)</p>
-<p>LITTLE + danh từ không đếm được → nghĩa: rất ít, hầu như không có (ý tiêu cực)</p>
-<p><strong>DẠNG 1</strong></p>
-<p>DẠNG 2 (lưu ý nghĩa khác biệt)</p>
-<p>good (tính từ: tốt)</p>
-<p>well (trạng từ: giỏi, tốt / cũng là TT: khỏe mạnh)</p>
-<p>hard (TT: khó, chăm chỉ / TrT: chăm chỉ, mạnh)</p>
-<p>hardly (TrT: hầu như không)</p>
-<p>late (TT: trễ / TrT: trễ)</p>
-<p>lately (TrT: gần đây, dạo này)</p>
-<p>high (TT: cao / TrT: cao — độ cao vật lý)</p>
-<p>highly (TrT: rất, cao độ — nghĩa trừu tượng)</p>
-<p>near (TT: gần / TrT: gần)</p>
-<p>nearly (TrT: gần như, suýt)</p>
-<p><strong>TỪ</strong></p>
-<p><strong>DÙNG KHI</strong></p>
-<p>someone/somebody, something, somewhere</p>
-<p>Câu khẳng định</p>
-<p>anyone/anybody, anything, anywhere</p>
-<p>Câu phủ định, nghi vấn, câu điều kiện</p>
-<p>no one/nobody, nothing, nowhere</p>
-<p>Mang nghĩa phủ định (thay cho not any...)</p>
-<p>everyone/everybody, everything, everywhere</p>
-<p>Nghĩa 'tất cả'</p>
-<p><strong>CẤU TRÚC / TỪ</strong></p>
-<p><strong>CHỨC NĂNG CHÍNH</strong></p>
-<p>much/many, a little/a few, all/whole, every/each, no/none/neither/both</p>
-<p>Lượng từ đi với danh từ đếm được / không đếm được</p>
-<p>as...as, -er/more...than, the -est/the most</p>
-<p>Ba cấu trúc so sánh chính: bằng – hơn – nhất</p>
-<p>adj bổ nghĩa danh từ; adv (thường -ly) bổ nghĩa động từ/tính từ/câu</p>
-<p>Phân biệt tính từ và trạng từ</p>
-<p>some-/any-/no-/every- + one/body/thing/where</p>
-<p>Đại từ bất định, luôn chia số ít</p>
-<p>myself...themselves; each other/one another; whoever/whatever/whichever</p>
-<p>Đại từ phản thân – tương hỗ – quan hệ tự do</p>
+<div class='grammar-section'>
+  <h2><span class='num'>5</span> ĐẠI TỪ PHẢN THÂN, TƯƠNG HỖ, ĐẠI TỪ QUAN HỆ TỰ DO</h2>
+  <h3>5.1. Đại từ phản thân (Reflexive pronouns)</h3>
+  <p>myself, yourself, himself, herself, itself, ourselves, yourselves, themselves</p>
+  <p>Dùng khi <span class='en-term'>Subject (S)</span> <span class='vi-hint'>(chủ ngữ)</span> và <span class='en-term'>Object (O)</span> <span class='vi-hint'>(tân ngữ)</span> của <span class='en-term'>Verb (V)</span> <span class='vi-hint'>(động từ)</span> cùng chỉ một đối tượng.</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: I cut myself while cooking. / She talks to herself when nervous.</div></div></div>
+  <p>Dùng để nhấn mạnh 'tự bản thân làm gì, không nhờ ai': đứng sau <span class='en-term'>Object (O)</span> <span class='vi-hint'>(tân ngữ)</span> hoặc cuối câu.</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: I made this cake myself. / He did it himself.</div></div></div>
+  <p>Cụm cố định: by oneself = một mình, không có ai giúp.</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: She lives by herself.</div></div></div>
+  <h3>5.2. Đại từ tương hỗ (Reciprocal pronouns)</h3>
+  <p><span class='ch'>EACH</span> OTHER / <span class='ch'>ONE ANOTHER</span>: nhau (hành động qua lại giữa 2 hoặc nhiều đối tượng).</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: Tom and Mary love each other. / The students helped one another with their homework.</div></div></div>
+  <div class='tip'>Lưu ý: Trong tiếng Anh hiện đại, each other và one another gần như được dùng thay thế nhau tự do, dù trước đây each other thường dùng cho 2 đối tượng, one another cho nhiều hơn 2.</div>
+  <h3>5.3. Whoever / Whatever / Whichever / Whenever / Wherever</h3>
+  <p>Đây là các <span class='en-term'>Pronouns</span> <span class='vi-hint'>(đại từ)</span> / <span class='en-term'>Adverbs</span> <span class='vi-hint'>(trạng từ)</span> quan hệ tự do (free relative), mang nghĩa 'bất kỳ ai/cái gì/cái nào/khi nào/nơi nào'.</p>
+  <p><span class='ch'>WHOEVER</span>: bất kỳ ai (chỉ người).</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: Whoever finishes first can leave early.</div></div></div>
+  <p><span class='ch'>WHATEVER</span>: bất kỳ cái gì (không giới hạn lựa chọn).</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: You can eat whatever you like.</div></div></div>
+  <p><span class='ch'>WHICHEVER</span>: bất kỳ cái nào (có giới hạn trong một số lựa chọn cụ thể).</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: Take whichever seat you want; there are only three left.</div></div></div>
+  <p><span class='ch'>WHENEVER</span> / <span class='ch'>WHEREVER</span>: bất cứ khi nào / bất cứ nơi đâu.</p>
+  <div class='ex-group'><div class='ex-item'><div class='orig'>VD: Call me whenever you need help. / Sit wherever you like.</div></div></div>
 </div>
+<div class='grammar-section'>
+  <h2><span class='num'>★</span> BẢNG TỔNG HỢP NHANH</h2>
+</div>
+
 </div>
 </body>
 </html>
