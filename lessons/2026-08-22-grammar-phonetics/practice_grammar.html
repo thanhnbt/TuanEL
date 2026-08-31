@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice: Grammar — English Daily</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .grammar-badge { display: inline-block; background: #e0e7ff; color: #3730a3; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+    
+    .theory-card { background: #fff; border-radius: 12px; border: 1px solid #e2e4e8; padding: 1.3rem 1.5rem; margin-bottom: 1.4rem; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+    .theory-card h3 { font-size: 1.15rem; color: #1e293b; margin: 0 0 .8rem; display: flex; align-items: center; gap: 8px; }
+    .theory-card h3 .num { background: #2563eb; color: #fff; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: .8rem; flex-shrink: 0; }
+    .theory-card ul { padding-left: 20px; margin: 0; }
+    .theory-card li { margin-bottom: 8px; font-size: 0.95rem; }
+
+    .test-tabs { display: flex; gap: 8px; margin-bottom: 1.5rem; overflow-x: auto; }
+    .test-tab { padding: 10px 16px; background: #fff; border: 1px solid #d1d5db; border-radius: 8px; font-weight: 600; font-size: 0.9rem; color: #4b5563; cursor: pointer; white-space: nowrap; transition: all 0.2s; }
+    .test-tab:hover { background: #f3f4f6; }
+    .test-tab.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+
+    .q-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 10px 14px; margin-bottom: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+    .q-title { font-weight: 600; font-size: 1.25rem; margin-bottom: 8px; color: #1f2937; }
+    
+    .opts { display: flex; flex-direction: column; gap: 6px; }
+    .opt { display: flex; align-items: center; padding: 8px 12px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; cursor: pointer; font-size: 1.15rem; transition: background 0.15s; }
+    .opt:hover { background: #f3f4f6; }
+    .opt.selected { background: #dbeafe; border-color: #3b82f6; }
+    
+    .opt.correct { background: #dcfce7; border-color: #22c55e; color: #166534; }
+    .opt.wrong { background: #fee2e2; border-color: #ef4444; color: #991b1b; }
+    .opt.missed { border: 2px dashed #22c55e; }
+    
+    .opt input { display: none; }
+    .hint-box { margin-top: 12px; padding: 12px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; font-size: 0.95rem; color: #166534; display: none; }
+    .hint-box.visible { display: block; }
+    
+    .sound-btn { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: #e0e7ff; color: #3730a3; border-radius: 50%; cursor: pointer; font-size: 14px; margin-left: 8px; text-decoration: none; transition: background 0.2s; }
+    .sound-btn:hover { background: #c7d2fe; }
+    .sound-btn.loading { opacity: 0.5; pointer-events: none; animation: pulse 1s infinite; }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+                        
+          
+    .submit-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e2e4e8;padding:.8rem 1rem;text-align:center;z-index:98;box-shadow:0 -2px 8px rgba(0,0,0,.06)}
+    .btn-submit{padding:12px 32px;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;background:#2563eb;color:#fff;transition:opacity .2s}
+    .btn-submit:hover{opacity:.85}
+    .btn-submit.final{background:#10b981}
+    .btn-reset{padding:12px 24px;border:2px solid #e2e4e8;border-radius:10px;font-size:.95rem;font-weight:600;cursor:pointer;background:#fff;color:#6b7280;transition:all .2s;margin-left:8px}
+    .btn-reset:hover{border-color:#2563eb;color:#2563eb}
+    @media print{.submit-bar,.controls,.score-screen{display:none!important}.q-item{border:1.5px solid #333;page-break-inside:avoid}}
+    @media(monochrome){*{transition:none!important;box-shadow:none!important}body{background:#fff!important;color:#000!important}.test-tab{border:2px solid #000;background:#fff!important;color:#000!important}.test-tab.active{background:#000!important;color:#fff!important}.opt{border:2px solid #000}.opt.selected{background:#ddd!important}}
+    body.eink,body.eink *{transition:none!important;box-shadow:none!important}body.eink{background:#fff!important;color:#000!important}body.eink .test-tab{border:2px solid #000;background:#fff!important;color:#000!important}body.eink .test-tab.active{background:#000!important;color:#fff!important}body.eink .opt{border:2px solid #000}body.eink .opt.selected{background:#ddd!important}
+    .score-screen { margin-top: 1.5rem; text-align: center; font-size: 1.1rem; font-weight: 600; padding: 1.5rem; border-radius: 12px; background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; display: none; }
+</style>
+</head>
+<body>
+<div class="lesson-topbar">
+  <div class="lesson-topbar-inner">
+    <a href="../../index.html" class="back-link">🔙 Về Trang chủ</a>
+    <nav class="sub-nav">
+      <a href="index.html">📖 Ngữ pháp</a>
+      <a href="practice_phonetics.html">🗣️ Trọng âm</a>
+      <a href="practice_grammar.html" class="active">📝 Luyện Ngữ pháp</a>
+    </nav>
+  </div>
+</div>
+<div class="container">
+  <h1>🎯 Luyện tập: Ngữ pháp</h1>
+  <div class="grammar-badge">📝 Grammar Practice</div>
+
+  <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+    <div class="test-tabs" id="testTabs"></div>
+    <button class="btn-control" id="shuffleBtn">🔀 Trộn câu</button>
+  </div>
+
+  <div id="testContent"></div>
+</div>
+
+  <div class="score-screen" id="scoreDisplay"></div>
+</div>
+
+<div class="submit-bar">
+  <button class="btn-submit" id="submitBtn">📝 Kiểm tra</button>
+  <button class="btn-reset" id="resetBtn">🔄 Làm lại</button>
+</div>
+
+<!-- DATA SCRIPTS -->
+
+
+<script src="t3.js"></script>
+<script src="../../js/config.js"></script>
+<script>
+  let currentTestIndex = 0;
+  let testsData = [];
+  let userAnswers = []; // userAnswers[testIndex][qIndex]
+  let phase = 'test'; // 'test' | 'answer'
+
+  function init() {
+    testsData = window.TESTS || [];
+    userAnswers = testsData.map(t => new Array(t.questions.length).fill(null));
+    renderTabs();
+    renderTest();
+    
+    document.getElementById('shuffleBtn').onclick = () => {
+      if(phase !== 'test') return;
+      if(!confirm("Trộn câu sẽ xóa kết quả hiện tại. Bạn có chắc không?")) return;
+      let q = testsData[currentTestIndex].questions;
+      for(let i = q.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [q[i], q[j]] = [q[j], q[i]];
+      }
+      userAnswers[currentTestIndex] = new Array(q.length).fill(null);
+      renderTest();
+    };
+
+    document.getElementById('resetBtn').onclick = () => {
+      if(!confirm("Bạn muốn làm lại từ đầu?")) return;
+      userAnswers[currentTestIndex] = new Array(testsData[currentTestIndex].questions.length).fill(null);
+      phase = 'test';
+      renderTest();
+      updateScore();
+    };
+
+    document.getElementById('submitBtn').onclick = () => {
+      if(phase === 'answer') return;
+      const total = testsData[currentTestIndex].questions.length;
+      const answered = userAnswers[currentTestIndex].filter(a => a !== null).length;
+      if(answered < Math.ceil(total * 2/3)) {
+        alert(`Bạn phải làm ít nhất 2/3 số câu (${Math.ceil(total * 2/3)}/${total}) mới được nộp bài!`);
+        return;
+      }
+      phase = 'answer';
+      renderTest();
+      updateScore();
+    };
+  }
+
+  function renderTabs() {
+    const tabsContainer = document.getElementById('testTabs');
+    tabsContainer.innerHTML = '';
+    testsData.forEach((t, i) => {
+      const btn = document.createElement('div');
+      btn.className = 'test-tab' + (i === currentTestIndex ? ' active' : '');
+      btn.textContent = t.name;
+      btn.onclick = () => {
+        currentTestIndex = i;
+        phase = 'test';
+        renderTabs();
+        renderTest();
+        updateScore();
+      };
+      tabsContainer.appendChild(btn);
+    });
+  }
+
+  function renderTest() {
+    const test = testsData[currentTestIndex];
+    if(!test) return;
+    
+    const c = document.getElementById('testContent');
+    c.innerHTML = '';
+    
+    test.questions.forEach((q, qIndex) => {
+      const card = document.createElement('div');
+      card.className = 'q-card';
+      
+      let html = `<div class='q-title'>${q.q}</div>`;
+      html += `<div class='opts'>`;
+      
+      q.opts.forEach((opt, optIndex) => {
+        const ansVal = userAnswers[currentTestIndex][qIndex];
+        const isSelected = ansVal === optIndex;
+        let optClass = 'opt' + (isSelected ? ' selected' : '');
+        
+        if (phase === 'answer') {
+          optClass = 'opt';
+          if (optIndex === q.ans) optClass += ' correct';
+          else if (isSelected && optIndex !== q.ans) optClass += ' wrong';
+          if (isSelected && optIndex === q.ans) optClass += ' selected';
+        }
+        
+        html += `<label class='${optClass}'>
+          <input type='radio' name='q_${qIndex}' value='${optIndex}' ${isSelected ? 'checked' : ''} 
+                 ${phase === 'answer' ? 'disabled' : ''}>
+          ${String.fromCharCode(65 + optIndex)}. ${opt}
+        </label>`;
+      });
+      html += `</div>`;
+      
+      if (phase === 'answer') {
+        const ansVal = userAnswers[currentTestIndex][qIndex];
+        if (ansVal !== null) { // Only show hint for answered questions
+           html += `<div class='hint-box visible'>${q.exp}</div>`;
+        }
+      }
+      
+      card.innerHTML = html;
+      c.appendChild(card);
+    });
+
+    // Attach events if test phase
+    if (phase === 'test') {
+      const labels = c.querySelectorAll('.opt');
+      labels.forEach(lbl => {
+        lbl.querySelector('input').addEventListener('change', (e) => {
+          const qName = e.target.name;
+          const qIdx = parseInt(qName.split('_')[1]);
+          const val = parseInt(e.target.value);
+          userAnswers[currentTestIndex][qIdx] = val;
+          renderTest();
+        });
+      });
+    }
+  }
+
+    function updateScore() {
+    const scoreDiv = document.getElementById('scoreDisplay');
+    if (!scoreDiv) return;
+    if (phase === 'test') {
+      scoreDiv.style.display = 'none';
+      const total = testsData[currentTestIndex].questions.length;
+      const answered = userAnswers[currentTestIndex].filter(a => a !== null).length;
+      // You can put a small indicator if you want, but for now we hide it.
+    } else {
+      scoreDiv.style.display = 'block';
+      let correct = 0;
+      let total = testsData[currentTestIndex].questions.length;
+      userAnswers[currentTestIndex].forEach((ans, i) => {
+        if(ans === testsData[currentTestIndex].questions[i].ans) correct++;
+      });
+      scoreDiv.innerHTML = `🎉 Tuyệt vời! Bạn đã trả lời đúng ${correct}/${total} câu.`;
+    }
+  }
+
+
+  
+  function fallbackSpeak(word) {
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(word);
+      utterance.lang = 'en-US';
+      window.speechSynthesis.speak(utterance);
+    }
+  }
+
+  window.onload = init;
+</script>
+
+<script>if(localStorage.getItem('eink')==='true') document.body.classList.add('eink');</script>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lý thuyết Ngữ pháp 08/2026 — English Daily</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --primary-hover: #2980b9;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--dark);
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        .tab-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        .tab {
+            padding: 12px 20px;
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .tab:hover {
+            background-color: #e8f4f8;
+        }
+        .tab.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        .section-content {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            animation: fadeIn 0.4s;
+        }
+        .section-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .theory-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-left: 5px solid var(--primary);
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        .theory-box h3 {
+            margin-top: 0;
+            color: var(--dark);
+        }
+        .theory-box ul {
+            padding-left: 20px;
+        }
+        .theory-box li {
+            margin-bottom: 8px;
+        }
+        .quiz-container {
+            border-top: 2px dashed #ddd;
+            padding-top: 20px;
+        }
+        .question-block {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .option-label:hover {
+            background: #eef2f5;
+        }
+        .option-label input {
+            margin-right: 15px;
+            transform: scale(1.2);
+        }
+        .btn-check {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+        .btn-check:hover {
+            background-color: var(--primary-hover);
+        }
+        .feedback {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: none;
+        }
+        .feedback.correct {
+            display: block;
+            background-color: #d5f5e3;
+            color: #1e8449;
+            border: 1px solid #2ecc71;
+        }
+        .feedback.incorrect {
+            display: block;
+            background-color: #fadbd8;
+            color: #b03a2e;
+            border: 1px solid #e74c3c;
+        }
+    
+        .lesson-topbar { background:#fff; border-bottom:1px solid #e2e4e8; padding:0 1rem; position:sticky; top:0; z-index:99; margin: -20px -20px 20px -20px; }
+        .lesson-topbar-inner { max-width:900px; margin:0 auto; display:flex; align-items:center; gap:8px; }
+        .lesson-topbar .back-link { color:#2563eb; text-decoration:none; font-size:13px; font-weight:600; padding:10px 0; margin-right:16px; white-space:nowrap; }
+        .lesson-topbar .back-link:hover { opacity:.7; }
+        .sub-nav { display:flex; gap:4px; overflow-x:auto; }
+        .sub-nav a { padding:10px 14px; font-size:13px; font-weight:500; color:#6b7280; text-decoration:none; border-bottom:2px solid transparent; white-space:nowrap; transition:color .15s, border-color .15s; }
+        .sub-nav a:hover { color:#1a1a1a; }
+        .sub-nav a.active { color:#2563eb; border-bottom-color:#2563eb; }
+        
+        @media(monochrome){*{transition:none!important;box-shadow:none!important}body{background:#fff!important;color:#000!important}}
+        body.eink,body.eink *{transition:none!important;box-shadow:none!important}body.eink{background:#fff!important;color:#000!important}
+</style>
+</head>
+<body>
+    
+<div class="lesson-topbar">
+  <div class="lesson-topbar-inner">
+    <a href="../../index.html" class="back-link">🔙 Về Trang chủ</a>
+    <nav class="sub-nav">
+      <a href="index.html" class="active">📖 Ngữ pháp</a>
+      <a href="practice_phonetics.html">🗣️ Trọng âm</a>
+      <a href="practice_grammar.html">📝 Luyện Ngữ pháp</a>
+    </nav>
+  </div>
+</div>
+
+    <h1>📚 Ôn tập Ngữ pháp Tiếng Anh</h1>
+    <p style="text-align: center; margin-bottom: 30px;">Hệ thống lý thuyết và bài tập trắc nghiệm tự luyện dựa trên các chủ điểm ngữ pháp thường gặp.</p>
+    <div class="tab-container">
+<button class="tab active" onclick="openTab(event, 'articles')">1. Mạo từ (Articles)</button>
+<button class="tab" onclick="openTab(event, 'adjadv')">2. Tính từ &amp; Trạng từ</button>
+<button class="tab" onclick="openTab(event, 'pronouns')">3. Lượng từ &amp; Đại từ</button>
+<button class="tab" onclick="openTab(event, 'sva')">4. Sự hòa hợp C-V</button>
+<button class="tab" onclick="openTab(event, 'tenses')">5. Thì &amp; Bị động</button>
+</div>
+    <div class="section-content active" id="articles">
+<div class="theory-box">
+<h3>📖 Mạo từ (A / An / The / Zero Article)</h3>
+<ul>
+<li><b>A / An:</b> Dùng trước danh từ đếm được số ít, chưa xác định (nhắc đến lần đầu, nghề nghiệp). <i>Ví dụ: an architect, a car.</i></li>
+<li><b>The:</b> Dùng trước danh từ đã xác định, những vật duy nhất (the sun, the earth), tên đại dương, sông, dãy núi, và so sánh nhất.</li>
+<li><b>Zero Article (Không dùng mạo từ):</b> Trước danh từ đếm được số nhiều/không đếm được mang nghĩa chung chung (Life, Water), tên các hồ, ngọn núi đơn lẻ (Mt. Everest), môn thể thao, bệnh tật.</li>
+</ul>
+</div>
+<div class="quiz-container">
+<h3>✍️ Luyện tập</h3>
+<div class="question-block" id="q1">
+<div class="question-text">Câu 1: ______ sun is ______ hot.</div>
+<div class="options">
+<label class="option-label"><input name="q1" type="radio" value="A"/> A) always</label>
+<label class="option-label"><input name="q1" type="radio" value="B"/> B) often</label>
+<label class="option-label"><input name="q1" type="radio" value="C"/> C) usually</label>
+<label class="option-label"><input data-correct="true" name="q1" type="radio" value="D"/> D) The / - (Chú ý: The sun - vật duy nhất)</label>
+</div>
+<div class="feedback"></div>
+</div>
+<div class="question-block" id="q2">
+<div class="question-text">Câu 2: ____ Finance Minister increased ____ tax on ____ petrol in ____ his last budget.</div>
+<div class="options">
+<label class="option-label"><input data-correct="true" name="q2" type="radio" value="A"/> A) The / the / - / -</label>
+<label class="option-label"><input name="q2" type="radio" value="B"/> B) - / the / the / -</label>
+<label class="option-label"><input name="q2" type="radio" value="C"/> C) The / the / - / the</label>
+<label class="option-label"><input name="q2" type="radio" value="D"/> D) - / the / - / -</label>
+</div>
+<div class="feedback"></div>
+</div>
+<button class="btn-check" onclick="checkAnswers('articles')">Kiểm tra đáp án</button>
+</div>
+</div><div class="section-content" id="adjadv">
+<div class="theory-box">
+<h3>📖 Tính từ &amp; Trạng từ (Adjectives &amp; Adverbs)</h3>
+<ul>
+<li><b>Tính từ:</b> Đứng trước danh từ hoặc sau động từ to be, động từ nối (look, feel, taste...). Bổ nghĩa cho danh từ.</li>
+<li><b>Trạng từ:</b> Bổ nghĩa cho động từ thường, tính từ hoặc trạng từ khác. Thường có đuôi "-ly" (carefully, beautifully). <i>Ngoại lệ: good -&gt; well, fast -&gt; fast.</i></li>
+<li><b>Tính từ đuôi -ing / -ed:</b> <i>-ed</i> chỉ cảm giác của người (interested, depressed). <i>-ing</i> chỉ bản chất của sự vật/việc (interesting, depressing).</li>
+<li><b>So sánh:</b> Bằng (as...as), Hơn (V-er / more + V), Nhất (The V-est / the most + V).</li>
+</ul>
+</div>
+<div class="quiz-container">
+<h3>✍️ Luyện tập</h3>
+<div class="question-block" id="q3">
+<div class="question-text">Câu 1: I find people who spit in the street ______.</div>
+<div class="options">
+<label class="option-label"><input data-correct="true" name="q3" type="radio" value="A"/> A) offensive (Tính từ chỉ bản chất)</label>
+<label class="option-label"><input name="q3" type="radio" value="B"/> B) offensively</label>
+<label class="option-label"><input name="q3" type="radio" value="C"/> C) offender</label>
+<label class="option-label"><input name="q3" type="radio" value="D"/> D) offence</label>
+</div>
+<div class="feedback"></div>
+</div>
+<div class="question-block" id="q4">
+<div class="question-text">Câu 2: She listens to the teacher very ______.</div>
+<div class="options">
+<label class="option-label"><input name="q4" type="radio" value="A"/> A) good</label>
+<label class="option-label"><input data-correct="true" name="q4" type="radio" value="B"/> B) carefully (Trạng từ bổ nghĩa cho động từ "listens")</label>
+<label class="option-label"><input name="q4" type="radio" value="C"/> C) better</label>
+<label class="option-label"><input name="q4" type="radio" value="D"/> D) careless</label>
+</div>
+<div class="feedback"></div>
+</div>
+<button class="btn-check" onclick="checkAnswers('adjadv')">Kiểm tra đáp án</button>
+</div>
+</div><div class="section-content" id="pronouns">
+<div class="theory-box">
+<h3>📖 Lượng từ &amp; Đại từ (Quantifiers &amp; Pronouns)</h3>
+<ul>
+<li><b>Few / A few:</b> Dùng với danh từ đếm được số nhiều. (Few = rất ít, gần như không có; A few = một vài).</li>
+<li><b>Little / A little:</b> Dùng với danh từ không đếm được. (Little = rất ít; A little = một chút).</li>
+<li><b>Much / Many:</b> Much + Không đếm được; Many + Đếm được số nhiều.</li>
+<li><b>Đại từ phản thân:</b> Dùng khi chủ ngữ và tân ngữ cùng chỉ một người/vật (myself, himself, themselves). <i>By oneself = on one's own (tự mình).</i></li>
+</ul>
+</div>
+<div class="quiz-container">
+<h3>✍️ Luyện tập</h3>
+<div class="question-block" id="q5">
+<div class="question-text">Câu 1: I've got very ______ money.</div>
+<div class="options">
+<label class="option-label"><input name="q5" type="radio" value="A"/> A) few</label>
+<label class="option-label"><input name="q5" type="radio" value="B"/> B) a few</label>
+<label class="option-label"><input data-correct="true" name="q5" type="radio" value="C"/> C) little (money là danh từ không đếm được, "very little" = rất ít)</label>
+<label class="option-label"><input name="q5" type="radio" value="D"/> D) a little</label>
+</div>
+<div class="feedback"></div>
+</div>
+<div class="question-block" id="q6">
+<div class="question-text">Câu 2: Her children are too young to look after ______.</div>
+<div class="options">
+<label class="option-label"><input name="q6" type="radio" value="A"/> A) them</label>
+<label class="option-label"><input name="q6" type="radio" value="B"/> B) by themselves</label>
+<label class="option-label"><input data-correct="true" name="q6" type="radio" value="C"/> C) themselves (Đại từ phản thân)</label>
+<label class="option-label"><input name="q6" type="radio" value="D"/> D) themself</label>
+</div>
+<div class="feedback"></div>
+</div>
+<button class="btn-check" onclick="checkAnswers('pronouns')">Kiểm tra đáp án</button>
+</div>
+</div><div class="section-content" id="sva">
+<div class="theory-box">
+<h3>📖 Sự hòa hợp Chủ ngữ - Động từ</h3>
+<ul>
+<li><b>Danh từ tập hợp:</b> <i>The police, the poor, the rich</i> luôn đi với động từ chia số nhiều (are, were, have).</li>
+<li><b>Danh từ có "s" nhưng số ít:</b> Các môn học (Physics, Mathematics), tin tức (news), một số bệnh (measles) -&gt; Động từ chia số ít (is, was, has).</li>
+<li><b>Cấu trúc Neither/Either:</b> <i>Neither A nor B</i> -&gt; Động từ chia theo B (chủ ngữ gần nhất).</li>
+<li><b>Đại từ bất định:</b> Everybody, nobody, someone, anywhere... -&gt; Động từ luôn chia số ít.</li>
+</ul>
+</div>
+<div class="quiz-container">
+<h3>✍️ Luyện tập</h3>
+<div class="question-block" id="q7">
+<div class="question-text">Câu 1: The police ______ looking for a man who escaped from prison.</div>
+<div class="options">
+<label class="option-label"><input name="q7" type="radio" value="A"/> A) is</label>
+<label class="option-label"><input name="q7" type="radio" value="B"/> B) was</label>
+<label class="option-label"><input data-correct="true" name="q7" type="radio" value="C"/> C) are (The police luôn chia số nhiều)</label>
+<label class="option-label"><input name="q7" type="radio" value="D"/> D) has been</label>
+</div>
+<div class="feedback"></div>
+</div>
+<div class="question-block" id="q8">
+<div class="question-text">Câu 2: Physics ______ a subject that has grown enormously in importance.</div>
+<div class="options">
+<label class="option-label"><input name="q8" type="radio" value="A"/> A) are</label>
+<label class="option-label"><input name="q8" type="radio" value="B"/> B) were</label>
+<label class="option-label"><input data-correct="true" name="q8" type="radio" value="C"/> C) is (Môn học chia số ít)</label>
+<label class="option-label"><input name="q8" type="radio" value="D"/> D) have been</label>
+</div>
+<div class="feedback"></div>
+</div>
+<button class="btn-check" onclick="checkAnswers('sva')">Kiểm tra đáp án</button>
+</div>
+</div><div class="section-content" id="tenses">
+<div class="theory-box">
+<h3>📖 Thì (Tenses) &amp; Câu bị động (Passives)</h3>
+<ul>
+<li><b>Thì Hiện tại đơn:</b> Sự thật hiển nhiên, thói quen (always, usually, every day). <i>V / V(s/es)</i></li>
+<li><b>Thì Quá khứ đơn:</b> Hành động đã xảy ra và kết thúc trong quá khứ (yesterday, in 1990). <i>V-ed / V2</i></li>
+<li><b>Quá khứ tiếp diễn:</b> Hành động đang xảy ra tại một thời điểm trong quá khứ, hoặc bị hành động khác xen vào (while, when). <i>was/were + V-ing</i></li>
+<li><b>Câu Bị động (Passive Voice):</b> Cấu trúc chung: <b>S + be + V3/ed</b> (Động từ "be" chia theo thì của câu chủ động). <i>Ví dụ: was discovered, are made.</i></li>
+</ul>
+</div>
+<div class="quiz-container">
+<h3>✍️ Luyện tập</h3>
+<div class="question-block" id="q9">
+<div class="question-text">Câu 1: America ______ in 1492.</div>
+<div class="options">
+<label class="option-label"><input name="q9" type="radio" value="A"/> A) discovered</label>
+<label class="option-label"><input data-correct="true" name="q9" type="radio" value="B"/> B) was discovered (Bị động quá khứ đơn vì có năm 1492)</label>
+<label class="option-label"><input name="q9" type="radio" value="C"/> C) has been discovered</label>
+<label class="option-label"><input name="q9" type="radio" value="D"/> D) is discovered</label>
+</div>
+<div class="feedback"></div>
+</div>
+<div class="question-block" id="q10">
+<div class="question-text">Câu 2: John was singing while he ______ a bath.</div>
+<div class="options">
+<label class="option-label"><input name="q10" type="radio" value="A"/> A) is taking</label>
+<label class="option-label"><input data-correct="true" name="q10" type="radio" value="B"/> B) was taking (Hai hành động diễn ra song song trong quá khứ)</label>
+<label class="option-label"><input name="q10" type="radio" value="C"/> C) takes</label>
+<label class="option-label"><input name="q10" type="radio" value="D"/> D) take</label>
+</div>
+<div class="feedback"></div>
+</div>
+<button class="btn-check" onclick="checkAnswers('tenses')">Kiểm tra đáp án</button>
+</div>
+</div>
+    
+    <script>
+function openTab(evt, tabName) {
+    var i, sectionContent, tabs;
+    sectionContent = document.getElementsByClassName("section-content");
+    for (i = 0; i < sectionContent.length; i++) {
+        sectionContent[i].style.display = "none";
+        sectionContent[i].classList.remove("active");
+    }
+    tabs = document.getElementsByClassName("tab");
+    for (i = 0; i < tabs.length; i++) {
+        tabs[i].className = tabs[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    document.getElementById(tabName).classList.add("active");
+    evt.currentTarget.className += " active";
+}
+// Init eink
+if(localStorage.getItem('eink')==='true') document.body.classList.add('eink');
+</script>
+</body>
+</html>
