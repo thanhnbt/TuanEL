@@ -1,0 +1,36 @@
+window.TESTS = window.TESTS || [];
+window.TESTS.push({
+  name: "A · Chủ động (25 câu)",
+  badge: "📘 Chia thì · Thể chủ động",
+  part: "PHẦN 2 — BÀI TẬP TRẮC NGHIỆM (50 CÂU) · Chọn đáp án đúng nhất cho mỗi câu",
+  title: "Mục A (Câu 1–25): Chia đúng thì — thể chủ động",
+  intro: "Dựa vào dấu hiệu nhận biết trong câu để chọn dạng đúng của động từ.",
+  howto: "<b>Cách làm:</b> đọc kỹ câu, tìm <b>từ chỉ thời gian</b> (every day, now, yesterday, since, yet, tomorrow…) → tra cột <i>“Dấu hiệu nhận biết”</i> trong bảng 8 thì ở trang Lý thuyết → chọn đúng dạng động từ. Ở mục này chủ ngữ <b>tự làm</b> hành động nên luôn dùng <b>thể chủ động</b>.",
+  questions: [
+    { q: "1. My father _____ (water) the garden every morning before breakfast.", opts: ["water", "waters", "is watering", "watered"], ans: 1, exp: "Signal: 'every morning' → Present Simple. Subject 'My father' = he → add -s: waters." },
+    { q: "2. Look! The children _____ (play) football in the yard.", opts: ["play", "plays", "are playing", "played"], ans: 2, exp: "Signal: 'Look!' → Present Continuous. Plural subject → are + V-ing." },
+    { q: "3. She _____ (not/go) to school yesterday because she was ill.", opts: ["doesn't go", "didn't go", "isn't going", "hasn't gone"], ans: 1, exp: "Signal: 'yesterday' → Past Simple negative: didn't + bare verb." },
+    { q: "4. We _____ (live) in this city since 2015.", opts: ["live", "lived", "have lived", "are living"], ans: 2, exp: "Signal: 'since + a point of time' → Present Perfect: have/has + V3." },
+    { q: "5. At 8 o'clock last night, my brother _____ (do) his homework.", opts: ["did", "was doing", "is doing", "does"], ans: 1, exp: "Signal: 'at + clock time + last night' → Past Continuous: was/were + V-ing." },
+    { q: "6. They _____ (visit) their grandparents next Sunday.", opts: ["visit", "visited", "will visit", "are visiting"], ans: 2, exp: "Signal: 'next Sunday' → Future Simple: will + bare verb." },
+    { q: "7. I usually _____ (get) up at six every day.", opts: ["get", "gets", "am getting", "got"], ans: 0, exp: "Signal: 'usually / every day' → Present Simple. Subject 'I' takes the bare verb." },
+    { q: "8. Listen! Someone _____ (knock) at the door.", opts: ["knocks", "knock", "is knocking", "knocked"], ans: 2, exp: "Signal: 'Listen!' → Present Continuous. 'Someone' is singular → is + V-ing." },
+    { q: "9. My parents _____ (already/finish) dinner when I got home.", opts: ["already finished", "have already finished", "had already finished", "finish already"], ans: 2, exp: "Two past actions: the earlier one takes Past Perfect → had already + V3." },
+    { q: "10. She _____ (not/see) that film yet.", opts: ["doesn't see", "didn't see", "hasn't seen", "isn't seeing"], ans: 2, exp: "Signal: 'yet' → Present Perfect negative: hasn't + V3." },
+    { q: "11. Next year, my sister _____ (be) twelve years old.", opts: ["will be", "is", "was", "is being"], ans: 0, exp: "Signal: 'Next year' → Future Simple: will + be." },
+    { q: "12. Be quiet! The baby _____ (sleep).", opts: ["sleeps", "is sleeping", "slept", "sleep"], ans: 1, exp: "Signal: 'Be quiet!' → Present Continuous: is + V-ing." },
+    { q: "13. My uncle _____ (work) as an engineer for ten years.", opts: ["works", "worked", "has worked", "is working"], ans: 2, exp: "Signal: 'for + a period of time' → Present Perfect: has + V3." },
+    { q: "14. Yesterday morning, I _____ (meet) an old friend at the supermarket.", opts: ["meet", "met", "have met", "was meeting"], ans: 1, exp: "Signal: 'Yesterday morning' → Past Simple. Irregular verb: meet → met." },
+    { q: "15. While my mother _____ (cook), I was setting the table.", opts: ["cooked", "was cooking", "cooks", "is cooking"], ans: 1, exp: "Signal: 'While' + two actions in progress at the same past time → Past Continuous." },
+    { q: "16. Look at those black clouds! It _____ (rain) soon.", opts: ["will rain", "rains", "is going to rain", "is raining"], ans: 2, exp: "There is clear present evidence (black clouds) → 'be going to' for a prediction based on evidence." },
+    { q: "17. My father _____ (never/be) to Japan.", opts: ["never was", "never is", "has never been", "never been"], ans: 2, exp: "Signal: 'never' + life experience → Present Perfect: has never been." },
+    { q: "18. He always _____ (help) his classmates when they have difficulties.", opts: ["help", "helps", "is helping", "helped"], ans: 1, exp: "Signal: 'always' → Present Simple. Subject 'He' → helps." },
+    { q: "19. I _____ (not/finish) my homework yet, so I can't go out.", opts: ["don't finish", "didn't finish", "haven't finished", "am not finishing"], ans: 2, exp: "Signal: 'yet' → Present Perfect negative: haven't + V3." },
+    { q: "20. Last summer, my family _____ (go) to Ha Long Bay.", opts: ["go", "goes", "went", "have gone"], ans: 2, exp: "Signal: 'Last summer' → Past Simple. Irregular: go → went." },
+    { q: "21. At present, more and more people _____ (use) online shopping.", opts: ["use", "uses", "are using", "used"], ans: 2, exp: "Signal: 'At present' + a changing trend → Present Continuous: are + V-ing." },
+    { q: "22. By the time she arrived, the meeting _____ (already/start).", opts: ["already started", "has already started", "had already started", "already starts"], ans: 2, exp: "Signal: 'By the time + past clause' → the earlier action takes Past Perfect: had already started." },
+    { q: "23. My brother _____ (not/like) football, but he loves basketball.", opts: ["doesn't like", "isn't liking", "didn't like", "hasn't liked"], ans: 0, exp: "A general fact about likes/dislikes → Present Simple. 'Like' is a state verb, so no continuous form." },
+    { q: "24. Tomorrow morning, we _____ (have) an English test.", opts: ["have", "will have", "had", "are having"], ans: 1, exp: "Signal: 'Tomorrow morning' → Future Simple: will + have." },
+    { q: "25. She _____ (study) English for three years, and she can speak it fluently now.", opts: ["studies", "studied", "has studied", "is studying"], ans: 2, exp: "Signal: 'for three years' + result now → Present Perfect: has studied." }
+  ]
+});

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice 2: Nâng cao — English Daily</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    .lesson-topbar{background:#fff;border-bottom:1px solid #e2e4e8;padding:0 1rem;position:sticky;top:0;z-index:99}
+    .lesson-topbar-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;gap:8px}
+    .lesson-topbar .back-link{color:#2563eb;text-decoration:none;font-size:13px;font-weight:600;padding:10px 0;margin-right:16px;white-space:nowrap}
+    .lesson-topbar .back-link:hover{opacity:.7}
+    .sub-nav{display:flex;gap:4px;overflow-x:auto}
+    .sub-nav a{padding:10px 14px;font-size:13px;font-weight:500;color:#6b7280;text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap}
+    .sub-nav a:hover{color:#1a1a1a}
+    .sub-nav a.active{color:#2563eb;border-bottom-color:#2563eb}
+
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fafaf7;color:#1a1a1a}
+    .container{max-width:920px;margin:0 auto;padding:1.5rem 1rem 5rem}
+    h1{font-size:1.5rem;margin:0 0 .4rem;color:#1e293b}
+    .grammar-badge{display:inline-block;background:#e0e7ff;color:#3730a3;padding:4px 12px;border-radius:20px;font-size:.85rem;font-weight:600;margin-bottom:1rem}
+
+    .test-tabs{display:flex;gap:8px;overflow-x:auto}
+    .test-tab{padding:10px 16px;background:#fff;border:1px solid #d1d5db;border-radius:8px;font-weight:600;font-size:.88rem;color:#4b5563;cursor:pointer;white-space:nowrap;transition:all .2s}
+    .test-tab:hover{background:#f3f4f6}
+    .test-tab.active{background:#2563eb;color:#fff;border-color:#2563eb}
+    .btn-control{padding:9px 14px;background:#fff;border:1px solid #d1d5db;border-radius:8px;font-weight:600;font-size:.85rem;color:#4b5563;cursor:pointer;white-space:nowrap}
+    .btn-control:hover{background:#f3f4f6}
+
+    .q-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px 14px;margin-bottom:8px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+    .q-title{font-weight:600;font-size:1.12rem;margin-bottom:9px;color:#1f2937;line-height:1.6}
+    .opts{display:flex;flex-direction:column;gap:6px}
+    .opt{display:flex;align-items:center;padding:8px 12px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;cursor:pointer;font-size:1.05rem;transition:background .15s}
+    .opt:hover{background:#f3f4f6}
+    .opt.selected{background:#dbeafe;border-color:#3b82f6}
+    .opt.correct{background:#dcfce7;border-color:#22c55e;color:#166534;font-weight:600}
+    .opt.wrong{background:#fee2e2;border-color:#ef4444;color:#991b1b}
+    .opt input{display:none}
+    .hint-box{margin-top:10px;padding:10px 12px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:.92rem;color:#166534;line-height:1.6}
+
+    .submit-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e2e4e8;padding:.8rem 1rem;text-align:center;z-index:98;box-shadow:0 -2px 8px rgba(0,0,0,.06)}
+    .btn-submit{padding:12px 32px;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;background:#2563eb;color:#fff}
+    .btn-submit:hover{opacity:.85}
+    .btn-reset{padding:12px 24px;border:2px solid #e2e4e8;border-radius:10px;font-size:.95rem;font-weight:600;cursor:pointer;background:#fff;color:#6b7280;margin-left:8px}
+    .btn-reset:hover{border-color:#2563eb;color:#2563eb}
+    .progress-note{font-size:.8rem;color:#6b7280;margin-top:.4rem}
+    /* Điểm hiển thị NGAY TRONG submit bar (sticky) */
+    .score-line{display:none;margin-top:.5rem;font-size:1.05rem;font-weight:700;color:#166534;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:.5rem .8rem}
+    .score-line strong{font-size:1.2rem;color:#15803d}
+    /* Khoá lựa chọn sau khi nộp bài */
+    .opts.locked,.opts.locked .opt,.fill-input.locked{pointer-events:none}
+
+    @media print{.submit-bar,.test-tabs,.btn-control,.score-line{display:none!important}.q-card{border:1.5px solid #333;page-break-inside:avoid}.opt{border:1.5px solid #666}}
+    @media(monochrome){*{transition:none!important;box-shadow:none!important}body{background:#fff!important;color:#000!important}.test-tab{border:2px solid #000;background:#fff!important;color:#000!important}.test-tab.active{background:#000!important;color:#fff!important}.opt{border:2px solid #000}.opt.selected{background:#ddd!important}.opt.correct{background:#fff!important;color:#000!important;border:3px solid #000}.opt.wrong{background:#fff!important;color:#000!important;border:2px dashed #000;text-decoration:line-through}.hint-box{background:#fff!important;color:#000!important;border:2px solid #000}.score-line{background:#fff!important;color:#000!important;border:2px solid #000}.score-line strong{color:#000!important}}
+    body.eink,body.eink *{transition:none!important;box-shadow:none!important}
+    body.eink{background:#fff!important;color:#000!important}
+    body.eink .test-tab{border:2px solid #000;background:#fff!important;color:#000!important}
+    body.eink .test-tab.active{background:#000!important;color:#fff!important}
+    body.eink .opt{border:2px solid #000}
+    body.eink .opt.selected{background:#ddd!important}
+    body.eink .opt.correct{background:#fff!important;color:#000!important;border:3px solid #000}
+    body.eink .opt.wrong{background:#fff!important;color:#000!important;border:2px dashed #000;text-decoration:line-through}
+    body.eink .hint-box{background:#fff!important;color:#000!important;border:2px solid #000}
+    body.eink .q-title{color:#000!important}
+    body.eink .score-line{background:#fff!important;color:#000!important;border:2px solid #000}
+    body.eink .score-line strong{color:#000!important}
+    /* ===== Fill-in-the-blank & reading passage ===== */
+    .fill-lead{font-size:1rem;color:#475569;font-weight:600;margin:2px 0 6px}
+    .fill-input{width:100%;box-sizing:border-box;padding:10px 12px;font-size:1.05rem;font-family:inherit;border:1px solid #cbd5e1;border-radius:8px;background:#f9fafb;color:#1f2937}
+    .fill-input:focus{outline:none;border-color:#3b82f6;background:#fff}
+    .fill-input.ok{background:#dcfce7;border-color:#22c55e;color:#166534;font-weight:600}
+    .fill-input.bad{background:#fee2e2;border-color:#ef4444;color:#991b1b;text-decoration:line-through}
+    .ans-key{font-weight:700;color:#15803d;margin-bottom:5px;font-size:1rem}
+    .passage-block{background:#fffbeb;border:2px solid #fde68a;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem;font-size:1rem;line-height:1.95;color:#1f2937}
+    .passage-block p{margin:.5rem 0}
+    .passage-block b{color:#b45309}
+    .passage-title{font-weight:800;font-size:1.05rem;color:#92400e;margin-bottom:.4rem}
+    @media print{.fill-input{border:1.5px solid #000;background:#fff!important}.passage-block{background:#fff!important;border:2px solid #000;page-break-inside:avoid}.passage-block b,.passage-title{color:#000!important}}
+    @media(monochrome){.fill-input{border:2px solid #000;background:#fff!important;color:#000!important}.fill-input.ok{background:#fff!important;color:#000!important;border:3px solid #000}.fill-input.bad{background:#fff!important;color:#000!important;border:2px dashed #000}.ans-key{color:#000!important}.passage-block{background:#fff!important;border:2px solid #000;color:#000!important}.passage-block b,.passage-title{color:#000!important}}
+    body.eink .fill-input{border:2px solid #000;background:#fff!important;color:#000!important}
+    body.eink .fill-input.ok{background:#fff!important;color:#000!important;border:3px solid #000}
+    body.eink .fill-input.bad{background:#fff!important;color:#000!important;border:2px dashed #000}
+    body.eink .ans-key{color:#000!important}
+    body.eink .fill-lead{color:#000!important}
+    body.eink .passage-block{background:#fff!important;border:2px solid #000;color:#000!important}
+    body.eink .passage-block b,body.eink .passage-title{color:#000!important}
+    /* ===== Tiêu đề & hướng dẫn từng mục ===== */
+    .section-head{background:#fff;border:1px solid #e2e4e8;border-left:5px solid #1e3a8a;border-radius:10px;padding:.9rem 1.2rem 1rem;margin-bottom:1rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+    .section-part{font-size:.72rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.6px;margin-bottom:.35rem}
+    .section-title{font-family:Georgia,'Times New Roman',serif;font-size:1.28rem;font-weight:700;color:#1e3a8a;margin:0 0 .4rem;padding-bottom:.45rem;border-bottom:2px solid #cbd5e1;line-height:1.4}
+    .section-intro{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:1rem;color:#334155;margin:0}
+    .section-howto{margin-top:.7rem;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:.65rem .9rem;font-size:.92rem;line-height:1.75;color:#1e40af}
+    .section-howto b{color:#1e3a8a}
+    @media(max-width:700px){.section-title{font-size:1.1rem}.section-intro{font-size:.94rem}.section-howto{font-size:.88rem}}
+    @media print{
+      .section-head{background:#fff!important;border:none;border-left:none;border-bottom:2px solid #000;border-radius:0;box-shadow:none;padding:0 0 8px;page-break-after:avoid;page-break-inside:avoid}
+      .section-part{color:#000!important;font-size:10pt}
+      .section-title{color:#000!important;font-size:16pt;border-bottom:1.5px solid #000}
+      .section-intro{color:#000!important;font-size:13pt}
+      .section-howto{background:#fff!important;color:#000!important;border:1.5px solid #000;font-size:12pt}
+      .section-howto b{color:#000!important}
+    }
+    @media(monochrome){
+      .section-head{background:#fff!important;border:2px solid #000;border-left:6px solid #000}
+      .section-part,.section-intro{color:#000!important}
+      .section-title{color:#000!important;border-bottom:2px solid #000}
+      .section-howto{background:#fff!important;color:#000!important;border:2px solid #000}
+      .section-howto b{color:#000!important}
+    }
+    body.eink .section-head{background:#fff!important;border:2px solid #000;border-left:6px solid #000}
+    body.eink .section-part,body.eink .section-intro{color:#000!important}
+    body.eink .section-title{color:#000!important;border-bottom:2px solid #000}
+    body.eink .section-howto{background:#fff!important;color:#000!important;border:2px solid #000}
+    body.eink .section-howto b{color:#000!important}
+  </style>
+</head>
+<body>
+<div class="lesson-topbar">
+  <div class="lesson-topbar-inner">
+    <a href="../../index.html" class="back-link">📘 ← Trang chủ</a>
+    <nav class="sub-nav">
+      <a href="index.html">📗 Lý thuyết</a>
+      <a href="practice1.html">🧩 Practice 1</a>
+      <a href="practice2.html" class="active">🚀 Practice 2</a>
+    </nav>
+  </div>
+</div>
+
+<div class="container">
+  <h1>🚀 Practice 2 — Nâng cao (50 câu)</h1>
+  <div class="grammar-badge">📕 Advanced tenses · Complex passive</div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:1rem;flex-wrap:wrap">
+    <div class="test-tabs" id="testTabs"></div>
+    <button class="btn-control" id="shuffleBtn">🔀 Trộn câu</button>
+  </div>
+
+  <div id="testContent"></div>
+</div>
+
+<div class="submit-bar">
+  <button class="btn-submit" id="submitBtn">📝 Kiểm tra</button>
+  <button class="btn-reset" id="resetBtn">🔄 Làm lại</button>
+  <div class="score-line" id="scoreDisplay"></div>
+  <div class="progress-note" id="progressNote"></div>
+</div>
+
+<script src="p1.js?v=3"></script>
+<script src="p2.js?v=3"></script>
+<script src="p3.js?v=3"></script>
+<script src="engine.js?v=3"></script>
+<script>if(localStorage.getItem('eink')==='true')document.body.classList.add('eink');</script>
+</body>
+</html>
